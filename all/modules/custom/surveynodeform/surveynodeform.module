@@ -568,8 +568,6 @@ if ($form_id == 'individual_node_form' && isset($url['p'])) { $provid = $url['p'
   $statetid = key(taxonomy_get_term_by_name($statename));
   drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
   drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
-//  $form['field_area_office']['und'][0]['tid']['#default_value'] = $statetid;
-
 
 } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) {
 $provid =  surveynodeform_get_prov_id($nid,'individual');
