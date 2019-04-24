@@ -372,3 +372,4 @@ h4.redFour { color: red; }
 .hideCheck { display: none; }
 .node-type-provider .tabs--primary.nav.nav-tabs,.page-all-maryland-select-rp .table-responsive,.page-all-maryland-select-rp .pagination,.page-maryland-data-by-reporting-period .table-responsive,.page-maryland-data-by-reporting-period .pagination{ display: none; }
 .page-maryland-data-by-reporting-period .feed-icon,.page-all-maryland-select-rp .feed-icon { display: block; margin: 18px; }
+.redUl {text-decoration: underline; color: red; }
