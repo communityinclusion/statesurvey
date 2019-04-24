@@ -561,7 +561,6 @@ if ($form_id == 'og_ui_delete_membership' ) {
 
 if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_node_form') {
   $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? (<u>If this individual has been discharged or is deceased, please delete this individual from your list.</u>)');
- // print_r($form['field_indv_data_partic_why']['und']['#title']);
 $url = drupal_get_query_parameters();
 if ($form_id == 'individual_node_form' && isset($url['p'])) { $provid = $url['p'];
   $statearray = surveynodeform_provider_statename($url['p']);
