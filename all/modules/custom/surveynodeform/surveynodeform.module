@@ -612,7 +612,7 @@ else
 
 if($form['nid']['#value']) {
 // Form stays in edit mode on submit
-           //$form['actions']['submit']['#submit'][] = '_redirect_to_edit';
+          
            $form['#action'] = '?destination=node/' . $form['nid']['#value'] . '/edit';
          } elseif (!$form['nid']['#value'] && $form_id == 'individual_node_form') {
             $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
