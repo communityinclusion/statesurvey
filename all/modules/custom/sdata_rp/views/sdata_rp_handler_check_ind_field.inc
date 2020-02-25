@@ -26,7 +26,7 @@ class sdata_rp_handler_check_ind_field extends views_handler_field {
     // Get the provider, state, and reporting period node ids so we can build an entity
     // field query to get the list of individual data nodes that need to be checked
     // for completeness.
-    $ind_data_nid = $data->_field_data['field_individual_node_nid']['entity']->nid;
+    $ind_data_nid = $data->_field_data['field_individual_node_nid']['entity']->nid ? $data->_field_data['field_individual_node_nid']['entity']->nid : $data->nid;
 
   //  $state_nid = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
 //    $state = node_load($state_nid);
