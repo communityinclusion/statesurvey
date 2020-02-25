@@ -622,15 +622,34 @@ if($form['nid']['#value']) {
          }
 
 
-
+        // MA variables
         $settings['mamin'] = variable_get('surveynodeform_maminwage');
-         $settings['mdmin'] = variable_get('surveynodeform_mdminwage');
-                  $settings['mdhrlow'] = variable_get('surveynodeform_mdhrlow');
-                           $settings['mdhrhigh'] = variable_get('surveynodeform_mdhrhigh');
-                          $settings['mdwagelow'] = variable_get('surveynodeform_mdwagelow');
-                          $settings['mdwagehigh'] = variable_get('surveynodeform_mdwagehigh');
-                          $settings['mdselfearnhigh'] = variable_get('surveynodeform_mdselfearnhigh');
-                         $settings['mdselfexpensehigh'] = variable_get('surveynodeform_mdselfexpensehigh');
+        $settings['mahrlow'] = variable_get('surveynodeform_mahrlow');
+        $settings['mahrhigh'] = variable_get('surveynodeform_mahrhigh');
+        $settings['mawagelow'] = variable_get('surveynodeform_mawagelow');
+        $settings['mawagehigh'] = variable_get('surveynodeform_mawagehigh');
+        $settings['maselfearnhigh'] = variable_get('surveynodeform_maselfearnhigh');
+        $settings['maselfexpensehigh'] = variable_get('surveynodeform_maselfexpensehigh');
+        $settings['mahrlow'] = variable_get('surveynodeform_mahrlow');
+        $settings['mahrhigh'] = variable_get('surveynodeform_mahrhigh');
+        $settings['mawagelow'] = variable_get('surveynodeform_mawagelow');
+        $settings['mawagehigh'] = variable_get('surveynodeform_mawagehigh');
+        $settings['maselfearnhigh'] = variable_get('surveynodeform_maselfearnhigh');
+        $settings['maselfexpensehigh'] = variable_get('surveynodeform_maselfexpensehigh');
+        //MD variables
+        $settings['mdmin'] = variable_get('surveynodeform_mdminwage');
+        $settings['mdhrlow'] = variable_get('surveynodeform_mdhrlow');
+        $settings['mdhrhigh'] = variable_get('surveynodeform_mdhrhigh');
+        $settings['mdwagelow'] = variable_get('surveynodeform_mdwagelow');
+        $settings['mdwagehigh'] = variable_get('surveynodeform_mdwagehigh');
+        $settings['mdselfearnhigh'] = variable_get('surveynodeform_mdselfearnhigh');
+        $settings['mdselfexpensehigh'] = variable_get('surveynodeform_mdselfexpensehigh');
+        $settings['mdhrlow'] = variable_get('surveynodeform_mdhrlow');
+        $settings['mdhrhigh'] = variable_get('surveynodeform_mdhrhigh');
+        $settings['mdwagelow'] = variable_get('surveynodeform_mdwagelow');
+        $settings['mdwagehigh'] = variable_get('surveynodeform_mdwagehigh');
+        $settings['mdselfearnhigh'] = variable_get('surveynodeform_mdselfearnhigh');
+        $settings['mdselfexpensehigh'] = variable_get('surveynodeform_mdselfexpensehigh');
 
 
 if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
@@ -672,6 +691,68 @@ function surveynodeform_admin() {
     '#size' => 5,
     '#maxlength' => 6,
     '#description' => t("Minimum wage in Massachusetts."),
+    '#required' => TRUE,
+  );
+  $form['surveynodeform_mahrlow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts hour range, low point'),
+    '#default_value' => variable_get('surveynodeform_mahrlow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts hour range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mahrhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts hour range, high point'),
+    '#default_value' => variable_get('surveynodeform_mahrhigh', 80),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts hour range, high point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mawagelow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts wage range, low point'),
+    '#default_value' => variable_get('surveynodeform_mawagelow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts wage range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mawagehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts wage range, high point'),
+    '#default_value' => variable_get('surveynodeform_mawagehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts wage range, high point."),
+    '#required' => TRUE,
+  );
+
+
+
+  $form['surveynodeform_maselfearnhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts self-employment income, high point'),
+    '#default_value' => variable_get('surveynodeform_maselfearnhigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts self-employment income, high point."),
+    '#required' => TRUE,
+  );
+
+
+  $form['surveynodeform_maselfexpensehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Massachusetts self-employment expenses, high point'),
+    '#default_value' => variable_get('surveynodeform_maselfexpensehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Massachusetts self-employment expenses, high point."),
     '#required' => TRUE,
   );
   $form['surveynodeform_mdminwage'] = array(

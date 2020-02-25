@@ -302,8 +302,8 @@
        hasValues = true; }
 
 
-   if (checkVal > Drupal.settings.Surveyconfig.mdhrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
-   else if (checkVal < Drupal.settings.Surveyconfig.mdhrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
+   if (checkVal > Drupal.settings.Surveyconfig.mahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
+   else if (checkVal < Drupal.settings.Surveyconfig.mahrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
 
    });
    }
@@ -313,8 +313,8 @@
      var checkVal = parseFloat($(rangeVal).val().replace(/,/g, ''));
      if ($(rangeVal).val() && $(rangeVal).val() != '') {
        hasValues = true; }
-       if (checkVal > Drupal.settings.Surveyconfig.mdwagehigh) { alert('The wage value you entered looks too high. Is this the correct number?');}
-       else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The wage value you entered looks too low. Is this the correct number?');}
+       if (checkVal > Drupal.settings.Surveyconfig.mawagehigh) { alert('The wage value you entered looks too high. Is this the correct number?');}
+       else if (checkVal < Drupal.settings.Surveyconfig.mawagelow) { alert('The wage value you entered looks too low. Is this the correct number?');}
 
    });
    }
@@ -363,8 +363,8 @@
        hasValues = true; }
 
 
-       if (checkVal > Drupal.settings.Surveyconfig.mdselfearnhigh) { alert('The self-employment earnings value you entered looks too high. Is this the correct number?');}
-       else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The self-employment earnings value you entered looks too low. Is this the correct number?');}
+       if (checkVal > Drupal.settings.Surveyconfig.maselfearnhigh) { alert('The self-employment earnings value you entered looks too high. Is this the correct number?');}
+       else if (checkVal < Drupal.settings.Surveyconfig.mawagelow) { alert('The self-employment earnings value you entered looks too low. Is this the correct number?');}
 
    });
    }
@@ -377,8 +377,8 @@
        hasValues = true; }
 
 
-       if (checkVal > Drupal.settings.Surveyconfig.mdselfexpensehigh) { alert('The self-employment expenses value you entered looks too high. Is this the correct number?');}
-       else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The self-employment expenses value you entered looks too low. Is this the correct number?');}
+       if (checkVal > Drupal.settings.Surveyconfig.maselfexpensehigh) { alert('The self-employment expenses value you entered looks too high. Is this the correct number?');}
+       else if (checkVal < Drupal.settings.Surveyconfig.mawagelow) { alert('The self-employment expenses value you entered looks too low. Is this the correct number?');}
 
    });
    }
