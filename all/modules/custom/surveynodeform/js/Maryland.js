@@ -318,7 +318,7 @@
    if (checkVal > Drupal.settings.Surveyconfig.mdhrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
    else if (checkVal == 0) { 
      alert('If the individual had no hours check "Did not participate in this activity" above.');
-     $(rangeVal).val() = '';
+     $(rangeVal).val('');
 
     }
    else if (checkVal < Drupal.settings.Surveyconfig.mdhrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
