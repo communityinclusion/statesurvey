@@ -295,18 +295,24 @@
     * stuff.
     */
    function surveynodeformMdHrRange(rangeVal) {
-     $(rangeVal).change(function() {
-     var hasValues = false;
-     var checkVal = parseFloat($(rangeVal).val().replace(/,/g, ''));
-     if ($(rangeVal).val() && $(rangeVal).val() != '') {
-       hasValues = true; }
+    $(rangeVal).change(function() {
+    var hasValues = false;
+    var checkVal = parseFloat($(rangeVal).val().replace(/,/g, ''));
+    if ($(rangeVal).val() && $(rangeVal).val() != '') {
+      hasValues = true; }
 
 
-   if (checkVal > Drupal.settings.Surveyconfig.mahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
-   else if (checkVal < Drupal.settings.Surveyconfig.mahrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
+  if (checkVal > Drupal.settings.Surveyconfig.mahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
+  else if (checkVal == 0) { 
+    alert('If the individual had no hours check "Did not participate in this activity" above.');
+    $(rangeVal).val('');
 
-   });
    }
+  else if (checkVal < Drupal.settings.Surveyconfig.mahrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
+
+
+  });
+  }
    function surveynodeformMdWageRange(rangeVal) {
      $(rangeVal).change(function() {
      var hasValues = false;
