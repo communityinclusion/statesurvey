@@ -2,7 +2,7 @@
 
   /**
    * Individual employment - if gross wages / hours < $10, then show minimum wage
-   * stuff.
+   * stuff. testing 2
    */
 
  Drupal.behaviors.remState = {
@@ -316,6 +316,11 @@
 
 
    if (checkVal > Drupal.settings.Surveyconfig.mdhrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
+   else if (checkVal == 0) { 
+     alert('If the individual had no hours check "Did not participate in this activity" above.');
+     $(rangeVal).val('');
+
+    }
    else if (checkVal < Drupal.settings.Surveyconfig.mdhrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
 
 
