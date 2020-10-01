@@ -122,57 +122,87 @@ $empty = FALSE;
 function _sdata_rp_count_md($node) {
   // Individual competitive job
   if (
-      (!$node->field_indv_comp_partic['und'][0]['value']) &&
+        (!$node->field_indv_comp_partic['und'][0]['value'] &&
 
 
-      (
-        !isset($node->field_indv_comp_hrs['und'][0]['value']) ||
-        !isset($node->field_indv_comp_gross_wages['und'][0]['value']) || !isset($node->field_indv_comp_paid_time_off['und'][0]['value'])
-      ||
+          (
+            !isset($node->field_indv_comp_hrs['und'][0]['value']) ||
+            !isset($node->field_indv_comp_gross_wages['und'][0]['value']) || !isset($node->field_indv_comp_paid_time_off['und'][0]['value'])
+            //new field Sept. 20202
+            || !isset($node->field_indv_comp_supports['und'][0]['value'] )
+            ||
 
 
-      (
-        isset($node->field_indv_comp_hrs['und'][0]['value']) && isset($node->field_indv_comp_gross_wages['und'][0]['value']) && ((floatval($node->field_indv_comp_gross_wages['und'][0]['value'])/floatval($node->field_indv_comp_hrs['und'][0]['value'])) < floatval(variable_get('surveynodeform_mdminwage'))) && !strlen($node->field_indv_comp_why_not_min['und'][0]['value']) > 0)
+            (
+              isset($node->field_indv_comp_hrs['und'][0]['value']) && isset($node->field_indv_comp_gross_wages['und'][0]['value']) && ((floatval($node->field_indv_comp_gross_wages['und'][0]['value'])/floatval($node->field_indv_comp_hrs['und'][0]['value'])) < floatval(variable_get('surveynodeform_mdminwage'))) && !strlen($node->field_indv_comp_why_not_min['und'][0]['value']) > 0
+            )
 
-      )
+          )
+        )
+        ||
+        (
+          $node->field_indv_comp_partic['und'][0]['value'] 
+          && !$node->field_indv_comp_covid['und'][0]['value']
+        )
 
-  ) 
-  {
-    return FALSE;
-  }
+      ) 
+      {
+        return FALSE;
+      }
   //Individual contracted
   if (
-        (!$node->field_indv_cont_partic['und'][0]['value']) &&
         (
+          !$node->field_indv_cont_partic['und'][0]['value'] &&
+          (
 
-          !isset($node->field_indv_cont_hrs['und'][0]['value']) ||
-          !isset($node->field_indv_cont_gross_wages['und'][0]['value']) ||   !isset($node->field_indv_cont_paid_time_off['und'][0]['value']) || !isset($node->field_indv_contr_set_aside['und'][0]['value']
+            !isset($node->field_indv_cont_hrs['und'][0]['value']) ||
+            !isset($node->field_indv_cont_gross_wages['und'][0]['value']) ||   !isset($node->field_indv_cont_paid_time_off['und'][0]['value']) || !isset($node->field_indv_contr_set_aside['und'][0]['value'])
+            //new field Sept. 20202
+            || !isset($node->field_indv_cont_supports['und'][0]['value'])
+          
+
+            ||
+
+
+            (
+              isset($node->field_indv_cont_hrs['und'][0]['value']) && isset($node->field_indv_cont_gross_wages['und'][0]['value']) && ((floatval($node->field_indv_cont_gross_wages['und'][0]['value'])/floatval($node->field_indv_cont_hrs['und'][0]['value'])) < floatval(variable_get('surveynodeform_mdminwage'))) && !strlen($node->field_indv_cont_why_no_min['und'][0]['value']) > 0
+            )
+
+
+          )
         )
-
         ||
-
-
         (
-          isset($node->field_indv_cont_hrs['und'][0]['value']) && isset($node->field_indv_cont_gross_wages['und'][0]['value']) && ((floatval($node->field_indv_cont_gross_wages['und'][0]['value'])/floatval($node->field_indv_cont_hrs['und'][0]['value'])) < floatval(variable_get('surveynodeform_mdminwage'))) && !strlen($node->field_indv_cont_why_no_min['und'][0]['value']) > 0)
-
-
+          $node->field_indv_cont_partic['und'][0]['value'] 
+          && !$node->field_indv_cont_covid['und'][0]['value']
         )
-    ) 
-    {
-    return FALSE;
-    }
+      ) 
+      {
+      return FALSE;
+      }
   //Group integrated
   if (
-      (!$node->field_grp_integ_partic['und'][0]['value']) &&
-      (
+        (
+          !$node->field_grp_integ_partic['und'][0]['value']
+          &&
+          (
 
-        !isset($node->field_grp_integ_hrs['und'][0]['value']) ||
-        !isset($node->field_grp_integ_gross_wages['und'][0]['value']) ||   !isset($node->field_grp_integ_paid_time_off['und'][0]['value']) || !isset($node->field_grp_integr_set_aside['und'][0]['value'])
+            !isset($node->field_grp_integ_hrs['und'][0]['value']) ||
+            !isset($node->field_grp_integ_gross_wages['und'][0]['value']) ||   !isset($node->field_grp_integ_paid_time_off['und'][0]['value']) || !isset($node->field_grp_integr_set_aside['und'][0]['value'])
+            //new field Sept. 20202
+            || !isset($node->field_grp_integ_supports['und'][0]['value'])
+          
 
 
 
-      )
-    ) 
+          )
+        )
+        ||
+        (
+          $node->field_grp_integ_partic['und'][0]['value'] 
+          && !$node->field_grp_integ_covid['und'][0]['value']
+        )
+      ) 
   {
     return FALSE;
   }
@@ -182,8 +212,10 @@ function _sdata_rp_count_md($node) {
 
         (!isset($node->field_self_emp_hrs['und'][0]['value']) ||
           !isset($node->field_self_emp_gross_income['und'][0]['value']) ||   !isset($node->field_self_emp_gross_expens['und'][0]['value'])
+          //new field Sept. 20202
+        || !isset($node->field_self_emp_supports['und'][0]['value'])
         )
-    ) 
+      ) 
   {
     return FALSE;
   }
@@ -195,6 +227,8 @@ function _sdata_rp_count_md($node) {
 
           !isset($node->field_shl_hrs['und'][0]['value']) ||
           !isset($node->field_shl_gross_wages['und'][0]['value']) ||   !isset($node->field_shl_paid_time_off['und'][0]['value']) || !isset($node->field_shlt_set_aside['und'][0]['value'])
+          //new field Sept. 20202
+          || !isset($node->field_shl_supports['und'][0]['value'])
 
 
         )
@@ -205,11 +239,21 @@ function _sdata_rp_count_md($node) {
 
     //Community based non work
   if (
-      (!$node->field_com_non_work_partic['und'][0]['value'] &&
-        $node->field_com_non_work_vol_partic['und'][0]['value']!= '1')
+      (
+        !$node->field_com_non_work_partic['und'][0]['value'] &&
+        $node->field_com_non_work_vol_partic['und'][0]['value']!= '1'
+      )
       ||
-      (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && !$node->field_com_non_wrk_hours['und'][0]['value']) ||
-      (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == ''))
+      (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && !$node->field_com_non_wrk_hours['und'][0]['value']) 
+      //new field Sept. 20202
+      || 
+      (
+        !$node->field_com_non_work_partic['und'][0]['value'] &&
+        !isset($node->field_com_non_wrk_supports['und'][0]['value'])
+      )
+      ||
+      (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == '')
+      )
     ) 
     {
     return FALSE;
@@ -217,8 +261,11 @@ function _sdata_rp_count_md($node) {
 
       //Facility based non work
   if (!$node->field_fac_non_work_partic['und'][0]['value'] &&
-      $node->field_fac_non_work_yn_partic['und'][0]['value']!= 1
-  )  
+        ($node->field_fac_non_work_yn_partic['und'][0]['value']!= 1
+          //new field Sept. 20202
+          || !isset($node->field_fac_non_work_supports['und'][0]['value'])
+        )
+      )  
   {
     return FALSE;
   }
