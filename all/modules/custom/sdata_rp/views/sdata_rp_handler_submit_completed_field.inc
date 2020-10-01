@@ -282,7 +282,7 @@ function _sdata_rp_validate_md($node) {
       !$node->field_fac_non_work_partic['und'][0]['value'] &&
       ($node->field_fac_non_work_yn_partic['und'][0]['value']!= 1 ||
         //new field Sept. 20202
-        !isset($node->field_com_non_wrk_supports['und'][0]['value'])
+        !isset($node->field_fac_non_work_supports['und'][0]['value'])
       )
     )  
     {
