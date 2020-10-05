@@ -592,7 +592,7 @@ $urlappend = isset($queries['items_per_page']) ? '?items_per_page=' . $queries['
 $urlappend .= isset($queries['page']) ? ( $queries['items_per_page'] ? '&page=' . $queries['page'] : '?page=' . $queries['page']) : '';
 $urlappend .= isset($queries['order']) ? '&order=' . $queries['order'] : '';
 $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
-$form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals$urlappend\">Back to list of individuals</a> &lt;&lt;</h4>";
+$form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals$urlappend\">Back to list of individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page</a></h4>";
 $queries = array();
 parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
 // print_r($queries);
