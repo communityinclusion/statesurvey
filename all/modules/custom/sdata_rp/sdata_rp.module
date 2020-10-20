@@ -64,7 +64,7 @@
   function sdata_rp_node_postinsert($node) {
     global $user;
 
- if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('Survey administrator', $user->roles)) && !in_array('administrator', $user->roles)){
+ if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles)) && !in_array('administrator', $user->roles)){
     //do stuff
 if ($node->type == 'individual') {
 $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];

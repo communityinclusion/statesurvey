@@ -78,7 +78,7 @@ a.printButton {background-color: #388dc1; display: block;   border-radius: 6px 6
 p.nextSec a {padding: 10px; font-weight: bold;}
 div#reasonnopartic { position: absolute; top: 400px; width: 72%; right: 28px; }
 div#reasonnopartic.activated {border: 1px solid red; padding: 18px 8px 8px; }
-#individual-data-node-form .deleteGroup, #individual-data-ma-node-form .deleteGroup {display: none;}
+#individual-data-node-form .deleteGroup, #individual-data-ma-node-form .deleteGroup,#individual-data-node-form .deleteGroup, #individual-data-ga-node-form .deleteGroup {display: none;}
 .backLink { margin-bottom: 14px; }
 .node-type-individual-data .vertical-tabs-panes.vertical-tabs-processed.tab-content {overflow: visible; }
 .node-type-individual-data fieldset { display: block;}
