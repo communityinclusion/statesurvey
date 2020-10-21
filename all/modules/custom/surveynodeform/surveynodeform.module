@@ -166,14 +166,16 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
 
 
   }
-  //new state: change $i based on number of categreturn $stateid == 7 ? surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid) : surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);ories
+  
   for ($i = 0 ; $i < 4 ; $i ++) {
       ${$namearray[$i] . 'wage'} = 0;
       ${$namearray[$i] . 'meanwage'} = 0;
       if ($i != 3) {
         ${$namearray[$i] . 'ptocount'} = 0;
         ${$namearray[$i] . 'ptopct'} = 0;
-      }return $stateid == 7 ? surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid) : surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
+        
+      }
+     
       if ($i != 0 && $i != 3) {
         ${$namearray[$i] . 'setasidecount'} = 0;
         ${$namearray[$i] . 'setasidepct'} = 0;
