@@ -85,11 +85,29 @@ function surveynodeform_provider_statename($provid) {
   return $statename;
 }
 
+function get_georgia_id() {
+  $query = new EntityFieldQuery;        
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->propertyCondition('type', 'state')
+    ->propertyCondition('title', 'Georgia')
+    ->execute();
+
+    $nids = array();
+  if (isset($result['node'])) {
+      $nids = array_keys($result['node']);
+  
+    return $nids[0];
+  }
+
+}
+
 function surveynodeform_prov_summary($provid) {
   drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css');
   $statearray = surveynodeform_provider_statename($provid);
   $stateid = $statearray[1];
   $currepper = surveynodeform_get_curr_rep_per($stateid);
+  $georgiaid = get_georgia_id();
   $query1 = new EntityFieldQuery();
     $query1->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', "individual")
@@ -111,7 +129,7 @@ function surveynodeform_prov_summary($provid) {
       $datanode = 'individual_data';
     break;
     //this has to change on live site
-    case 114400:
+    case $georgiaid:
       $datanode = 'individual_data_ga';
     break;
     }
