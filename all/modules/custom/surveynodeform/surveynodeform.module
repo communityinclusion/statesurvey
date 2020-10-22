@@ -96,7 +96,7 @@ function get_georgia_id() {
     $nids = array();
   if (isset($result['node'])) {
       $nids = array_keys($result['node']);
-  }
+  
     return $nids[0];
   }
 
