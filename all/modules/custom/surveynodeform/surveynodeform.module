@@ -227,6 +227,9 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
   $facbasedwage += $facbasedcount != 0 && $thisnode->field_shl_gross_wages ? $thisnode->field_shl_gross_wages[LANGUAGE_NONE][0]['value'] : 0;
 
   }
+
+  //Occupation
+  $indcompoccupation = $thisnode->field_indv_comp_occupation && $thisnode->field_indv_comp_occupation[LANGUAGE_NONE][0]['value'] ? $thisnode->field_indv_comp_occupation[LANGUAGE_NONE][0]['value'] : '' ;
   $indcomppct =  $indcompcount != 0 ? ($indcompcount/$ttlcount) * 100 : 0;
   $indcomppct = $indcomppct != 0 ? number_format((float)$indcomppct, 1, '.', '') . "%" : " -- ";
   $indcontpct =  $indcontcount != 0 ? ($indcontcount/$ttlcount) * 100 : 0;
@@ -390,6 +393,7 @@ function surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$pro
   $facbasedwage += $facbasedcount != 0 && $thisnode->field_shl_gross_wages ? $thisnode->field_shl_gross_wages[LANGUAGE_NONE][0]['value'] : 0;
 
   }
+
   $indcomppct =  $indcompcount != 0 ? ($indcompcount/$ttlcount) * 100 : 0;
   $indcomppct = $indcomppct != 0 ? number_format((float)$indcomppct, 1, '.', '') . "%" : " -- ";
   $indcontpct =  $indcontcount != 0 ? ($indcontcount/$ttlcount) * 100 : 0;
