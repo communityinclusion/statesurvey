@@ -84,7 +84,7 @@ function surveynodeform_provider_statename($provid) {
       $statename = array($stategroup->title,$stategroup->nid);
   return $statename;
 }
-
+//new state: workaround to get state node id 
 function get_georgia_id() {
   $query = new EntityFieldQuery;        
   $result = $query
@@ -761,7 +761,15 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     );
     $form['#submit'][] = 'surveynodeform_og_delete_form_redirect';
     }
+    //new site: for georgia: hide Individual is in CIE category	field_cie_individual from non-georgia users in Individual node form
+    if ($form_id == 'individual_node_form')
+    {
+      global $user;
 
+      if (!in_array('GA user', $user->roles)) {
+        $form['field_cie_individual']['#access'] = FALSE;
+      }
+    }
   //new state: add node form id
   if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form') {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
