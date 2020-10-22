@@ -96,7 +96,7 @@ function get_georgia_id() {
     $nids = array();
   if (isset($result['node'])) {
       $nids = array_keys($result['node']);
-  
+  }
     return $nids[0];
   }
 
@@ -153,7 +153,7 @@ function surveynodeform_prov_summary($provid) {
       return surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
     //this has to change on live site
-    case 114400:
+    case $georgiaid:
       return surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
     }
