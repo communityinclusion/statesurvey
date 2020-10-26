@@ -1,4 +1,4 @@
-.node-type-individual-data-ga .vertical-tabs-panes fieldset.active {min-height: 1050px;}
+.node-type-individual-data-ga .vertical-tabs-panes fieldset.active.group-indv-comp {min-height: 1050px;}
 .main-container #edit-actions {width: 220px; position: relative;  }
 #individual-node-form #edit-field-cie-individual-und-none,
 #individual-node-form label[for="edit-field-cie-individual-und-none"] { display: none; }
