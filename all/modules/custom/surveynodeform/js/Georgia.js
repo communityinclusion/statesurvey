@@ -245,7 +245,7 @@
   
      Drupal.behaviors.surveynodeformStripCommas  = {
        attach: function (context, settings) {
-     $('#individual-data-node-form').submit(removeCommas);
+     $('#individual-data-ga-node-form').submit(removeCommas);
        }
      }
      Drupal.behaviors.surveynodeformGaIndComJob = {
@@ -305,13 +305,13 @@
          hasValues = true; }
   
   
-     if (checkVal > Drupal.settings.Surveyconfig.mdhrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
+     if (checkVal > Drupal.settings.Surveyconfig.gahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
      else if (checkVal == 0) { 
        alert('If the individual had no hours check "Did not participate in this activity" above.');
        $(rangeVal).val('');
   
       }
-     else if (checkVal < Drupal.settings.Surveyconfig.mdhrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
+     else if (checkVal < Drupal.settings.Surveyconfig.gahrlow) { alert('The hours value you entered looks too low. Is this the correct number?');}
   
   
      });
@@ -324,8 +324,8 @@
          hasValues = true; }
   
   
-         if (checkVal > Drupal.settings.Surveyconfig.mdwagehigh) { alert('The wage value you entered looks too high. Is this the correct number?');}
-         else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The wage value you entered looks too low. Is this the correct number?');}
+         if (checkVal > Drupal.settings.Surveyconfig.gawagehigh) { alert('The wage value you entered looks too high. Is this the correct number?');}
+         else if (checkVal < Drupal.settings.Surveyconfig.gawagelow) { alert('The wage value you entered looks too low. Is this the correct number?');}
   
      });
      }
@@ -338,10 +338,10 @@
          if (($(wages).val() != '') && ($(hours).val() != '')) {
            hasValues = true;
          }
-         if ((hourly_rate < Drupal.settings.Surveyconfig.mdmin) && (hasValues)) {
+         if ((hourly_rate < Drupal.settings.Surveyconfig.gamin) && (hasValues)) {
             if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
          //  $(wages).val('');
-           alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Maryland. minimum wage of  $' + Drupal.settings.Surveyconfig.mdmin + '/hr.');
+           alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Georgia minimum wage of  $' + Drupal.settings.Surveyconfig.gamin + '/hr.');
          }
          else {
            if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');
@@ -360,8 +360,8 @@
          hasValues = true; }
   
   
-         if (checkVal > Drupal.settings.Surveyconfig.mdselfearnhigh) { alert('The self-employment earnings value you entered looks too high. Is this the correct number?');}
-         else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The self-employment earnings value you entered looks too low. Is this the correct number?');}
+         if (checkVal > Drupal.settings.Surveyconfig.gaselfearnhigh) { alert('The self-employment earnings value you entered looks too high. Is this the correct number?');}
+         else if (checkVal < Drupal.settings.Surveyconfig.gawagelow) { alert('The self-employment earnings value you entered looks too low. Is this the correct number?');}
   
      });
      }
@@ -374,8 +374,8 @@
          hasValues = true; }
   
   
-         if (checkVal > Drupal.settings.Surveyconfig.mdselfexpensehigh) { alert('The self-employment expenses value you entered looks too high. Is this the correct number?');}
-         else if (checkVal < Drupal.settings.Surveyconfig.mdwagelow) { alert('The self-employment expenses value you entered looks too low. Is this the correct number?');}
+         if (checkVal > Drupal.settings.Surveyconfig.gaselfexpensehigh) { alert('The self-employment expenses value you entered looks too high. Is this the correct number?');}
+         else if (checkVal < Drupal.settings.Surveyconfig.gawagelow) { alert('The self-employment expenses value you entered looks too low. Is this the correct number?');}
   
      });
      }
@@ -388,7 +388,7 @@
          if (($(wages).val() != '') && ($(hours).val() != '')) {
            hasValues = true;
          }
-         if ((hourly_rate < Drupal.settings.Surveyconfig.mdmin) && (hasValues)) {
+         if ((hourly_rate < Drupal.settings.Surveyconfig.gamin) && (hasValues)) {
             if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
          //  $(wages).val('');
   
