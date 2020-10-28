@@ -3,3 +3,4 @@
 #individual-node-form #edit-field-cie-individual-und-none,
 #individual-node-form label[for="edit-field-cie-individual-und-none"] { display: none; }
 #individual-data-ga-node-form #edit-actions {margin-top: -240px;}
+#individual-data-ga-node-form #edit-actions.adjustDown {margin-top: 10px;}

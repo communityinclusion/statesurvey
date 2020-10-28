@@ -34,6 +34,7 @@
      $('fieldset div.form-type-textarea .form-textarea').each(function(i, elem) {
        if($(elem).val() && !$(elem).closest('fieldset').hasClass('showQues')) { $(elem).closest('fieldset').addClass('showQues'); }
      });
+     if($('.deleteGroup').is(":visible")) if(!$('#edit-actions').hasClass('adjustDown'))$('#edit-actions').addClass('adjustDown'); else $('#edit-actions').removeClass('adjustDown');
   
       if(!$('.main-container #saveWarn').length ) $('.main-container #edit-submit').after('<p id="saveWarn">Be sure to Save before exiting this page or you will lose your work.</p><a id="logOutbut" href="/user/logout">Log out</a>');
      /*$(".vertical-tabs-list").attr('id','save_target');
