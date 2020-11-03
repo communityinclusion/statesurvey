@@ -230,21 +230,21 @@ function _sdata_rp_validate_ind_md($node) {
       return FALSE;
     }
 
-  if (
-    $node->field_indv_comp_partic['und'][0]['value'] &&
-    $node->field_indv_cont_partic['und'][0]['value'] &&
-    $node->field_grp_integ_partic['und'][0]['value'] &&
-    $node->field_self_emp_partic['und'][0]['value'] &&
-    $node->field_shl_partic['und'][0]['value'] &&
-    $node->field_com_non_work_partic['und'][0]['value'] &&
-    $node->field_fac_non_work_partic['und'][0]['value'] &&
-    (
-      (!isset($node->field_indv_data_partic_why['und'][0]['value']) || $node->field_indv_data_partic_why['und'][0]['value'] == '4')
-      ||
+    if (
+      ($node->field_indv_comp_partic['und'][0]['value'] && $node->field_indv_comp_covid['und'][0]['value'] != 'no') &&
+      ($node->field_indv_cont_partic['und'][0]['value'] && $node->field_indv_cont_covid['und'][0]['value'] != 'no') &&
+      ($node->field_grp_integ_partic['und'][0]['value'] && $node->field_grp_integ_covid['und'][0]['value'] != 'no') &&
+      $node->field_self_emp_partic['und'][0]['value'] &&
+      $node->field_shl_partic['und'][0]['value'] &&
+      $node->field_com_non_work_partic['und'][0]['value'] &&
+      $node->field_fac_non_work_partic['und'][0]['value'] &&
       (
-        $node->field_indv_data_partic_why['und'][0]['value'] == 3 && !isset($node->field_indv_data_partic_other['und'][0]['value'])
+        (!isset($node->field_indv_data_partic_why['und'][0]['value']) || $node->field_indv_data_partic_why['und'][0]['value'] == '4')
+        ||
+        (
+          $node->field_indv_data_partic_why['und'][0]['value'] == 3 && !isset($node->field_indv_data_partic_other['und'][0]['value'])
         )
-    )
+      )
   )
   {
     return FALSE;
