@@ -18,7 +18,7 @@
     }
     Drupal.behaviors.startScan = {
         attach: function (context, settings) {
-   $('ul.vertical-tabs-list li a').addClass('inComplete');
+      $('ul.vertical-tabs-list li a').addClass('inComplete');
       $( document ).one('ready',scanFieldsets);
       $(document).one('ready',surveynodeformcheckAllActions);
       $('th').text('Order').hide();
@@ -413,7 +413,7 @@
    }
 
    function surveynodeformcheckAllActions () {
-   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-indv-cont-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-shl-partic-und"]').is(':checked') && $('input[id="edit-field-com-non-work-partic-und"]').is(':checked') && $('input[id="edit-field-fac-non-work-partic-und"]').is(':checked') ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
+   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-indv-cont-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-shl-partic-und"]').is(':checked') && $('input[id="edit-field-com-non-work-partic-und"]').is(':checked') && $('input[id="edit-field-fac-non-work-partic-und"]').is(':checked') && $('#edit-field-indv-comp-covid-und').val() == 'no' && $('#edit-field-indv-cont-covid-und').val() == 'no' && $('#edit-field-grp-integ-covid-und').val() == 'no') { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
    }
 
    function removeCommas() {
@@ -554,6 +554,7 @@
    });
 
    $('#' + origID).addClass('active');
+   surveynodeformcheckAllActions;
    }
 
    function makeActiveTab() {
