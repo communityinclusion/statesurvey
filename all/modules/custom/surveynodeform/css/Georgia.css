@@ -4,3 +4,4 @@
 #individual-node-form label[for="edit-field-cie-individual-und-none"] { display: none; }
 #individual-data-ga-node-form #edit-actions {margin-top: -240px;}
 #individual-data-ga-node-form #edit-actions.adjustDown {margin-top: 10px;}
+.page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs { display: none;}
