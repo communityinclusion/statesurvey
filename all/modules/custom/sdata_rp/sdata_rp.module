@@ -26,8 +26,16 @@
      'page arguments' => array(2),
      'access arguments' => array('administer modules'),
    );
+
+   $items['sdata_rp/ga-batch-enrol'] = array(
+    'title' => 'Submit data',
+    'page callback' => 'sdata_rp_ga_batch_enrol',
+    'page arguments' => array(2),
+    'access arguments' => array('edit any individual_data_ga content'),
+  );
    return $items;
  }
+ 
 
  function sdata_rp_batch_enrol()
  {
@@ -58,6 +66,45 @@
 
 
    return drupal_goto("/node/39781");
+
+  }
+  function sdata_rp_ga_batch_enrol()
+ {
+   global $user;
+   $gaadminuserid =$user->uid;
+   if($gaadminuserid > 0) {
+      $georgiaresult = db_query("select nid from node where title = 'Georgia' and type = 'state'")->fetchObject();
+      $georgiaid = $georgiaresult->nid;
+      
+        watchdog('sdata_rp', 'Georgia id: ' . $georgiaid);
+
+      $result = db_query("select etid from og_membership where gid = $georgiaid and field_name = 'og_group_provider_state_ref' and og_membership.etid not in (SELECT  DISTINCT gid from og_membership where etid = $gaadminuserid AND entity_type = 'user')");
+      
+      
+      $uid = $gaadminuserid;
+      $messageids = "";
+      foreach ($result as $record) {
+        $gid = $record->etid;
+        $messageids .= ", " . $record->etid;
+        $values['entity'] = user_load($uid);
+        $values['entity type'] = 'user';
+        $values['state'] = OG_STATE_ACTIVE;
+        og_group('node',$gid,$values);
+      }
+      
+    } else {
+     return;
+     }
+   if($gid != ""){
+     drupal_set_message(t("You were added to provider groups with the following id(s): $gid"), 'status');
+    } else {
+      drupal_set_message(t("You are already a member of all groups."), 'status');
+    }
+
+  
+
+
+   return drupal_goto("/");
 
   }
 

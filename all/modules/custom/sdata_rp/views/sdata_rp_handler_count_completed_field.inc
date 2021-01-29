@@ -123,6 +123,10 @@ $empty = FALSE;
  * Custom validation function for individual_data (MD) nodes.
  */
 function _sdata_rp_count_ga($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
+function _sdata_rp_count_ga_old($node) {
   // Individual competitive job
   if (
         (!$node->field_indv_comp_partic['und'][0]['value'] &&
