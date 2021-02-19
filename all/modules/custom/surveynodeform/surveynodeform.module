@@ -85,12 +85,12 @@ function surveynodeform_provider_statename($provid) {
   return $statename;
 }
 //new state: workaround to get state node id 
-function get_georgia_id() {
+function get_state_id($state) {
   $query = new EntityFieldQuery;        
   $result = $query
     ->entityCondition('entity_type', 'node')
     ->propertyCondition('type', 'state')
-    ->propertyCondition('title', 'Georgia')
+    ->propertyCondition('title', $state)
     ->execute();
 
     $nids = array();
@@ -107,7 +107,9 @@ function surveynodeform_prov_summary($provid) {
   $statearray = surveynodeform_provider_statename($provid);
   $stateid = $statearray[1];
   $currepper = surveynodeform_get_curr_rep_per($stateid);
-  $georgiaid = get_georgia_id();
+  $georgiaid = get_state_id('Georgia');
+  $massid = get_state_id('Massachusetts');
+  $mdid = get_state_id('Maryland');
   $query1 = new EntityFieldQuery();
     $query1->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', "individual")
@@ -122,13 +124,13 @@ function surveynodeform_prov_summary($provid) {
   
   // Adding a new state: add state id
   switch($stateid) {
-    case 10:
+    case $massid:
       $datanode = 'individual_data_ma';
     break;
-    case 7:
+    case $mdid:
       $datanode = 'individual_data';
     break;
-    //this has to change on live site
+    
     case $georgiaid:
       $datanode = 'individual_data_ga';
     break;
@@ -146,13 +148,13 @@ function surveynodeform_prov_summary($provid) {
         $personids = array();
   // new state: change stateid
   switch($stateid) {
-    case 10:
+    case $massid:
       return surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
-    case 7:
+    case $mdid:
       return surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
-    //this has to change on live site
+    
     case $georgiaid:
       return surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
@@ -803,6 +805,10 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       case 'individual_data_ga_node_form':
         $provtext = 'individual_data_ga';
       break;
+      // is this right?
+      case 'individual_data_ga_cie_node_form':
+        $provtext = 'individual_data_cie_ga';
+      break;
     }
     $provid =  surveynodeform_get_prov_id($nid,$provtext);
 
@@ -810,8 +816,13 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $statearray = surveynodeform_provider_statename($provid);
     $statename = $statearray[0];
     $statetid = key(taxonomy_get_term_by_name($statename));
-    drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
-    drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
+    if($form_id == 'individual_data_ga_cie_node_form') {
+      drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/GeorgiaCIE.css");
+      drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/GeorgiaCIE.js");
+    } else {
+      drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
+      drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
+    }
 
   }
   parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
@@ -877,8 +888,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['gaselfexpensehigh'] = variable_get('surveynodeform_gaselfexpensehigh');
 
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_ga_cie_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'|| $form_id == 'individual_data_ga_cie_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
     $form['#prefix']= "<h3>Explain your reason for deleting this individual in the form below and hit \"Next step,\" then finish deleting on the next page.</h3>";
     $form['actions']['submit']['#value'] = 'Next step';
     $form['actions']['submit']['#attributes'] = array('class' => array('btn','btn-primary'));
@@ -891,7 +902,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       drupal_add_js(drupal_get_path('theme', 'bootstrap') . '/js/misc/_vertical-tabs.js'); 
     }
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form'|| $form_id == 'individual_data_ga_cie_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
 
     if($form_id == 'individual_node_form') { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/individualform.js'); }
         drupal_add_js(array('Surveyconfig' => $settings), 'setting');
