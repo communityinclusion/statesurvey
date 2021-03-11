@@ -1,6 +1,6 @@
 <?php
 
-/**
+/***
  * @file
  * Definition of sdata_rp_handler_submit_completed_field
  */
