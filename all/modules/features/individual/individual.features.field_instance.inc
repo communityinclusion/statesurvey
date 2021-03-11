@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual.features.field_instance.inc
@@ -55,7 +56,170 @@ function individual_field_default_field_instances() {
         ),
       ),
       'type' => 'taxonomy_shs',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual-field_cie_individual'.
+  $field_instances['node-individual-field_cie_individual'] = array(
+    'bundle' => 'individual',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_cie_individual',
+    'label' => 'Individual is in CIE category',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual-field_date_of_entry_into_extende'.
+  $field_instances['node-individual-field_date_of_entry_into_extende'] = array(
+    'bundle' => 'individual',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_date_of_entry_into_extende',
+    'label' => 'Date of entry into extended services',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'restrictions' => array(
+        'max' => array(
+          'date' => array(
+            'day' => 18,
+            'month' => 2,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => 'node:individual:field_dob',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => array(
+            'day' => 18,
+            'month' => 2,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => 'node:individual:field_dob',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+      ),
+      'restrictions2' => array(
+        'max' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 6,
     ),
   );
 
@@ -209,7 +373,7 @@ function individual_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_entered_date',
-    'label' => 'Date entered program',
+    'label' => 'Date services began with provider',
     'required' => 1,
     'settings' => array(
       'default_value' => 'blank',
@@ -443,16 +607,18 @@ function individual_field_default_field_instances() {
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
-      'weight' => 6,
+      'weight' => 8,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('(developer note: this is the "Groups audience" field)');
-  t('Date entered program');
   t('Date of birth');
+  t('Date of entry into extended services');
+  t('Date services began with provider');
   t('First name');
+  t('Individual is in CIE category');
   t('Last name');
   t('Provider');
   t('State, region, and county');
