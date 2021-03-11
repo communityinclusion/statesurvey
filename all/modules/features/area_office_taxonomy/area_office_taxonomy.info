@@ -1,0 +1,9 @@
+name = Area office taxonomy
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = taxonomy
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = georgia_area_office

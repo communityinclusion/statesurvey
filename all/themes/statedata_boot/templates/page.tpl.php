@@ -72,7 +72,8 @@
  *
  * @ingroup themeable
  */
- $site_name = in_array('MA user',$user->roles) ? "Massachusetts Department of Developmental Services Data Entry" : (in_array('MD user',$user->roles) ? "Maryland DDA Employment Outcome Information System" : "State Data Employment Outcome Information System");
+//new state: change page heading
+ $site_name = in_array('MA user',$user->roles) ? "Massachusetts Department of Developmental Services Data Entry" : (in_array('MD user',$user->roles) ? "Maryland DDA Employment Outcome Information System" : (in_array('GA user',$user->roles) ? "Georgia DBHDD Employment Outcome Information System" : "State Data Employment Outcome Information System"));
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">

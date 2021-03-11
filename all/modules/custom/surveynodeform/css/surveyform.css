@@ -78,11 +78,12 @@ a.printButton {background-color: #388dc1; display: block;   border-radius: 6px 6
 p.nextSec a {padding: 10px; font-weight: bold;}
 div#reasonnopartic { position: absolute; top: 400px; width: 72%; right: 28px; }
 div#reasonnopartic.activated {border: 1px solid red; padding: 18px 8px 8px; }
-#individual-data-node-form .deleteGroup, #individual-data-ma-node-form .deleteGroup {display: none;}
+#individual-data-node-form .deleteGroup, #individual-data-ma-node-form .deleteGroup,#individual-data-node-form .deleteGroup, #individual-data-ga-node-form .deleteGroup {display: none;}
 .backLink { margin-bottom: 14px; }
 .node-type-individual-data .vertical-tabs-panes.vertical-tabs-processed.tab-content {overflow: visible; }
 .node-type-individual-data fieldset { display: block;}
 fieldset #edit-field-indv-emp-less div, fieldset .form-type-textarea, fieldset #edit-field-indv-emp-less-other div, fieldset #edit-field-grp-sup-less, fieldset #edit-field-grp-sup-less div, #edit-field-grp-sup-less-other, #edit-field-grp-sup-less-other div { display: none;}
+.node-type-individual-data-ga fieldset .form-type-textarea.form-item-field-indv-comp-other-source-und-0-value {display: block;}
 fieldset.showQues #edit-field-indv-emp-less div,fieldset.showQues #edit-field-grp-sup-less, fieldset.showQues #edit-field-indv-emp-less-other div, fieldset.showQues #edit-field-grp-sup-less div, fieldset.showQues .form-type-textarea, #field-day-program-other-explain-add-more-wrapper .form-type-textarea, .showQues #edit-field-grp-sup-less-other, .showQues #edit-field-grp-sup-less-other div { display: block; }
 input[type="checkbox"].form-checkbox { margin-right: 10px; }
 label[for="edit-field-indv-data-partic-why-und-4"], #edit-field-indv-data-partic-why-und-4 {display:none;}
