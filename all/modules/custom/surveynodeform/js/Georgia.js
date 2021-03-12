@@ -301,7 +301,7 @@
         hasValues = true; }
 
     
-      if (checkVal > Drupal.settings.Surveyconfig.gahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?' + Drupal.settings.Surveyconfig.mahrhigh);}
+      if (checkVal > Drupal.settings.Surveyconfig.gahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?' + Drupal.settings.Surveyconfig.gahrhigh);}
       else if (checkVal == 0) { 
         alert('If the individual had no hours check "Did not participate in this activity" above.');
         $(rangeVal).val('');
