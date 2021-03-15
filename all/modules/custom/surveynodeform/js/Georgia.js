@@ -58,6 +58,28 @@
           var wages = "#" + wages1;
       
           surveynodeformInitialGaMinWage(hours,wages);
+        
+        });
+        $('fieldset.active').each(function(i, elem) {
+          
+          var fieldID = "#" + $(elem).prop('id');
+          var hours1 = $(fieldID + ' .checkHours').prop('id');
+          var wages1 =  $(fieldID + ' .checkWages').prop('id');
+          var hours = "#" + hours1;
+          var wages = "#" + wages1;
+          var hourly_rate = $(wages).val() / $(hours).val();
+          var show_rate = parseFloat(hourly_rate).toFixed(2);
+          var hasValues = false;
+          if (($(wages).val() != '') && ($(hours).val() != '')) {
+            hasValues = true;
+          }
+    
+          if(hasValues) {
+            if ($('#indCalcHourly').length) $('#indCalcHourly').remove();
+            $('#field-indv-comp-gross-wages-add-more-wrapper').after('<div id="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
+            
+            
+          }
         });
   
     }
@@ -332,19 +354,27 @@
     $(hours + ', ' + wages).change(function() {
   
         var hourly_rate = $(wages).val() / $(hours).val();
+        var show_rate = parseFloat(hourly_rate).toFixed(2);
         var hasValues = false;
         if (($(wages).val() != '') && ($(hours).val() != '')) {
           hasValues = true;
         }
         if ((hourly_rate < Drupal.settings.Surveyconfig.gamin) && (hasValues)) {
           if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
-        //  $(wages).val('');
+          //  $(wages).val('');
           alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Georgia minimum wage of  $' + Drupal.settings.Surveyconfig.gamin + '/hr.');
         }
         else {
           if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');
 
         }
+
+    if(hasValues) {
+      if ($('#indCalcHourly').length) $('#indCalcHourly').remove();
+      $('#field-indv-comp-gross-wages-add-more-wrapper').after('<div id="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
+ 
+      
+    }
     });
   
   
@@ -382,6 +412,8 @@
   
   
     var hourly_rate = $(wages).val() / $(hours).val();
+
+    
     var hasValues = false;
     if (($(wages).val() != '') && ($(hours).val() != '')) {
       hasValues = true;
@@ -395,9 +427,8 @@
       if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');
 
     }
+    
 
-  
-  
   }
   
   function surveynodeformcheckAllActions () {
