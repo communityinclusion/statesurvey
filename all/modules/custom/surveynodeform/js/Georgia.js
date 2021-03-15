@@ -249,7 +249,7 @@
     attach: function (context, settings) {
         surveynodeformGaMinWage('#edit-field-indv-comp-hrs-und-0-value', '#edit-field-indv-comp-gross-wages-und-0-value');
        surveynodeformGaHrRange('#edit-field-indv-comp-hrs-und-0-value');
-         surveynodeformGaWageRange('#edit-field-indv-comp-gross-wages-und-0-value');
+       surveynodeformGaWageRange('#edit-field-indv-comp-gross-wages-und-0-value');
     }
   };
   
