@@ -57,10 +57,10 @@
           var hours = "#" + hours1;
           var wages = "#" + wages1;
       
-          surveynodeformInitialGaMinWage(hours,wages);
+          surveynodeformInitialGaMinWage(fieldID,hours,wages);
         
         });
-        $('fieldset.active').each(function(i, elem) {
+       /* $('fieldset.active').each(function(i, elem) {
           
           var fieldID = "#" + $(elem).prop('id');
           var hours1 = $(fieldID + ' .checkHours').prop('id');
@@ -75,12 +75,12 @@
           }
     
           if(hasValues) {
-            if ($('#indCalcHourly').length) $('#indCalcHourly').remove();
-            $('#field-indv-comp-gross-wages-add-more-wrapper').after('<div id="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
+            if ($(fieldID + ' .indCalcHourly').length) $(fieldID + ' .indCalcHourly').remove();
+            $(fieldID + ' .checkWages').after('<div class="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
             
             
           }
-        });
+        }); */
   
     }
   
@@ -269,7 +269,7 @@
  
   Drupal.behaviors.surveynodeformGaIndComJob = {
     attach: function (context, settings) {
-        surveynodeformGaMinWage('#edit-field-indv-comp-hrs-und-0-value', '#edit-field-indv-comp-gross-wages-und-0-value');
+        surveynodeformGaMinWage('#edit-group_indv_comp','#edit-field-indv-comp-hrs-und-0-value', '#edit-field-indv-comp-gross-wages-und-0-value');
        surveynodeformGaHrRange('#edit-field-indv-comp-hrs-und-0-value');
        surveynodeformGaWageRange('#edit-field-indv-comp-gross-wages-und-0-value');
     }
@@ -278,6 +278,7 @@
      
   Drupal.behaviors.surveynodeformGaGrpIntegJob = {
     attach: function (context, settings) {
+      surveynodeformGaMinWage('#edit-group_grp_integ','#edit-field-grp-integ-hrs-und-0-value', '#edit-field-grp-integ-gross-wages-und-0-value');
          surveynodeformGaHrRange('#edit-field-grp-integ-hrs-und-0-value');
            surveynodeformGaWageRange('#edit-field-grp-integ-gross-wages-und-0-value');
     }
@@ -292,7 +293,7 @@
   };
   Drupal.behaviors.surveynodeformGaFacBsedJob = {
     attach: function (context, settings) {
-  
+      surveynodeformGaMinWage('#edit-group_shl','#edit-field-shl-hrs-und-0-value', '#edit-field-shl-gross-wages-und-0-value');
       surveynodeformGaHrRange('#edit-field-shl-hrs-und-0-value');
         surveynodeformGaWageRange('#edit-field-shl-gross-wages-und-0-value');
     }
@@ -350,7 +351,7 @@
     });
   }
   
-  function surveynodeformGaMinWage(hours, wages) {
+  function surveynodeformGaMinWage(fieldID,hours, wages) {
     $(hours + ', ' + wages).change(function() {
   
         var hourly_rate = $(wages).val() / $(hours).val();
@@ -362,19 +363,19 @@
         if ((hourly_rate < Drupal.settings.Surveyconfig.gamin) && (hasValues)) {
           if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
           //  $(wages).val('');
-          alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Georgia minimum wage of  $' + Drupal.settings.Surveyconfig.gamin + '/hr.');
+         // alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Georgia minimum wage of  $' + Drupal.settings.Surveyconfig.gamin + '/hr.');
         }
         else {
           if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');
 
         }
 
-    if(hasValues) {
-      if ($('#indCalcHourly').length) $('#indCalcHourly').remove();
-      $('#field-indv-comp-gross-wages-add-more-wrapper').after('<div id="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
- 
-      
-    }
+        if(hasValues) {
+          if ($(fieldID + ' .indCalcHourly').length) $(fieldID + ' .indCalcHourly').remove();
+          $(fieldID + ' .checkWages').after('<div class="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
+          
+          
+        }
     });
   
   
@@ -408,10 +409,12 @@
     });
   }
   
-  function surveynodeformInitialGaMinWage(hours, wages) {
+  function surveynodeformInitialGaMinWage(fieldID,hours, wages) {
   
   
     var hourly_rate = $(wages).val() / $(hours).val();
+    var show_rate = parseFloat(hourly_rate).toFixed(2);
+        var hasValues = false;
 
     
     var hasValues = false;
@@ -426,6 +429,12 @@
     else {
       if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');
 
+    }
+    if(hasValues) {
+      if ($(fieldID + ' .indCalcHourly').length) $(fieldID + ' .indCalcHourly').remove();
+      $(fieldID + ' .checkWages').after('<div class="indCalcHourly"><label class="control-label">Calculated hourly wage:</label><div> $' + show_rate +  '</div></div>');
+      
+      
     }
     
 
