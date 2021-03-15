@@ -8,4 +8,4 @@
 .vertical-tabs-panes fieldset.active { min-height: 900px;}
 #individual-data-ga-node-form {min-height: 1400px;}
 #individual-data-ga-node-form div#reasonnopartic { position: absolute; top: 600px; }
-fieldset .form-type-textarea.form-item-field-indv-comp-why-not-min-und-0-value {display: none; }
+fieldset.showQues .form-type-textarea.form-item-field-indv-comp-why-not-min-und-0-value {display: none; }
