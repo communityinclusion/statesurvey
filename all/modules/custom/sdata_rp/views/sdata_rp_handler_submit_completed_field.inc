@@ -492,7 +492,7 @@ function _sdata_rp_validate_md_old($node) {
 /*
  * Custom validation function for individual_data_ma nodes.
  */
-  function _sdata_rp_validate_md($node) {
+  function _sdata_rp_validate_ma($node) {
     if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
     return TRUE;
   }
