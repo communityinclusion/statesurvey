@@ -252,7 +252,7 @@
 
    Drupal.behaviors.surveynodeformStripCommas  = {
      attach: function (context, settings) {
-   $('#individual-data-ma-node-form').submit(removeCommas);
+   $('#individual-data-ma-node-form').submit(completionTasks);
      }
    }
    Drupal.behaviors.surveynodeformMdIndComJob = {
@@ -416,15 +416,34 @@
    if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
    }
 
-   function removeCommas() {
-
-     $('.field-type-number-float input').each(function(i, el) {
-       if($(el).val() != "" ) {
-           $(el).val($(el).val().replace(/,/g, ''));
-       }
-     });
-
-   }
+   function completionTasks() {
+    //remove commas
+    $('.field-type-number-float input').each(function(i, el) {
+      if($(el).val() != "" ) {
+          $(el).val($(el).val().replace(/,/g, ''));
+      }
+    });
+    //check that all tabs are complete and set hidden field field_ga_ind_data_complete complete/imcomplete
+    var formComplete = false;
+    
+     
+        $('.vertical-tab-button > a').each(function(i, el) {
+          if (!$(this).hasClass('inComplete')) {
+          formComplete = true;
+          
+          } else if($(this).hasClass('inComplete')) {
+            formComplete = false;
+            return false;
+          }
+        });
+      
+      
+      
+       if (formComplete) $('#edit-field-ga-ind-data-complete input').val('1');
+       else $('#edit-field-ga-ind-data-complete input').val('0');
+   
+  
+  }
 
    function saveAndLeave(event) {
        // Remember the link href

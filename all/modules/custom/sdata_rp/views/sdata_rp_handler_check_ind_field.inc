@@ -75,6 +75,10 @@ class sdata_rp_handler_check_ind_field extends views_handler_field {
  * Custom validation function for individual_data (MD) nodes.
  */
 function _sdata_rp_validate_ind_md($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
+function _sdata_rp_validate_ind_md_old($node) {
   // Individual competitive job
   if (
         (!$node->field_indv_comp_partic['und'][0]['value'] &&
@@ -418,7 +422,12 @@ function _sdata_rp_validate_ind_ga_old($node) {
 /*
  * Custom validation function for individual_data_ma nodes.
  */
- function _sdata_rp_validate_ind_ma($node) {
+function _sdata_rp_validate_ind_ma($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
+ 
+ function _sdata_rp_validate_ind_ma_old($node) {
    // Individual competitive job
    if (
        (!$node->field_indv_comp_partic['und'][0]['value'] &&
