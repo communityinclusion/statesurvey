@@ -259,6 +259,10 @@ function _sdata_rp_count_ga_old($node) {
   return TRUE;
 }
 function _sdata_rp_count_md($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
+function _sdata_rp_count_md_old($node) {
   // Individual competitive job
   if (
         (!$node->field_indv_comp_partic['und'][0]['value'] &&
@@ -469,6 +473,11 @@ function _sdata_rp_count_md($node) {
  * Custom validation function for individual_data_ma nodes.
  */
 function _sdata_rp_count_ma($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
+
+ function _sdata_rp_count_ma_old($node) {
   // Individual competitive job
   if (
       (!$node->field_indv_comp_partic['und'][0]['value'] &&
