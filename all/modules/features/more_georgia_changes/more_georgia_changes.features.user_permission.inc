@@ -40,7 +40,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'create individual_data_ga_cie content'.
   $permissions['create individual_data_ga_cie content'] = array(
     'name' => 'create individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'node',
   );
 
@@ -67,7 +69,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'delete any individual_data_ga_cie content'.
   $permissions['delete any individual_data_ga_cie content'] = array(
     'name' => 'delete any individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'node',
   );
 
@@ -85,7 +89,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'delete own individual_data_ga_cie content'.
   $permissions['delete own individual_data_ga_cie content'] = array(
     'name' => 'delete own individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'node',
   );
 
@@ -112,7 +118,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'edit any individual_data_ga_cie content'.
   $permissions['edit any individual_data_ga_cie content'] = array(
     'name' => 'edit any individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'node',
   );
 
@@ -155,7 +163,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'edit own individual_data_ga_cie content'.
   $permissions['edit own individual_data_ga_cie content'] = array(
     'name' => 'edit own individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'node',
   );
 
@@ -204,7 +214,9 @@ function more_georgia_changes_user_default_permissions() {
   // Exported permission: 'view any unpublished individual_data_ga_cie content'.
   $permissions['view any unpublished individual_data_ga_cie content'] = array(
     'name' => 'view any unpublished individual_data_ga_cie content',
-    'roles' => array(),
+    'roles' => array(
+      'Survey administrator' => 'Survey administrator',
+    ),
     'module' => 'view_unpublished',
   );
 

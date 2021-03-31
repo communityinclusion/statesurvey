@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual_data_md.features.field_instance.inc
@@ -373,7 +374,47 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 32,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data-field_ga_ind_data_complete'.
+  $field_instances['node-individual_data-field_ga_ind_data_complete'] = array(
+    'bundle' => 'individual_data',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 62,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ga_ind_data_complete',
+    'label' => 'Individual data complete',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_hidden',
+      'settings' => array(),
+      'type' => 'field_hidden',
+      'weight' => 16,
     ),
   );
 
@@ -409,7 +450,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 31,
+      'weight' => 9,
     ),
   );
 
@@ -456,7 +497,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -502,7 +543,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -661,7 +702,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 30,
+      'weight' => 8,
     ),
   );
 
@@ -758,7 +799,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -804,7 +845,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -844,7 +885,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -928,7 +969,7 @@ function individual_data_md_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -975,7 +1016,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -1021,7 +1062,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1061,7 +1102,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -1144,7 +1185,7 @@ function individual_data_md_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -1183,7 +1224,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 18,
+      'weight' => 19,
     ),
   );
 
@@ -1297,7 +1338,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1529,6 +1570,45 @@ function individual_data_md_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-individual_data-field_self_emp_supports'.
+  $field_instances['node-individual_data-field_self_emp_supports'] = array(
+    'bundle' => 'individual_data',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 55,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_supports',
+    'label' => 'What supports did this person receive for participation in this outcome?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-individual_data-field_shl_gross_wages'.
   $field_instances['node-individual_data-field_shl_gross_wages'] = array(
     'bundle' => 'individual_data',
@@ -1656,7 +1736,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -1738,7 +1818,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 21,
+      'weight' => 20,
     ),
   );
 
@@ -1778,7 +1858,7 @@ function individual_data_md_field_default_field_instances() {
             'widget_type' => 'entityreference_autocomplete',
           ),
           'default' => array(
-            'widget_type' => 'options_select',
+            'widget_type' => 'entityreference_autocomplete',
           ),
           'status' => TRUE,
         ),
@@ -1827,6 +1907,7 @@ function individual_data_md_field_default_field_instances() {
   t('Individual');
   t('Individual Contracted Paid time off summary');
   t('Individual competitive paid time off summary');
+  t('Individual data complete');
   t('Is this job part of a set aside contract?   (Ability One, NIB, and Maryland Works)');
   t('Is this job part of a set-aside contract?  (Ability One, NIB, and Maryland Works)');
   t('Provider');
@@ -1834,6 +1915,7 @@ function individual_data_md_field_default_field_instances() {
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
   t('Reporting period');
+  t('What supports did this person receive for participation in this outcome?');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity?');

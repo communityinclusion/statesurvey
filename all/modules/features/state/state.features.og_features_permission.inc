@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * state.features.og_features_permission.inc
@@ -169,7 +170,9 @@ function state_og_features_default_permissions() {
 
   // Exported og permission: 'node:state:unsubscribe'
   $permissions['node:state:unsubscribe'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:state:update any individual content'

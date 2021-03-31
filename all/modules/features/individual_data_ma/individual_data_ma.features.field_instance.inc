@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual_data_ma.features.field_instance.inc
@@ -11,14 +12,10 @@ function individual_data_ma_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'node-individual_data_ma-field_day_program_community'.
-  $field_instances['node-individual_data_ma-field_day_program_community'] = array(
+  // 'node-individual_data_ma-field_day_program_commun_y_n'.
+  $field_instances['node-individual_data_ma-field_day_program_commun_y_n'] = array(
     'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -27,7 +24,7 @@ function individual_data_ma_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 43,
+        'weight' => 65,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -37,8 +34,8 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_day_program_community',
-    'label' => 'Community Based Day Services',
+    'field_name' => 'field_day_program_commun_y_n',
+    'label' => 'Community Based Day Services (yes/no)?',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -47,22 +44,18 @@ function individual_data_ma_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'display_label' => 1,
+        'apply_chosen' => '',
       ),
-      'type' => 'options_onoff',
+      'type' => 'options_select',
       'weight' => 35,
     ),
   );
 
   // Exported field_instance:
-  // 'node-individual_data_ma-field_day_program_habitation'.
-  $field_instances['node-individual_data_ma-field_day_program_habitation'] = array(
+  // 'node-individual_data_ma-field_day_program_dayhab_y_n'.
+  $field_instances['node-individual_data_ma-field_day_program_dayhab_y_n'] = array(
     'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -71,7 +64,7 @@ function individual_data_ma_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 44,
+        'weight' => 66,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -81,40 +74,36 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_day_program_habitation',
-    'label' => 'Day Habitation Program',
-    'required' => 0,
+    'field_name' => 'field_day_program_dayhab_y_n',
+    'label' => 'Day Habilitation Program (yes/no)?',
+    'required' => FALSE,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'display_label' => 1,
+        'apply_chosen' => '',
       ),
-      'type' => 'options_onoff',
+      'type' => 'options_select',
       'weight' => 36,
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_ma-field_day_program_other'.
-  $field_instances['node-individual_data_ma-field_day_program_other'] = array(
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_day_program_other_explain'.
+  $field_instances['node-individual_data_ma-field_day_program_other_explain'] = array(
     'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 45,
+        'type' => 'text_default',
+        'weight' => 68,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -124,19 +113,59 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_day_program_other',
-    'label' => 'Other Day Support Services',
+    'field_name' => 'field_day_program_other_explain',
+    'label' => 'Specify support services if you answered yes to \'Other Day Support Services\' above.',
     'required' => 0,
     'settings' => array(
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 3,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_day_program_other_y_n'.
+  $field_instances['node-individual_data_ma-field_day_program_other_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 67,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_day_program_other_y_n',
+    'label' => 'Other Day Support Services (yes/no)?',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
       'module' => 'options',
       'settings' => array(
-        'display_label' => 1,
+        'apply_chosen' => '',
       ),
-      'type' => 'options_onoff',
+      'type' => 'options_select',
       'weight' => 37,
     ),
   );
@@ -185,9 +214,48 @@ function individual_data_ma_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-individual_data_ma-field_delete_indiv_why'.
+  $field_instances['node-individual_data_ma-field_delete_indiv_why'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 69,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_delete_indiv_why',
+    'label' => 'Why is this person being deleted from the individuals list?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 40,
+    ),
+  );
+
   // Exported field_instance:
-  // 'node-individual_data_ma-field_day_program_specify'.
-  $field_instances['node-individual_data_ma-field_day_program_specify'] = array(
+  // 'node-individual_data_ma-field_delete_indiv_why_other'.
+  $field_instances['node-individual_data_ma-field_delete_indiv_why_other'] = array(
     'bundle' => 'individual_data_ma',
     'default_value' => NULL,
     'deleted' => 0,
@@ -198,7 +266,7 @@ function individual_data_ma_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 42,
+        'weight' => 70,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -208,8 +276,8 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_day_program_specify',
-    'label' => 'Specify support services if you chose "Other" above',
+    'field_name' => 'field_delete_indiv_why_other',
+    'label' => 'Explain your selection of "other" as reason for deletion of the individual',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -219,10 +287,129 @@ function individual_data_ma_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'rows' => 3,
       ),
-      'type' => 'text_textfield',
-      'weight' => 38,
+      'type' => 'text_textarea',
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_ga_ind_data_complete'.
+  $field_instances['node-individual_data_ma-field_ga_ind_data_complete'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 76,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ga_ind_data_complete',
+    'label' => 'Individual data complete',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_hidden',
+      'settings' => array(),
+      'type' => 'field_hidden',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_ma-field_grp_10_of_12_y_n'.
+  $field_instances['node-individual_data_ma-field_grp_10_of_12_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 61,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_10_of_12_y_n',
+    'label' => 'Worked in group supported employment 10 of the last 12 months?',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_grp_integ_covid_ma'.
+  $field_instances['node-individual_data_ma-field_grp_integ_covid_ma'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 78,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_covid_ma',
+    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19? ',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 15,
     ),
   );
 
@@ -256,10 +443,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_grp_integ_gross_wages',
     'label' => 'Gross wages earned this reporting period',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 1000,
-      'min' => 4,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -269,7 +456,7 @@ function individual_data_ma_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -302,10 +489,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_grp_integ_hrs',
     'label' => 'Hours in activity this reporting period',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 150,
-      'min' => 1,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -315,7 +502,7 @@ function individual_data_ma_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -363,14 +550,10 @@ function individual_data_ma_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-individual_data_ma-field_grp_sup_grp_10_of_12'.
-  $field_instances['node-individual_data_ma-field_grp_sup_grp_10_of_12'] = array(
+  // 'node-individual_data_ma-field_grp_location_of_work'.
+  $field_instances['node-individual_data_ma-field_grp_location_of_work'] = array(
     'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -379,7 +562,7 @@ function individual_data_ma_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 36,
+        'weight' => 62,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -389,8 +572,47 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_grp_sup_grp_10_of_12',
-    'label' => 'Worked in a group supported employment 10 of the last 12 months?',
+    'field_name' => 'field_grp_location_of_work',
+    'label' => 'Location of work',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_grp_num_of_workers'.
+  $field_instances['node-individual_data_ma-field_grp_num_of_workers'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 63,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_num_of_workers',
+    'label' => 'Number of workers with a disability on site',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -399,10 +621,10 @@ function individual_data_ma_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'display_label' => 1,
+        'apply_chosen' => '',
       ),
-      'type' => 'options_onoff',
-      'weight' => 20,
+      'type' => 'options_select',
+      'weight' => 21,
     ),
   );
 
@@ -429,8 +651,8 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_grp_sup_less',
-    'label' => 'Please select a reason why the individual is making less than the Massachusetts minimum wage of $10/hr.',
-    'required' => 1,
+    'label' => 'Please select a reason why the individual is making less than the Massachusetts minimum wage.',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -468,7 +690,7 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_grp_sup_less_other',
     'label' => 'If you selected "Other" above explain why the individual was paid less than the minimum wage. ',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -495,6 +717,7 @@ function individual_data_ma_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -521,10 +744,94 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'entityreference',
+      'settings' => array(
+        'apply_chosen' => '',
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_indv_comp10_of_12_y_n'.
+  $field_instances['node-individual_data_ma-field_indv_comp10_of_12_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 60,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp10_of_12_y_n',
+    'label' => 'Worked in an individual job 10 of the last 12 months?',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_indv_comp_covid_ma'.
+  $field_instances['node-individual_data_ma-field_indv_comp_covid_ma'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 77,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_covid_ma',
+    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 10,
     ),
   );
 
@@ -558,10 +865,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_indv_comp_gross_wages',
     'label' => 'Gross wages earned this reporting period',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 1000,
-      'min' => 4,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -571,7 +878,46 @@ function individual_data_ma_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_indv_comp_health_ins_y_n'.
+  $field_instances['node-individual_data_ma-field_indv_comp_health_ins_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 75,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_health_ins_y_n',
+    'label' => 'Eligible for employer paid health insurance?',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
     ),
   );
 
@@ -604,10 +950,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_indv_comp_hrs',
     'label' => 'Hours in activity this reporting period',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 180,
-      'min' => 4,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -617,28 +963,24 @@ function individual_data_ma_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
   // Exported field_instance:
-  // 'node-individual_data_ma-field_indv_comp_paid_tim_off'.
-  $field_instances['node-individual_data_ma-field_indv_comp_paid_tim_off'] = array(
+  // 'node-individual_data_ma-field_indv_comp_new_job_y_n'.
+  $field_instances['node-individual_data_ma-field_indv_comp_new_job_y_n'] = array(
     'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
-    'description' => '(vacation/personal/sick)',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 4,
+        'weight' => 59,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -648,8 +990,8 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_indv_comp_paid_tim_off',
-    'label' => 'Receives paid time off?',
+    'field_name' => 'field_indv_comp_new_job_y_n',
+    'label' => 'Began working in a new job between 5/06/2018 and 5/05/2019?',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -658,10 +1000,10 @@ function individual_data_ma_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'display_label' => 1,
+        'apply_chosen' => '',
       ),
-      'type' => 'options_onoff',
-      'weight' => 15,
+      'type' => 'options_select',
+      'weight' => 17,
     ),
   );
 
@@ -773,7 +1115,7 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_indv_data_partic_why',
-    'label' => 'You have checked all the "did not participate" boxes on this form. ',
+    'label' => 'You have checked all the "did not participate" boxes on this form. Why didn\'t the individual participate in any activities?',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -784,49 +1126,6 @@ function individual_data_ma_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data_ma-field_indv_emp_10_of_12'.
-  $field_instances['node-individual_data_ma-field_indv_emp_10_of_12'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 34,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_emp_10_of_12',
-    'label' => 'Worked in an individual job 10 of the last 12 months?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 19,
     ),
   );
 
@@ -861,12 +1160,78 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_indv_emp_hire_date',
     'label' => 'Date of hire',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'restrictions' => array(
+        'max' => array(
+          'date' => array(
+            'day' => 1,
+            'month' => 3,
+            'year' => 2018,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => '',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => array(
+            'day' => 1,
+            'month' => 3,
+            'year' => 2018,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => '',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+      ),
+      'restrictions2' => array(
+        'max' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -909,8 +1274,8 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_indv_emp_less',
-    'label' => 'Please select a reason why the individual is making less than the Massachusetts minimum wage of $10/hr.',
-    'required' => 1,
+    'label' => 'Please select a reason why the individual is making less than the Massachusetts minimum wage.',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -948,7 +1313,7 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_indv_emp_less_other',
     'label' => 'If you selected "Other" above explain why the individual was paid less than the minimum wage. ',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -964,184 +1329,9 @@ function individual_data_ma_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_ma-field_indv_emp_new_job'.
-  $field_instances['node-individual_data_ma-field_indv_emp_new_job'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 33,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_emp_new_job',
-    'label' => 'Begin working in a new job between 04/03/2015 and 04/30/2016?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 17,
-    ),
-  );
-
   // Exported field_instance:
-  // 'node-individual_data_ma-field_indv_emp_paid_health'.
-  $field_instances['node-individual_data_ma-field_indv_emp_paid_health'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 32,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_emp_paid_health',
-    'label' => 'Eligible for employer paid health insurance?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 16,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data_ma-field_job_search_development'.
-  $field_instances['node-individual_data_ma-field_job_search_development'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 40,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_job_search_development',
-    'label' => 'Job development activities',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 33,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data_ma-field_job_search_discovery'.
-  $field_instances['node-individual_data_ma-field_job_search_discovery'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 39,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_job_search_discovery',
-    'label' => 'Discovery or Career Planning activities?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 32,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data_ma-field_job_search_hours_unpaid'.
-  $field_instances['node-individual_data_ma-field_job_search_hours_unpaid'] = array(
+  // 'node-individual_data_ma-field_indv_paid_time_y_n'.
+  $field_instances['node-individual_data_ma-field_indv_paid_time_y_n'] = array(
     'bundle' => 'individual_data_ma',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1149,15 +1339,10 @@ function individual_data_ma_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 41,
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 74,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1167,21 +1352,99 @@ function individual_data_ma_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_job_search_hours_unpaid',
-    'label' => 'Hours in unpaid volunteer work or internship during this reporting period',
-    'required' => 1,
+    'field_name' => 'field_indv_paid_time_y_n',
+    'label' => 'Receives paid time off?',
+    'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_job_search_discov_plan_y_n'.
+  $field_instances['node-individual_data_ma-field_job_search_discov_plan_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 72,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_job_search_discov_plan_y_n',
+    'label' => 'Discovery or Career Planning activities (yes/no)?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 30,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ma-field_job_search_job_dev_y_n'.
+  $field_instances['node-individual_data_ma-field_job_search_job_dev_y_n'] = array(
+    'bundle' => 'individual_data_ma',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 73,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_job_search_job_dev_y_n',
+    'label' => 'Job development activities (yes/no)?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
       'weight' => 31,
     ),
   );
@@ -1229,50 +1492,6 @@ function individual_data_ma_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'node-individual_data_ma-field_job_search_volunteer'.
-  $field_instances['node-individual_data_ma-field_job_search_volunteer'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 38,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_job_search_volunteer',
-    'label' => 'Unpaid volunteer work or internship?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 30,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data_ma-field_reporting_period'.
   $field_instances['node-individual_data_ma-field_reporting_period'] = array(
     'bundle' => 'individual_data_ma',
@@ -1284,6 +1503,7 @@ function individual_data_ma_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -1309,7 +1529,9 @@ function individual_data_ma_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 3,
     ),
@@ -1345,10 +1567,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_self_emp_gross_expens',
     'label' => 'Gross business expenses for the last three months',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 1000,
-      'min' => 1,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1392,10 +1614,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_self_emp_gross_income',
     'label' => 'Gross business income for the last three months',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 1000,
-      'min' => 1,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1438,10 +1660,10 @@ function individual_data_ma_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_self_emp_hrs',
     'label' => 'Hours worked in business this reporting period',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'max' => 60,
-      'min' => 1,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1498,218 +1720,6 @@ function individual_data_ma_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_ma-field_shl_gross_wages'.
-  $field_instances['node-individual_data_ma-field_shl_gross_wages'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 24,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_gross_wages',
-    'label' => 'Gross wages earned this reporting period',
-    'required' => 1,
-    'settings' => array(
-      'max' => 700,
-      'min' => 1,
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 18,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data_ma-field_shl_hrs'.
-  $field_instances['node-individual_data_ma-field_shl_hrs'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 23,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_hrs',
-    'label' => 'Hours in activity this reporting period',
-    'required' => 1,
-    'settings' => array(
-      'max' => 120,
-      'min' => 1,
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 17,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data_ma-field_shl_less'.
-  $field_instances['node-individual_data_ma-field_shl_less'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 55,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_less',
-    'label' => 'Please select a reason why the individual is making less than the Massachusetts minimum wage of $10/hr.',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 20,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data_ma-field_shl_less_other'.
-  $field_instances['node-individual_data_ma-field_shl_less_other'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 56,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_less_other',
-    'label' => 'If you selected "Other" above explain why the individual was paid less than the minimum wage. ',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 21,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data_ma-field_shl_partic'.
-  $field_instances['node-individual_data_ma-field_shl_partic'] = array(
-    'bundle' => 'individual_data_ma',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 13,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_partic',
-    'label' => 'Did not participate in this activity',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 16,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data_ma-og_group_ref'.
   $field_instances['node-individual_data_ma-og_group_ref'] = array(
     'bundle' => 'individual_data_ma',
@@ -1746,7 +1756,7 @@ function individual_data_ma_field_default_field_instances() {
             'widget_type' => 'entityreference_autocomplete',
           ),
           'default' => array(
-            'widget_type' => 'options_buttons',
+            'widget_type' => 'entityreference_autocomplete',
           ),
           'status' => TRUE,
         ),
@@ -1777,37 +1787,41 @@ function individual_data_ma_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('(developer note: this is the Groups Audience field)');
-  t('(vacation/personal/sick)');
-  t('Begin working in a new job between 04/03/2015 and 04/30/2016?');
-  t('Community Based Day Services');
+  t('Began working in a new job between 5/06/2018 and 5/05/2019?');
+  t('Community Based Day Services (yes/no)?');
   t('Date of hire');
-  t('Day Habitation Program');
+  t('Day Habilitation Program (yes/no)?');
   t('Did not participate in other day support wrap-around services during the reporting period.');
   t('Did not participate in this activity');
-  t('Discovery or Career Planning activities?');
+  t('Discovery or Career Planning activities (yes/no)?');
   t('Eligible for employer paid health insurance?');
   t('Explain your choice of "Other."');
+  t('Explain your selection of "other" as reason for deletion of the individual');
   t('For which individual is this data related to?');
   t('Gross business expenses for the last three months');
   t('Gross business income for the last three months');
   t('Gross wages earned this reporting period');
   t('Hours in activity this reporting period');
-  t('Hours in unpaid volunteer work or internship during this reporting period');
   t('Hours worked in business this reporting period');
   t('If you selected "Other" above explain why the individual was paid less than the minimum wage. ');
   t('Individual');
-  t('Job development activities');
-  t('Other Day Support Services');
+  t('Individual data complete');
+  t('Job development activities (yes/no)?');
+  t('Location of work');
+  t('Number of workers with a disability on site');
+  t('Other Day Support Services (yes/no)?');
   t('Please indicate below why this individual did not participate in any activities.');
-  t('Please select a reason why the individual is making less than the Massachusetts minimum wage of $10/hr.');
+  t('Please select a reason why the individual is making less than the Massachusetts minimum wage.');
   t('Provider');
   t('Receives paid time off?');
   t('Reporting period');
-  t('Specify support services if you chose "Other" above');
-  t('Unpaid volunteer work or internship?');
-  t('Worked in a group supported employment 10 of the last 12 months?');
+  t('Specify support services if you answered yes to \'Other Day Support Services\' above.');
+  t('Was the individual\'s non-participation in this activity related to COVID-19?');
+  t('Was the individual\'s non-participation in this activity related to COVID-19? ');
+  t('Why is this person being deleted from the individuals list?');
   t('Worked in an individual job 10 of the last 12 months?');
-  t('You have checked all the "did not participate" boxes on this form. ');
+  t('Worked in group supported employment 10 of the last 12 months?');
+  t('You have checked all the "did not participate" boxes on this form. Why didn\'t the individual participate in any activities?');
 
   return $field_instances;
 }

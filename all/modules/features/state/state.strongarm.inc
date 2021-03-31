@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * state.strongarm.inc

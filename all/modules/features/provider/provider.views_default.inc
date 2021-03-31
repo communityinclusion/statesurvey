@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * provider.views_default.inc
@@ -164,7 +165,7 @@ function provider_views_default_views() {
   $handler->display->display_options['filters']['state']['value'] = array(
     1 => '1',
   );
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -196,6 +197,9 @@ function provider_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    8 => '8',
+    7 => '7',
     5 => '5',
     4 => '4',
   );
@@ -290,7 +294,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['field_rp_date_range']['relationship'] = 'field_current_reporting_period_target_id';
   $handler->display->display_options['fields']['field_rp_date_range']['label'] = '';
   $handler->display->display_options['fields']['field_rp_date_range']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_rp_date_range']['alter']['text'] = '<strong>The reporting period is a two-week period of your choosing within the date range [field_rp_date_range</strong>';
+  $handler->display->display_options['fields']['field_rp_date_range']['alter']['text'] = '<strong>The reporting period is a two-week period of your choosing within the date range [field_rp_date_range]</strong>';
   $handler->display->display_options['fields']['field_rp_date_range']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_rp_date_range']['settings'] = array(
     'format_type' => 'long',
@@ -335,8 +339,8 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'View program summary';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
-  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<h4>View program summary</h4>
-<p>Coming soon.</p>';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<h4>View your program summary</h4>
+<p><a href="/prov/[nid]/summary">Summary of individual outcomes for the current reporting period</a>.</p>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Field: Download data */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
@@ -349,6 +353,10 @@ function provider_views_default_views() {
 <h4>Help using this site:</h4>
 <p><a href="/sites/default/files/files/MDDA_Data Instructions_10_17.pdf">Here is a document with instructions for users of this site.</a><hr />';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
+  /* Field: Content: State */
+  $handler->display->display_options['fields']['og_group_provider_state_ref']['id'] = 'og_group_provider_state_ref';
+  $handler->display->display_options['fields']['og_group_provider_state_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['og_group_provider_state_ref']['field'] = 'og_group_provider_state_ref';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -373,7 +381,7 @@ function provider_views_default_views() {
   $handler->display->display_options['filters']['state']['value'] = array(
     1 => '1',
   );
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -387,6 +395,153 @@ function provider_views_default_views() {
 
   /* Display: User Group (Provider) block */
   $handler = $view->new_display('block', 'User Group (Provider) block', 'block_1');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="clearfix" style="text-align: right"><a style="display:block; margin: 0 0 0 80%" class ="btn btn-danger" href="/user/logout">Log out</a></div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: State, region, and county */
+  $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['field_area_office']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_area_office']['type'] = 'shs_default';
+  $handler->display->display_options['fields']['field_area_office']['settings'] = array(
+    'linked' => 0,
+  );
+  /* Field: OG membership: Created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Member since';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Data entry instructions */
+  $handler->display->display_options['fields']['field_data_entry_instructions']['id'] = 'field_data_entry_instructions';
+  $handler->display->display_options['fields']['field_data_entry_instructions']['table'] = 'field_data_field_data_entry_instructions';
+  $handler->display->display_options['fields']['field_data_entry_instructions']['field'] = 'field_data_entry_instructions';
+  $handler->display->display_options['fields']['field_data_entry_instructions']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_data_entry_instructions']['exclude'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['nid_1']['label'] = 'Statenid';
+  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h2>[title]</h2>';
+  $handler->display->display_options['fields']['title']['element_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Vendor id */
+  $handler->display->display_options['fields']['field_provider_vendor_name']['id'] = 'field_provider_vendor_name';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['table'] = 'field_data_field_provider_vendor_name';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['field'] = 'field_provider_vendor_name';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_provider_vendor_name']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['element_wrapper_type'] = 'h4';
+  $handler->display->display_options['fields']['field_provider_vendor_name']['element_default_classes'] = FALSE;
+  /* Field: Content: Reporting period description */
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['id'] = 'field_reporting_period_descrip';
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['table'] = 'field_data_field_reporting_period_descrip';
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['field'] = 'field_reporting_period_descrip';
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['label'] = '';
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_reporting_period_descrip']['element_label_colon'] = FALSE;
+  /* Field: Field: Date range */
+  $handler->display->display_options['fields']['field_rp_date_range']['id'] = 'field_rp_date_range';
+  $handler->display->display_options['fields']['field_rp_date_range']['table'] = 'field_data_field_rp_date_range';
+  $handler->display->display_options['fields']['field_rp_date_range']['field'] = 'field_rp_date_range';
+  $handler->display->display_options['fields']['field_rp_date_range']['relationship'] = 'field_current_reporting_period_target_id';
+  $handler->display->display_options['fields']['field_rp_date_range']['label'] = '';
+  $handler->display->display_options['fields']['field_rp_date_range']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_rp_date_range']['alter']['text'] = '<strong>[field_reporting_period_descrip] [field_rp_date_range]</strong>';
+  $handler->display->display_options['fields']['field_rp_date_range']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rp_date_range']['settings'] = array(
+    'format_type' => 'long',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Deadline date */
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['id'] = 'field_rp_deadline_date_1';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['table'] = 'field_data_field_rp_deadline_date';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['field'] = 'field_rp_deadline_date';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['relationship'] = 'field_current_reporting_period_target_id';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['alter']['text'] = '<strong>Reporting due date: <span class="bigRed">[field_rp_deadline_date_1]</span></strong>';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['settings'] = array(
+    'format_type' => 'long',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: SData: Submit completed data */
+  $handler->display->display_options['fields']['submit_completed']['id'] = 'submit_completed';
+  $handler->display->display_options['fields']['submit_completed']['table'] = 'sdata_rp';
+  $handler->display->display_options['fields']['submit_completed']['field'] = 'submit_completed';
+  $handler->display->display_options['fields']['submit_completed']['label'] = '';
+  $handler->display->display_options['fields']['submit_completed']['alter']['text'] = '<hr /><h4>Submit your data:</h4>j
+<p><strong>[submit_completed]</p>
+<hr />';
+  $handler->display->display_options['fields']['submit_completed']['element_type'] = 'p';
+  $handler->display->display_options['fields']['submit_completed']['element_label_colon'] = FALSE;
+  /* Field: View program summary */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'View program summary';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<h4>View your program summary</h4>
+<p><a href="/prov/[nid]/summary">Summary of individual outcomes for the current reporting period</a>.</p>';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  /* Field: Download data */
+  $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
+  $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Download data';
+  $handler->display->display_options['fields']['nothing_2']['label'] = '';
+  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<h4>Download data</h4>
+<p><a href="/provider/[nid]/[nid_1]/download">Download an Excel spreadsheet with all your individual data.</a><br /><strong>Note: Information in this spreadsheet may not be accurate for individuals whose data is not "Complete."</strong></p>
+<h4>Help using this site:</h4>
+<p>[field_data_entry_instructions]</p><hr />';
+  $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   $export['user_groups_providers'] = $view;
 
   return $export;

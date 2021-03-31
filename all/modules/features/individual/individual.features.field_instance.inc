@@ -63,11 +63,7 @@ function individual_field_default_field_instances() {
   // Exported field_instance: 'node-individual-field_cie_individual'.
   $field_instances['node-individual-field_cie_individual'] = array(
     'bundle' => 'individual',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -141,8 +137,8 @@ function individual_field_default_field_instances() {
       'restrictions' => array(
         'max' => array(
           'date' => array(
-            'day' => 18,
-            'month' => 2,
+            'day' => 29,
+            'month' => 3,
             'year' => 2021,
           ),
           'host_entity_date' => array(
@@ -160,8 +156,8 @@ function individual_field_default_field_instances() {
         ),
         'min' => array(
           'date' => array(
-            'day' => 18,
-            'month' => 2,
+            'day' => 29,
+            'month' => 3,
             'year' => 2021,
           ),
           'host_entity_date' => array(

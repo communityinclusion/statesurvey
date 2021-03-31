@@ -691,7 +691,54 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_gross_wages'.
+  $field_instances['node-individual_data_ga-field_indv_comp_gross_wages'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 40,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_gross_wages',
+    'label' => 'Gross wages earned this reporting period including, if applicable, tips (dollar amount)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 7,
     ),
   );
 
@@ -777,7 +824,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -818,7 +865,7 @@ function georgia_addition_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -858,7 +905,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -906,53 +953,6 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-individual_data_ga-field_indv_comp_pay_rate'.
-  $field_instances['node-individual_data_ga-field_indv_comp_pay_rate'] = array(
-    'bundle' => 'individual_data_ga',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 39,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_comp_pay_rate',
-    'label' => 'Hourly pay rate during this reporting period',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance:
   // 'node-individual_data_ga-field_indv_comp_time_in_job'.
   $field_instances['node-individual_data_ga-field_indv_comp_time_in_job'] = array(
     'bundle' => 'individual_data_ga',
@@ -988,7 +988,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -1029,7 +1029,7 @@ function georgia_addition_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -1619,7 +1619,7 @@ function georgia_addition_field_default_field_instances() {
   t('Gross business expenses *for the last three months*');
   t('Gross business income *for the last three months*');
   t('Gross wages earned this reporting period');
-  t('Hourly pay rate during this reporting period');
+  t('Gross wages earned this reporting period including, if applicable, tips (dollar amount)');
   t('Hours spent in unpaid activities in an integrated community setting');
   t('Hours worked for pay this reporting period');
   t('Hours worked in business this reporting period *for the two week reporting period only*');

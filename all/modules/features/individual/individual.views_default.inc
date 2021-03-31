@@ -2103,7 +2103,7 @@ function individual_views_default_views() {
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['value'] = array(
-    114408 => '114408',
+    116038 => '116038',
   );
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['group'] = 1;
   /* Filter criterion: Content: Type */

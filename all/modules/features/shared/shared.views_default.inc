@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * shared.views_default.inc

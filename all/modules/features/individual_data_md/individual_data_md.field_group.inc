@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual_data_md.field_group.inc
@@ -27,6 +28,7 @@ function individual_data_md_field_group_info() {
       1 => 'field_com_non_work_vol_partic',
       2 => 'field_com_non_work_vol_partic_2',
       3 => 'field_com_non_wrk_hours',
+      4 => 'field_com_non_wrk_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -52,7 +54,7 @@ function individual_data_md_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Answer some questions before deleting this individual.',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_delete_indiv_why',
       1 => 'field_delete_indiv_why_other',
@@ -88,6 +90,7 @@ function individual_data_md_field_group_info() {
     'children' => array(
       0 => 'field_fac_non_work_partic',
       1 => 'field_fac_non_work_yn_partic',
+      2 => 'field_fac_non_work_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -120,7 +123,8 @@ function individual_data_md_field_group_info() {
       2 => 'field_grp_integ_gross_wages',
       3 => 'field_grp_integ_paid_time_off',
       4 => 'field_grp_integr_set_aside',
-      5 => 'field_grp_integ_why_no_min',
+      5 => 'field_grp_integ_covid',
+      6 => 'field_grp_integ_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -148,14 +152,15 @@ function individual_data_md_field_group_info() {
     'label' => 'Categories',
     'weight' => '4',
     'children' => array(
-      0 => 'group_no_particip',
-      1 => 'group_com_non_work',
-      2 => 'group_fac_non_work',
-      3 => 'group_grp_integ',
-      4 => 'group_indv_comp',
-      5 => 'group_indv_cont',
-      6 => 'group_self_emp',
-      7 => 'group_shl',
+      0 => 'field_ga_ind_data_complete',
+      1 => 'group_no_particip',
+      2 => 'group_com_non_work',
+      3 => 'group_fac_non_work',
+      4 => 'group_grp_integ',
+      5 => 'group_indv_comp',
+      6 => 'group_indv_cont',
+      7 => 'group_self_emp',
+      8 => 'group_shl',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -186,6 +191,8 @@ function individual_data_md_field_group_info() {
       2 => 'field_indv_comp_partic',
       3 => 'field_indv_comp_paid_time_off',
       4 => 'field_indv_comp_why_not_min',
+      5 => 'field_indv_comp_covid',
+      6 => 'field_indv_comp_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -219,6 +226,8 @@ function individual_data_md_field_group_info() {
       3 => 'field_indv_cont_paid_time_off',
       4 => 'field_indv_contr_set_aside',
       5 => 'field_indv_cont_why_no_min',
+      6 => 'field_indv_cont_covid',
+      7 => 'field_indv_cont_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -282,6 +291,7 @@ function individual_data_md_field_group_info() {
       1 => 'field_self_emp_hrs',
       2 => 'field_self_emp_gross_income',
       3 => 'field_self_emp_gross_expens',
+      4 => 'field_self_emp_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -315,7 +325,7 @@ Note that business income and expenses are reported over a 3 month period to cap
       2 => 'field_shl_gross_wages',
       3 => 'field_shl_paid_time_off',
       4 => 'field_shlt_set_aside',
-      5 => 'field_shl_why_no_min',
+      5 => 'field_shl_supports',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

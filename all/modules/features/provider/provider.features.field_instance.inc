@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * provider.features.field_instance.inc
@@ -48,8 +49,7 @@ function provider_field_default_field_instances() {
         'shs' => array(
           'create_new_levels' => 0,
           'create_new_terms' => 0,
-          'force_deepest' => 1,
-          'node_count' => 0,
+          'force_deepest' => 0,
           'use_chosen' => 'chosen',
         ),
       ),
@@ -82,7 +82,7 @@ function provider_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_provider_director_email',
     'label' => 'Director email',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -121,7 +121,7 @@ function provider_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_provider_director_name',
     'label' => 'Director name',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,

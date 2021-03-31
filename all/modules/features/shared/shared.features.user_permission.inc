@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * shared.features.user_permission.inc
@@ -14,6 +15,8 @@ function shared_user_default_permissions() {
   $permissions['create field_area_office'] = array(
     'name' => 'create field_area_office',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -56,6 +59,8 @@ function shared_user_default_permissions() {
   $permissions['edit field_area_office'] = array(
     'name' => 'edit field_area_office',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -88,6 +93,8 @@ function shared_user_default_permissions() {
   $permissions['edit og_group_ref'] = array(
     'name' => 'edit og_group_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -100,6 +107,8 @@ function shared_user_default_permissions() {
   $permissions['edit own field_area_office'] = array(
     'name' => 'edit own field_area_office',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -142,6 +151,8 @@ function shared_user_default_permissions() {
   $permissions['view field_area_office'] = array(
     'name' => 'view field_area_office',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -154,6 +165,8 @@ function shared_user_default_permissions() {
   $permissions['view field_individual'] = array(
     'name' => 'view field_individual',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -166,6 +179,8 @@ function shared_user_default_permissions() {
   $permissions['view field_reporting_period'] = array(
     'name' => 'view field_reporting_period',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -178,6 +193,8 @@ function shared_user_default_permissions() {
   $permissions['view og_group_ref'] = array(
     'name' => 'view og_group_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -190,6 +207,8 @@ function shared_user_default_permissions() {
   $permissions['view own field_area_office'] = array(
     'name' => 'view own field_area_office',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -202,6 +221,8 @@ function shared_user_default_permissions() {
   $permissions['view own field_individual'] = array(
     'name' => 'view own field_individual',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -214,6 +235,8 @@ function shared_user_default_permissions() {
   $permissions['view own field_reporting_period'] = array(
     'name' => 'view own field_reporting_period',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -226,6 +249,8 @@ function shared_user_default_permissions() {
   $permissions['view own og_group_ref'] = array(
     'name' => 'view own og_group_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',

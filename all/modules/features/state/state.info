@@ -6,6 +6,7 @@ version = 7.x-1.9
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
+dependencies[] = more_georgia_changes
 dependencies[] = og
 dependencies[] = og_ui
 dependencies[] = options

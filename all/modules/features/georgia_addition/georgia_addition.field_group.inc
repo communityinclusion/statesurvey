@@ -190,6 +190,7 @@ function georgia_addition_field_group_info() {
       6 => 'field_indv_comp_time_in_job',
       7 => 'field_indv_comp_why_not_min',
       8 => 'field_indv_comp_pay_rate',
+      9 => 'field_indv_comp_gross_wages',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual_data_ma.features.conditional_fields.inc
@@ -14,7 +15,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_day_program_community',
+      'dependent' => 'field_day_program_commun_y_n',
       'dependee' => 'field_day_program_partic',
       'options' => array(
         'state' => 'visible',
@@ -52,6 +53,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -71,6 +93,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -82,7 +116,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_day_program_habitation',
+      'dependent' => 'field_day_program_dayhab_y_n',
       'dependee' => 'field_day_program_partic',
       'options' => array(
         'state' => 'visible',
@@ -120,6 +154,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -139,6 +194,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -150,7 +217,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_day_program_other',
+      'dependent' => 'field_day_program_other_explain',
       'dependee' => 'field_day_program_partic',
       'options' => array(
         'state' => 'visible',
@@ -188,6 +255,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -207,6 +295,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -218,8 +318,8 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_day_program_specify',
-      'dependee' => 'field_day_program_other',
+      'dependent' => 'field_day_program_other_explain',
+      'dependee' => 'field_day_program_other_y_n',
       'options' => array(
         'state' => 'visible',
         'condition' => 'value',
@@ -256,6 +356,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -272,6 +393,351 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
           ),
           3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => 'yes',
+        'value' => array(
+          0 => array(
+            'value' => 'yes',
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_day_program_other_y_n',
+      'dependee' => 'field_day_program_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => '!checked',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value' => array(),
+        'values' => array(),
+        'value_form' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_delete_indiv_why_other',
+      'dependee' => 'field_delete_indiv_why',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => 'other',
+        'value' => array(
+          0 => array(
+            'value' => 'other',
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_grp_integ_covid_ma',
+      'dependee' => 'field_grp_integ_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          8 => array(
             1 => 1,
             3 => 0,
           ),
@@ -426,7 +892,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_grp_sup_grp_10_of_12',
+      'dependent' => 'field_grp_location_of_work',
       'dependee' => 'field_grp_integ_partic',
       'options' => array(
         'state' => 'visible',
@@ -464,6 +930,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -480,6 +967,119 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
           ),
           3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value' => array(),
+        'values' => array(),
+        'value_form' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_grp_num_of_workers',
+      'dependee' => 'field_grp_integ_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => '!checked',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
             1 => 1,
             3 => 0,
           ),
@@ -563,78 +1163,6 @@ function individual_data_ma_conditional_fields_default_fields() {
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
       'dependent' => 'field_grp_sup_less_other',
-      'dependee' => 'field_grp_sup_less',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => 'value',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value_form' => 1,
-        'value' => array(
-          0 => array(
-            'value' => 1,
-          ),
-        ),
-        'values' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_grp_sup_less_other',
       'dependee' => 'field_grp_integ_partic',
       'options' => array(
         'state' => 'visible',
@@ -702,6 +1230,133 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
+      'dependent' => 'field_indv_comp_covid_ma',
+      'dependee' => 'field_indv_comp_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => 1,
+        'value' => array(
+          0 => array(
+            'value' => 1,
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
       'dependent' => 'field_indv_comp_gross_wages',
       'dependee' => 'field_indv_comp_partic',
       'options' => array(
@@ -756,6 +1411,107 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
           ),
           3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value' => array(),
+        'values' => array(),
+        'value_form' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_indv_comp_health_ins_y_n',
+      'dependee' => 'field_indv_comp_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => '!checked',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
             1 => 1,
             3 => 0,
           ),
@@ -838,7 +1594,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_comp_paid_tim_off',
+      'dependent' => 'field_indv_comp_new_job_y_n',
       'dependee' => 'field_indv_comp_partic',
       'options' => array(
         'state' => 'visible',
@@ -876,6 +1632,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -892,6 +1669,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
           ),
           3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
             1 => 1,
             3 => 0,
           ),
@@ -970,6 +1759,260 @@ function individual_data_ma_conditional_fields_default_fields() {
         'value' => array(
           0 => array(
             'value' => 3,
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_indv_data_partic_why',
+      'dependee' => 'field_indv_comp_covid_ma',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => 'no',
+        'value' => array(
+          0 => array(
+            'value' => 'no',
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ma',
+      'dependent' => 'field_indv_data_partic_why',
+      'dependee' => 'field_grp_integ_covid_ma',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => 'no',
+        'value' => array(
+          0 => array(
+            'value' => 'no',
           ),
         ),
         'values' => array(),
@@ -1318,75 +2361,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_data_partic_why',
-      'dependee' => 'field_shl_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => 'checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_emp_10_of_12',
+      'dependent' => 'field_indv_emp_hire_date',
       'dependee' => 'field_indv_comp_partic',
       'options' => array(
         'state' => 'visible',
@@ -1424,6 +2399,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -1443,6 +2439,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -1455,10 +2463,10 @@ function individual_data_ma_conditional_fields_default_fields() {
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
       'dependent' => 'field_indv_emp_hire_date',
-      'dependee' => 'field_indv_emp_new_job',
+      'dependee' => 'field_indv_comp_new_job_y_n',
       'options' => array(
         'state' => 'visible',
-        'condition' => 'checked',
+        'condition' => 'value',
         'grouping' => 'AND',
         'effect' => 'show',
         'effect_options' => array(),
@@ -1492,6 +2500,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -1511,12 +2540,28 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
-        'value' => array(),
+        'value_form' => 'yes',
+        'value' => array(
+          0 => array(
+            'value' => 'yes',
+          ),
+        ),
         'values' => array(),
-        'value_form' => array(),
       ),
     ),
     array(
@@ -1591,78 +2636,6 @@ function individual_data_ma_conditional_fields_default_fields() {
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
       'dependent' => 'field_indv_emp_less_other',
-      'dependee' => 'field_indv_emp_less',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => 'value',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value_form' => 1,
-        'value' => array(
-          0 => array(
-            'value' => 1,
-          ),
-        ),
-        'values' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_emp_less_other',
       'dependee' => 'field_indv_comp_partic',
       'options' => array(
         'state' => 'visible',
@@ -1730,7 +2703,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_emp_new_job',
+      'dependent' => 'field_indv_paid_time_y_n',
       'dependee' => 'field_indv_comp_partic',
       'options' => array(
         'state' => 'visible',
@@ -1768,68 +2741,21 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_indv_emp_paid_health',
-      'dependee' => 'field_indv_comp_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
+          4 => array(
             1 => 1,
             2 => 2,
             5 => 0,
             3 => 0,
             4 => 0,
           ),
-          2 => array(
+          5 => array(
             1 => 1,
             2 => 2,
             5 => 0,
             3 => 0,
             4 => 0,
           ),
-          3 => array(
+          6 => array(
             1 => 1,
             2 => 2,
             5 => 0,
@@ -1855,6 +2781,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -1866,7 +2804,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_job_search_development',
+      'dependent' => 'field_job_search_discov_plan_y_n',
       'dependee' => 'field_job_search_partic',
       'options' => array(
         'state' => 'visible',
@@ -1904,6 +2842,27 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -1923,6 +2882,18 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -1934,7 +2905,7 @@ function individual_data_ma_conditional_fields_default_fields() {
     array(
       'entity' => 'node',
       'bundle' => 'individual_data_ma',
-      'dependent' => 'field_job_search_discovery',
+      'dependent' => 'field_job_search_job_dev_y_n',
       'dependee' => 'field_job_search_partic',
       'options' => array(
         'state' => 'visible',
@@ -1972,68 +2943,21 @@ function individual_data_ma_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_job_search_hours_unpaid',
-      'dependee' => 'field_job_search_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
+          4 => array(
             1 => 1,
             2 => 2,
             5 => 0,
             3 => 0,
             4 => 0,
           ),
-          2 => array(
+          5 => array(
             1 => 1,
             2 => 2,
             5 => 0,
             3 => 0,
             4 => 0,
           ),
-          3 => array(
+          6 => array(
             1 => 1,
             2 => 2,
             5 => 0,
@@ -2059,71 +2983,15 @@ function individual_data_ma_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_job_search_volunteer',
-      'dependee' => 'field_job_search_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
+          4 => array(
             1 => 1,
             3 => 0,
           ),
-          2 => array(
+          5 => array(
             1 => 1,
             3 => 0,
           ),
-          3 => array(
+          6 => array(
             1 => 1,
             3 => 0,
           ),
@@ -2337,282 +3205,6 @@ function individual_data_ma_conditional_fields_default_fields() {
         'value' => array(),
         'values' => array(),
         'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_shl_gross_wages',
-      'dependee' => 'field_shl_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_shl_hrs',
-      'dependee' => 'field_shl_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_shl_less',
-      'dependee' => 'field_shl_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => '!checked',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value' => array(),
-        'values' => array(),
-        'value_form' => array(),
-      ),
-    ),
-    array(
-      'entity' => 'node',
-      'bundle' => 'individual_data_ma',
-      'dependent' => 'field_shl_less_other',
-      'dependee' => 'field_shl_partic',
-      'options' => array(
-        'state' => 'visible',
-        'condition' => 'value',
-        'grouping' => 'AND',
-        'effect' => 'show',
-        'effect_options' => array(),
-        'element_view' => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        'element_view_per_role' => 0,
-        'element_view_roles' => array(
-          1 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            2 => 2,
-            5 => 0,
-            3 => 0,
-            4 => 0,
-          ),
-        ),
-        'element_edit' => array(
-          1 => 1,
-          3 => 0,
-        ),
-        'element_edit_per_role' => 0,
-        'element_edit_roles' => array(
-          1 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          2 => array(
-            1 => 1,
-            3 => 0,
-          ),
-          3 => array(
-            1 => 1,
-            3 => 0,
-          ),
-        ),
-        'selector' => '',
-        'values_set' => 1,
-        'value_form' => NULL,
-        'value' => array(
-          0 => array(
-            'value' => 0,
-          ),
-        ),
-        'values' => array(),
       ),
     ),
   );

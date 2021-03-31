@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * individual_data_md.features.field_base.inc
@@ -106,6 +107,7 @@ if (isset(field_get_items($entity_type, $entity, \'field_shl_paid_time_off\')[0]
         'data_type' => 'int',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
@@ -137,6 +139,7 @@ if (isset(field_get_items($entity_type, $entity, \'field_shl_paid_time_off\')[0]
         'data_type' => 'int',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
@@ -229,6 +232,7 @@ if (isset(field_get_items($entity_type, $entity, \'field_indv_cont_paid_time_off
         'data_type' => 'int',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
@@ -390,10 +394,40 @@ if (isset(field_get_items($entity_type, $entity, \'field_indv_comp_paid_time_off
         'data_type' => 'int',
       ),
       'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'recalculate' => FALSE,
       'store' => 1,
     ),
     'translatable' => 0,
     'type' => 'computed',
+  );
+
+  // Exported field_base: 'field_self_emp_supports'.
+  $field_bases['field_self_emp_supports'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_supports',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'remote' => 'Remote supports',
+        'in person' => 'In person supports',
+        'remote and in person' => 'Both remote and in person supports',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_shl_paid_time_off'.

@@ -98,7 +98,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -850,7 +850,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1114,7 +1114,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['value'] = array(
-    114409 => '114409',
+    116039 => '116039',
   );
   $handler->display->display_options['filters']['field_reporting_period_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator_id'] = 'field_reporting_period_target_id_op';
@@ -1172,7 +1172,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1466,7 +1466,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['value'] = array(
-    114409 => '114409',
+    116039 => '116039',
   );
   $handler->display->display_options['filters']['field_reporting_period_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator_id'] = 'field_reporting_period_target_id_op';
@@ -1540,7 +1540,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['value'] = array(
-    114408 => '114408',
+    116038 => '116038',
   );
 
   /* Display: Providers page */
@@ -1726,7 +1726,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['relationship'] = 'og_group_ref_target_id';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['value'] = array(
-    114408 => '114408',
+    116038 => '116038',
   );
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['group'] = 1;
   /* Filter criterion: Content: Title */
@@ -1929,7 +1929,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['style_options']['provide_file'] = 1;
-  $handler->display->display_options['style_options']['filename'] = 'ga-%view-%timestamp-yyyy-%timestamp-mm-%timestamp-dd.csv';
+  $handler->display->display_options['style_options']['filename'] = '%view-%timestamp-yyyy-%timestamp-mm-%timestamp-dd.csv';
   $handler->display->display_options['style_options']['parent_sort'] = 0;
   $handler->display->display_options['style_options']['quote'] = 1;
   $handler->display->display_options['style_options']['trim'] = 0;
@@ -1958,7 +1958,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
   $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['value'] = array(
-    114408 => '114408',
+    116038 => '116038',
   );
   $handler->display->display_options['path'] = 'provider-director-download-ga';
   $export['provider_directors'] = $view;
