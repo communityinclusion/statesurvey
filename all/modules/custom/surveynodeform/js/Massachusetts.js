@@ -18,21 +18,25 @@
     }
     Drupal.behaviors.startScan = {
         attach: function (context, settings) {
-   $('ul.vertical-tabs-list li a').addClass('inComplete');
-      $( document ).one('ready',scanFieldsets);
-      $(document).one('ready',surveynodeformcheckAllActions);
-      $('th').text('Order').hide();
-      if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group supported employment >></a></p>');
-      if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
-       if (!$('#edit-group_self_emp p.nextSec').length) $('#edit-group_self_emp').append('<p class="nextSec"><a class="openTab" href="#edit-group_job_search">>> Next: Job search and exploration activities >></a></p>');
-       if (!$('#edit-group_job_search p.nextSec').length)$('#edit-group_job_search').append('<p class="nextSec"><a class="openTab" href="#edit-group_day_program">>> Next: Wrap-around services >></a></p>');
-     /* if (!$('#editInstruc').length)  $('ul.nav.nav-tabs.vertical-tabs-list').append('<p id="editInstruc">Please fill in all categories for the individual’s data to appear as complete.<br />For categories the individual participated in, please enter additional information, such as hours and wages, where asked.<br />For categories the individual did not participate in, please check in the appropriate box (Did not participate in this activity) to confirm this information. </p>'); */
+      $('ul.vertical-tabs-list li a').addClass('inComplete');
+          $( document ).one('ready',scanFieldsets);
+          $(document).one('ready',surveynodeformcheckAllActions);
+          $('th').text('Order').hide();
+          if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group supported employment >></a></p>');
+          if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
+          if (!$('#edit-group_self_emp p.nextSec').length) $('#edit-group_self_emp').append('<p class="nextSec"><a class="openTab" href="#edit-group_job_search">>> Next: Job search and exploration activities >></a></p>');
+          if (!$('#edit-group_job_search p.nextSec').length)$('#edit-group_job_search').append('<p class="nextSec"><a class="openTab" href="#edit-group_day_program">>> Next: Wrap-around services >></a></p>');
+        /* if (!$('#editInstruc').length)  $('ul.nav.nav-tabs.vertical-tabs-list').append('<p id="editInstruc">Please fill in all categories for the individual’s data to appear as complete.<br />For categories the individual participated in, please enter additional information, such as hours and wages, where asked.<br />For categories the individual did not participate in, please check in the appropriate box (Did not participate in this activity) to confirm this information. </p>'); */
 
 
 
    $('fieldset div.form-type-textarea .form-textarea').each(function(i, elem) {
      if($(elem).val() && !$(elem).closest('fieldset.field-group-tab').hasClass('showQues')) { $(elem).closest('fieldset').addClass('showQues'); }
-   });
+    });
+    var empIncomeText = "Gross business income <span style='text-decoration:underline; color: #a41514;'>for the last three months</span>";
+    var empExpensText = "Gross business expenses <span style='text-decoration:underline; color: #a41514;'>for the last three months</span>";
+    if($('label[for="edit-field-self-emp-gross-income-und-0-value"]').html().length) $('label[for="edit-field-self-emp-gross-income-und-0-value"]').html(empIncomeText);
+    if($('label[for="edit-field-self-emp-gross-expens-und-0-value"]').html().length) $('label[for="edit-field-self-emp-gross-expens-und-0-value"]').html(empExpensText);
 
     if(!$('.main-container #saveWarn').length ) $('.main-container #edit-submit').after('<p id="saveWarn">Be sure to Save before exiting this page or you will lose your work.</p><a id="logOutbut" href="/user/logout">Log out</a>');
    /*$(".vertical-tabs-list").attr('id','save_target');

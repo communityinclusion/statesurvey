@@ -9,6 +9,7 @@ dependencies[] = date
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group
+dependencies[] = field_hidden
 dependencies[] = georgia_addition
 dependencies[] = list
 dependencies[] = more_georgia_changes
