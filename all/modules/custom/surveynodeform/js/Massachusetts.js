@@ -9,6 +9,7 @@
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
          $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+         $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
        });
 
 
