@@ -768,7 +768,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     {
       global $user;
 
-      if (!in_array('GA user', $user->roles) && !in_array('administrator', $user->roles) && !in_array('Survey administrator', $user->roles) && !in_array('GA Admin', $user->roles)) {
+      if (!in_array('administrator', $user->roles) && !in_array('Survey administrator', $user->roles) && !in_array('GA Admin', $user->roles)) {
         $form['field_cie_individual']['#access'] = FALSE;
         $form['field_date_of_entry_into_extende']['#access'] = FALSE;
       }
