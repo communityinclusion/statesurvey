@@ -8,6 +8,10 @@
   Drupal.behaviors.remState = {
        attach: function (context, settings) 
        {
+          $('.table-responsive a[data-toggle="tooltip"]').tooltip({
+           trigger : 'hover'
+          })
+      
           $(document).ajaxComplete(function(){
           $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
           $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
