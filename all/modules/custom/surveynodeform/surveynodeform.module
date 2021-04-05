@@ -313,7 +313,7 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
         '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
         <h3>Data for $providername for  a two-week period between the dates $reportingperiod</h3>",
         '#markup' =>  surveynodeform_table($captions[0],$arraycount,$headerarray) . surveynodeform_table($captions[1],$hoursarray,$sixarray). surveynodeform_table($captions[2],$wagesarray,$fivearray),
-        '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earinings and hours are calculated for last three months.</p>',
+        '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earnings are calculated for last three months. [hours are reported for the standard 2 week period]</p>',
   );
   return $data;
 
