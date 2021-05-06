@@ -991,7 +991,7 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_indv_comp_new_job_y_n',
-    'label' => 'Began working in a new job between 5/06/2018 and 5/05/2019?',
+    'label' => 'Did the individual enter a new individual job in the past 12 months?',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1787,12 +1787,12 @@ function individual_data_ma_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('(developer note: this is the Groups Audience field)');
-  t('Began working in a new job between 5/06/2018 and 5/05/2019?');
   t('Community Based Day Services (yes/no)?');
   t('Date of hire');
   t('Day Habilitation Program (yes/no)?');
   t('Did not participate in other day support wrap-around services during the reporting period.');
   t('Did not participate in this activity');
+  t('Did the individual enter a new individual job in the past 12 months?');
   t('Discovery or Career Planning activities (yes/no)?');
   t('Eligible for employer paid health insurance?');
   t('Explain your choice of "Other."');

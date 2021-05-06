@@ -240,7 +240,7 @@ function georgia_addition_conditional_fields_default_fields() {
       'entity' => 'node',
       'bundle' => 'individual_data_ga',
       'dependent' => 'field_delete_indiv_why_other',
-      'dependee' => 'field_delete_indiv_why',
+      'dependee' => 'field_delete_indiv_why_ga',
       'options' => array(
         'state' => 'visible',
         'condition' => 'value',
@@ -305,6 +305,13 @@ function georgia_addition_conditional_fields_default_fields() {
             3 => 0,
             4 => 0,
           ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
         ),
         'element_edit' => array(
           1 => 1,
@@ -340,6 +347,10 @@ function georgia_addition_conditional_fields_default_fields() {
             1 => 1,
             3 => 0,
           ),
+          8 => array(
+            1 => 1,
+            3 => 0,
+          ),
         ),
         'selector' => '',
         'values_set' => 1,
@@ -347,6 +358,133 @@ function georgia_addition_conditional_fields_default_fields() {
         'value' => array(
           0 => array(
             'value' => 'other',
+          ),
+        ),
+        'values' => array(),
+      ),
+    ),
+    array(
+      'entity' => 'node',
+      'bundle' => 'individual_data_ga',
+      'dependent' => 'field_fac_non_work_hours',
+      'dependee' => 'field_fac_non_work_partic',
+      'options' => array(
+        'state' => 'visible',
+        'condition' => 'value',
+        'grouping' => 'AND',
+        'effect' => 'show',
+        'effect_options' => array(),
+        'element_view' => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        'element_view_per_role' => 0,
+        'element_view_roles' => array(
+          1 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            2 => 2,
+            5 => 0,
+            3 => 0,
+            4 => 0,
+          ),
+        ),
+        'element_edit' => array(
+          1 => 1,
+          3 => 0,
+        ),
+        'element_edit_per_role' => 0,
+        'element_edit_roles' => array(
+          1 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          2 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          3 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          4 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          5 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          6 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          7 => array(
+            1 => 1,
+            3 => 0,
+          ),
+          8 => array(
+            1 => 1,
+            3 => 0,
+          ),
+        ),
+        'selector' => '',
+        'values_set' => 1,
+        'value_form' => NULL,
+        'value' => array(
+          0 => array(
+            'value' => 0,
           ),
         ),
         'values' => array(),

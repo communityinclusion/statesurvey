@@ -421,7 +421,7 @@
    if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') && $('#edit-field-indv-comp-covid-ma-und').val() == 'no'  && $('#edit-field-grp-integ-covid-ma-und').val() == 'no' ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
    }
 
-   function completionTasks() {
+  function completionTasks() {
     //remove commas
     $('.field-type-number-float input').each(function(i, el) {
       if($(el).val() != "" ) {
@@ -441,11 +441,14 @@
             return false;
           }
         });
+        if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked')) formComplete = false;
+        if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-3').prop('checked') && $('#edit-field-indv-data-partic-other-und-0-value').val() == "" ) formComplete = false;
       
       
       
        if (formComplete) $('#edit-field-ga-ind-data-complete input').val('1');
        else $('#edit-field-ga-ind-data-complete input').val('0');
+       if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked', true)) formComplete = false;
    
   
   }

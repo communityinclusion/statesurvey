@@ -204,7 +204,7 @@ function individual_data_ma_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-job-search field-group-tab',
-        'description' => 'Is this individual actively engaged in job search or job pathway activities supported by an employment service?',
+        'description' => 'Individual is engaged in job search or job exploration activities as pathway to employment that are supported through your employment services.',
       ),
       'formatter' => 'closed',
     ),

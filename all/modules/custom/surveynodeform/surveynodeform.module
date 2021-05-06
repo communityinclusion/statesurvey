@@ -705,7 +705,11 @@ function surveynodeform_profile_form_submit($form, &$form_state)
 
 function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   global $nid;
-  if (arg(0) == 'node' && is_numeric(arg(1)))   $nid = arg(1);
+  if (arg(0) == 'node' && is_numeric(arg(1)))  
+  { $nid = arg(1);
+    $datanode = node_load($nid);
+  }
+  
   if($form_id == 'provider_node_form') {
     global $theme;
 
@@ -747,6 +751,45 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
  
     //new state: add checks
   } elseif($form_id == 'individual_data_ga_node_form') {
+    global $user;
+
+      if (!in_array('administrator', $user->roles) && in_array('GA Admin', $user->roles)) {
+        $form['#attributes']['class'][] = 'gaAdminHide';
+      }
+    //print_r($form);
+    //echo "Node ID: " . $datanode->field_individual[LANGUAGE_NONE][0]['target_id'];
+    $individual_id = $datanode->field_individual[LANGUAGE_NONE][0]['target_id'];
+    $individual_node = node_load($individual_id);
+    $reportingperiod_id = $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
+    $reporting_period_node = node_load($reportingperiod_id);
+    $cieperiod = $reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
+    $cie_individual = $individual_node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
+    if($cie_individual && !$cieperiod) {
+
+      unset($form['#groups']['group_indv_comp']);
+      unset($form['#fieldgroups']['group_indv_comp']);
+    } elseif ($cie_individual && $cieperiod) {
+      unset($form['#groups']['group_indv_comp']);
+      unset($form['#fieldgroups']['group_indv_comp']);
+
+      unset($form['#groups']['group_grp_integ']);
+      unset($form['#fieldgroups']['group_grp_integ']);
+
+      unset($form['#groups']['group_self_emp']);
+      unset($form['#fieldgroups']['group_self_emp']);
+
+      unset($form['#groups']['group_shl']);
+      unset($form['#fieldgroups']['group_shl']);
+
+      unset($form['#groups']['group_com_non_work']);
+      unset($form['#fieldgroups']['group_com_non_work']);
+
+      unset($form['#groups']['group_fac_non_work']);
+      unset($form['#fieldgroups']['group_fac_non_work']);
+    } else {
+      unset($form['#groups']['group_cie']);
+      unset($form['#fieldgroups']['group_cie']);
+    }
     $form['field_indv_comp_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
     $form['field_grp_integ_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
     $form['field_shl_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
@@ -806,10 +849,6 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       case 'individual_data_ga_node_form':
         $provtext = 'individual_data_ga';
       break;
-      // is this right?
-      case 'individual_data_ga_cie_node_form':
-        $provtext = 'individual_data_cie_ga';
-      break;
     }
     $provid =  surveynodeform_get_prov_id($nid,$provtext);
 
@@ -817,13 +856,10 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $statearray = surveynodeform_provider_statename($provid);
     $statename = $statearray[0];
     $statetid = key(taxonomy_get_term_by_name($statename));
-    if($form_id == 'individual_data_ga_cie_node_form') {
-      drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/GeorgiaCIE.css");
-      drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/GeorgiaCIE.js");
-    } else {
+  
       drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
       drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
-    }
+  
 
   }
   parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
@@ -889,8 +925,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['gaselfexpensehigh'] = variable_get('surveynodeform_gaselfexpensehigh');
 
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_ga_cie_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'|| $form_id == 'individual_data_ga_cie_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
     $form['#prefix']= "<h3>Explain your reason for deleting this individual in the form below and hit \"Next step,\" then finish deleting on the next page.</h3>";
     $form['actions']['submit']['#value'] = 'Next step';
     $form['actions']['submit']['#attributes'] = array('class' => array('btn','btn-primary'));
@@ -903,7 +939,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       drupal_add_js(drupal_get_path('theme', 'bootstrap') . '/js/misc/_vertical-tabs.js'); 
     }
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form'|| $form_id == 'individual_data_ga_cie_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
 
     if($form_id == 'individual_node_form') { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/individualform.js'); }
         drupal_add_js(array('Surveyconfig' => $settings), 'setting');
@@ -912,6 +948,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
     if (empty($form[$field_name])) {
       return;
+      
     }
 
   $field_language = $form[$field_name][LANGUAGE_NONE];

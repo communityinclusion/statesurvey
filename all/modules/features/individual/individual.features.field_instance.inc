@@ -97,9 +97,8 @@ function individual_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'node-individual-field_date_of_entry_into_extende'.
-  $field_instances['node-individual-field_date_of_entry_into_extende'] = array(
+  // Exported field_instance: 'node-individual-field_date_of_entry_into_ende'.
+  $field_instances['node-individual-field_date_of_entry_into_ende'] = array(
     'bundle' => 'individual',
     'deleted' => 0,
     'description' => '',
@@ -108,12 +107,12 @@ function individual_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'long',
+          'format_type' => 'short_no_time',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_remaining_days' => FALSE,
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
         'weight' => 7,
@@ -126,7 +125,7 @@ function individual_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_date_of_entry_into_extende',
+    'field_name' => 'field_date_of_entry_into_ende',
     'label' => 'Date of entry into extended services',
     'required' => 0,
     'settings' => array(
@@ -137,8 +136,8 @@ function individual_field_default_field_instances() {
       'restrictions' => array(
         'max' => array(
           'date' => array(
-            'day' => 29,
-            'month' => 3,
+            'day' => 2,
+            'month' => 4,
             'year' => 2021,
           ),
           'host_entity_date' => array(
@@ -156,8 +155,8 @@ function individual_field_default_field_instances() {
         ),
         'min' => array(
           'date' => array(
-            'day' => 29,
-            'month' => 3,
+            'day' => 2,
+            'month' => 4,
             'year' => 2021,
           ),
           'host_entity_date' => array(
@@ -215,7 +214,7 @@ function individual_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 6,
+      'weight' => 9,
     ),
   );
 

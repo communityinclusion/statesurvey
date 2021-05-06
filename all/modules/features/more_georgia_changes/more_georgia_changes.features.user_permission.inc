@@ -215,6 +215,7 @@ function more_georgia_changes_user_default_permissions() {
   $permissions['view any unpublished individual_data_ga_cie content'] = array(
     'name' => 'view any unpublished individual_data_ga_cie content',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
     ),
     'module' => 'view_unpublished',

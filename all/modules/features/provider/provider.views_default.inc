@@ -243,7 +243,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -411,7 +411,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';

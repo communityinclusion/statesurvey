@@ -123,7 +123,7 @@ function sdata_rp_node_postinsert($node) {
       $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
       $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
         watchdog('hook_post_action_test', "The inserted node {$node->type} id is {$node->nid}, Provider id is $provider_id  State id is $state_id  Reporting perid id is $reporting_period_nid State content type is $state_individual_data_content_type from " . __FUNCTION__);
-        if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
+        //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
         _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $reporting_period_nid, $provider); 
     }
  }
@@ -167,7 +167,7 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
 
   // Load the state node to get its individual data content type machine name.
   $state_node = node_load($state_nid);
-  $state_individual_data_content_type = $state_node->field_individual_data_type[LANGUAGE_NONE][0]['value'];
+  //$state_individual_data_content_type = $cieperiod == 1 ? 'individual_data_ga_cie' : $state_node->field_individual_data_type[LANGUAGE_NONE][0]['value'];
 
   // Get list of providers.
   $query = new EntityFieldQuery();
@@ -204,10 +204,19 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
   foreach ($state_providers as $provider) {
       
       $query = new EntityFieldQuery();
-      $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'individual')
-        ->fieldCondition('og_group_ref', 'target_id', $provider->nid)
-        ->propertyCondition('status', NODE_PUBLISHED);
+      if($cieperiod == 1) {
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'individual')
+          ->fieldCondition('og_group_ref', 'target_id', $provider->nid)
+          ->fieldCondition('field_georgia_cie', 'value', '1', '=')
+          ->propertyCondition('status', NODE_PUBLISHED);
+
+      } else {
+        $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'individual')
+          ->fieldCondition('og_group_ref', 'target_id', $provider->nid)
+          ->propertyCondition('status', NODE_PUBLISHED);
+      }
       $result = $query->execute();
     
   
@@ -320,19 +329,34 @@ function _sdata_rp_submit_data($provider_nid) {
   // Load the state node to get its notification email addresses.
   $state = node_load($state_nid);
   $state_individual_data_email_addresses = $state->field_notification_emails['und'][0]['value'];
+
+  $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+  $reporting_period_node = node_load($reporting_period_nid);
+  //distinguish Georgia CIE nodes from regular nodes
+  $cieperiod = $reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'];
   $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
 
   // Unpublish individal data nodes so that they can't be edited by providers.
-  $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+  
+  
 
   // Entity field query that gets a list of individual data nodes for the given provider
   // for the current reporting period for the provider's state.
   $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
+  if($cieperiod == 1) {
+    $query->entityCondition('entity_type', 'node')
     ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
-    ->propertyCondition('status', 1)
+    ->fieldCondition('field_georgia_cie', 'value', '1', '=')
+    >propertyCondition('status', 1)
     ->propertyCondition('type', $state_individual_data_content_type)
     ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+  } else {
+    $query->entityCondition('entity_type', 'node')
+      ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
+      ->propertyCondition('status', 1)
+      ->propertyCondition('type', $state_individual_data_content_type)
+      ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+  }
   $result = $query->execute();
 
   // If any individual data nodes are returned, loop around each one and validate.

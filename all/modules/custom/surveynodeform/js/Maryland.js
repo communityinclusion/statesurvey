@@ -437,6 +437,8 @@
             return false;
           }
         });
+        if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked')) formComplete = false;
+    if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-3').prop('checked') && $('#edit-field-indv-data-partic-other-und-0-value').val() == "" ) formComplete = false;
       
       
       

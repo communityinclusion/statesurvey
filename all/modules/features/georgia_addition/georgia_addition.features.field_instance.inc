@@ -123,7 +123,7 @@ function georgia_addition_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_com_non_wrk_hours',
-    'label' => 'Hours spent in unpaid activities in an integrated community setting',
+    'label' => 'Hours spent in unpaid activities in an integrated community setting during this reporting period',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -141,8 +141,9 @@ function georgia_addition_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_ga-field_delete_indiv_why'.
-  $field_instances['node-individual_data_ga-field_delete_indiv_why'] = array(
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_delete_indiv_why_ga'.
+  $field_instances['node-individual_data_ga-field_delete_indiv_why_ga'] = array(
     'bundle' => 'individual_data_ga',
     'default_value' => NULL,
     'deleted' => 0,
@@ -153,7 +154,7 @@ function georgia_addition_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 30,
+        'weight' => 42,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -163,7 +164,7 @@ function georgia_addition_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_delete_indiv_why',
+    'field_name' => 'field_delete_indiv_why_ga',
     'label' => 'Why is this person being deleted from the individuals list?',
     'required' => 0,
     'settings' => array(
@@ -176,7 +177,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 45,
     ),
   );
 
@@ -217,7 +218,54 @@ function georgia_addition_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 39,
+      'weight' => 46,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_fac_non_work_hours'.
+  $field_instances['node-individual_data_ga-field_fac_non_work_hours'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 43,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fac_non_work_hours',
+    'label' => 'Hours spend in facility based non-work during this reporting period',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 37,
     ),
   );
 
@@ -770,7 +818,7 @@ function georgia_addition_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_indv_comp_hrs',
-    'label' => 'Total hours worked for the month',
+    'label' => 'Total hours worked for this reporting period',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1620,7 +1668,8 @@ function georgia_addition_field_default_field_instances() {
   t('Gross business income *for the last three months*');
   t('Gross wages earned this reporting period');
   t('Gross wages earned this reporting period including, if applicable, tips (dollar amount)');
-  t('Hours spent in unpaid activities in an integrated community setting');
+  t('Hours spend in facility based non-work during this reporting period');
+  t('Hours spent in unpaid activities in an integrated community setting during this reporting period');
   t('Hours worked for pay this reporting period');
   t('Hours worked in business this reporting period *for the two week reporting period only*');
   t('How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.');
@@ -1635,7 +1684,7 @@ function georgia_addition_field_default_field_instances() {
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
   t('Reporting period');
-  t('Total hours worked for the month');
+  t('Total hours worked for this reporting period');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity?');

@@ -457,17 +457,19 @@
     });
     //check that all tabs are complete and set hidden field field_ga_ind_data_complete complete/imcomplete
     var formComplete = false;
+  
     
-     
-        $('.vertical-tab-button > a').each(function(i, el) {
-          if (!$(this).hasClass('inComplete')) {
-          formComplete = true;
-          
-          } else if($(this).hasClass('inComplete')) {
-            formComplete = false;
-            return false;
-          }
-        });
+      $('.vertical-tab-button > a').each(function(i, el) {
+        if (!$(this).hasClass('inComplete')) {
+        formComplete = true;
+        
+        } else if($(this).hasClass('inComplete')) {
+          formComplete = false;
+          return false;
+        }
+      });
+    if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked')) formComplete = false;
+    if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-3').prop('checked') && $('#edit-field-indv-data-partic-other-und-0-value').val() == "" ) formComplete = false;
       
       
       

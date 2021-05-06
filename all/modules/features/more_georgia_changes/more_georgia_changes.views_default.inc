@@ -98,7 +98,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -138,7 +138,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for the month */
+  /* Field: Content: Total hours worked for this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -850,7 +850,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -890,7 +890,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for the month */
+  /* Field: Content: Total hours worked for this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -1172,7 +1172,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1212,7 +1212,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for the month */
+  /* Field: Content: Total hours worked for this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -1925,6 +1925,13 @@ function more_georgia_changes_views_default_views() {
 
   /* Display: Georgia Provider director download */
   $handler = $view->new_display('views_data_export', 'Georgia Provider director download', 'views_data_export_3');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    8 => '8',
+    6 => '6',
+  );
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';

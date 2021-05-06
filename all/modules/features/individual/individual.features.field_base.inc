@@ -39,13 +39,13 @@ function individual_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_date_of_entry_into_extende'.
-  $field_bases['field_date_of_entry_into_extende'] = array(
+  // Exported field_base: 'field_date_of_entry_into_ende'.
+  $field_bases['field_date_of_entry_into_ende'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_date_of_entry_into_extende',
+    'field_name' => 'field_date_of_entry_into_ende',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -57,15 +57,15 @@ function individual_field_default_field_bases() {
       'cache_enabled' => 0,
       'granularity' => array(
         'day' => 'day',
-        'hour' => 'hour',
+        'hour' => 0,
         'minute' => 0,
         'month' => 'month',
         'second' => 0,
         'year' => 'year',
       ),
-      'timezone_db' => 'UTC',
+      'timezone_db' => '',
       'todate' => '',
-      'tz_handling' => 'site',
+      'tz_handling' => 'none',
     ),
     'translatable' => 0,
     'type' => 'datetime',

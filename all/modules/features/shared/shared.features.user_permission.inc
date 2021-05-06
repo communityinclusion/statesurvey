@@ -73,6 +73,7 @@ function shared_user_default_permissions() {
   $permissions['edit field_individual'] = array(
     'name' => 'edit field_individual',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -121,6 +122,7 @@ function shared_user_default_permissions() {
   $permissions['edit own field_individual'] = array(
     'name' => 'edit own field_individual',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),

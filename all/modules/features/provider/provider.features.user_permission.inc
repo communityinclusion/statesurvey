@@ -15,6 +15,8 @@ function provider_user_default_permissions() {
   $permissions['create field_provider_director_email'] = array(
     'name' => 'create field_provider_director_email',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -27,6 +29,8 @@ function provider_user_default_permissions() {
   $permissions['create field_provider_director_name'] = array(
     'name' => 'create field_provider_director_name',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -39,6 +43,8 @@ function provider_user_default_permissions() {
   $permissions['create field_provider_director_phone'] = array(
     'name' => 'create field_provider_director_phone',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -61,6 +67,7 @@ function provider_user_default_permissions() {
   $permissions['create og_group_provider_state_ref'] = array(
     'name' => 'create og_group_provider_state_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -71,6 +78,8 @@ function provider_user_default_permissions() {
   $permissions['edit field_provider_director_email'] = array(
     'name' => 'edit field_provider_director_email',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -83,6 +92,8 @@ function provider_user_default_permissions() {
   $permissions['edit field_provider_director_name'] = array(
     'name' => 'edit field_provider_director_name',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -95,6 +106,8 @@ function provider_user_default_permissions() {
   $permissions['edit field_provider_director_phone'] = array(
     'name' => 'edit field_provider_director_phone',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -117,6 +130,7 @@ function provider_user_default_permissions() {
   $permissions['edit og_group_provider_state_ref'] = array(
     'name' => 'edit og_group_provider_state_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -127,6 +141,8 @@ function provider_user_default_permissions() {
   $permissions['edit own field_provider_director_email'] = array(
     'name' => 'edit own field_provider_director_email',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -139,6 +155,8 @@ function provider_user_default_permissions() {
   $permissions['edit own field_provider_director_name'] = array(
     'name' => 'edit own field_provider_director_name',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -151,6 +169,8 @@ function provider_user_default_permissions() {
   $permissions['edit own field_provider_director_phone'] = array(
     'name' => 'edit own field_provider_director_phone',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -173,6 +193,7 @@ function provider_user_default_permissions() {
   $permissions['edit own og_group_provider_state_ref'] = array(
     'name' => 'edit own og_group_provider_state_ref',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -183,6 +204,8 @@ function provider_user_default_permissions() {
   $permissions['view field_provider_director_email'] = array(
     'name' => 'view field_provider_director_email',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -195,6 +218,8 @@ function provider_user_default_permissions() {
   $permissions['view field_provider_director_name'] = array(
     'name' => 'view field_provider_director_name',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -207,6 +232,8 @@ function provider_user_default_permissions() {
   $permissions['view field_provider_director_phone'] = array(
     'name' => 'view field_provider_director_phone',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -240,6 +267,8 @@ function provider_user_default_permissions() {
   $permissions['view own field_provider_director_email'] = array(
     'name' => 'view own field_provider_director_email',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -252,6 +281,8 @@ function provider_user_default_permissions() {
   $permissions['view own field_provider_director_name'] = array(
     'name' => 'view own field_provider_director_name',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',
@@ -264,6 +295,8 @@ function provider_user_default_permissions() {
   $permissions['view own field_provider_director_phone'] = array(
     'name' => 'view own field_provider_director_phone',
     'roles' => array(
+      'GA Admin' => 'GA Admin',
+      'GA user' => 'GA user',
       'MA user' => 'MA user',
       'MD user' => 'MD user',
       'Survey administrator' => 'Survey administrator',

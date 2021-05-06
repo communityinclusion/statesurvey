@@ -11,6 +11,58 @@
 function georgia_addition_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_delete_indiv_why_ga'.
+  $field_bases['field_delete_indiv_why_ga'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_delete_indiv_why_ga',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'deceased' => 'Deceased',
+        'moved out of service area' => 'Moved out of service area',
+        'receiving SE services from GVRA' => 'Receiving SE services from GVRA',
+        'switched service providers' => 'Switched service providers',
+        'no longer interested in services' => 'No longer interested in services',
+        'other' => 'Other - Explain below',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_fac_non_work_hours'.
+  $field_bases['field_fac_non_work_hours'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_fac_non_work_hours',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
   // Exported field_base: 'field_ga_ind_data_complete'.
   $field_bases['field_ga_ind_data_complete'] = array(
     'active' => 1,
@@ -118,7 +170,6 @@ function georgia_addition_field_default_field_bases() {
         'Contracted state funds (GIA)' => 'Contracted state funds (GIA)',
         'Family Supports' => 'Family Supports',
         'GVRA' => 'GVRA',
-        'CIE Funds (formerly EEF)' => 'CIE Funds (formerly EEF)',
         'Other' => 'Other',
       ),
       'allowed_values_function' => '',

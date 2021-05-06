@@ -54,8 +54,8 @@ function georgia_addition_field_group_info() {
     'label' => 'Answer some questions before deleting this individual.',
     'weight' => '7',
     'children' => array(
-      0 => 'field_delete_indiv_why',
-      1 => 'field_delete_indiv_why_other',
+      0 => 'field_delete_indiv_why_other',
+      1 => 'field_delete_indiv_why_ga',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -88,6 +88,7 @@ function georgia_addition_field_group_info() {
     'children' => array(
       0 => 'field_fac_non_work_partic',
       1 => 'field_fac_non_work_yn_partic',
+      2 => 'field_fac_non_work_hours',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -112,7 +113,7 @@ function georgia_addition_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Group Supported Employment',
+    'label' => 'Group Supported Job',
     'weight' => '5',
     'children' => array(
       0 => 'field_grp_integ_gross_wages',
@@ -124,11 +125,11 @@ function georgia_addition_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Group Supported Employment',
+      'label' => 'Group Supported Job',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-grp-integ field-group-tab',
-        'description' => '<h3>Group Integrated Job Subsection/Supported Employment Group (SEG)</h3><p>The individual works in a group of 2 to 8 individuals with disabilities in a community setting that includes meaningful interaction with individuals without disabilities. This would typically include work settings described as enclaves or mobile work crews.</p>
+        'description' => '<h3>Group Supported Job</h3><p>The individual works in a group of 2 to 8 individuals with disabilities in a community setting that includes meaningful interaction with individuals without disabilities. This would typically include work settings described as enclaves or mobile work crews.</p>
 ',
       ),
       'formatter' => 'closed',
@@ -178,7 +179,7 @@ function georgia_addition_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Individual Employment',
+    'label' => 'Individual Community Job',
     'weight' => '4',
     'children' => array(
       0 => 'field_indv_comp_fund_source',
@@ -189,17 +190,15 @@ function georgia_addition_field_group_info() {
       5 => 'field_indv_comp_partic',
       6 => 'field_indv_comp_time_in_job',
       7 => 'field_indv_comp_why_not_min',
-      8 => 'field_indv_comp_pay_rate',
-      9 => 'field_indv_comp_gross_wages',
+      8 => 'field_indv_comp_gross_wages',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Individual Employment',
+      'label' => 'Individual Community Job',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-indv-comp field-group-tab',
-        'description' => '<h3>Individual Community Job</h3><p>An individual full or part time job in the typical labor market where the majority of persons employed are not persons with disabilities. The business is located within the community and is not owned or operated by the support organization. The person is on the payroll of the community business.</p> <ul><li>This may include individuals receiving: 
-        Contracted State Funds/Grant-in-Aid (GIA) SEI services</li>
+        'description' => '<h3>Individual Community Job</h3><p>An individual full or part time job in the typical labor market where the majority of persons employed are not persons with disabilities. The business is located within the community and is not owned or operated by the support organization. The person is on the payroll of the community business.</p> <ul>
 <li>Do not include individuals receiving SE services through CIE Funds (formerly Employment Express Funds (EEF). This information is captured using the CIE Funds Monthly Details Report.</li>
 <li>Information for individuals that are self-employed should be added under the Self Employment subsection.</li></ul>',
       ),
@@ -311,8 +310,8 @@ Note that business income and expenses are reported over a 3 month period to cap
   t('Community Based Non Work');
   t('Facility Based Non Work');
   t('Facility Based/Sheltered Work');
-  t('Group Supported Employment');
-  t('Individual Employment');
+  t('Group Supported Job');
+  t('Individual Community Job');
   t('Reason for no participation');
   t('Self Employment');
 
