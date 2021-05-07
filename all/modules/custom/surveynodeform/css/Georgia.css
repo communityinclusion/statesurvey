@@ -12,3 +12,7 @@
 fieldset.showQues .form-type-textarea.form-item-field-indv-comp-why-not-min-und-0-value {display: none; }
 .indCalcHourly { margin-top: 18px;}
 form.gaAdminHide div.form-item-title, form.gaAdminHide div#edit-field-individual, form.gaAdminHide div#edit-og-group-ref {display: none;}
+#edit-group_cie #bootstrap-panel {display: none;}
+#edit-group_cie #bootstrap-panel--2 {display: none;}
+.showInitial #edit-group_cie #bootstrap-panel {display: block;}
+.showExtended #edit-group_cie #bootstrap-panel--2 {display: block;}
