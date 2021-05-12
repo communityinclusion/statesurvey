@@ -698,29 +698,51 @@ $form_state['redirect'] = $destination;
 }
 
 function surveynodeform_individual_data_ga_node_form_submit($form, &$form_state) {
+ 
   
-  $individual_id = $form_state['values']['field_individual']['und'][0]['target_id'] ? $form_state['values']['field_individual']['und'][0]['target_id'] : null;
+  $individual_id = $form_state['values']['field_individual']['und'][0]['target_id'] ;
+ 
   if($individual_id) {
+    $individual_node = node_load($individual_id);
+    $node_wrapper = entity_metadata_wrapper('node', $individual_node);
+    
+  
+ 
+ 
+  
+  
+    $now = new DateTime( );
+        
+    $thismonth = $now->format("Y-m-d");
+    $nextmonth = new DateTime("$thismonth + 1 month");
+    
+    $nextmonthdate = $nextmonth->format('Y-m-01 00:00:00');
+    
+    $insertdate = strtotime($nextmonthdate);
+    
     if($form_state['values']['field_indv_final_month']['und'][0]['value'] == 'Yes') {
 
       
+    
+        $node_wrapper->revision->set(1);
+        $node_wrapper->field_date_of_entry_into_ende->set($insertdate);
+        $node_wrapper->save();
+    
       
-      $individual_node = node_load($individual_id);
-      $now = new DateTime( );
-      $thismonth = $now->format("Y-m-d");
-      $nextmonth = new DateTime("$thismonth + 1 month");
-      $nextmonthdate = $nextmonth->format('Y-m-01 00:00:00');
-      $insertdate = strtotime($nextmonthdate);
-      //dpm($nextmonthdate);
       
-      $node_wrapper = entity_metadata_wrapper('node', $individual_node);
-      $node_wrapper->field_date_of_entry_into_ende->set($insertdate);
+    }
+    else {
+      
+     
+      $extended = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] ? $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value']: null;
+      $node_wrapper->field_date_of_entry_into_ende->set(NULL);
       $node_wrapper->save();
       
     }
-  }
+  } 
 
 }
+
 
 
 function surveynodeform_profile_form_submit($form, &$form_state)
@@ -791,10 +813,15 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $cieperiod = $reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
     $cie_individual = $individual_node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
     if($cie_individual) {
-      $extended = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] ? $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] : null;
+      $extended = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] ? $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value']: null;
+      $testing = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0];
+      //print_r($testing);
+      //dpm($extended);
+     
       
       
       if($extended) $extendedvalue = new DateTime( $extended  );
+      
       $now = new DateTime(  );
       $nowshow = $now->format('Y-m-d H:i:s');
       //echo "<br />Now: $nowshow";
@@ -806,8 +833,10 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         
         
       }
-      if(!$extended)
-      $form['#submit'][] = 'surveynodeform_individual_data_ga_node_form_submit';
+      if(!$extended || $extendedvalue >= $now) {
+        
+        $form['#submit'][] = 'surveynodeform_individual_data_ga_node_form_submit';
+      }
 
  
     }

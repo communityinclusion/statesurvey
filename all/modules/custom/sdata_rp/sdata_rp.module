@@ -65,7 +65,7 @@
   
 
 
-   return drupal_goto("/node/39781");
+   return drupal_goto("/");
 
   }
   function sdata_rp_ga_batch_enrol()
