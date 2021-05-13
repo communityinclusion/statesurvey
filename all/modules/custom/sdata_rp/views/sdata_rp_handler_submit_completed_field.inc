@@ -51,20 +51,27 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
 			->propertyCondition('type', $state_individual_data_content_type)
 			->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
     $result = $query->execute();
+    $cie_query = new EntityFieldQuery();
+    $cie_query->entityCondition('entity_type', 'node')
+		  ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
+			->propertyCondition('status', 1)
+			->propertyCondition('type', $state_individual_data_content_type)
+			->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+    $cie_result = $cie_query->execute();
 
     // Assume the best.
     $valid = TRUE;
-$completed = FALSE;
-$empty = FALSE;
-     $query2 = new EntityFieldQuery();
+    $completed = FALSE;
+    $empty = FALSE;
+    $query2 = new EntityFieldQuery();
     $query2->entityCondition('entity_type', 'node')
-      ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
-      ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
-      ->propertyCondition('status',array(0),'IN')
-      ->propertyCondition('type', $state_individual_data_content_type)
-      ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+    ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
+    ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
+    ->propertyCondition('status',array(0),'IN')
+    ->propertyCondition('type', $state_individual_data_content_type)
+    ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
     $result2 = $query2->execute();
-// print_r($result2);
+    // print_r($result2);
     if(count($result) < 1  && count($result2) < 1) $empty = TRUE;
     if(count($result2) >= 1) $completed = TRUE;
     //print "Result 1 "; print_r($result); print "Result 2 "; print_r($result2);
@@ -85,25 +92,25 @@ $empty = FALSE;
             $valid = _sdata_rp_validate_ga($node);
             break;
         }
-      //  if (!$valid) break;
-      if (!$valid) {
-       $indnode =  $node->field_individual[LANGUAGE_NONE][0]['target_id'];
+        //  if (!$valid) break;
+        if (!$valid) {
+        $indnode =  $node->field_individual[LANGUAGE_NONE][0]['target_id'];
 
-      $provnode =  $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
+          $provnode =  $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
 
- $query3 = new EntityFieldQuery();
-  $query3->entityCondition('entity_type', 'node')
-   ->fieldCondition('og_group_ref', 'target_id', $provnode)
-   ->propertyCondition('nid', $indnode)
-   ->propertyCondition('status', 1)
-   ->propertyCondition('type', 'individual');
+          $query3 = new EntityFieldQuery();
+          $query3->entityCondition('entity_type', 'node')
+          ->fieldCondition('og_group_ref', 'target_id', $provnode)
+          ->propertyCondition('nid', $indnode)
+          ->propertyCondition('status', 1)
+          ->propertyCondition('type', 'individual');
 
-  $result3 = $query3->execute();
-  if (empty($result3)) {$valid = TRUE; }
+          $result3 = $query3->execute();
+          if (empty($result3)) {$valid = TRUE; }
 
 
- else {   break; }
-}
+          else {   break; }
+        }
 
 
       }
@@ -111,7 +118,8 @@ $empty = FALSE;
 
     // If any of the individual data nodes fail validation, then the form isn't ready to
     // submit.
-     if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles)) {
+    if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles)) 
+    {
        if ($valid && !$completed && !$empty) {
        //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
         $output = "<p><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a><br /><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a> </p>";
@@ -128,26 +136,28 @@ $empty = FALSE;
 
        else {
          $output = "<a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a><br />There are some individuals that are not complete. Please complete them before submitting your data.</p>";
-       }
-     } else {
-    if ($valid && !$completed && !$empty) {
-    //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-     $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit individuals or data.</strong></p>";
-    }
+        }
+    } 
+    else 
+    {
+      if ($valid && !$completed && !$empty) {
+      //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
+      $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit individuals or data.</strong></p>";
+      }
 
 
-    elseif($empty) {
-      $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>You have no individuals listed with this provider.</p>";
-    }
+      elseif($empty) {
+        $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>You have no individuals listed with this provider.</p>";
+      }
 
-    elseif($valid && $completed) {
-      $output = "<h4>Follow this link to enter individual data</h4><p>You have already edited and submitted individual data for this reporting period.</p><h4>Submit your data:</h4><p>You have already submitted your data for this reporting period.</p>";
-    }
+      elseif($valid && $completed) {
+        $output = "<h4>Follow this link to enter individual data</h4><p>You have already edited and submitted individual data for this reporting period.</p><h4>Submit your data:</h4><p>You have already submitted your data for this reporting period.</p>";
+      }
 
-    else {
-      $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
+      else {
+        $output = "<h4><a href=\"/provider/$provider_nid/individuals\">Follow this link to enter individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
+      }
     }
-  }
     return $output;
   }
 }
@@ -606,7 +616,7 @@ if (
   $node->field_self_emp_partic['und'][0]['value'] &&
   $node->field_job_search_partic['und'][0]['value'] &&
   $node->field_day_program_partic['und'][0]['value'] &&
-(
+  (
     (!isset($node->field_indv_data_partic_why['und'][0]['value']) || $node->field_indv_data_partic_why['und'][0]['value'] == '4')
    ||
     (
@@ -615,8 +625,8 @@ if (
   )
   )
   {
-return FALSE;
-}
+  return FALSE;
+  }
 
 
 
