@@ -51,13 +51,13 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
 			->propertyCondition('type', $state_individual_data_content_type)
 			->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
     $result = $query->execute();
-    $cie_query = new EntityFieldQuery();
+    /*$cie_query = new EntityFieldQuery();
     $cie_query->entityCondition('entity_type', 'node')
 		  ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
 			->propertyCondition('status', 1)
 			->propertyCondition('type', $state_individual_data_content_type)
 			->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
-    $cie_result = $cie_query->execute();
+    $cie_result = $cie_query->execute(); */
 
     // Assume the best.
     $valid = TRUE;
