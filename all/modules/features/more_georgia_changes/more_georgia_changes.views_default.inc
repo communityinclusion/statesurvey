@@ -138,7 +138,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -403,7 +403,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: SData: Check completion of individual data */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
   $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
   $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';
@@ -890,7 +890,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -1089,7 +1089,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: SData: Check completion of individual data */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
   $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
   $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';
@@ -1212,7 +1212,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -1445,7 +1445,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: SData: Check completion of individual data */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
   $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
   $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';

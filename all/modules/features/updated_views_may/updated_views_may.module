@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Updated_views_may feature.
+ */
+
+include_once 'updated_views_may.features.inc';
