@@ -12,6 +12,47 @@ function georgia_addition_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_cie_individual_yes_no'.
+  $field_instances['node-individual_data_ga-field_cie_individual_yes_no'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 63,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_cie_individual_yes_no',
+    'label' => 'CIE individual yes/no',
+    'required' => 0,
+    'settings' => array(
+      'max' => 1,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_hidden',
+      'settings' => array(),
+      'type' => 'field_hidden',
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_com_non_work_partic'.
   $field_instances['node-individual_data_ga-field_com_non_work_partic'] = array(
     'bundle' => 'individual_data_ga',
@@ -394,7 +435,47 @@ function georgia_addition_field_default_field_instances() {
       'module' => 'field_hidden',
       'settings' => array(),
       'type' => 'field_hidden',
-      'weight' => 10,
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_fund_source'.
+  $field_instances['node-individual_data_ga-field_grp_integ_fund_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 64,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_fund_source',
+    'label' => 'Primary funding source for employment support',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 19,
     ),
   );
 
@@ -527,7 +608,48 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_other_source'.
+  $field_instances['node-individual_data_ga-field_grp_integ_other_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 65,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_other_source',
+    'label' => 'Other funding source',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 20,
     ),
   );
 
@@ -567,7 +689,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -615,6 +737,46 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_time_in_job'.
+  $field_instances['node-individual_data_ga-field_grp_integ_time_in_job'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 66,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_time_in_job',
+    'label' => 'How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_grp_integ_work_location'.
   $field_instances['node-individual_data_ga-field_grp_integ_work_location'] = array(
     'bundle' => 'individual_data_ga',
@@ -650,7 +812,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 18,
+      'weight' => 21,
     ),
   );
 
@@ -700,6 +862,475 @@ function georgia_addition_field_default_field_instances() {
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_ga-field_indv_cie_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_cie_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 56,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_cie_hrs',
+    'label' => 'Total hours worked for the reporting period',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 65,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_cie_occupation'.
+  $field_instances['node-individual_data_ga-field_indv_cie_occupation'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 61,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_cie_occupation',
+    'label' => 'Occupation',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 69,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_cie_paid_time_off'.
+  $field_instances['node-individual_data_ga-field_indv_cie_paid_time_off'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 60,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_cie_paid_time_off',
+    'label' => 'Receives paid time off? Include paid vacation, sick, or holiday time.',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 68,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_cie_time_in_job'.
+  $field_instances['node-individual_data_ga-field_indv_cie_time_in_job'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 58,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_cie_time_in_job',
+    'label' => 'How long (in months) has this person been employed in this job?  If more than one job report the job with the longest tenure.',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 67,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_billing_y_n'.
+  $field_instances['node-individual_data_ga-field_indv_comp_billing_y_n'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 44,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_billing_y_n',
+    'label' => 'Billing CIE funds this month?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 58,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_comments'.
+  $field_instances['node-individual_data_ga-field_indv_comp_comments'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 62,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_comments',
+    'label' => 'Comments on CIE',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 71,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_employ_status'.
+  $field_instances['node-individual_data_ga-field_indv_comp_employ_status'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 52,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_employ_status',
+    'label' => 'Current employment status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_employer'.
+  $field_instances['node-individual_data_ga-field_indv_comp_employer'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 53,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_employer',
+    'label' => 'Employer name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 64,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_ext_dir_sup_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_ext_dir_sup_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 50,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_ext_dir_sup_hrs',
+    'label' => 'Direct support total hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 66,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_ext_ind_sup_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_ext_ind_sup_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 49,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_ext_ind_sup_hrs',
+    'label' => 'Indirect support total hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 65,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_ext_rem_sup_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_ext_rem_sup_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 51,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_ext_rem_sup_hrs',
+    'label' => 'Remote support hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 67,
     ),
   );
 
@@ -1001,6 +1632,194 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_pay_rate'.
+  $field_instances['node-individual_data_ga-field_indv_comp_pay_rate'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 57,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_pay_rate',
+    'label' => 'Hourly pay rate during this reporting period',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 66,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_pre_place_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_pre_place_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 46,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_pre_place_hrs',
+    'label' => 'Job development/placement support hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_pre_sup_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_pre_sup_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 47,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_pre_sup_hrs',
+    'label' => 'Job support hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 62,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_pre_supp_hrs'.
+  $field_instances['node-individual_data_ga-field_indv_comp_pre_supp_hrs'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 45,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_pre_supp_hrs',
+    'label' => 'Discovery support hours',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 60,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_indv_comp_time_in_job'.
   $field_instances['node-individual_data_ga-field_indv_comp_time_in_job'] = array(
     'bundle' => 'individual_data_ga',
@@ -1037,6 +1856,45 @@ function georgia_addition_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_comp_transportation'.
+  $field_instances['node-individual_data_ga-field_indv_comp_transportation'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 59,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_transportation',
+    'label' => 'Transportation to/from work',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 70,
     ),
   );
 
@@ -1160,6 +2018,288 @@ function georgia_addition_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_indv_date_last_worked'.
+  $field_instances['node-individual_data_ga-field_indv_date_last_worked'] = array(
+    'bundle' => 'individual_data_ga',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 55,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_date_last_worked',
+    'label' => 'Date last worked (if not working)',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'restrictions' => array(
+        'max' => array(
+          'date' => array(
+            'day' => 27,
+            'month' => 4,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => 'node:individual_data_ga:field_indv_start_date',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => array(
+            'day' => 27,
+            'month' => 4,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => 'node:individual_data_ga:field_indv_start_date',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+      ),
+      'restrictions2' => array(
+        'max' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 63,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_ga-field_indv_final_month'.
+  $field_instances['node-individual_data_ga-field_indv_final_month'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 48,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_final_month',
+    'label' => 'Is this the final month for initial supports',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 63,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_ga-field_indv_start_date'.
+  $field_instances['node-individual_data_ga-field_indv_start_date'] = array(
+    'bundle' => 'individual_data_ga',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 54,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_start_date',
+    'label' => 'Start date of employment',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'restrictions' => array(
+        'max' => array(
+          'date' => array(
+            'day' => 27,
+            'month' => 4,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => '',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => array(
+            'day' => 27,
+            'month' => 4,
+            'year' => 2021,
+          ),
+          'host_entity_date' => array(
+            'end_date' => 0,
+            'field' => '',
+          ),
+          'host_entity_interval' => array(
+            'field' => '',
+          ),
+          'interval' => array(
+            'interval' => '',
+            'period' => 'second',
+          ),
+          'type' => 'disabled',
+        ),
+      ),
+      'restrictions2' => array(
+        'max' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+        'min' => array(
+          'date' => NULL,
+          'host_entity_date' => array(
+            'end_date' => FALSE,
+            'field' => NULL,
+          ),
+          'host_entity_interval' => array(
+            'field' => NULL,
+          ),
+          'interval' => NULL,
+          'type' => 'disabled',
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 62,
+    ),
+  );
+
   // Exported field_instance: 'node-individual_data_ga-field_reporting_period'.
   $field_instances['node-individual_data_ga-field_reporting_period'] = array(
     'bundle' => 'individual_data_ga',
@@ -1202,6 +2342,46 @@ function georgia_addition_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_fund_source'.
+  $field_instances['node-individual_data_ga-field_self_emp_fund_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 67,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_fund_source',
+    'label' => 'Primary funding source for employment support',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 26,
     ),
   );
 
@@ -1381,7 +2561,48 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 24,
+      'weight' => 25,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_other_source'.
+  $field_instances['node-individual_data_ga-field_self_emp_other_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 68,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_other_source',
+    'label' => 'Other funding source',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 27,
     ),
   );
 
@@ -1425,6 +2646,46 @@ function georgia_addition_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_time_in_job'.
+  $field_instances['node-individual_data_ga-field_self_emp_time_in_job'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 69,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_time_in_job',
+    'label' => 'How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.	',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 24,
     ),
   );
 
@@ -1659,22 +2920,37 @@ function georgia_addition_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Billing CIE funds this month?');
+  t('CIE individual yes/no');
+  t('Comments on CIE');
+  t('Current employment status');
+  t('Date last worked (if not working)');
   t('Did not participate in this activity');
   t('Did person participate in a volunteer job during this reporting period?');
   t('Did person participate in unpaid activities in a program setting during this reporting period?');
+  t('Direct support total hours');
+  t('Discovery support hours');
+  t('Employer name');
   t('Explain your choice of "Other."');
   t('Explain your selection of "other" as reason for deletion of the individual');
   t('Gross business expenses *for the last three months*');
   t('Gross business income *for the last three months*');
   t('Gross wages earned this reporting period');
   t('Gross wages earned this reporting period including, if applicable, tips (dollar amount)');
+  t('Hourly pay rate during this reporting period');
   t('Hours spend in facility based non-work during this reporting period');
   t('Hours spent in unpaid activities in an integrated community setting during this reporting period');
   t('Hours worked for pay this reporting period');
   t('Hours worked in business this reporting period *for the two week reporting period only*');
+  t('How long (in months) has this person been employed in this job?  If more than one job report the job with the longest tenure.');
   t('How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.');
+  t('How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.	');
+  t('Indirect support total hours');
   t('Individual');
   t('Individual data complete');
+  t('Is this the final month for initial supports');
+  t('Job development/placement support hours');
+  t('Job support hours');
   t('Location of work');
   t('Occupation');
   t('Other funding source');
@@ -1682,9 +2958,14 @@ function georgia_addition_field_default_field_instances() {
   t('Provider');
   t('Receives paid time off?   Include paid vacation, sick, or holiday time.');
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
+  t('Receives paid time off? Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
+  t('Remote support hours');
   t('Reporting period');
+  t('Start date of employment');
+  t('Total hours worked for the reporting period');
   t('Total hours worked for this reporting period');
+  t('Transportation to/from work');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity?');

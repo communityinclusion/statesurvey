@@ -16,3 +16,4 @@ form.gaAdminHide div.form-item-title, form.gaAdminHide div#edit-field-individual
 #edit-group_cie #bootstrap-panel--2 {display: none;}
 .showInitial #edit-group_cie #bootstrap-panel {display: block;}
 .showExtended #edit-group_cie #bootstrap-panel--2 {display: block;}
+fieldset .form-type-textarea.form-item-field-grp-integ-other-source-und-0-value , fieldset .form-type-textarea.form-item-field-self-emp-other-source-und-0-value { display: block; }

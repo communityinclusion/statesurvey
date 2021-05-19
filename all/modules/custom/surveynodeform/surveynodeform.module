@@ -759,17 +759,33 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   
   if($form_id == 'provider_node_form') {
     global $theme;
+    $stateid = $datanode->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
+   
 
 
     if($theme == 'statedata_boot') {
         $url = drupal_get_query_parameters();
-      $form['#prefix']= "<h3>Are you sure you are ready to submit your user data?</h3><p>You will no longer be able to edit individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals\">Back to list of individuals</a></p>";
-    drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/provideredit.css');
-    if($url['status'] && $url['status'] == 'final') {
+        drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/provideredit.css');
+        $urlslug ="";
+        if($url['status'] && $url['status'] == 'final' && $stateid != '116038') {
+
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your user data?</h3><p>You will no longer be able to edit individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals\">Back to list of individuals</a></p>";
+        }
+        elseif( $url['status'] && $url['status'] == 'final' && $stateid = '116038')
+        { 
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your non-CIE user data?</h3><p>You will no longer be able to edit non-CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals\">Back to list of non-CIE individuals</a></p>";
+        }
+        elseif ($url['status'] && $url['status'] == 'final-cie') {
+
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your CIE user data?</h3><p>You will no longer be able to edit CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals-cie\">Back to list of CIE individuals</a></p>";
+
+        }
+   
+      if(($url['status'] && $url['status'] == 'final') || ($url['status'] && $url['status'] == 'final-cie')) {
       $form['actions']['submit']['#value'] = 'Final submit';
 
-    $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
-    }
+        $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
+       }
     }
 
 
@@ -814,7 +830,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $cie_individual = $individual_node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
     if($cie_individual) {
       $extended = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] ? $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value']: null;
-      $testing = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0];
+     // $testing = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0];
       //print_r($testing);
       //dpm($extended);
      
@@ -842,6 +858,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     }
 
     if($cie_individual && !$cieperiod) {
+      $form['#attributes']['class'][] = 'nonCiePeriod';
 
       unset($form['#groups']['group_indv_comp']);
       unset($form['#fieldgroups']['group_indv_comp']);
@@ -863,7 +880,12 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
       unset($form['#groups']['group_fac_non_work']);
       unset($form['#fieldgroups']['group_fac_non_work']);
-    } else {
+    } elseif
+    ($cie_individual && $cieperiod) {
+      $form['#attributes']['class'][] = 'ciePeriod';
+    }
+     else 
+    {
       unset($form['#groups']['group_cie']);
       unset($form['#fieldgroups']['group_cie']);
     }
@@ -888,91 +910,104 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     {
       global $user;
 
-      if (!in_array('administrator', $user->roles) && !in_array('Survey administrator', $user->roles) && !in_array('GA Admin', $user->roles)) {
-        $form['field_cie_individual']['#access'] = FALSE;
-        $form['field_date_of_entry_into_ende']['#access'] = FALSE;
-      }
+      //if (!in_array('administrator', $user->roles) && !in_array('Survey administrator', $user->roles) && !in_array('GA Admin', $user->roles)) {
+      //  $form['field_cie_individual']['#access'] = FALSE;
+        //$form['field_date_of_entry_into_ende']['#access'] = FALSE;
+     // }
     }
   //new state: add node form id
-  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form') {
+  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form') 
+  {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
-  $url = drupal_get_query_parameters();
+   $url = drupal_get_query_parameters();
  
-  if ($form_id == 'individual_node_form' && isset($url['p'])) { $provid = $url['p'];
+    if ($form_id == 'individual_node_form' && isset($url['p'])) { $provid = $url['p'];
     $statearray = surveynodeform_provider_statename($url['p']);
     $statename = $statearray[0];
     $statetid = key(taxonomy_get_term_by_name($statename));
     drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
     drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
 
-  } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) {
-  $provid =  surveynodeform_get_prov_id($nid,'individual');
-  $statearray = surveynodeform_provider_statename($provid);
-  $statename = $statearray[0];
-  $statetid = key(taxonomy_get_term_by_name($statename));
-  drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
-  drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
-  }
-  else
-  {  // set form_id
-   // new state: set form id to choose stylesheet and js
-    switch ($form_id) {
-      case 'individual_data_node_form':
-        $provtext = 'individual_data';
-      break;
-      case 'individual_data_ma_node_form':
-       $provtext = 'individual_data_ma';
-      break;
-      case 'individual_data_ga_node_form':
-        $provtext = 'individual_data_ga';
-      break;
-    }
-    $provid =  surveynodeform_get_prov_id($nid,$provtext);
-
-
-    $statearray = surveynodeform_provider_statename($provid);
-    $statename = $statearray[0];
-    $statetid = key(taxonomy_get_term_by_name($statename));
-  
+    } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) 
+    {
+      $provid =  surveynodeform_get_prov_id($nid,'individual');
+      $statearray = surveynodeform_provider_statename($provid);
+      $statename = $statearray[0];
+      $statetid = key(taxonomy_get_term_by_name($statename));
       drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
       drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
-  
+    }
+    else
+    {  // set form_id
+    // new state: set form id to choose stylesheet and js
+      switch ($form_id) {
+        case 'individual_data_node_form':
+          $provtext = 'individual_data';
+        break;
+        case 'individual_data_ma_node_form':
+        $provtext = 'individual_data_ma';
+        break;
+        case 'individual_data_ga_node_form':
+          $provtext = 'individual_data_ga';
+        break;
+      }
+      $provid =  surveynodeform_get_prov_id($nid,$provtext);
 
-  }
-  parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
-  $urlappend = '';
-  $urlappend = isset($queries['items_per_page']) ? '?items_per_page=' . $queries['items_per_page'] : '';
-  $urlappend .= isset($queries['page']) ? ( $queries['items_per_page'] ? '&page=' . $queries['page'] : '?page=' . $queries['page']) : '';
-  $urlappend .= isset($queries['order']) ? '&order=' . $queries['order'] : '';
-  $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
-  $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals$urlappend\">Back to list of individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
-  $queries = array();
-  parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
-  // print_r($queries);
+
+      $statearray = surveynodeform_provider_statename($provid);
+      $statename = $statearray[0];
+      $statetid = key(taxonomy_get_term_by_name($statename));
+      if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') $statename = 'GeorgiaCIE';
+    
+        drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
+        drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
+    
+
+    }
+    parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
+    $urlappend = '';
+    $urlappend = isset($queries['items_per_page']) ? '?items_per_page=' . $queries['items_per_page'] : '';
+    $urlappend .= isset($queries['page']) ? ( $queries['items_per_page'] ? '&page=' . $queries['page'] : '?page=' . $queries['page']) : '';
+    $urlappend .= isset($queries['order']) ? '&order=' . $queries['order'] : '';
+    $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
+    if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
+    {
+      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
+
+    }
+    else
+    {
+      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals$urlappend\">Back to list of individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
+    }
+    $queries = array();
+    parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
+    // print_r($queries);
 
     $url = drupal_get_query_parameters();
 
-  if ($url['destination']) {
-    $destination = $url['destination'];
-    $form['#action'] = "?destination=$destination$urlappend";
+    if ($url['destination']) {
+      $destination = $url['destination'];
+      $form['#action'] = "?destination=$destination$urlappend";
 
-  }
-  elseif($url['delete'] && $url['provnum']) {
-  $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
-  }
-  else
-  {
+    }
+    elseif($url['delete'] && $url['provnum']) 
+    {
+      $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
+    }
+    else
+    {
 
-    if($form['nid']['#value']) {
-      // Form stays in edit mode on submit
-            
-        $form['#action'] = '?destination=node/' . $form['nid']['#value'] . '/edit';
-      } elseif (!$form['nid']['#value'] && $form_id == 'individual_node_form') {
+      if($form['nid']['#value']) {
+        // Form stays in edit mode on submit
+              
+          $form['#action'] = '?destination=node/' . $form['nid']['#value'] . '/edit';
+      } elseif (!$form['nid']['#value'] && $form_id == 'individual_node_form') 
+      {
           $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
 
       }
 
-      }
+    }
 
       //new site: add settings
       // MA variables
@@ -1275,9 +1310,16 @@ function surveynodeform_node_form_redirect($form, &$form_state) {
 
   }
 
-  else {
+  elseif($url['status'] == 'final') {
 
     $destination = "sdata_rp/submit_data/" . arg(1);
+
+  }
+
+
+  elseif($url['status'] == 'final-cie') {
+
+    $destination = "sdata_rp/submit_data_cie/" . arg(1);
 
   }
   $form_state['redirect'] = $destination;

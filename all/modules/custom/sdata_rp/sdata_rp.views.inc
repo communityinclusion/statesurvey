@@ -53,6 +53,14 @@ function sdata_rp_views_data() {
       'handler' => 'sdata_rp_handler_submit_completed_field',
     ),
   );
+  // CIE custom field
+  $data['sdata_rp']['submit_completed_cie'] = array(
+    'title' => t('Submit completed CIE data'),
+    'help' => t('Provides a custom field for sdata to display a "Submit completed data" link if possible.'),
+    'field' => array(
+      'handler' => 'sdata_rp_handler_submit_completed_cie_field',
+    ),
+  );
     $data['sdata_rp']['check_ind'] = array(
       'title' => t('Check completion of individual data'),
       'help' => t('Provides a custom field to check for completion of individual data nodes.'),
@@ -60,6 +68,13 @@ function sdata_rp_views_data() {
         'handler' => 'sdata_rp_handler_check_ind_field',
       ),
   );
+  $data['sdata_rp']['check_ind_cie'] = array(
+    'title' => t('Check completion of CIE individual data'),
+    'help' => t('Provides a custom field to check for completion of CIE individual data nodes.'),
+    'field' => array(
+      'handler' => 'sdata_rp_handler_check_ind_cie_field',
+    ),
+);
   $data['sdata_rp']['count_completed'] = array(
     'title' => t('Count completed inds. per provider'),
     'help' => t('Provides a custom field for sdata to display a tally of completed individual data records'),
