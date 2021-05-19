@@ -756,6 +756,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   { $nid = arg(1);
     $datanode = node_load($nid);
   }
+  $form['#attributes']['class'][] = 'clearfix';
   
   if($form_id == 'provider_node_form') {
     global $theme;
