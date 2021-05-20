@@ -439,7 +439,7 @@
     
      
         $('.vertical-tab-button > a').each(function(i, el) {
-          if (!$(this).hasClass('inComplete')) {
+          if ($(this).hasClass('tabFilled')) {
           formComplete = true;
           
           } else if($(this).hasClass('inComplete')) {
