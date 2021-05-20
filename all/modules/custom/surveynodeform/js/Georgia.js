@@ -30,6 +30,12 @@
         $( document ).one('ready',scanFieldsets);
         $(document).one('ready',surveynodeformcheckAllActions);
         $('th').text('Order').hide();
+        $( document ).one('ready', function() {
+          $('.nextSec a').click(function(){
+          $('html, body').animate({scrollTop:0}, 'slow');
+         
+          });
+        });
         if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group integrated job >></a></p>');
         if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
          if (!$('#edit-group_self_emp p.nextSec').length) $('#edit-group_self_emp').append('<p class="nextSec"><a class="openTab" href="#edit-group_shl">>> Next: Facility based/sheltered work >></a></p>');

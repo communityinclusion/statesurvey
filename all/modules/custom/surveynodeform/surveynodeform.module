@@ -688,12 +688,22 @@ function surveynodeform_preprocess_node(&$vars){
 } */
 
 function surveynodeform_og_delete_form_redirect($form, &$form_state) {
-  if (arg(1) == 'node' && is_numeric(arg(2)))   $provid = arg(2);
+  if (arg(1) == 'node' && is_numeric(arg(2)))   {
+   
+    $provid = arg(2);
+    $ogid = arg(6);
+    $indnodeid = surveynodeform_get_og_membership_entity_id($ogid);
 
-
-
-  $destination = "provider/$provid/individuals";
-$form_state['redirect'] = $destination;
+    $indnode = node_load($indnodeid);
+  
+   if($indnode->field_cie_individual && $indnode->field_cie_individual[LANGUAGE_NONE][0]['value'] == '1') {
+      $destination = "provider/$provid/individuals-cie";
+    } else
+    {
+      $destination = "provider/$provid/individuals";
+    }
+    $form_state['redirect'] = $destination;
+  }
 
 }
 
@@ -899,12 +909,18 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
   }
   if ($form_id == 'og_ui_delete_membership' ) {
+    $urlslug = "";
     if (arg(1) == 'node' && is_numeric(arg(2)))   $provid = arg(2);
+    $ogid = arg(6);
+    $indnodeid = surveynodeform_get_og_membership_entity_id($ogid);
+    $indnode = node_load($indnodeid);
+    if($indnode->field_cie_individual && $indnode->field_cie_individual[LANGUAGE_NONE][0]['value'] == '1') $urlslug .= "-cie";
     $form['actions']['cancel'] = array(
       '#type'   => 'markup',
-      '#markup' => '<div class="form-cancel-button-wrapper">' . l(t("Cancel"), "/provider/$provid/individuals", array('attributes' => array('class' => array('form-cancel-button')))) . '</div>',
+      '#markup' => '<div class="form-cancel-button-wrapper">' . l(t("Cancel"), "/provider/$provid/individuals$urlslug", array('attributes' => array('class' => array('form-cancel-button')))) . '</div>',
     );
     $form['#submit'][] = 'surveynodeform_og_delete_form_redirect';
+  
     }
     //new site: for georgia: hide Individual is in CIE category	field_cie_individual from non-georgia users in Individual node form
     if ($form_id == 'individual_node_form')
@@ -1293,6 +1309,24 @@ function surveynodeform_admin() {
 
   return system_settings_form($form);
 }
+function surveynodeform_get_og_membership_entity_id($ogid) {
+  $result = db_query("SELECT og.etid
+    FROM {og_membership} og
+    WHERE og.id=:ogid
+    AND og.entity_type= :entity_type",
+    array(
+      ':ogid' => $ogid,
+      ':entity_type' => 'node',
+    )
+  );
+  $entity_exists = $result->rowCount();
+  if ($entity_exists) {
+    foreach ($result as $record) {
+      return $record->etid;
+    }
+  }
+  return FALSE;
+}
 
 
 
@@ -1300,14 +1334,20 @@ function surveynodeform_admin() {
 function surveynodeform_node_form_redirect($form, &$form_state) {
   $destination = "";
     $url = drupal_get_query_parameters();
+    
 
   if ($url['p']) {
-    $destination = "provider/" . $url['p'] . "/individuals";
+    if(($form_state['values']['field_cie_individual'] && $form_state['values']['field_cie_individual']['und'][0]['value'] == '1') || ($form_state['values']['field_cie_individual_yes_no'] && $form_state['values']['field_cie_individual_yes_no']['und'][0]['value'] == '1')) 
+    { $destination = "provider/" . $url['p'] . "/individuals-cie";
+    } else
+    {
+      $destination = "provider/" . $url['p'] . "/individuals";
+    }
 
   } elseif($url['delete'] && $url['provnum']) {
     $memberno = $url['delete'];
     $provno = $url['provnum'];
-  $destination = "group/node/$provno/admin/people/delete-membership/$memberno";
+    $destination = "group/node/$provno/admin/people/delete-membership/$memberno";
 
   }
 
