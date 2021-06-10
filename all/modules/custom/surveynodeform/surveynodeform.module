@@ -989,12 +989,12 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
     if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
     {
-      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
+      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie/$reportingperiod_id$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
 
     }
     else
     {
-      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals$urlappend\">Back to list of individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
+      $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals/$reportingperiod_id$urlappend\">Back to list of individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
     }
     $queries = array();
     parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
