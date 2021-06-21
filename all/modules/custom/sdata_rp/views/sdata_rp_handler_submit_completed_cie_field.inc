@@ -41,6 +41,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
     }
     $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
     $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+    $reporting_period_node = node_load($reporting_period_nid);
 
     // Entity field query that gets a list of individual data nodes for the given provider
     // for the current reporting period for the provider's state.
@@ -132,13 +133,18 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
       }
     }
 
+    $daterange = date_format(date_create($reporting_period_node->field_rp_date_range[LANGUAGE_NONE][0]['value']), "F j") . " to " .  date_format(date_create($reporting_period_node->field_rp_date_range[LANGUAGE_NONE][0]['value2']), "F j, Y");
+    $deadlinedate = "Reporting due date: <span class=\"bigRed\">" . date_format(date_create($reporting_period_node->field_rp_deadline_date[LANGUAGE_NONE][0]['value']),"F j Y") . "</span>";
+
     // If any of the individual data nodes fail validation, then the form isn't ready to
     // submit.
     if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles)) 
     {
+      $output = "<p><strong>Semi-annual reporting date range: $daterange</strong></p>
+      <p><strong> $deadlinedate</strong></p>";
        if ($valid && !$completed && !$empty) {
        //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-        $output = "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br /><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">CIE Data complete - ready to submit.</a></p>";
+        $output .= "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br /><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">CIE Data complete - ready to submit.</a></p>";
        }
 
 
@@ -147,31 +153,33 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
        }
 
        elseif($valid && $completed) {
-         $output = "<p>You have already edited and submitted CIE individual data for this reporting period.</p>";
+         $output .= "<p>You have already edited and submitted CIE individual data for this reporting period.</p>";
        }
 
        else {
-         $output = "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br />There are some CIE individuals that are not complete. Please complete them before submitting your data.</p>";
+         $output .= "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br />There are some CIE individuals that are not complete. Please complete them before submitting your data.</p>";
         }
     } 
     else 
     {
+      $output = "<p><strong>Monthly CIE reporting date range: $daterange</strong></p>
+      <p><strong> $deadlinedate</strong></p>";
       if ($valid && !$completed && !$empty) {
       //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-      $output = "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit CIE individuals or data.</strong></p>";
+      $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit CIE individuals or data.</strong></p>";
       }
 
 
       elseif($empty) {
-        $output = "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of CIE individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have no CIE individuals listed with this provider.</p>";
+        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of CIE individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have no CIE individuals listed with this provider.</p>";
       }
 
       elseif($valid && $completed) {
-        $output = "<h4>Follow this link to enter CIE individual data</h4><p>You have already edited and submitted CIE individual data for this reporting period.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have already submitted your data for this reporting period.</p>";
+        $output .= "<h4>Follow this link to enter CIE individual data</h4><p>You have already edited and submitted CIE individual data for this reporting period.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have already submitted your data for this reporting period.</p>";
       }
 
       else {
-        $output = "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
+        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
       }
     }
     return $output;

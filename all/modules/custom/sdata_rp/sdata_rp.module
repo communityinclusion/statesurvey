@@ -124,13 +124,20 @@ function sdata_rp_node_postinsert($node) {
       $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
       $provider = node_load($provider_id);
       $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
-      $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
       $state = node_load($state_id);
-      $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+      $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
       $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
-        watchdog('hook_post_action_test', "The inserted node {$node->type} id is {$node->nid}, Provider id is $provider_id  State id is $state_id  Reporting perid id is $reporting_period_nid State content type is $state_individual_data_content_type from " . __FUNCTION__);
+      $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+      $toggle_period_nid = $reporting_period_nid;
+      $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'];
+      $legacyarray = array();
+      module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+      if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
+      if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
+      $toggle_period_node = node_load($legacy_period_nid);
+      watchdog('hook_post_action_test', "The inserted node {$node->type} id is {$node->nid}, Provider id is $provider_id  State id is $state_id  Reporting perid id is $reporting_period_nid Toggle period nid = $toggle_period_nid State content type is $state_individual_data_content_type from " . __FUNCTION__);
         //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
-        _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $reporting_period_nid, $provider); 
+      _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider); 
     }
  }
 }
@@ -338,12 +345,20 @@ function _sdata_rp_submit_data($provider_nid) {
   // Load the state node to get its notification email addresses.
   $state = node_load($state_nid);
   $state_individual_data_email_addresses = $state->field_notification_emails['und'][0]['value'];
-
+  
   $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
   $reporting_period_node = node_load($reporting_period_nid);
   //distinguish Georgia CIE nodes from regular nodes
   $cieperiod = $reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'];
   $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
+  $toggle_period_nid = $reporting_period_nid;
+  $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'];
+  $legacyarray = array();
+  module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+  if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $legacy_period_nid);
+  if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
+  
+
 
   // Unpublish individal data nodes so that they can't be edited by providers.
   
@@ -356,15 +371,15 @@ function _sdata_rp_submit_data($provider_nid) {
     $query->entityCondition('entity_type', 'node')
     ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
     ->fieldCondition('field_cie_individual_yes_no', 'value', '1', '!=')
-    >propertyCondition('status', 1)
+    ->propertyCondition('status', 1)
     ->propertyCondition('type', $state_individual_data_content_type)
-    ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+    ->fieldCondition('field_reporting_period', 'target_id', $toggle_period_nid);
   } else {
     $query->entityCondition('entity_type', 'node')
       ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
       ->propertyCondition('status', 1)
       ->propertyCondition('type', $state_individual_data_content_type)
-      ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+      ->fieldCondition('field_reporting_period', 'target_id', $toggle_period_nid);
   }
   $result = $query->execute();
 
@@ -379,7 +394,7 @@ function _sdata_rp_submit_data($provider_nid) {
   }
 
   // Send notification emails.
-  _sdata_rp_send_notification_emails($state_individual_data_email_addresses, $provider_name);
+  //_sdata_rp_send_notification_emails($state_individual_data_email_addresses, $provider_name);
 
 
   return drupal_goto("/");

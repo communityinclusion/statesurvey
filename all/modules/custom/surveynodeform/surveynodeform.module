@@ -767,6 +767,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $datanode = node_load($nid);
   }
   $form['#attributes']['class'][] = 'clearfix';
+  $url = drupal_get_query_parameters();
+  $reportingperiod_id = $url['rp'] ? $url['rp'] : $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
   
   if($form_id == 'provider_node_form') {
     global $theme;
@@ -780,15 +782,15 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         $urlslug ="";
         if($url['status'] && $url['status'] == 'final' && $stateid != '116038') {
 
-          $form['#prefix']= "<h3>Are you sure you are ready to submit your user data?</h3><p>You will no longer be able to edit individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals\">Back to list of individuals</a></p>";
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your user data?</h3><p>You will no longer be able to edit individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals/$reportingperiod_id\">Back to list of individuals</a></p>";
         }
         elseif( $url['status'] && $url['status'] == 'final' && $stateid = '116038')
         { 
-          $form['#prefix']= "<h3>Are you sure you are ready to submit your non-CIE user data?</h3><p>You will no longer be able to edit non-CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals\">Back to list of non-CIE individuals</a></p>";
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your non-CIE user data?</h3><p>You will no longer be able to edit non-CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals/$reportingperiod_id\">Back to list of non-CIE individuals</a></p>";
         }
         elseif ($url['status'] && $url['status'] == 'final-cie') {
 
-          $form['#prefix']= "<h3>Are you sure you are ready to submit your CIE user data?</h3><p>You will no longer be able to edit CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals-cie\">Back to list of CIE individuals</a></p>";
+          $form['#prefix']= "<h3>Are you sure you are ready to submit your CIE user data?</h3><p>You will no longer be able to edit CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals-cie/$reportingperiod_id\">Back to list of CIE individuals</a></p>";
 
         }
    
@@ -835,6 +837,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     
     $individual_id = $datanode->field_individual[LANGUAGE_NONE][0]['target_id'];
     $individual_node = node_load($individual_id);
+
     $reportingperiod_id = $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
     $reporting_period_node = node_load($reportingperiod_id);
     $cieperiod = $reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
@@ -917,7 +920,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     if($indnode->field_cie_individual && $indnode->field_cie_individual[LANGUAGE_NONE][0]['value'] == '1') $urlslug .= "-cie";
     $form['actions']['cancel'] = array(
       '#type'   => 'markup',
-      '#markup' => '<div class="form-cancel-button-wrapper">' . l(t("Cancel"), "/provider/$provid/individuals$urlslug", array('attributes' => array('class' => array('form-cancel-button')))) . '</div>',
+      '#markup' => '<div class="form-cancel-button-wrapper">' . l(t("Cancel"), "/provider/$provid/individuals/$reportingperiod_id$urlslug", array('attributes' => array('class' => array('form-cancel-button')))) . '</div>',
     );
     $form['#submit'][] = 'surveynodeform_og_delete_form_redirect';
   
@@ -987,6 +990,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $urlappend .= isset($queries['page']) ? ( $queries['items_per_page'] ? '&page=' . $queries['page'] : '?page=' . $queries['page']) : '';
     $urlappend .= isset($queries['order']) ? '&order=' . $queries['order'] : '';
     $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
+    $url = drupal_get_query_parameters();
+    if($url['rp']) $reportingperiod_id = $url['rp'];
     if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
     {
       $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie/$reportingperiod_id$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
@@ -1335,13 +1340,14 @@ function surveynodeform_node_form_redirect($form, &$form_state) {
   $destination = "";
     $url = drupal_get_query_parameters();
     
-
+  $reportingperiod_id = $url['rp']  ? $url['rp'] : ($form_state['values']['field_reporting_period'] ?	$form_state['values']['field_reporting_period']['und'][0]['target_id'] : null);
   if ($url['p']) {
+    
     if(($form_state['values']['field_cie_individual'] && $form_state['values']['field_cie_individual']['und'][0]['value'] == '1') || ($form_state['values']['field_cie_individual_yes_no'] && $form_state['values']['field_cie_individual_yes_no']['und'][0]['value'] == '1')) 
-    { $destination = "provider/" . $url['p'] . "/individuals-cie";
+    { $destination = "provider/" . $url['p'] . "/individuals-cie/$reportingperiod_id";
     } else
     {
-      $destination = "provider/" . $url['p'] . "/individuals";
+      $destination = "provider/" . $url['p'] . "/individuals/$reportingperiod_id";
     }
 
   } elseif($url['delete'] && $url['provnum']) {

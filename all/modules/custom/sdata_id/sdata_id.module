@@ -40,7 +40,7 @@ function sdata_id_node_access($node, $op, $account) {
         if ($type == $state_node->field_individual_data_type[LANGUAGE_NONE][0]['value']) {
           // Block access to non-admin users if they're trying to edit an individual
           // data node for anything other than the current reporting period.
-          if ($state_node->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'] != $node->field_reporting_period[LANGUAGE_NONE][0]['target_id']) {
+          if ($state_node->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'] != $node->field_reporting_period[LANGUAGE_NONE][0]['target_id'] && $state_node->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] != $node->field_reporting_period[LANGUAGE_NONE][0]['target_id']) {
             return NODE_ACCESS_DENY;
           }
         }
@@ -156,9 +156,15 @@ function sdata_id_node_insert($node) {
     $state = node_load($state_nid);
     $individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
     $current_reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
-    $reporting_period_node = node_load($current_reporting_period_nid);
+    $reporting_period_node = node_load($current_reporting_period_nid);$toggle_period_nid = $reporting_period_nid;
+    $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'];
+    $legacyarray = array();
+    module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+    if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
+      if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
+      $toggle_period_node = node_load($legacy_period_nid);
 
-    _sdata_rp_create_new_individual_data_node($node, $individual_data_content_type, $reporting_period_node, $provider);
+    _sdata_rp_create_new_individual_data_node($node, $individual_data_content_type, $toggle_period_node, $provider);
 
 
   }
