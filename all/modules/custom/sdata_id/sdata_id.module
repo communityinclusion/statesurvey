@@ -23,6 +23,7 @@ function sdata_id_node_access($node, $op, $account) {
     // Block access to non-admin users if the individual data node is unpublished.
     if ($node && $node->status == 0) {
       return NODE_ACCESS_DENY;
+      
     }
 
     // Get the state that the $account belongs to.
