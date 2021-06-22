@@ -768,7 +768,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   }
   $form['#attributes']['class'][] = 'clearfix';
   $url = drupal_get_query_parameters();
-  $reportingperiod_id = $url['rp'] ? $url['rp'] : $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
+  $reportingperiod_id = $url && $url['rp'] ? $url['rp'] : $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
   
   if($form_id == 'provider_node_form') {
     global $theme;

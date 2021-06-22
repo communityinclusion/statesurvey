@@ -41,20 +41,24 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
     }
     $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
     $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+    //$legacy_period_nid = field_get_items('node', $state, 'field_legacy_reporting_period');
     $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] ? $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] : null;
     $toggle_period_nid = $reporting_period_nid;
     $reporting_period_node = node_load($reporting_period_nid);
-    if($legacy_period_nid) $legacy_period_node = node_load($legacy_period_nid);
+    if($legacy_period_nid)  $legacy_period_node = node_load($legacy_period_nid); 
     // if this is a CIE reporting period we are done here.
     if ($reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'] == '1' && $state_individual_data_content_type == 'individual_data_ga') return;
     $legacyarray = array();
     $periodarray = array();
-    if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $legacy_period_nid);
-    if(!$legacyarray[1] && !$legacyarray[2]) { 
+    if(isset($legacy_period_nid)) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $legacy_period_nid);
+    if($legacy_period_nid && !$legacyarray[1] && !$legacyarray[2]) { 
         $valid = $legacyarray[0];
         $completed = $legacyarray[1];
         $empty = $legacyarray[2];
         $toggle_period_nid = $legacy_period_nid;
+        $printarray = print_r($legacyarray,true);
+        $toggle_period_nid = $legacy_period_nid;
+
     }
     else 
     {   
@@ -64,7 +68,7 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
         $empty = $periodarray[2];
         $toggle_period_nid = $reporting_period_nid;
     }
-    $togglenode = $toggle_period_nid == $reporting_period_nid ? $reporting_period_node : $legacy_period_node;
+    $togglenode = $toggle_period_nid == $reporting_period_nid ? $reporting_period_node : ($legacy_period_nid ? $legacy_period_node : $reporting_period_node);
     $daterange = date_format(date_create($togglenode->field_rp_date_range[LANGUAGE_NONE][0]['value']), "F j") . " to " .  date_format(date_create($togglenode->field_rp_date_range[LANGUAGE_NONE][0]['value2']), "F j, Y");
     $deadlinedate = "Reporting due date: <span class=\"bigRed\">" . date_format(date_create($togglenode->field_rp_deadline_date[LANGUAGE_NONE][0]['value']),"F j Y") . "</span>";
 
