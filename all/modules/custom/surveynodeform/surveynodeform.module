@@ -941,12 +941,13 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
    $url = drupal_get_query_parameters();
  
-    if ($form_id == 'individual_node_form' && isset($url['p'])) { $provid = $url['p'];
-    $statearray = surveynodeform_provider_statename($url['p']);
-    $statename = $statearray[0];
-    $statetid = key(taxonomy_get_term_by_name($statename));
-    drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
-    drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
+    if ($form_id == 'individual_node_form' && isset($url['p'])) { 
+      $provid = $url['p'];
+      $statearray = surveynodeform_provider_statename($url['p']);
+      $statename = $statearray[0];
+      $statetid = key(taxonomy_get_term_by_name($statename));
+      drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
+      drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
 
     } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) 
     {
@@ -954,6 +955,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $statearray = surveynodeform_provider_statename($provid);
       $statename = $statearray[0];
       $statetid = key(taxonomy_get_term_by_name($statename));
+      watchdog('state name and state id: ', $statename . " " .  $statetid);
       drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
       drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
     }
@@ -992,7 +994,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
     $url = drupal_get_query_parameters();
     if($url['rp']) $reportingperiod_id = $url['rp'];
-    if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
+    if($datanode && $datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
     {
       $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie/$reportingperiod_id$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
 
@@ -1007,7 +1009,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
     $url = drupal_get_query_parameters();
 
-    if ($url['destination']) {
+    if ($url && $url['destination']) {
       $destination = $url['destination'];
       $form['#action'] = "?destination=$destination$urlappend";
 
