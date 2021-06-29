@@ -693,14 +693,16 @@ function surveynodeform_og_delete_form_redirect($form, &$form_state) {
     $provid = arg(2);
     $ogid = arg(6);
     $indnodeid = surveynodeform_get_og_membership_entity_id($ogid);
+    $url = drupal_get_query_parameters();
+    $reportingperiod_id = arg(8);
 
     $indnode = node_load($indnodeid);
   
    if($indnode->field_cie_individual && $indnode->field_cie_individual[LANGUAGE_NONE][0]['value'] == '1') {
-      $destination = "provider/$provid/individuals-cie";
+      $destination = "provider/$provid/individuals-cie/$reportingperiod_id";
     } else
     {
-      $destination = "provider/$provid/individuals";
+      $destination = "provider/$provid/individuals/$reportingperiod_id";
     }
     $form_state['redirect'] = $destination;
   }
@@ -913,6 +915,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   }
   if ($form_id == 'og_ui_delete_membership' ) {
     $urlslug = "";
+    $url = drupal_get_query_parameters();
+    $reportingperiod_id = $url['rp'] ? $url['rp'] : arg(8);
     if (arg(1) == 'node' && is_numeric(arg(2)))   $provid = arg(2);
     $ogid = arg(6);
     $indnodeid = surveynodeform_get_og_membership_entity_id($ogid);
@@ -1355,7 +1359,8 @@ function surveynodeform_node_form_redirect($form, &$form_state) {
   } elseif($url['delete'] && $url['provnum']) {
     $memberno = $url['delete'];
     $provno = $url['provnum'];
-    $destination = "group/node/$provno/admin/people/delete-membership/$memberno";
+    $reporting_period_id = $url['rp'];
+    $destination = "group/node/$provno/admin/people/delete-membership/$memberno/rp/$reportingperiod_id";
 
   }
 
