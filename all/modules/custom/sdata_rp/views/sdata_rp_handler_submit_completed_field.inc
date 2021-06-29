@@ -46,9 +46,7 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
     $toggle_period_nid = $reporting_period_nid;
     $reporting_period_node = node_load($reporting_period_nid);
     if($legacy_period_nid)  $legacy_period_node = node_load($legacy_period_nid); 
-    // if this is a CIE reporting period we are done here.
-    if ($reporting_period_node->field_georgia_cie[LANGUAGE_NONE][0]['value'] == '1' && $state_individual_data_content_type == 'individual_data_ga') return;
-    $legacyarray = array();
+    
     $periodarray = array();
     if(isset($legacy_period_nid)) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $legacy_period_nid);
     if($legacy_period_nid && !$legacyarray[1] && !$legacyarray[2]) { 
@@ -70,6 +68,9 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
     }
     $togglenode = $toggle_period_nid == $reporting_period_nid ? $reporting_period_node : ($legacy_period_nid ? $legacy_period_node : $reporting_period_node);
     $daterange = date_format(date_create($togglenode->field_rp_date_range[LANGUAGE_NONE][0]['value']), "F j") . " to " .  date_format(date_create($togglenode->field_rp_date_range[LANGUAGE_NONE][0]['value2']), "F j, Y");
+    // if this is a CIE reporting period we are done here.
+    if ($togglenode->field_georgia_cie[LANGUAGE_NONE][0]['value'] == '1' && $state_individual_data_content_type == 'individual_data_ga') return;
+    $legacyarray = array();
     $deadlinedate = "Reporting due date: <span class=\"bigRed\">" . date_format(date_create($togglenode->field_rp_deadline_date[LANGUAGE_NONE][0]['value']),"F j Y") . "</span>";
 
 
