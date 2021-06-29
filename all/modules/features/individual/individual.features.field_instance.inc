@@ -62,7 +62,11 @@ function individual_field_default_field_instances() {
   // Exported field_instance: 'node-individual-field_cie_individual'.
   $field_instances['node-individual-field_cie_individual'] = array(
     'bundle' => 'individual',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -82,7 +86,7 @@ function individual_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_cie_individual',
-    'label' => 'ndividual Authorized for CIE Funds',
+    'label' => 'Individual Authorized for CIE Funds',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -653,10 +657,10 @@ function individual_field_default_field_instances() {
   t('Date services began with provider');
   t('First name');
   t('ICC-C CID Number');
+  t('Individual Authorized for CIE Funds');
   t('Last name');
   t('Provider');
   t('State, region, and county');
-  t('ndividual Authorized for CIE Funds');
 
   return $field_instances;
 }

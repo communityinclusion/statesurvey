@@ -661,6 +661,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['field_rp_date_range']['field'] = 'field_rp_date_range';
   $handler->display->display_options['fields']['field_rp_date_range']['relationship'] = 'field_current_reporting_period_target_id';
   $handler->display->display_options['fields']['field_rp_date_range']['label'] = '';
+  $handler->display->display_options['fields']['field_rp_date_range']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_rp_date_range']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_rp_date_range']['alter']['text'] = '<strong>[field_reporting_period_descrip] [field_rp_date_range]</strong>';
   $handler->display->display_options['fields']['field_rp_date_range']['element_label_colon'] = FALSE;
@@ -679,6 +680,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['field'] = 'field_rp_deadline_date';
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['relationship'] = 'field_current_reporting_period_target_id';
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_rp_deadline_date_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['alter']['text'] = '<strong>Reporting due date: <span class="bigRed">[field_rp_deadline_date_1]</span></strong>';
   $handler->display->display_options['fields']['field_rp_deadline_date_1']['element_label_colon'] = FALSE;
@@ -705,9 +707,11 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['submit_completed_cie']['id'] = 'submit_completed_cie';
   $handler->display->display_options['fields']['submit_completed_cie']['table'] = 'sdata_rp';
   $handler->display->display_options['fields']['submit_completed_cie']['field'] = 'submit_completed_cie';
-  $handler->display->display_options['fields']['submit_completed_cie']['alter']['text'] = '<hr /><h4>Submit your data:</h4>j
+  $handler->display->display_options['fields']['submit_completed_cie']['label'] = '';
+  $handler->display->display_options['fields']['submit_completed_cie']['alter']['text'] = '<hr /><h4>Submit your CIE data:</h4>j
 <p><strong>[submit_completed_cie]</p>
 <hr />';
+  $handler->display->display_options['fields']['submit_completed_cie']['element_label_colon'] = FALSE;
   /* Field: View program summary */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';

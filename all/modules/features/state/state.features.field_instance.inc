@@ -374,6 +374,51 @@ function state_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-state-field_legacy_reporting_period'.
+  $field_instances['node-state-field_legacy_reporting_period'] = array(
+    'bundle' => 'state',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'bypass_access' => FALSE,
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_legacy_reporting_period',
+    'label' => 'Legacy reporting period',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-state-field_notification_emails'.
   $field_instances['node-state-field_notification_emails'] = array(
     'bundle' => 'state',
@@ -386,7 +431,7 @@ function state_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -410,7 +455,7 @@ function state_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -483,6 +528,7 @@ function state_field_default_field_instances() {
   t('For the end date, be sure to select the date after your desired end date. For example, to select an end date of January 31, select February 1.');
   t('Group');
   t('Individual data type');
+  t('Legacy reporting period');
   t('Notification emails');
   t('Select the current reporting period for this state.');
   t('Select the state this reporting period is valid for.');

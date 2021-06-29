@@ -140,7 +140,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
     // submit.
     if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles)) 
     {
-      $output = "<p><strong>Semi-annual reporting date range: $daterange</strong></p>
+      $output = "<p><strong>Monthly reporting date range: $daterange</strong></p>
       <p><strong> $deadlinedate</strong></p>";
        if ($valid && !$completed && !$empty) {
        //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
