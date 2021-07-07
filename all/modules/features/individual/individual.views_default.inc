@@ -307,7 +307,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -621,7 +621,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -691,7 +691,7 @@ function individual_views_default_views() {
   $handler->display->display_options['fields']['id_1']['field'] = 'id';
   $handler->display->display_options['fields']['id_1']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['fields']['id_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['id_1']['alter']['text'] = '<a class="deleteInd" href="/node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]" data-toggle="tooltip" title="Delete if this individual is no longer in your program, has been discharged, or is deceased, and needs to be removed from the list.">delete individual</a>';
+  $handler->display->display_options['fields']['id_1']['alter']['text'] = '<a class="deleteInd" href="/node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]&rp=[field_reporting_period_1]" data-toggle="tooltip" title="Delete if this individual is no longer in your program, has been discharged, or is deceased, and needs to be removed from the list.">delete individual</a>';
   $handler->display->display_options['fields']['id_1']['alter']['path'] = 'node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]';
   $handler->display->display_options['fields']['id_1']['separator'] = '';
   /* Field: Content: Provider */
@@ -2317,7 +2317,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2584,7 +2584,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';

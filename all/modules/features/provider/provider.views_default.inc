@@ -703,6 +703,7 @@ function provider_views_default_views() {
 <hr />';
   $handler->display->display_options['fields']['submit_completed']['element_type'] = 'p';
   $handler->display->display_options['fields']['submit_completed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['submit_completed']['empty'] = '<div><p><strong>The bi-annual reporting period is now closed.</strong></p></div>';
   /* Field: SData: Submit completed CIE data */
   $handler->display->display_options['fields']['submit_completed_cie']['id'] = 'submit_completed_cie';
   $handler->display->display_options['fields']['submit_completed_cie']['table'] = 'sdata_rp';
@@ -721,6 +722,58 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<h4>View your program summary</h4>
 <p><a href="/prov/[nid]/summary">Summary of individual outcomes for the current reporting period</a>.</p>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['id'] = 'field_current_reporting_period_1';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['id'] = 'field_legacy_reporting_period_1';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period']['id'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['text'] = '<a href="/provider/[nid]/[field_current_reporting_period-target_id]/[nid_1]/download">Download an Excel spreadsheet with all your individual data for the current reporting period, [field_current_reporting_period_1].</a>';
+  $handler->display->display_options['fields']['field_current_reporting_period']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['id'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['label'] = '';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['text'] = '<a href="/provider/[nid]/[field_legacy_reporting_period-target_id]/[nid_1]/download">Download a spreadsheet with individual data for the past reporting period, [field_legacy_reporting_period_1].</a>';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
   /* Field: Download data */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
   $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
@@ -728,7 +781,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Download data';
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
   $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<h4>Download data</h4>
-<p><a href="/provider/[nid]/[nid_1]/download">Download an Excel spreadsheet with all your individual data.</a><br /><strong>Note: Information in this spreadsheet may not be accurate for individuals whose data is not "Complete."</strong></p>
+<ul><li>[field_current_reporting_period]<br /><strong>Note: Information in this spreadsheet may not be accurate for individuals whose data is not "Complete."</strong></li><li>[field_legacy_reporting_period] </li></ul>
 <h4>Help using this site:</h4>
 <p>[field_data_entry_instructions]</p><hr />';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;

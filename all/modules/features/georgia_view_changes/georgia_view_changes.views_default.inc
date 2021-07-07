@@ -1031,6 +1031,23 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'See the <a href="/admin-help">Admin Help page</a> for data management tools and instructions in using the site';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: OG membership: Group Node from OG membership */
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['id'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['label'] = 'State referenced from og_group_provider_state_ref';
+  $handler->display->display_options['relationships']['og_group_provider_state_ref_target_id']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_current_reporting_period_target_id']['id'] = 'field_current_reporting_period_target_id';
+  $handler->display->display_options['relationships']['field_current_reporting_period_target_id']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['relationships']['field_current_reporting_period_target_id']['field'] = 'field_current_reporting_period_target_id';
+  $handler->display->display_options['relationships']['field_current_reporting_period_target_id']['relationship'] = 'og_group_provider_state_ref_target_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -1081,6 +1098,14 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Field: Content: Vendor id */
   $handler->display->display_options['fields']['field_provider_vendor_name']['id'] = 'field_provider_vendor_name';
   $handler->display->display_options['fields']['field_provider_vendor_name']['table'] = 'field_data_field_provider_vendor_name';
@@ -1091,6 +1116,93 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_provider_vendor_name']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_provider_vendor_name']['element_wrapper_type'] = 'h4';
   $handler->display->display_options['fields']['field_provider_vendor_name']['element_default_classes'] = FALSE;
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['id'] = 'field_legacy_reporting_period_1';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['label'] = '';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['alter']['text'] = '[field_legacy_reporting_period_1]';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['id'] = 'field_current_reporting_period_1';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['alter']['text'] = '[field_current_reporting_period_1]';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['id'] = 'field_current_reporting_period_2';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['alter']['text'] = '<li><a href="/provider/[nid]/[field_current_reporting_period_2-target_id]/deleted">Download list of individuals deleted from this provider, in the current reporting period, [field_current_reporting_period_1], with reasons for deletion</a></li>';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['id'] = 'field_legacy_reporting_period_2';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['label'] = '';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['alter']['text'] = '<li><a href="/provider/[nid]/[field_legacy_reporting_period_2-target_id]/deleted">Download list of individuals deleted from this provider, in the past reporting period, [field_legacy_reporting_period_1], with reasons for deletion</a></li>';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period']['id'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['text'] = '<li><a href="/provider/[nid]/[field_current_reporting_period-target_id]/[nid_1]/download">Download a spreadsheet with [title] data for the current reporting period, [field_current_reporting_period_1].</a></li>';
+  $handler->display->display_options['fields']['field_current_reporting_period']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['id'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['text'] = '<li><a href="/provider/[nid]/[field_legacy_reporting_period-target_id]/[nid_1]/download">Download a spreadsheet with [title] data for the past reporting period, [field_legacy_reporting_period_1].</a></li>';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
   /* Field: SData: Submit completed data */
   $handler->display->display_options['fields']['submit_completed']['id'] = 'submit_completed';
   $handler->display->display_options['fields']['submit_completed']['table'] = 'sdata_rp';
@@ -1100,6 +1212,7 @@ function georgia_view_changes_views_default_views() {
 <p><strong>[submit_completed]</p>';
   $handler->display->display_options['fields']['submit_completed']['element_type'] = 'p';
   $handler->display->display_options['fields']['submit_completed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['submit_completed']['empty'] = '<div><p><strong>The bi-annual reporting period is now closed.</strong></p></div>';
   /* Field: SData: Submit completed CIE data */
   $handler->display->display_options['fields']['submit_completed_cie']['id'] = 'submit_completed_cie';
   $handler->display->display_options['fields']['submit_completed_cie']['table'] = 'sdata_rp';
@@ -1115,7 +1228,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<p><a href="/provider/[nid]/[nid_1]/download">Download a spreadsheet with [title] data.</a><br /><a href="/provider/[nid]/deleted">Download list of individuals deleted from this provider, in this reporting period, with reasons for deletion</a><br /><a href="/prov/[nid]/summary">View a summary of this provider\'s data for the reporting period.</a></p>
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<ul>[field_legacy_reporting_period][field_current_reporting_period][field_legacy_reporting_period_2][field_current_reporting_period_2]<li><a href="/prov/[nid]/summary">View a summary of this provider\'s data for the current reporting period, [field_current_reporting_period_1].</a></li></ul>
 <hr />';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -1946,6 +2059,7 @@ function georgia_view_changes_views_default_views() {
 <p><strong>[submit_completed]</p>';
   $handler->display->display_options['fields']['submit_completed']['element_type'] = 'p';
   $handler->display->display_options['fields']['submit_completed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['submit_completed']['empty'] = '<div><p><strong>The bi-annual reporting period is now closed.</strong></p></div>';
   /* Field: SData: Submit completed CIE data */
   $handler->display->display_options['fields']['submit_completed_cie']['id'] = 'submit_completed_cie';
   $handler->display->display_options['fields']['submit_completed_cie']['table'] = 'sdata_rp';
@@ -1953,6 +2067,92 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['submit_completed_cie']['label'] = '';
   $handler->display->display_options['fields']['submit_completed_cie']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['submit_completed_cie']['hide_empty'] = TRUE;
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['id'] = 'field_current_reporting_period_1';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['alter']['text'] = '[field_current_reporting_period_1]';
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['id'] = 'field_legacy_reporting_period_1';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['label'] = '';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['alter']['text'] = '[field_legacy_reporting_period_1]';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['id'] = 'field_current_reporting_period_2';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['alter']['text'] = '<li><a href="/provider/[nid]/[field_current_reporting_period_2-target_id]/deleted">Download list of individuals deleted from this provider, in the current reporting period, [field_current_reporting_period_1], with reasons for deletion</a></li>';
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period_2']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['id'] = 'field_legacy_reporting_period_2';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['alter']['text'] = '<li><a href="/provider/[nid]/[field_legacy_reporting_period_2-target_id]/deleted">Download list of individuals deleted from this provider, in the past reporting period, [field_legacy_reporting_period_1], with reasons for deletion</a></li>';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period_2']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period']['id'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period']['label'] = '';
+  $handler->display->display_options['fields']['field_current_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['alter']['text'] = '<li><a href="/provider/[nid]/[field_current_reporting_period-target_id]/[nid_1]/download">Download a spreadsheet with [title] data for the current reporting period, [field_current_reporting_period_1].</a></li>';
+  $handler->display->display_options['fields']['field_current_reporting_period']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Legacy reporting period */
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['id'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['table'] = 'field_data_field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['field'] = 'field_legacy_reporting_period';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['label'] = '';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['alter']['text'] = '<li><a href="/provider/[nid]/[field_legacy_reporting_period-target_id]/[nid_1]/download">Download a spreadsheet with [title] data for the past reporting period, [field_legacy_reporting_period_1].</a></li>';
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_legacy_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
   /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -1960,7 +2160,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<p><a href="/provider/[nid]/[nid_1]/download">Download a spreadsheet with [title] data.</a><br /><a href="/provider/[nid]/deleted">Download list of individuals deleted from this provider, in this reporting period, with reasons for deletion</a><br /><a href="/prov/[nid]/summary">View a summary of this provider\'s data for the reporting period.</a></p>
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<ul>[field_legacy_reporting_period][field_current_reporting_period][field_legacy_reporting_period_2][field_current_reporting_period_2]<li><a href="/prov/[nid]/summary">View a summary of this provider\'s data for the reporting period.</a></li></ul>
 <hr />';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -3995,6 +4195,12 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why is this person being deleted?';
+  /* Field: Content: Why is this person being deleted from the individuals list? */
+  $handler->display->display_options['fields']['field_delete_indiv_why_ga']['id'] = 'field_delete_indiv_why_ga';
+  $handler->display->display_options['fields']['field_delete_indiv_why_ga']['table'] = 'field_data_field_delete_indiv_why_ga';
+  $handler->display->display_options['fields']['field_delete_indiv_why_ga']['field'] = 'field_delete_indiv_why_ga';
+  $handler->display->display_options['fields']['field_delete_indiv_why_ga']['label'] = '';
+  $handler->display->display_options['fields']['field_delete_indiv_why_ga']['element_label_colon'] = FALSE;
   /* Field: Content: Explain your selection of "other" as reason for deletion of the individual */
   $handler->display->display_options['fields']['field_delete_indiv_why_other']['id'] = 'field_delete_indiv_why_other';
   $handler->display->display_options['fields']['field_delete_indiv_why_other']['table'] = 'field_data_field_delete_indiv_why_other';
@@ -4022,6 +4228,18 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['gid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['gid']['validate']['type'] = 'og';
+  /* Contextual filter: Content: Reporting period (field_reporting_period) */
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -4043,26 +4261,27 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'individual_data_ga' => 'individual_data_ga',
+    'individual_data_ma' => 'individual_data_ma',
     'individual_data' => 'individual_data',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Global: Fields comparison */
-  $handler->display->display_options['filters']['fields_compare']['id'] = 'fields_compare';
-  $handler->display->display_options['filters']['fields_compare']['table'] = 'views';
-  $handler->display->display_options['filters']['fields_compare']['field'] = 'fields_compare';
-  $handler->display->display_options['filters']['fields_compare']['group'] = 1;
-  $handler->display->display_options['filters']['fields_compare']['right_field'] = 'field_current_reporting_period';
-  $handler->display->display_options['filters']['fields_compare']['left_field'] = 'field_reporting_period';
   /* Filter criterion: Content: Why is this person being deleted from the individuals list? (field_delete_indiv_why) */
   $handler->display->display_options['filters']['field_delete_indiv_why_value']['id'] = 'field_delete_indiv_why_value';
   $handler->display->display_options['filters']['field_delete_indiv_why_value']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['filters']['field_delete_indiv_why_value']['field'] = 'field_delete_indiv_why_value';
   $handler->display->display_options['filters']['field_delete_indiv_why_value']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_delete_indiv_why_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_delete_indiv_why_value']['group'] = 2;
+  /* Filter criterion: Content: Why is this person being deleted from the individuals list? (field_delete_indiv_why_ga) */
+  $handler->display->display_options['filters']['field_delete_indiv_why_ga_value']['id'] = 'field_delete_indiv_why_ga_value';
+  $handler->display->display_options['filters']['field_delete_indiv_why_ga_value']['table'] = 'field_data_field_delete_indiv_why_ga';
+  $handler->display->display_options['filters']['field_delete_indiv_why_ga_value']['field'] = 'field_delete_indiv_why_ga_value';
+  $handler->display->display_options['filters']['field_delete_indiv_why_ga_value']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_delete_indiv_why_ga_value']['group'] = 2;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'provider/%/download-deleted';
+  $handler->display->display_options['path'] = 'provider/%/%/download-deleted';
 
   /* Display: provider dl deleted */
   $handler = $view->new_display('views_data_export', 'provider dl deleted', 'views_data_export_1');
@@ -4073,7 +4292,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['filename'] = '%1-title-deleted-individuals.xls';
   $handler->display->display_options['style_options']['parent_sort'] = 0;
-  $handler->display->display_options['path'] = 'provider/%/deleted';
+  $handler->display->display_options['path'] = 'provider/%/%/deleted';
 
   /* Display: DL all deleted */
   $handler = $view->new_display('views_data_export', 'DL all deleted', 'views_data_export_2');
@@ -7631,7 +7850,460 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['check_ind']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['check_ind']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['check_ind']['alter']['trim'] = TRUE;
-  $handler->display->display_options['path'] = 'provider/%/116038/download';
+  $handler->display->display_options['path'] = 'nul-provider/%/116038/download';
+
+  /* Display: copy Ga provider individual data */
+  $handler = $view->new_display('views_data_export', 'copy Ga provider individual data', 'views_data_export_6');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    8 => '8',
+    7 => '7',
+    6 => '6',
+  );
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_xls_phpexcel';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = '%1-title-%timestamp-mm-%timestamp-dd-%timestamp-yyyy.xlsx';
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['excel_type'] = 'excel2007';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Field: individual_nid */
+  $handler->display->display_options['fields']['nid_2']['id'] = 'nid_2';
+  $handler->display->display_options['fields']['nid_2']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_2']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_2']['ui_name'] = 'individual_nid';
+  $handler->display->display_options['fields']['nid_2']['label'] = '';
+  $handler->display->display_options['fields']['nid_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid_2']['element_label_colon'] = FALSE;
+  /* Field: Content: Last name */
+  $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
+  /* Field: Content: First name */
+  $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
+  /* Field: Content: Date of birth */
+  $handler->display->display_options['fields']['field_dob']['id'] = 'field_dob';
+  $handler->display->display_options['fields']['field_dob']['table'] = 'field_data_field_dob';
+  $handler->display->display_options['fields']['field_dob']['field'] = 'field_dob';
+  $handler->display->display_options['fields']['field_dob']['settings'] = array(
+    'format_type' => 'custom',
+    'custom_date_format' => 'm/d/Y',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Area office */
+  $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
+  $handler->display->display_options['fields']['field_area_office']['label'] = 'County';
+  $handler->display->display_options['fields']['field_area_office']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid_1']['empty'] = '!1';
+  /* Field: Delete (unpublish) individual */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Delete (unpublish) individual';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'delete individual';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Provider */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['og_group_ref']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['og_group_ref']['type'] = 'entityreference_entity_id';
+  $handler->display->display_options['fields']['og_group_ref']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['title']['label'] = 'ID title';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Provider';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['title_2']['label'] = 'State';
+  $handler->display->display_options['fields']['title_2']['exclude'] = TRUE;
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period']['id'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Reporting period */
+  $handler->display->display_options['fields']['field_reporting_period']['id'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['field'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_reporting_period']['label'] = 'ID Reporting period';
+  $handler->display->display_options['fields']['field_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_reporting_period']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Individual data content type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['type']['ui_name'] = 'Individual data content type';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  /* Field: State individual data content type */
+  $handler->display->display_options['fields']['field_individual_data_type']['id'] = 'field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['table'] = 'field_data_field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['field'] = 'field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_individual_data_type']['ui_name'] = 'State individual data content type';
+  $handler->display->display_options['fields']['field_individual_data_type']['exclude'] = TRUE;
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_indv_comp_partic']['id'] = 'field_indv_comp_partic';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['table'] = 'field_data_field_indv_comp_partic';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['field'] = 'field_indv_comp_partic';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['label'] = 'Participated in Ind. compet. employment';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_indv_comp_partic']['alter']['text'] = 'No';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
+  $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
+  /* Field: Content: Hours worked for pay this reporting period */
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['label'] = 'Individual competitive hours';
+  $handler->display->display_options['fields']['field_indv_comp_hrs']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '1',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Gross wages earned this reporting period */
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['id'] = 'field_indv_comp_gross_wages';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['table'] = 'field_data_field_indv_comp_gross_wages';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['field'] = 'field_indv_comp_gross_wages';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['label'] = 'wages from ind. compet. employment';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Why didn't this individual receive minimum wage? */
+  $handler->display->display_options['fields']['field_indv_comp_why_not_min']['id'] = 'field_indv_comp_why_not_min';
+  $handler->display->display_options['fields']['field_indv_comp_why_not_min']['table'] = 'field_data_field_indv_comp_why_not_min';
+  $handler->display->display_options['fields']['field_indv_comp_why_not_min']['field'] = 'field_indv_comp_why_not_min';
+  $handler->display->display_options['fields']['field_indv_comp_why_not_min']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_why_not_min']['label'] = 'Why not minimum wage?';
+  /* Field: Content: How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure. */
+  $handler->display->display_options['fields']['field_indv_comp_time_in_job']['id'] = 'field_indv_comp_time_in_job';
+  $handler->display->display_options['fields']['field_indv_comp_time_in_job']['table'] = 'field_data_field_indv_comp_time_in_job';
+  $handler->display->display_options['fields']['field_indv_comp_time_in_job']['field'] = 'field_indv_comp_time_in_job';
+  $handler->display->display_options['fields']['field_indv_comp_time_in_job']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_time_in_job']['label'] = 'How long (in months)  in ind. compet. job';
+  /* Field: Content: Receives paid time off? Include paid vacation, sick, or holiday time.  */
+  $handler->display->display_options['fields']['field_indv_comp_paid_time_off']['id'] = 'field_indv_comp_paid_time_off';
+  $handler->display->display_options['fields']['field_indv_comp_paid_time_off']['table'] = 'field_data_field_indv_comp_paid_time_off';
+  $handler->display->display_options['fields']['field_indv_comp_paid_time_off']['field'] = 'field_indv_comp_paid_time_off';
+  $handler->display->display_options['fields']['field_indv_comp_paid_time_off']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_paid_time_off']['label'] = 'Receives paid time off?';
+  /* Field: Content: Occupation */
+  $handler->display->display_options['fields']['field_indv_comp_occupation']['id'] = 'field_indv_comp_occupation';
+  $handler->display->display_options['fields']['field_indv_comp_occupation']['table'] = 'field_data_field_indv_comp_occupation';
+  $handler->display->display_options['fields']['field_indv_comp_occupation']['field'] = 'field_indv_comp_occupation';
+  $handler->display->display_options['fields']['field_indv_comp_occupation']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Primary funding source for employment support */
+  $handler->display->display_options['fields']['field_indv_comp_fund_source']['id'] = 'field_indv_comp_fund_source';
+  $handler->display->display_options['fields']['field_indv_comp_fund_source']['table'] = 'field_data_field_indv_comp_fund_source';
+  $handler->display->display_options['fields']['field_indv_comp_fund_source']['field'] = 'field_indv_comp_fund_source';
+  $handler->display->display_options['fields']['field_indv_comp_fund_source']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Other funding source */
+  $handler->display->display_options['fields']['field_indv_comp_other_source']['id'] = 'field_indv_comp_other_source';
+  $handler->display->display_options['fields']['field_indv_comp_other_source']['table'] = 'field_data_field_indv_comp_other_source';
+  $handler->display->display_options['fields']['field_indv_comp_other_source']['field'] = 'field_indv_comp_other_source';
+  $handler->display->display_options['fields']['field_indv_comp_other_source']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_grp_integ_partic']['id'] = 'field_grp_integ_partic';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['table'] = 'field_data_field_grp_integ_partic';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['field'] = 'field_grp_integ_partic';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['label'] = 'Participated in grp. integ. employment';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_grp_integ_partic']['alter']['text'] = 'no';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['empty'] = 'yes';
+  $handler->display->display_options['fields']['field_grp_integ_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_grp_integ_partic']['type'] = 'list_key';
+  /* Field: Content: Hours worked for pay this reporting period */
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['id'] = 'field_grp_integ_hrs';
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['table'] = 'field_data_field_grp_integ_hrs';
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['field'] = 'field_grp_integ_hrs';
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['label'] = 'Group integrated hours';
+  $handler->display->display_options['fields']['field_grp_integ_hrs']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Gross wages earned this reporting period */
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['id'] = 'field_grp_integ_gross_wages';
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['table'] = 'field_data_field_grp_integ_gross_wages';
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['field'] = 'field_grp_integ_gross_wages';
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['label'] = 'Group integrated wages';
+  $handler->display->display_options['fields']['field_grp_integ_gross_wages']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Receives paid time off?  Include paid vacation, sick, or holiday time. */
+  $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['id'] = 'field_grp_integ_paid_time_off';
+  $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['table'] = 'field_data_field_grp_integ_paid_time_off';
+  $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['field'] = 'field_grp_integ_paid_time_off';
+  $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['label'] = 'Receives paid time off? ';
+  /* Field: Content: Occupation */
+  $handler->display->display_options['fields']['field_grp_integ_occupation']['id'] = 'field_grp_integ_occupation';
+  $handler->display->display_options['fields']['field_grp_integ_occupation']['table'] = 'field_data_field_grp_integ_occupation';
+  $handler->display->display_options['fields']['field_grp_integ_occupation']['field'] = 'field_grp_integ_occupation';
+  $handler->display->display_options['fields']['field_grp_integ_occupation']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Location of work */
+  $handler->display->display_options['fields']['field_grp_location_of_work']['id'] = 'field_grp_location_of_work';
+  $handler->display->display_options['fields']['field_grp_location_of_work']['table'] = 'field_data_field_grp_location_of_work';
+  $handler->display->display_options['fields']['field_grp_location_of_work']['field'] = 'field_grp_location_of_work';
+  $handler->display->display_options['fields']['field_grp_location_of_work']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_self_emp_partic']['id'] = 'field_self_emp_partic';
+  $handler->display->display_options['fields']['field_self_emp_partic']['table'] = 'field_data_field_self_emp_partic';
+  $handler->display->display_options['fields']['field_self_emp_partic']['field'] = 'field_self_emp_partic';
+  $handler->display->display_options['fields']['field_self_emp_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_self_emp_partic']['label'] = 'Participated in self employment';
+  $handler->display->display_options['fields']['field_self_emp_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_self_emp_partic']['alter']['text'] = 'no';
+  $handler->display->display_options['fields']['field_self_emp_partic']['empty'] = 'yes';
+  $handler->display->display_options['fields']['field_self_emp_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_self_emp_partic']['type'] = 'list_key';
+  /* Field: Content: Hours worked in business this reporting period *for the two week reporting period only* */
+  $handler->display->display_options['fields']['field_self_emp_hrs']['id'] = 'field_self_emp_hrs';
+  $handler->display->display_options['fields']['field_self_emp_hrs']['table'] = 'field_data_field_self_emp_hrs';
+  $handler->display->display_options['fields']['field_self_emp_hrs']['field'] = 'field_self_emp_hrs';
+  $handler->display->display_options['fields']['field_self_emp_hrs']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_self_emp_hrs']['label'] = 'Hours in self employment';
+  $handler->display->display_options['fields']['field_self_emp_hrs']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '1',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Gross business income *for the last three months* */
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['id'] = 'field_self_emp_gross_income';
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['table'] = 'field_data_field_self_emp_gross_income';
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['field'] = 'field_self_emp_gross_income';
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['label'] = 'Self employment gross income';
+  $handler->display->display_options['fields']['field_self_emp_gross_income']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Gross business expenses *for the last three months* */
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['id'] = 'field_self_emp_gross_expens';
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['table'] = 'field_data_field_self_emp_gross_expens';
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['field'] = 'field_self_emp_gross_expens';
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['label'] = 'Self employment business expenses';
+  $handler->display->display_options['fields']['field_self_emp_gross_expens']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Occupation */
+  $handler->display->display_options['fields']['field_self_emp_occupation']['id'] = 'field_self_emp_occupation';
+  $handler->display->display_options['fields']['field_self_emp_occupation']['table'] = 'field_data_field_self_emp_occupation';
+  $handler->display->display_options['fields']['field_self_emp_occupation']['field'] = 'field_self_emp_occupation';
+  $handler->display->display_options['fields']['field_self_emp_occupation']['relationship'] = 'reverse_field_individual_node';
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_shl_partic']['id'] = 'field_shl_partic';
+  $handler->display->display_options['fields']['field_shl_partic']['table'] = 'field_data_field_shl_partic';
+  $handler->display->display_options['fields']['field_shl_partic']['field'] = 'field_shl_partic';
+  $handler->display->display_options['fields']['field_shl_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_shl_partic']['label'] = 'Participated in facility based work';
+  $handler->display->display_options['fields']['field_shl_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_shl_partic']['alter']['text'] = 'no';
+  $handler->display->display_options['fields']['field_shl_partic']['empty'] = 'yes';
+  $handler->display->display_options['fields']['field_shl_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_shl_partic']['type'] = 'list_key';
+  /* Field: Content: Hours worked for pay this reporting period */
+  $handler->display->display_options['fields']['field_shl_hrs']['id'] = 'field_shl_hrs';
+  $handler->display->display_options['fields']['field_shl_hrs']['table'] = 'field_data_field_shl_hrs';
+  $handler->display->display_options['fields']['field_shl_hrs']['field'] = 'field_shl_hrs';
+  $handler->display->display_options['fields']['field_shl_hrs']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_shl_hrs']['label'] = 'Hours worked for pay in fac. based work';
+  $handler->display->display_options['fields']['field_shl_hrs']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Gross wages earned this reporting period */
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['id'] = 'field_indv_comp_gross_wages_1';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['table'] = 'field_data_field_indv_comp_gross_wages';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['field'] = 'field_indv_comp_gross_wages';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['label'] = 'Gross wages in fac. based work';
+  $handler->display->display_options['fields']['field_indv_comp_gross_wages_1']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Receives paid time off?   Include paid vacation, sick, or holiday time. */
+  $handler->display->display_options['fields']['field_shl_paid_time_off']['id'] = 'field_shl_paid_time_off';
+  $handler->display->display_options['fields']['field_shl_paid_time_off']['table'] = 'field_data_field_shl_paid_time_off';
+  $handler->display->display_options['fields']['field_shl_paid_time_off']['field'] = 'field_shl_paid_time_off';
+  $handler->display->display_options['fields']['field_shl_paid_time_off']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_shl_paid_time_off']['label'] = 'Receives paid time off in fac. based work';
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_com_non_work_partic']['id'] = 'field_com_non_work_partic';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['table'] = 'field_data_field_com_non_work_partic';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['field'] = 'field_com_non_work_partic';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['label'] = 'Participated in com. based non work';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_com_non_work_partic']['alter']['text'] = 'no';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['empty'] = 'yes';
+  $handler->display->display_options['fields']['field_com_non_work_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_com_non_work_partic']['type'] = 'list_key';
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['label'] = 'Hours in comm. based non work';
+  $handler->display->display_options['fields']['field_com_non_wrk_hours']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Did person participate in a volunteer job during this reporting period? */
+  $handler->display->display_options['fields']['field_com_non_work_vol_partic_2']['id'] = 'field_com_non_work_vol_partic_2';
+  $handler->display->display_options['fields']['field_com_non_work_vol_partic_2']['table'] = 'field_data_field_com_non_work_vol_partic_2';
+  $handler->display->display_options['fields']['field_com_non_work_vol_partic_2']['field'] = 'field_com_non_work_vol_partic_2';
+  $handler->display->display_options['fields']['field_com_non_work_vol_partic_2']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_com_non_work_vol_partic_2']['label'] = ' participated in a volunteer job';
+  /* Field: Content: Did not participate in this activity */
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['id'] = 'field_fac_non_work_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['table'] = 'field_data_field_fac_non_work_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['field'] = 'field_fac_non_work_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['label'] = 'Participated in fac. based non work';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['alter']['text'] = 'no';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['empty'] = 'yes';
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_fac_non_work_partic']['type'] = 'list_key';
+  /* Field: Content: Did person participate in unpaid activities in a program setting during this reporting period? */
+  $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['id'] = 'field_fac_non_work_yn_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['table'] = 'field_data_field_fac_non_work_yn_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['field'] = 'field_fac_non_work_yn_partic';
+  $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['label'] = 'Participated in unpaid activities in a program setting';
+  /* Field: Content: You have checked all the "did not participate" boxes on this form. Why didn't this individual participate in an activity? */
+  $handler->display->display_options['fields']['field_indv_data_partic_why']['id'] = 'field_indv_data_partic_why';
+  $handler->display->display_options['fields']['field_indv_data_partic_why']['table'] = 'field_data_field_indv_data_partic_why';
+  $handler->display->display_options['fields']['field_indv_data_partic_why']['field'] = 'field_indv_data_partic_why';
+  $handler->display->display_options['fields']['field_indv_data_partic_why']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_data_partic_why']['label'] = 'Reason for no activity participation';
+  /* Field: Content: Explain your choice of "Other." */
+  $handler->display->display_options['fields']['field_indv_data_partic_other']['id'] = 'field_indv_data_partic_other';
+  $handler->display->display_options['fields']['field_indv_data_partic_other']['table'] = 'field_data_field_indv_data_partic_other';
+  $handler->display->display_options['fields']['field_indv_data_partic_other']['field'] = 'field_indv_data_partic_other';
+  $handler->display->display_options['fields']['field_indv_data_partic_other']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_indv_data_partic_other']['label'] = 'Explain your choice of other for why no particip.';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: OG membership: Group ID */
+  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['arguments']['gid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['gid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['gid']['validate']['type'] = 'og';
+  /* Contextual filter: Content: Reporting period (field_reporting_period) */
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_reporting_period_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'individual' => 'individual',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Global: Fields comparison */
+  $handler->display->display_options['filters']['fields_compare_1']['id'] = 'fields_compare_1';
+  $handler->display->display_options['filters']['fields_compare_1']['table'] = 'views';
+  $handler->display->display_options['filters']['fields_compare_1']['field'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare_1']['group'] = 1;
+  $handler->display->display_options['filters']['fields_compare_1']['right_field'] = 'field_individual_data_type';
+  $handler->display->display_options['filters']['fields_compare_1']['left_field'] = 'type';
+  $handler->display->display_options['path'] = 'provider/%/%/116038/download';
   $export['download_individual_data'] = $view;
 
   $view = new view();

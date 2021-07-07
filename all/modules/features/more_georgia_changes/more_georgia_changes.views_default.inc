@@ -74,6 +74,10 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['relationships']['parent_1']['field'] = 'parent';
   $handler->display->display_options['relationships']['parent_1']['relationship'] = 'term_node_tid_1';
   $handler->display->display_options['relationships']['parent_1']['label'] = 'INdividual parent';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['relationships']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['relationships']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -1099,6 +1103,16 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_time_in_job']['id'] = 'field_indv_comp_time_in_job';
   $handler->display->display_options['fields']['field_indv_comp_time_in_job']['table'] = 'field_data_field_indv_comp_time_in_job';
   $handler->display->display_options['fields']['field_indv_comp_time_in_job']['field'] = 'field_indv_comp_time_in_job';
+  /* Field: Content: Reporting period */
+  $handler->display->display_options['fields']['field_reporting_period']['id'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['field'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['relationship'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['fields']['field_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -1109,13 +1123,27 @@ function more_georgia_changes_views_default_views() {
     'individual_data_ga' => 'individual_data_ga',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: State (og_group_state_ref) */
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['id'] = 'og_group_state_ref_target_id';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['field'] = 'og_group_state_ref_target_id';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['relationship'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['value'] = array(
+    116038 => '116038',
+  );
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['expose']['operator_id'] = 'og_group_state_ref_target_id_op';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['expose']['label'] = 'State (og_group_state_ref)';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['expose']['operator'] = 'og_group_state_ref_target_id_op';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['expose']['identifier'] = 'og_group_state_ref_target_id';
+  $handler->display->display_options['filters']['og_group_state_ref_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+  );
   /* Filter criterion: Content: Reporting period (field_reporting_period) */
   $handler->display->display_options['filters']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
-  $handler->display->display_options['filters']['field_reporting_period_target_id']['value'] = array(
-    116039 => '116039',
-  );
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['group'] = 1;
   $handler->display->display_options['filters']['field_reporting_period_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator_id'] = 'field_reporting_period_target_id_op';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['label'] = 'Reporting period ';
@@ -1585,6 +1613,10 @@ function more_georgia_changes_views_default_views() {
     'nid' => 'nid',
     'og_group_ref' => 'og_group_ref',
     'edit_node' => 'edit_node',
+    'nid_2' => 'nid_2',
+    'edit_node_1' => 'edit_node_1',
+    'field_reporting_period' => 'field_reporting_period',
+    'field_cie_individual' => 'field_cie_individual',
   );
   $handler->display->display_options['style_options']['class'] = '';
   $handler->display->display_options['style_options']['default'] = '-1';
@@ -1636,6 +1668,32 @@ function more_georgia_changes_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'nid_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node_1' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_reporting_period' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_cie_individual' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -1646,6 +1704,10 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['relationships']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
   $handler->display->display_options['relationships']['og_group_ref_target_id']['label'] = 'Provider entity referenced from og_group_ref';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_individual_node']['id'] = 'reverse_field_individual_node';
+  $handler->display->display_options['relationships']['reverse_field_individual_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_individual_node']['field'] = 'reverse_field_individual_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: First name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
@@ -1692,9 +1754,51 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
-  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<a href="/node/[nid_1]/edit?destination=georgia-indiv-admin">Edit this individual</a>';
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit individual';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid_2']['id'] = 'nid_2';
+  $handler->display->display_options['fields']['nid_2']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_2']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_2']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['nid_2']['label'] = 'Edit individual\'s data';
+  $handler->display->display_options['fields']['nid_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid_2']['alter']['text'] = '<a href="/node/[nid_2]/edit?destination=georgia-indiv-admin">Edit individual data</a>';
+  /* Field: Content: Link to edit content */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = 'Edit individual data';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['text'] = 'Edit individual data';
+  /* Field: Content: Reporting period */
+  $handler->display->display_options['fields']['field_reporting_period']['id'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['field'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_reporting_period']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: Content: Individual Authorized for CIE Funds */
+  $handler->display->display_options['fields']['field_cie_individual']['id'] = 'field_cie_individual';
+  $handler->display->display_options['fields']['field_cie_individual']['table'] = 'field_data_field_cie_individual';
+  $handler->display->display_options['fields']['field_cie_individual']['field'] = 'field_cie_individual';
+  $handler->display->display_options['fields']['field_cie_individual']['label'] = 'CIE individual';
+  $handler->display->display_options['fields']['field_cie_individual']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_cie_individual']['alter']['text'] = 'Yes';
+  $handler->display->display_options['fields']['field_cie_individual']['empty'] = 'No';
+  $handler->display->display_options['fields']['field_cie_individual']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_cie_individual']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_cie_individual']['type'] = 'list_key';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Reporting period (field_reporting_period) */
+  $handler->display->display_options['sorts']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['sorts']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['sorts']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['sorts']['field_reporting_period_target_id']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['sorts']['field_reporting_period_target_id']['order'] = 'DESC';
   /* Sort criterion: Content: Provider (og_group_ref) */
   $handler->display->display_options['sorts']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['sorts']['og_group_ref_target_id']['table'] = 'og_membership';
@@ -1755,6 +1859,41 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['field_last_name_value']['expose']['remember_roles'] = array(
     2 => '2',
   );
+  /* Filter criterion: Content: Reporting period (field_reporting_period) */
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['id'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['value'] = array(
+    122532 => '122532',
+    116039 => '116039',
+    122376 => '122376',
+  );
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator_id'] = 'field_reporting_period_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['label'] = 'Reporting period';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator'] = 'field_reporting_period_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['identifier'] = 'field_reporting_period_target_id';
+  $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+  );
+  /* Filter criterion: Content: Individual Authorized for CIE Funds (field_cie_individual) */
+  $handler->display->display_options['filters']['field_cie_individual_value']['id'] = 'field_cie_individual_value';
+  $handler->display->display_options['filters']['field_cie_individual_value']['table'] = 'field_data_field_cie_individual';
+  $handler->display->display_options['filters']['field_cie_individual_value']['field'] = 'field_cie_individual_value';
+  $handler->display->display_options['filters']['field_cie_individual_value']['value'] = array(
+    0 => '0',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_cie_individual_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['operator_id'] = 'field_cie_individual_value_op';
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['label'] = 'Individual Authorized for CIE Funds (field_cie_individual)';
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['operator'] = 'field_cie_individual_value_op';
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['identifier'] = 'field_cie_individual_value';
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['remember_roles'] = array(
+    2 => '2',
+  );
+  $handler->display->display_options['filters']['field_cie_individual_value']['expose']['reduce'] = TRUE;
   $handler->display->display_options['path'] = 'georgia-indiv-admin';
   $export['georgia_provider_admin'] = $view;
 
