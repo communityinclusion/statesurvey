@@ -294,7 +294,7 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
   }
 
   $node = new stdClass();
-  $node->title = $individual->title . ' data for ' . $reporting_period_wrapper->title->value();
+  $node->title = $individual->title . ' data for ' . preg_replace('~\([^()]*\)~', '', $reporting_period_wrapper->title->value());
   $node->type = $individual_data_content_type;
   node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
   $node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled

@@ -26,6 +26,7 @@
   {
     attach: function (context, settings) 
     {
+      
       $('ul.vertical-tabs-list li a').addClass('inComplete');
         $( document ).one('ready',scanFieldsets);
         $(document).one('ready',surveynodeformcheckAllActions);
@@ -240,8 +241,8 @@
   Drupal.behaviors.surveynodeformNotReq = {
   
     attach: function (context, settings) {
-     $('#edit-field-contact-survey-coordinator-und-0-premise').addClass('notReq');
-  
+      $('#edit-field-indv-start-date-und-0-value-datepicker-popup-0').addClass('notReq');
+      $('#edit-field-indv-date-last-worked-und-0-value-datepicker-popup-0').addClass('notReq');
     }
   };
   Drupal.behaviors.surveynodeformIsReq = {
