@@ -272,8 +272,8 @@ function individual_field_default_field_instances() {
             'field' => '',
           ),
           'interval' => array(
-            'interval' => '+1',
-            'period' => 'hour',
+            'interval' => -16,
+            'period' => 'year',
           ),
           'type' => 'interval',
         ),

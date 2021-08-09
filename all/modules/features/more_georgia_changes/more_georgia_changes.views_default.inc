@@ -23,7 +23,7 @@ function more_georgia_changes_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Georgia data by reporting period';
+  $handler->display->display_options['title'] = 'Georgia data by reporting period.';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1093,12 +1093,6 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
-  $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
-  $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';
-  $handler->display->display_options['fields']['check_ind']['label'] = 'individual complete?';
-  $handler->display->display_options['fields']['check_ind']['alter']['strip_tags'] = TRUE;
   /* Field: Content: How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure. */
   $handler->display->display_options['fields']['field_indv_comp_time_in_job']['id'] = 'field_indv_comp_time_in_job';
   $handler->display->display_options['fields']['field_indv_comp_time_in_job']['table'] = 'field_data_field_indv_comp_time_in_job';
@@ -1473,12 +1467,6 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
-  $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
-  $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';
-  $handler->display->display_options['fields']['check_ind']['label'] = 'individual complete?';
-  $handler->display->display_options['fields']['check_ind']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -1509,6 +1497,7 @@ function more_georgia_changes_views_default_views() {
     'default' => 'default',
     'page' => 'page',
   );
+  $handler->display->display_options['sitename_title'] = 0;
   $handler->display->display_options['use_batch'] = 'batch';
   $handler->display->display_options['segment_size'] = '60';
   $export['georgia_data_by_reporting_period'] = $view;
