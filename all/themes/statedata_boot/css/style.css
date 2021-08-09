@@ -379,4 +379,5 @@ h4.redFour { color: red; }
 .view-georgia-data-by-reporting-period .view-content {display: none;}
 .view-user-groups-providers .views-field-submit-completed-cie { margin-top: 35px;}
 .view-user-groups-providers .views-field-submit-completed-cie,.view-user-groups-providers .views-field-submit-completed { width: 65%;border: 1px solid red; padding: 5px 15px 5px 5px; }
+
 .view-admin-view-user-groups-providers- .views-field-submit-completed-cie, .views-field-submit-completed { width: 50%; border: 1px solid red; padding: 15px 5px 5px 5px; margin-bottom: 5px;}
