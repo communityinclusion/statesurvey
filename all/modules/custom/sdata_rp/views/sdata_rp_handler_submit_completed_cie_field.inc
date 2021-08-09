@@ -144,7 +144,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
       <p><strong> $deadlinedate</strong></p>";
        if ($valid && !$completed && !$empty) {
        //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-        $output .= "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br /><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">CIE Data complete - ready to submit.</a></p>";
+        $output .= "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br /><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final-cie\">CIE Data complete - ready to submit.</a></p>";
        }
 
 
@@ -166,7 +166,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
       <p><strong> $deadlinedate</strong></p>";
       if ($valid && !$completed && !$empty) {
       //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-      $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit CIE individuals or data.</strong></p>";
+      $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final-cie\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit CIE individuals or data.</strong></p>";
       }
 
 
