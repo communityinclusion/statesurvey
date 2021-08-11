@@ -305,7 +305,7 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
   $facbasedptopct = number_format((float)$facbasedptopct, 1, '.', '') . "%";
   $wagesarray = array(array("Mean two-week wage*",$ttlcount,$indcompmeanwage,$grpintegmeanwage,$selfempmeanwage . "*",$facbasedmeanwage),array("Percent earning paid time off"," -- ",$indcompptopct,$grpintegptopct," -- ",$facbasedptopct)
   );
-  //new state: change below I think based on number of categories
+  //new state: change below based on number of categories
   $sixarray = array_slice($headerarray, 0, 7);
   $fivearray = array_slice($headerarray,0,6);
   $data = array(
