@@ -243,7 +243,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -411,7 +411,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -590,7 +590,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -733,11 +733,12 @@ function provider_views_default_views() {
     'bypass_access' => 0,
     'link' => 0,
   );
-  /* Field: Content: Legacy reporting period */
+  /* Field: Content: Legacy reporting period--use non-CIE bi-annual period only */
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['id'] = 'field_legacy_reporting_period_1';
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['table'] = 'field_data_field_legacy_reporting_period';
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['field'] = 'field_legacy_reporting_period';
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_legacy_reporting_period_1']['label'] = 'Legacy reporting period';
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_legacy_reporting_period_1']['settings'] = array(
@@ -759,7 +760,7 @@ function provider_views_default_views() {
     'bypass_access' => 0,
     'link' => 0,
   );
-  /* Field: Content: Legacy reporting period */
+  /* Field: Content: Legacy reporting period--use non-CIE bi-annual period only */
   $handler->display->display_options['fields']['field_legacy_reporting_period']['id'] = 'field_legacy_reporting_period';
   $handler->display->display_options['fields']['field_legacy_reporting_period']['table'] = 'field_data_field_legacy_reporting_period';
   $handler->display->display_options['fields']['field_legacy_reporting_period']['field'] = 'field_legacy_reporting_period';

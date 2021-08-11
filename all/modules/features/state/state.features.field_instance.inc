@@ -400,7 +400,7 @@ function state_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_legacy_reporting_period',
-    'label' => 'Legacy reporting period',
+    'label' => 'Legacy reporting period--use non-CIE bi-annual period only',
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
@@ -528,7 +528,7 @@ function state_field_default_field_instances() {
   t('For the end date, be sure to select the date after your desired end date. For example, to select an end date of January 31, select February 1.');
   t('Group');
   t('Individual data type');
-  t('Legacy reporting period');
+  t('Legacy reporting period--use non-CIE bi-annual period only');
   t('Notification emails');
   t('Select the current reporting period for this state.');
   t('Select the state this reporting period is valid for.');
