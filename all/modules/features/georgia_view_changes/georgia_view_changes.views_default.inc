@@ -101,7 +101,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -141,7 +141,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -361,7 +361,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['table'] = 'field_data_field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -896,7 +896,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1057,7 +1057,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1325,7 +1325,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1473,7 +1473,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1654,7 +1654,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -1856,7 +1856,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2000,7 +2000,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2259,7 +2259,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2658,7 +2658,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2758,7 +2758,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -2993,7 +2993,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -3195,7 +3195,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -3281,7 +3281,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -3528,7 +3528,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -3679,7 +3679,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -3772,7 +3772,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -4007,7 +4007,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -4865,7 +4865,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -4965,7 +4965,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -5200,7 +5200,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -5485,7 +5485,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -5585,7 +5585,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -5820,7 +5820,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -6015,7 +6015,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -6107,7 +6107,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_covid_1']['field'] = 'field_indv_comp_covid';
   $handler->display->display_options['fields']['field_indv_comp_covid_1']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_indv_comp_covid_1']['label'] = 'Non-participation in ind. comp. related to COVID-19?';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -6396,7 +6396,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -6574,7 +6574,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -6674,7 +6674,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -7021,7 +7021,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -7107,7 +7107,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -7484,7 +7484,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -7584,7 +7584,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -7796,7 +7796,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_partic']['empty'] = 'yes';
   $handler->display->display_options['fields']['field_com_non_work_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_com_non_work_partic']['type'] = 'list_key';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -7907,7 +7907,7 @@ function georgia_view_changes_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -8007,7 +8007,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -8219,7 +8219,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_partic']['empty'] = 'yes';
   $handler->display->display_options['fields']['field_com_non_work_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_com_non_work_partic']['type'] = 'list_key';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -9083,7 +9083,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid_1']['empty'] = '!1';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -9143,7 +9143,7 @@ function georgia_view_changes_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -9586,7 +9586,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid_1']['empty'] = '!1';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['id'] = 'field_indv_comp_hrs_1';
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['field'] = 'field_indv_comp_hrs';
@@ -9651,7 +9651,7 @@ function georgia_view_changes_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -10095,7 +10095,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid_3']['field'] = 'nid';
   $handler->display->display_options['fields']['nid_3']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['nid_3']['label'] = 'Total Served (unduplicated count)';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -10161,7 +10161,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['field'] = 'field_fac_non_work_yn_partic';
   $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['relationship'] = 'reverse_field_individual_node';
   $handler->display->display_options['fields']['field_fac_non_work_yn_partic']['label'] = 'Facility based non work';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -11090,7 +11090,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid_1']['empty'] = '!1';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -11102,7 +11102,7 @@ function georgia_view_changes_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['id'] = 'field_indv_comp_hrs_1';
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs_1']['field'] = 'field_indv_comp_hrs';
@@ -11166,7 +11166,7 @@ function georgia_view_changes_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -11538,7 +11538,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -11578,7 +11578,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -11798,7 +11798,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['table'] = 'field_data_field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -12283,7 +12283,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -12328,7 +12328,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_covid']['table'] = 'field_data_field_indv_comp_covid';
   $handler->display->display_options['fields']['field_indv_comp_covid']['field'] = 'field_indv_comp_covid';
   $handler->display->display_options['fields']['field_indv_comp_covid']['label'] = 'non-participation in ind. comp. related to COVID-19?';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -12583,7 +12583,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['table'] = 'field_data_field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['field'] = 'field_com_non_work_vol_partic';
   $handler->display->display_options['fields']['field_com_non_work_vol_partic']['label'] = 'Cmmty. based non-work: did person paticipate in unpaid activities in integrated setting?';
-  /* Field: Content: Hours spent in unpaid activities in an integrated community setting during this reporting period */
+  /* Field: Content: Hours spent in unpaid activities in an integrated community setting */
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['id'] = 'field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['table'] = 'field_data_field_com_non_wrk_hours';
   $handler->display->display_options['fields']['field_com_non_wrk_hours']['field'] = 'field_com_non_wrk_hours';
@@ -12756,7 +12756,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'parent_1';
   $handler->display->display_options['fields']['name']['label'] = 'Region';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -12796,7 +12796,7 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -13521,11 +13521,10 @@ function georgia_view_changes_views_default_views() {
   $handler->display->display_options['fields']['field_provider_vendor_name']['table'] = 'field_data_field_provider_vendor_name';
   $handler->display->display_options['fields']['field_provider_vendor_name']['field'] = 'field_provider_vendor_name';
   $handler->display->display_options['fields']['field_provider_vendor_name']['label'] = 'Vendor name';
-  /* Field: Content: State, region, and county */
+  /* Field: Content: Area office */
   $handler->display->display_options['fields']['field_area_office_1']['id'] = 'field_area_office_1';
   $handler->display->display_options['fields']['field_area_office_1']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office_1']['field'] = 'field_area_office';
-  $handler->display->display_options['fields']['field_area_office_1']['label'] = 'Area office';
   $handler->display->display_options['fields']['field_area_office_1']['type'] = 'shs_default';
   $handler->display->display_options['fields']['field_area_office_1']['settings'] = array(
     'linked' => 0,
