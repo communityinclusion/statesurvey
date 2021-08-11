@@ -132,6 +132,9 @@ function user_permission_features_rebuild($module) {
     // installing multiple features at once, for example from an install profile
     // or via drush.
     node_types_rebuild();
+        // Hack PF permissions not being imported: https://www.drupal.org/project/features/issues/2334409
+        // Reset the CTools object cache to prevent missing permissions.
+    ctools_export_load_object_reset();
 
     $modules = user_permission_get_modules();
     $roles = _user_features_get_roles();
