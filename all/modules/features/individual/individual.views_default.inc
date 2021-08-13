@@ -307,7 +307,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -536,7 +536,7 @@ function individual_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<div class="clearfix"><p>&nbsp;</p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div><p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><h2>%1</h2><h4>Reporting due date: [field_rp_deadline_date]</h4>
+  $handler->display->display_options['header']['area']['content'] = '<div class="clearfix"><p>&nbsp;</p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2&destination=provider/!1/individuals/!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div><p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><h2>%1</h2><h4>Reporting due date: [field_rp_deadline_date]</h4>
 <h4>Semi-annual reporting period: [field_rp_date_range]</h4>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
@@ -546,7 +546,7 @@ function individual_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=[field_reporting_period_1]" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div>';
+  $handler->display->display_options['footer']['area']['content'] = '<p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2&destination=provider/!1/individuals/!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -621,7 +621,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2317,7 +2317,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
@@ -2536,7 +2536,7 @@ function individual_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="clearfix"><p>&nbsp;</p><!-- <div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a> --><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div><p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="clearfix"><p>&nbsp;</p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2?destination=provider/!1/individuals-cie/!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div><p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -2545,7 +2545,7 @@ function individual_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><div class="clearfix"><!-- <a class="viewButton btn addInd" href="/node/add/individual?p=!1" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a> --><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div>';
+  $handler->display->display_options['footer']['area']['content'] = '<p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2?destination=provider/!1/individuals-cie/!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -2584,7 +2584,7 @@ function individual_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Area office */
+  /* Field: Content: State, region, and county */
   $handler->display->display_options['fields']['field_area_office']['id'] = 'field_area_office';
   $handler->display->display_options['fields']['field_area_office']['table'] = 'field_data_field_area_office';
   $handler->display->display_options['fields']['field_area_office']['field'] = 'field_area_office';
