@@ -135,9 +135,9 @@ function sdata_rp_node_postinsert($node) {
       if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
       if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
       $toggle_period_node = node_load($legacy_period_nid);
-      watchdog('hook_post_action_test', "The inserted node {$node->type} id is {$node->nid}, Provider id is $provider_id  State id is $state_id  Reporting perid id is $reporting_period_nid Toggle period nid = $toggle_period_nid State content type is $state_individual_data_content_type from " . __FUNCTION__);
+      
         //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
-      _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider); 
+      _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider, false); 
     }
  }
 }
@@ -253,7 +253,7 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
  */
 function _sdata_rp_batch_create_individual_data_node_process($individual_node, $state_individual_data_content_type, $reporting_period_node, $provider, &$context) {
   $context['message'] = "Creating individual data node for " . $individual_node->title . "...";
-  _sdata_rp_create_new_individual_data_node($individual_node, $state_individual_data_content_type, $reporting_period_node, $provider);
+  _sdata_rp_create_new_individual_data_node($individual_node, $state_individual_data_content_type, $reporting_period_node, $provider, true);
 }
 
 /**
@@ -273,9 +273,31 @@ function _sdata_rp_batch_create_individual_data_nodes_finished($success, $result
   }
 }
 
-function _sdata_rp_create_new_individual_data_node($individual, $individual_data_content_type, $reporting_period_node, $provider) {
+function _sdata_rp_create_new_individual_data_node($individual, $individual_data_content_type, $reporting_period_node, $provider, $batch) {
   global $user;
+  //watchdog('hook_post_action_test', "The inserted node {$individual->type} id is {$individual->nid} Reporting period node id is {$reporting_period_node->nid}  State content type is $individual_data_content_type Provider id is {$provider->nid} from " . __FUNCTION__);
+  
+  $provider_id = $provider->nid;
+  $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
+  $state = node_load($state_id);
+  $ciecheck = $individual->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
+  $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
+  $reporting_period_nid = $reporting_period_node->nid;
+  $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] ? $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] : null;
+  $legacyarray = array();
+  //module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+  if($legacy_period_nid && !$ciecheck && $batch == false ) { 
+    $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
+    $legacyarrayprint = print_r($legacyarray,true);
+    watchdog('hook_post_action_test', "Legacy array: " . $legacyarrayprint . " " . __FUNCTION__);
+    // if legacy period not completed
+    if(!$legacyarray[1])  {
+      $reporting_period_nid = $legacy_period_nid;
+      $reporting_period_node = node_load($legacy_period_nid);
+    }
+  }
 
+//If there is a legacy period open and the individual is not CIE then the new individual data node gets assigned to the legacy period, because the current period is not open for the user. If the individual is CIE they should get added to the current reporting period because that can't be legacy.
   // Wrap up the node in a nice package.
   $reporting_period_wrapper = entity_metadata_wrapper('node', $reporting_period_node);
 
@@ -286,7 +308,7 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
     ->entityCondition('bundle', $individual_data_content_type)
     ->fieldCondition('field_individual', 'target_id', $individual->nid)
     ->fieldCondition('og_group_ref', 'target_id', $provider->nid)
-    ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_node->nid);
+    ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
   $result = $query->execute();
   if (isset($result['node'])) {
     // Individual data node found, bail.
