@@ -129,7 +129,7 @@
    }
    Drupal.behaviors.scanOpenTab = {
        attach: function (context, settings) {
-         $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
+         $('a.openTab').bind("select",scanFieldsets);
    $( document ).one('ready',scanFieldsets);
    }
    }
