@@ -944,6 +944,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
    $url = drupal_get_query_parameters();
+   $urlp = print_r($url,true);
+   watchdog('get urlp','URL p: ' . $urlp);
  
     if ($form_id == 'individual_node_form' && isset($url['p'])) { 
       $provid = $url['p'];
@@ -954,8 +956,17 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
 
     } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) 
-    {
-      $provid =  surveynodeform_get_prov_id($nid,'individual');
+    {  
+      if($url['destination']) {
+        $destarray = explode('/', $url['destination']);
+        $provid = $destarray[1];
+        $reportingperiod_id = $destarray[3];
+        watchdog('reporting period id: ', 'reporting id: ' . $reportingperiod_id);
+      } else
+      {
+        $provid =  surveynodeform_get_prov_id($nid,'individual');
+      }
+      watchdog('provider id ', 'provider id: ' . $provid);
       $statearray = surveynodeform_provider_statename($provid);
       $statename = $statearray[0];
       $statetid = key(taxonomy_get_term_by_name($statename));
@@ -1094,6 +1105,18 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   $field_language = $form[$field_name][LANGUAGE_NONE];
   $max_delta = $form[$field_name][$field_language]['#max_delta'];
   unset($form[$field_name][$field_language][$max_delta]);
+  }
+
+    //stop any node deletions of state nodes
+    //this prevents deletion of Maryland, Mass., and Georgia state nodes.  A bit hacky.  Todo: run a node type test so future states won't get deleted
+  if (($form['#id'] == 'views-form-admin-views-node-system-1' && (in_array('116038',$_POST['views_bulk_operations']) || in_array('7',$_POST['views_bulk_operations']) ||in_array('10',$_POST['views_bulk_operations']) ) )|| ($form['#id'] == 'node-delete-confirm' && arg(0) == 'node' && is_numeric(arg(1))  && (arg(1) == 116038 ||arg(1) == 7 ||arg(1) == 10 ) )) 
+  {
+    //set a message...
+    drupal_set_message('Warning: don\'t delete states');
+    //stop people from being able to submit the delete form (and in turn stop the delete)
+    unset($form['actions']['submit']);
+    //set the "cancel" link text to something else
+    $form['actions']['cancel']['#title'] = t('Don\'t delete states!!! <<< Go back <<<');
   }
 }
 
