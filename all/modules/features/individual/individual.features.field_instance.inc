@@ -46,13 +46,12 @@ function individual_field_default_field_instances() {
       'active' => 1,
       'module' => 'shs',
       'settings' => array(
-        'apply_chosen' => '',
+        'apply_chosen' => 0,
         'shs' => array(
           'create_new_levels' => 0,
           'create_new_terms' => 0,
           'force_deepest' => 1,
-          'node_count' => 0,
-          'use_chosen' => 'chosen',
+          'use_chosen' => 'never',
         ),
       ),
       'type' => 'taxonomy_shs',
@@ -63,7 +62,11 @@ function individual_field_default_field_instances() {
   // Exported field_instance: 'node-individual-field_cie_individual'.
   $field_instances['node-individual-field_cie_individual'] = array(
     'bundle' => 'individual',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -83,7 +86,7 @@ function individual_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_cie_individual',
-    'label' => 'Individual is in CIE category',
+    'label' => 'Individual Authorized for CIE Funds',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -126,10 +129,10 @@ function individual_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_date_of_entry_into_ende',
-    'label' => 'Date of entry into extended services',
+    'label' => 'Date of Entry into Extended SE Supports',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -269,8 +272,8 @@ function individual_field_default_field_instances() {
             'field' => '',
           ),
           'interval' => array(
-            'interval' => '+1',
-            'period' => 'hour',
+            'interval' => -16,
+            'period' => 'year',
           ),
           'type' => 'interval',
         ),
@@ -288,8 +291,8 @@ function individual_field_default_field_instances() {
             'field' => '',
           ),
           'interval' => array(
-            'interval' => '',
-            'period' => 'second',
+            'interval' => -16,
+            'period' => 'year',
           ),
           'type' => 'disabled',
         ),
@@ -369,7 +372,7 @@ function individual_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_entered_date',
     'label' => 'Date services began with provider',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'same',
@@ -500,6 +503,46 @@ function individual_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-individual-field_ga_idd_c_cid_number'.
+  $field_instances['node-individual-field_ga_idd_c_cid_number'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ga_idd_c_cid_number',
+    'label' => 'IDD-C CID Number ',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-individual-field_last_name'.
   $field_instances['node-individual-field_last_name'] = array(
     'bundle' => 'individual',
@@ -609,11 +652,12 @@ function individual_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('(developer note: this is the "Groups audience" field)');
+  t('Date of Entry into Extended SE Supports');
   t('Date of birth');
-  t('Date of entry into extended services');
   t('Date services began with provider');
   t('First name');
-  t('Individual is in CIE category');
+  t('IDD-C CID Number ');
+  t('Individual Authorized for CIE Funds');
   t('Last name');
   t('Provider');
   t('State, region, and county');

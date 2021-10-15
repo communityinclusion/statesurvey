@@ -81,6 +81,38 @@ function georgia_addition_field_default_field_bases() {
     'type' => 'field_hidden_integer',
   );
 
+  // Exported field_base: 'field_grp_integ_fund_source'.
+  $field_bases['field_grp_integ_fund_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_fund_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Waiver' => 'Waiver',
+        'Contracted state funds (GIA)' => 'Contracted state funds (GIA)',
+        'Family Supports' => 'Family Supports',
+        'GVRA' => 'GVRA',
+        'Other' => 'Other',
+        'Unfunded' => 'Unfunded',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_grp_integ_occupation'.
   $field_bases['field_grp_integ_occupation'] = array(
     'active' => 1,
@@ -111,6 +143,61 @@ function georgia_addition_field_default_field_bases() {
         'Sorting/recycling' => 'Sorting/recycling',
         'Stocking/warehouse' => 'Stocking/warehouse',
         'Other' => 'Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_grp_integ_other_source'.
+  $field_bases['field_grp_integ_other_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_other_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_grp_integ_time_in_job'.
+  $field_bases['field_grp_integ_time_in_job'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_time_in_job',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Less than 6 months' => 'Less than 6 months',
+        '6 to 12 months' => '6 to 12 months',
+        '13 to 24 months' => '13 to 24 months',
+        '25 to 36 months' => '25 to 36 months',
+        '37 to 48 months' => '37 to 48 months',
+        '49 to 60 months' => '49 to 60 months',
+        'More than 60 months' => 'More than 60 months',
       ),
       'allowed_values_function' => '',
     ),
@@ -171,6 +258,7 @@ function georgia_addition_field_default_field_bases() {
         'Family Supports' => 'Family Supports',
         'GVRA' => 'GVRA',
         'Other' => 'Other',
+        'Unfunded' => 'Unfunded',
       ),
       'allowed_values_function' => '',
     ),
@@ -270,6 +358,38 @@ function georgia_addition_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_self_emp_fund_source'.
+  $field_bases['field_self_emp_fund_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_fund_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Waiver' => 'Waiver',
+        'Contracted state funds (GIA)' => 'Contracted state funds (GIA)',
+        'Family Supports' => 'Family Supports',
+        'GVRA' => 'GVRA',
+        'Other' => 'Other',
+        'Unfunded' => 'Unfunded',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_self_emp_occupation'.
   $field_bases['field_self_emp_occupation'] = array(
     'active' => 1,
@@ -300,6 +420,61 @@ function georgia_addition_field_default_field_bases() {
         'Sorting/recycling' => 'Sorting/recycling',
         'Stocking/warehouse' => 'Stocking/warehouse',
         'Other' => 'Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_self_emp_other_source'.
+  $field_bases['field_self_emp_other_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_other_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_self_emp_time_in_job'.
+  $field_bases['field_self_emp_time_in_job'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_time_in_job',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Less than 6 months' => 'Less than 6 months',
+        '6 to 12 months' => '6 to 12 months',
+        '13 to 24 months' => '13 to 24 months',
+        '25 to 36 months' => '25 to 36 months',
+        '37 to 48 months' => '37 to 48 months',
+        '49 to 60 months' => '49 to 60 months',
+        'More than 60 months' => 'More than 60 months',
       ),
       'allowed_values_function' => '',
     ),

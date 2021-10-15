@@ -399,6 +399,46 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_fund_source'.
+  $field_instances['node-individual_data_ga-field_grp_integ_fund_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 45,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_fund_source',
+    'label' => 'Primary funding source for employment support',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_grp_integ_gross_wages'.
   $field_instances['node-individual_data_ga-field_grp_integ_gross_wages'] = array(
     'bundle' => 'individual_data_ga',
@@ -527,7 +567,48 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_other_source'.
+  $field_instances['node-individual_data_ga-field_grp_integ_other_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 46,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_other_source',
+    'label' => 'Other funding source',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 20,
     ),
   );
 
@@ -567,7 +648,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -615,6 +696,46 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_grp_integ_time_in_job'.
+  $field_instances['node-individual_data_ga-field_grp_integ_time_in_job'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 44,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_time_in_job',
+    'label' => 'How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_grp_integ_work_location'.
   $field_instances['node-individual_data_ga-field_grp_integ_work_location'] = array(
     'bundle' => 'individual_data_ga',
@@ -650,7 +771,7 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 18,
+      'weight' => 21,
     ),
   );
 
@@ -1206,6 +1327,46 @@ function georgia_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_fund_source'.
+  $field_instances['node-individual_data_ga-field_self_emp_fund_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 48,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_fund_source',
+    'label' => 'Primary funding source for employment support',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 25,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_ga-field_self_emp_gross_expens'.
   $field_instances['node-individual_data_ga-field_self_emp_gross_expens'] = array(
     'bundle' => 'individual_data_ga',
@@ -1381,7 +1542,48 @@ function georgia_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 24,
+      'weight' => 27,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_other_source'.
+  $field_instances['node-individual_data_ga-field_self_emp_other_source'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 49,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_other_source',
+    'label' => 'Other funding source',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 26,
     ),
   );
 
@@ -1425,6 +1627,46 @@ function georgia_addition_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_ga-field_self_emp_time_in_job'.
+  $field_instances['node-individual_data_ga-field_self_emp_time_in_job'] = array(
+    'bundle' => 'individual_data_ga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 47,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_self_emp_time_in_job',
+    'label' => 'How long (in months) has this person been employed in this job? If more than one job report the job with the longest tenure.',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 24,
     ),
   );
 

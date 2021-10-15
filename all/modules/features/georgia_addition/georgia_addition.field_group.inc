@@ -21,7 +21,7 @@ function georgia_addition_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Community Based Non Work',
+    'label' => 'Community Based Non-Work',
     'weight' => '8',
     'children' => array(
       0 => 'field_com_non_work_partic',
@@ -30,11 +30,11 @@ function georgia_addition_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Community Based Non Work',
+      'label' => 'Community Based Non-Work',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-com-non-work field-group-tab',
-        'description' => '<h3>Community based non work</h3><p>Unpaid time spent in integrated, community settings; in a group of 4 people with disabilities or less, while having access to others without disabilities who are not paid staff or family members. Activities occur at locations available to and by members of the general community, and include interactions with members of the general community to the same extent as participants without disabilities. </p>',
+        'description' => '<h3>Community Based Non-Work</h3><p>Unpaid time spent in integrated, community settings; in a group of 4 people with disabilities or less, while having access to others without disabilities who are not paid staff or family members. Activities occur at locations available to and by members of the general community, and include interactions with members of the general community to the same extent as participants without disabilities. </p>',
       ),
       'formatter' => 'closed',
     ),
@@ -83,7 +83,7 @@ function georgia_addition_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Facility Based Non Work',
+    'label' => 'Facility Based Non-Work',
     'weight' => '9',
     'children' => array(
       0 => 'field_fac_non_work_partic',
@@ -92,11 +92,11 @@ function georgia_addition_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Facility Based Non Work',
+      'label' => 'Facility Based Non-Work',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-fac-non-work field-group-tab',
-        'description' => '<h3>Facility based non work</h3><p>Individual spends time in unpaid activities in a program setting with a group of individuals with disabilities. This also includes larger group outings of 5 or more individuals with other people with disabilities as part of a non-work program.</p>',
+        'description' => '<h3>Facility Based Non-Work</h3><p>Individual spends time in unpaid activities in a program setting with a group of individuals with disabilities. This also includes larger group outings of 5 or more individuals with other people with disabilities as part of a non-work program.</p>',
       ),
       'formatter' => 'closed',
     ),
@@ -122,6 +122,9 @@ function georgia_addition_field_group_info() {
       3 => 'field_grp_integ_paid_time_off',
       4 => 'field_grp_integ_partic',
       5 => 'field_grp_integ_work_location',
+      6 => 'field_grp_integ_time_in_job',
+      7 => 'field_grp_integ_fund_source',
+      8 => 'field_grp_integ_other_source',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -257,6 +260,9 @@ function georgia_addition_field_group_info() {
       2 => 'field_self_emp_hrs',
       3 => 'field_self_emp_occupation',
       4 => 'field_self_emp_partic',
+      5 => 'field_self_emp_time_in_job',
+      6 => 'field_self_emp_fund_source',
+      7 => 'field_self_emp_other_source',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -264,7 +270,7 @@ function georgia_addition_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-self-emp field-group-tab',
-        'description' => '<h3>Self employment</h3><p>Includes self-employment or microenterprises owned by the individual. Does not include a business that is owned by the support organization.</p><p><em>
+        'description' => '<h3>Self Employment</h3><p>Includes self-employment or microenterprises owned by the individual. Does not include a business that is owned by the support organization.</p><p><em>
 Note that business income and expenses are reported over a 3 month period to capture fluctuations in business income.</em></p>',
       ),
       'formatter' => 'closed',
@@ -296,7 +302,7 @@ Note that business income and expenses are reported over a 3 month period to cap
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-shl field-group-tab',
-        'description' => '<h3>Facility based/Sheltered work</h3><p>Individual works in a group of individuals with disabilities. This category would include any group larger than 8, and smaller group settings that involve little or no contact with workers without disabilities. Typically, the position is located in a facility or business owned or operated by the support organization, but may also occur in large groups in other settings such as a large enclave.</p>',
+        'description' => '<h3>Facility Based/Sheltered Work</h3><p>Individual works in a group of individuals with disabilities. This category would include any group larger than 8, and smaller group settings that involve little or no contact with workers without disabilities. Typically, the position is located in a facility or business owned or operated by the support organization, but may also occur in large groups in other settings such as a large enclave.</p>',
       ),
       'formatter' => 'closed',
     ),
@@ -307,8 +313,8 @@ Note that business income and expenses are reported over a 3 month period to cap
   // Included for use with string extractors like potx.
   t('Answer some questions before deleting this individual.');
   t('Categories');
-  t('Community Based Non Work');
-  t('Facility Based Non Work');
+  t('Community Based Non-Work');
+  t('Facility Based Non-Work');
   t('Facility Based/Sheltered Work');
   t('Group Supported Job');
   t('Individual Community Job');
