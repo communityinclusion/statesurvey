@@ -138,7 +138,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -890,7 +890,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';
@@ -1212,7 +1212,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty'] = 'Yes';
   $handler->display->display_options['fields']['field_indv_comp_partic']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_indv_comp_partic']['type'] = 'list_key';
-  /* Field: Content: Total hours worked for this reporting period */
+  /* Field: Content: Hours worked for pay this reporting period */
   $handler->display->display_options['fields']['field_indv_comp_hrs']['id'] = 'field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['table'] = 'field_data_field_indv_comp_hrs';
   $handler->display->display_options['fields']['field_indv_comp_hrs']['field'] = 'field_indv_comp_hrs';

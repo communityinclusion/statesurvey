@@ -125,6 +125,7 @@ function individual_data_md_field_group_info() {
       4 => 'field_grp_integr_set_aside',
       5 => 'field_grp_integ_covid',
       6 => 'field_grp_integ_supports',
+      7 => 'field_grp_integ_covid_other',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -193,6 +194,7 @@ function individual_data_md_field_group_info() {
       4 => 'field_indv_comp_why_not_min',
       5 => 'field_indv_comp_covid',
       6 => 'field_indv_comp_supports',
+      7 => 'field_indv_comp_covid_other',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -228,6 +230,7 @@ function individual_data_md_field_group_info() {
       5 => 'field_indv_cont_why_no_min',
       6 => 'field_indv_cont_covid',
       7 => 'field_indv_cont_supports',
+      8 => 'field_indv_cont_covid_other',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
