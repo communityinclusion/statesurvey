@@ -8,8 +8,17 @@
  Drupal.behaviors.remState = {
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
-       $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
-       $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+           $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
+           $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+           $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+                 $(this).remove();
+           });
+           $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
+                 $(this).remove();
+           });
+
+
+
        });
 
 
@@ -317,7 +326,7 @@
 
 
    if (checkVal > Drupal.settings.Surveyconfig.mdhrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
-   else if (checkVal == 0) { 
+   else if (checkVal == 0) {
      alert('If the individual had no hours check "Did not participate in this activity" above.');
      $(rangeVal).val('');
 
@@ -426,12 +435,12 @@
     });
     //check that all tabs are complete and set hidden field field_ga_ind_data_complete complete/imcomplete
     var formComplete = false;
-    
-     
+
+
         $('.vertical-tab-button > a').each(function(i, el) {
           if (!$(this).hasClass('inComplete')) {
           formComplete = true;
-          
+
           } else if($(this).hasClass('inComplete')) {
             formComplete = false;
             return false;
@@ -439,13 +448,13 @@
         });
         if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked')) formComplete = false;
     if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-3').prop('checked') && $('#edit-field-indv-data-partic-other-und-0-value').val() == "" ) formComplete = false;
-      
-      
-      
+
+
+
        if (formComplete) $('#edit-field-ga-ind-data-complete input').val('1');
        else $('#edit-field-ga-ind-data-complete input').val('0');
-   
-  
+
+
   }
 
    function saveAndLeave(event) {

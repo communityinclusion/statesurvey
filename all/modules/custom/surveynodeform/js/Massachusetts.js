@@ -8,8 +8,15 @@
  Drupal.behaviors.remState = {
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
-         $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
-         $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+
+          $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+                $(this).remove();
+          });
+          $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
+                $(this).remove();
+          });
        });
 
 
@@ -308,7 +315,7 @@
 
 
   if (checkVal > Drupal.settings.Surveyconfig.mahrhigh) { alert('The hours value you entered looks too high. Is this the correct number?');}
-  else if (checkVal == 0) { 
+  else if (checkVal == 0) {
     alert('If the individual had no hours check "Did not participate in this activity" above.');
     $(rangeVal).val('');
 
@@ -430,12 +437,12 @@
     });
     //check that all tabs are complete and set hidden field field_ga_ind_data_complete complete/imcomplete
     var formComplete = false;
-    
-     
+
+
         $('.vertical-tab-button > a').each(function(i, el) {
           if (!$(this).hasClass('inComplete')) {
           formComplete = true;
-          
+
           } else if($(this).hasClass('inComplete')) {
             formComplete = false;
             return false;
@@ -443,14 +450,14 @@
         });
         if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked')) formComplete = false;
         if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-3').prop('checked') && $('#edit-field-indv-data-partic-other-und-0-value').val() == "" ) formComplete = false;
-      
-      
-      
+
+
+
        if (formComplete) $('#edit-field-ga-ind-data-complete input').val('1');
        else $('#edit-field-ga-ind-data-complete input').val('0');
        if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked', true)) formComplete = false;
-   
-  
+
+
   }
 
    function saveAndLeave(event) {
@@ -557,9 +564,9 @@
    function scanFieldsets () {
 
      //  alert(Drupal.settings.surveynodeform);
-      
-     
-     
+
+
+
      var origID = '';
      $('.vertical-tabs-panes > fieldset').each(function(i, el) {
 
@@ -590,7 +597,7 @@
     if(!$('fieldset.showQues input#edit-field-grp-sup-less-und-1').is(':checked')) {
       if(!$('edit-field-grp-sup-less-other-und-0-value').hasClass('notReq')) $('input#edit-field-grp-sup-less-other-und-0-value').addClass('notReq');} else {
         if($('fieldset.showQues input#edit-field-grp-sup-less-other-und-0-value').hasClass('notReq')) $('input#edit-field-grp-sup-less-other-und-0-value').removeClass('notReq');
-  
+
       }
    var fieldID = $(this).attr('id');
    var currentTab = $('a[href="#' + fieldID + '"]');
@@ -762,43 +769,43 @@ $('div.vertical-tabs-panes > fieldset.active .visDiv .form-radios').each(functio
    });
    var countjobsearch = 0;
    $('div.vertical-tabs-panes > fieldset.group-job-search.activeTwo .visDiv > select').each(function(i, elem) {
-     
+
     if(  ( $(elem).val() == 'yes' ||  $(elem).val() == '_none')  && !$(elem).hasClass('notReq')) { countjobsearch += 0;
- 
-   
-     } else { 
+
+
+     } else {
      countjobsearch += 1; }
-     if(countjobsearch > 1) { 
+     if(countjobsearch > 1) {
        countempty +=1;
        if(!$('fieldset.group-job-search.activeTwo #allNos').length)$('#edit-field-job-search-job-dev-y-n').append('<p id="allNos" style="color:red; margin-top: 20px">Both of the above cannot be "No" if the individual participated in job search activities.</p>');
      } else {
        if($('fieldset.group-job-search.activeTwo #allNos').length) $('#allNos').remove();
      }
- 
- 
- 
- 
- 
+
+
+
+
+
     });
    var countwraparound = 0;
     $('div.vertical-tabs-panes > fieldset.group-day-program.activeTwo .visDiv > select').each(function(i, elem) {
-     
+
       if( ( $(elem).val() == 'yes' ||  $(elem).val() == '_none') && !$(elem).hasClass('notReq')) { countwraparound += 0;
-   
-     
-       } else { 
+
+
+       } else {
        countwraparound += 1; }
-       if(countwraparound > 2) { 
+       if(countwraparound > 2) {
          countempty +=1;
          if(!$('fieldset.group-day-program.activeTwo #allNos').length)$('#edit-field-day-program-other-y-n').append('<p id="allNos" style="color:red; margin-top: 20px">All three fields cannot be "No" if the individual participated in wrap-around services.</p>');
        } else {
          if($('fieldset.group-day-program.activeTwo #allNos').length) $('#allNos').remove();
        }
-   
-   
-   
-   
-   
+
+
+
+
+
       });
 
 
