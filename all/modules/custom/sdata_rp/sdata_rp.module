@@ -35,7 +35,7 @@
   );
    return $items;
  }
- 
+
 
  function sdata_rp_batch_enrol()
  {
@@ -62,7 +62,7 @@
       drupal_set_message(t("You are already a member of all groups."), 'status');
     }
 
-  
+
 
 
    return drupal_goto("/node/39781");
@@ -75,12 +75,12 @@
    if($gaadminuserid > 0) {
       $georgiaresult = db_query("select nid from node where title = 'Georgia' and type = 'state'")->fetchObject();
       $georgiaid = $georgiaresult->nid;
-      
+
         watchdog('sdata_rp', 'Georgia id: ' . $georgiaid);
 
       $result = db_query("select etid from og_membership where gid = $georgiaid and field_name = 'og_group_provider_state_ref' and og_membership.etid not in (SELECT  DISTINCT gid from og_membership where etid = $gaadminuserid AND entity_type = 'user')");
-      
-      
+
+
       $uid = $gaadminuserid;
       $messageids = "";
       foreach ($result as $record) {
@@ -91,7 +91,7 @@
         $values['state'] = OG_STATE_ACTIVE;
         og_group('node',$gid,$values);
       }
-      
+
     } else {
      return;
      }
@@ -101,7 +101,7 @@
       drupal_set_message(t("You are already a member of all groups."), 'status');
     }
 
-  
+
 
 
    return drupal_goto("/");
@@ -113,7 +113,7 @@ function sdata_rp_node_postinsert($node) {
 
  if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles)) && !in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
  {
- 
+
     if ($node->type == 'individual') {
       $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
       $provider = node_load($provider_id);
@@ -124,7 +124,7 @@ function sdata_rp_node_postinsert($node) {
       $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
         watchdog('hook_post_action_test', "The inserted node {$node->type} id is {$node->nid}, Provider id is $provider_id  State id is $state_id  Reporting perid id is $reporting_period_nid State content type is $state_individual_data_content_type from " . __FUNCTION__);
         //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
-        _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $reporting_period_nid, $provider); 
+        _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $reporting_period_nid, $provider);
     }
  }
 }
@@ -167,7 +167,7 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
 
   // Load the state node to get its individual data content type machine name.
   $state_node = node_load($state_nid);
-  //$state_individual_data_content_type = $cieperiod == 1 ? 'individual_data_ga_cie' : $state_node->field_individual_data_type[LANGUAGE_NONE][0]['value'];
+  $state_individual_data_content_type = $state_node->field_individual_data_type[LANGUAGE_NONE][0]['value'];
 
   // Get list of providers.
   $query = new EntityFieldQuery();
@@ -199,12 +199,12 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
     'progress_message' => t('Created @current out of @total.'),
     'error_message' => t('There has been an error.')
   );
-  
+
   // Find all individual nodes that belong to each provider.
   foreach ($state_providers as $provider) {
-      
+
       $query = new EntityFieldQuery();
-      if($cieperiod == 1) {
+      if($cieperiod === 1) {
         $query->entityCondition('entity_type', 'node')
           ->entityCondition('bundle', 'individual')
           ->fieldCondition('og_group_ref', 'target_id', $provider->nid)
@@ -218,8 +218,8 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
           ->propertyCondition('status', NODE_PUBLISHED);
       }
       $result = $query->execute();
-    
-  
+
+
 
     // Load the individuals into an array.
     if (isset($result['node'])) {
@@ -337,8 +337,8 @@ function _sdata_rp_submit_data($provider_nid) {
   $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
 
   // Unpublish individal data nodes so that they can't be edited by providers.
-  
-  
+
+
 
   // Entity field query that gets a list of individual data nodes for the given provider
   // for the current reporting period for the provider's state.
