@@ -84,9 +84,9 @@ function surveynodeform_provider_statename($provid) {
       $statename = array($stategroup->title,$stategroup->nid);
   return $statename;
 }
-//new state: workaround to get state node id 
+//new state: workaround to get state node id
 function get_state_id($state) {
-  $query = new EntityFieldQuery;        
+  $query = new EntityFieldQuery;
   $result = $query
     ->entityCondition('entity_type', 'node')
     ->propertyCondition('type', 'state')
@@ -96,7 +96,7 @@ function get_state_id($state) {
     $nids = array();
   if (isset($result['node'])) {
       $nids = array_keys($result['node']);
-  
+
     return $nids[0];
   }
 
@@ -121,7 +121,7 @@ function surveynodeform_prov_summary($provid) {
           $providername = $provnode->title;
           $reportingnode = node_load($currepper);
           $reportingperiod = date("F/j/Y", strtotime($reportingnode->field_rp_date_range[LANGUAGE_NONE][0]['value'])) . " to " . date("F/j/Y", strtotime($reportingnode->field_rp_date_range[LANGUAGE_NONE][0]['value2']));
-  
+
   // Adding a new state: add state id
   switch($stateid) {
     case $massid:
@@ -130,7 +130,7 @@ function surveynodeform_prov_summary($provid) {
     case $mdid:
       $datanode = 'individual_data';
     break;
-    
+
     case $georgiaid:
       $datanode = 'individual_data_ga';
     break;
@@ -154,7 +154,7 @@ function surveynodeform_prov_summary($provid) {
     case $mdid:
       return surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
-    
+
     case $georgiaid:
       return surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
@@ -186,16 +186,16 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
 
 
   }
-  
+
   for ($i = 0 ; $i < 4 ; $i ++) {
       ${$namearray[$i] . 'wage'} = 0;
       ${$namearray[$i] . 'meanwage'} = 0;
       if ($i != 3) {
         ${$namearray[$i] . 'ptocount'} = 0;
         ${$namearray[$i] . 'ptopct'} = 0;
-        
+
       }
-     
+
       if ($i != 0 && $i != 3) {
         ${$namearray[$i] . 'setasidecount'} = 0;
         ${$namearray[$i] . 'setasidepct'} = 0;
@@ -210,7 +210,7 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
   $workttlcount = 0;
   foreach($firstarray as $eachnode) {
     $thisnode = node_load($eachnode);
-    
+
   //Total counts
   $indcompcheck = !$thisnode->field_indv_comp_hrs || $thisnode->field_indv_comp_hrs[LANGUAGE_NONE][0]['value'] == '' ? false:true;
   if($indcompcheck) $indcompcount ++;
@@ -367,7 +367,7 @@ function surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$pro
   $workttlcount = 0;
   foreach($firstarray as $eachnode) {
     $thisnode = node_load($eachnode);
-    
+
   //Total counts
   $indcompcheck = !$thisnode->field_indv_comp_hrs || $thisnode->field_indv_comp_hrs[LANGUAGE_NONE][0]['value'] == '' ? false:true;
   if($indcompcheck) $indcompcount ++;
@@ -537,12 +537,12 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
 
           }
 
-         
+
           $hoursarray = array();
           $wagesarray = array();
           $ttlcount = 0;
           $workcount = 0;
-          
+
           foreach($firstarray as $eachnode) {
             $thisnode = node_load($eachnode);
             $indcompcheck = !$thisnode->field_indv_comp_hrs || $thisnode->field_indv_comp_hrs[LANGUAGE_NONE][0]['value'] == '' ? false:true;
@@ -563,14 +563,14 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
             $indcomphrs+= $indcompcount != 0 && $thisnode->field_indv_comp_hrs ? $thisnode->field_indv_comp_hrs[LANGUAGE_NONE][0]['value'] : 0;
             $grpinteghrs+= $grpintegcount != 0 && $thisnode->field_grp_integ_hrs  ? $thisnode->field_grp_integ_hrs[LANGUAGE_NONE][0]['value'] : 0;
             $selfemphrs+= $selfempcount != 0 &&  $thisnode->field_self_emp_hrs? $thisnode->field_self_emp_hrs[LANGUAGE_NONE][0]['value'] : 0;
-            
+
             //Wages
             $indcompwage +=  $indcompcount !=0 && $thisnode->field_indv_comp_gross_wages ? $thisnode->field_indv_comp_gross_wages[LANGUAGE_NONE][0]['value'] : 0;
             $grpintegwage += $grpintegcount != 0 && $thisnode->field_grp_integ_gross_wages ? $thisnode->field_grp_integ_gross_wages[LANGUAGE_NONE][0]['value'] : 0;
             $selfempwage += $selfempcount != 0 && $thisnode->field_self_emp_gross_income ? $thisnode->field_self_emp_gross_income[LANGUAGE_NONE][0]['value'] : 0;
             // print "$eachnode<br /> $indcompcount<br />$grpintegcount<br />$selfempcount<br />$jobsearchcount<br />$wraparoundcount<br /><strong>$ttlcount</strong>&nbsp;<br />";
-            
-       
+
+
           }
           $ttlhour = $indcomphrs + $grpinteghrs + $selfemphrs;
           $ttlwage = $indcompwage + $grpintegwage + $selfempmeanwage;
@@ -584,8 +584,8 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
             $jobsearchpct = $jobsearchpct != 0 ? number_format((float)$jobsearchpct, 1, '.', '') . "%" : " -- ";
             $wraparoundpct =  $wraparoundcount != 0 ? ($wraparoundcount/$ttlcount) * 100 : 0;
             $wraparoundpct = $wraparoundpct != 0 ? number_format((float)$wraparoundpct, 1, '.', '') . "%" : " -- ";
-           
-            
+
+
             //Percentages
             $indcomphrspct = $indcomphrs > 0 ? ($indcomphrs/$ttlhour) *100 : 0;
             $indcomphrspct = $indcomphrspct > 0 ? number_format((float)$indcomphrspct, 1, '.', '') . "%" : " -- ";
@@ -668,7 +668,7 @@ return $tablecontent;
 function surveynodeform_preprocess_node(&$vars){
   global $nid;
     if (arg(0) == 'node' && is_numeric(arg(1)))   $nid = arg(1);
-    
+
 
 
 }
@@ -689,7 +689,7 @@ function surveynodeform_preprocess_node(&$vars){
 
 function surveynodeform_og_delete_form_redirect($form, &$form_state) {
   if (arg(1) == 'node' && is_numeric(arg(2)))   {
-   
+
     $provid = arg(2);
     $ogid = arg(6);
     $indnodeid = surveynodeform_get_og_membership_entity_id($ogid);
@@ -697,7 +697,7 @@ function surveynodeform_og_delete_form_redirect($form, &$form_state) {
     $reportingperiod_id = arg(8);
 
     $indnode = node_load($indnodeid);
-  
+
    if($indnode->field_cie_individual && $indnode->field_cie_individual[LANGUAGE_NONE][0]['value'] == '1') {
       $destination = "provider/$provid/individuals-cie/$reportingperiod_id";
     } else
@@ -710,48 +710,48 @@ function surveynodeform_og_delete_form_redirect($form, &$form_state) {
 }
 
 function surveynodeform_individual_data_ga_node_form_submit($form, &$form_state) {
- 
-  
+
+
   $individual_id = $form_state['values']['field_individual']['und'][0]['target_id'] ;
- 
+
   if($individual_id) {
     $individual_node = node_load($individual_id);
     $node_wrapper = entity_metadata_wrapper('node', $individual_node);
-    
-  
- 
- 
-  
-  
+
+
+
+
+
+
     $now = new DateTime( );
-        
+
     $thismonth = $now->format("Y-m-d");
     $nextmonth = new DateTime("$thismonth + 1 month");
-    
+
     $nextmonthdate = $nextmonth->format('Y-m-01 00:00:00');
-    
+
     $insertdate = strtotime($nextmonthdate);
-    
+
     if($form_state['values']['field_indv_final_month']['und'][0]['value'] == 'Yes') {
 
-      
-    
+
+
         $node_wrapper->revision->set(1);
         $node_wrapper->field_date_of_entry_into_ende->set($insertdate);
         $node_wrapper->save();
-    
-      
-      
+
+
+
     }
     else {
-      
-     
+
+
       $extended = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value'] ? $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0]['value']: null;
       $node_wrapper->field_date_of_entry_into_ende->set(NULL);
       $node_wrapper->save();
-      
+
     }
-  } 
+  }
 
 }
 
@@ -764,18 +764,18 @@ function surveynodeform_profile_form_submit($form, &$form_state)
 
 function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   global $nid;
-  if (arg(0) == 'node' && is_numeric(arg(1)))  
+  if (arg(0) == 'node' && is_numeric(arg(1)))
   { $nid = arg(1);
     $datanode = node_load($nid);
   }
   $form['#attributes']['class'][] = 'clearfix';
   $url = drupal_get_query_parameters();
   $reportingperiod_id = $url && $url['rp'] ? $url['rp'] : $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
-  
+
   if($form_id == 'provider_node_form') {
     global $theme;
     $stateid = $datanode->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
-   
+
 
 
     if($theme == 'statedata_boot') {
@@ -787,7 +787,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
           $form['#prefix']= "<h3>Are you sure you are ready to submit your user data?</h3><p>You will no longer be able to edit individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals/$reportingperiod_id\">Back to list of individuals</a></p>";
         }
         elseif( $url['status'] && $url['status'] == 'final' && $stateid = '116038')
-        { 
+        {
           $form['#prefix']= "<h3>Are you sure you are ready to submit your non-CIE user data?</h3><p>You will no longer be able to edit non-CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals/$reportingperiod_id\">Back to list of non-CIE individuals</a></p>";
         }
         elseif ($url['status'] && $url['status'] == 'final-cie') {
@@ -795,7 +795,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
           $form['#prefix']= "<h3>Are you sure you are ready to submit your CIE user data?</h3><p>You will no longer be able to edit CIE individuals or data after you submit this form.  Please make sure the contact information below is correct, then select the submit button if you are ready. <a href=\"/provider/" . arg(1) . "/individuals-cie/$reportingperiod_id\">Back to list of CIE individuals</a></p>";
 
         }
-   
+
       if(($url['status'] && $url['status'] == 'final') || ($url['status'] && $url['status'] == 'final-cie')) {
       $form['actions']['submit']['#value'] = 'Final submit';
 
@@ -820,13 +820,13 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $form['field_indv_cont_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
     $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
     $form['field_shl_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
-  } elseif($form_id == 'individual_data_ma_node_form') 
+  } elseif($form_id == 'individual_data_ma_node_form')
   {
   $form['field_indv_comp_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
   $form['field_grp_integ_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
   $form['field_indv_comp_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
   $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
- 
+
     //new state: add checks
   } elseif($form_id == 'individual_data_ga_node_form') {
     global $user;
@@ -835,8 +835,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     if (!in_array('administrator', $user->roles) && in_array('GA Admin', $user->roles)) {
         $form['#attributes']['class'][] = 'gaAdminHide';
     }
-    
-    
+
+
     $individual_id = $datanode->field_individual[LANGUAGE_NONE][0]['target_id'];
     $individual_node = node_load($individual_id);
 
@@ -849,28 +849,28 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
      // $testing = $individual_node->field_date_of_entry_into_ende[LANGUAGE_NONE][0];
       //print_r($testing);
       //dpm($extended);
-     
-      
-      
+
+
+
       if($extended) $extendedvalue = new DateTime( $extended  );
-      
+
       $now = new DateTime(  );
       $nowshow = $now->format('Y-m-d H:i:s');
       //echo "<br />Now: $nowshow";
       if($extended && $extendedvalue <= $now) {
-      
+
        $form['#attributes']['class'][] = 'showExtended';
       } else {
         $form['#attributes']['class'][] = 'showInitial';
-        
-        
+
+
       }
       if(!$extended || $extendedvalue >= $now) {
-        
+
         $form['#submit'][] = 'surveynodeform_individual_data_ga_node_form_submit';
       }
 
- 
+
     }
 
     if($cie_individual && !$cieperiod) {
@@ -900,7 +900,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     ($cie_individual && $cieperiod) {
       $form['#attributes']['class'][] = 'ciePeriod';
     }
-     else 
+     else
     {
       unset($form['#groups']['group_cie']);
       unset($form['#fieldgroups']['group_cie']);
@@ -927,7 +927,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       '#markup' => '<div class="form-cancel-button-wrapper">' . l(t("Cancel"), "/provider/$provid/individuals/$reportingperiod_id$urlslug", array('attributes' => array('class' => array('form-cancel-button')))) . '</div>',
     );
     $form['#submit'][] = 'surveynodeform_og_delete_form_redirect';
-  
+
     }
     //new site: for georgia: hide Individual is in CIE category	field_cie_individual from non-georgia users in Individual node form
     if ($form_id == 'individual_node_form')
@@ -940,14 +940,14 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
      // }
     }
   //new state: add node form id
-  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form') 
+  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form')
   {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
    $url = drupal_get_query_parameters();
    $urlp = print_r($url,true);
    watchdog('get urlp','URL p: ' . $urlp);
- 
-    if ($form_id == 'individual_node_form' && isset($url['p'])) { 
+
+    if ($form_id == 'individual_node_form' && isset($url['p'])) {
       $provid = $url['p'];
       $statearray = surveynodeform_provider_statename($url['p']);
       $statename = $statearray[0];
@@ -955,8 +955,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
       drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
 
-    } elseif ($form_id == 'individual_node_form' &&  !isset($url['p'])) 
-    {  
+    } elseif ($form_id == 'individual_node_form' &&  !isset($url['p']))
+    {
       if($url['destination']) {
         $destarray = explode('/', $url['destination']);
         $provid = $destarray[1];
@@ -995,10 +995,10 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $statename = $statearray[0];
       $statetid = key(taxonomy_get_term_by_name($statename));
      // if($datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') $statename = 'GeorgiaCIE';
-    
+
         drupal_add_css(drupal_get_path('module', 'surveynodeform') . "/css/$statename.css");
         drupal_add_js(drupal_get_path('module', 'surveynodeform') . "/js/$statename.js");
-    
+
 
     }
     parse_str(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_QUERY), $queries);
@@ -1009,7 +1009,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
     $urlappend .= isset($queries['sort']) ? '&sort=' . $queries['sort'] : '';
     $url = drupal_get_query_parameters();
     if($url['rp']) $reportingperiod_id = $url['rp'];
-    if($datanode && $datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1') 
+    if($datanode && $datanode->field_cie_individual_yes_no && $datanode->field_cie_individual_yes_no[LANGUAGE_NONE][0]['value'] == '1')
     {
       $form['#prefix']= "<h4>&lt;&lt; <a class=\"backLink\" href=\"/provider/$provid/individuals-cie/$reportingperiod_id$urlappend\">Back to list of CIE individuals</a> &lt;&lt;</h4><h4><a href=\"#edit-submit\">Be sure to save before leaving this page <img src=\"/sites/all/modules/custom/surveynodeform/img/down-arrow.png\" alt=\"down arrow\" width=\"25\" height=\"25\" /></a></h4>";
 
@@ -1029,7 +1029,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $form['#action'] = "?destination=$destination$urlappend";
 
     }
-    elseif($url['delete'] && $url['provnum']) 
+    elseif($url['delete'] && $url['provnum'])
     {
       $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
     }
@@ -1038,9 +1038,9 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
       if($form['nid']['#value']) {
         // Form stays in edit mode on submit
-              
+
           $form['#action'] = '?destination=node/' . $form['nid']['#value'] . '/edit';
-      } elseif (!$form['nid']['#value'] && $form_id == 'individual_node_form') 
+      } elseif (!$form['nid']['#value'] && $form_id == 'individual_node_form')
       {
           $form['actions']['submit']['#submit'][] = 'surveynodeform_node_form_redirect';
 
@@ -1087,7 +1087,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       //  drupal_add_js(array('surveynodeform' => array('mdmin' => $mdminimum)), array('type' => 'setting'));
 
       //drupal_add_js(array('surveynodeform' => array('mdmin' => $settings)), 'setting');
-      drupal_add_js(drupal_get_path('theme', 'bootstrap') . '/js/misc/_vertical-tabs.js'); 
+      drupal_add_js(drupal_get_path('theme', 'bootstrap') . '/js/misc/_vertical-tabs.js');
     }
     //new state: add form id
     if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
@@ -1099,7 +1099,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
     if (empty($form[$field_name])) {
       return;
-      
+
     }
 
   $field_language = $form[$field_name][LANGUAGE_NONE];
@@ -1109,7 +1109,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
 
     //stop any node deletions of state nodes
     //this prevents deletion of Maryland, Mass., and Georgia state nodes.  A bit hacky.  Todo: run a node type test so future states won't get deleted
-  if (($form['#id'] == 'views-form-admin-views-node-system-1' && (in_array('116038',$_POST['views_bulk_operations']) || in_array('7',$_POST['views_bulk_operations']) ||in_array('10',$_POST['views_bulk_operations']) ) )|| ($form['#id'] == 'node-delete-confirm' && arg(0) == 'node' && is_numeric(arg(1))  && (arg(1) == 116038 ||arg(1) == 7 ||arg(1) == 10 ) )) 
+  if (($form['#id'] == 'views-form-admin-views-node-system-1' && (in_array('116038',$_POST['views_bulk_operations']) || in_array('7',$_POST['views_bulk_operations']) ||in_array('10',$_POST['views_bulk_operations']) ) )|| ($form['#id'] == 'node-delete-confirm' && arg(0) == 'node' && is_numeric(arg(1))  && (arg(1) == 116038 ||arg(1) == 7 ||arg(1) == 10 ) ))
   {
     //set a message...
     drupal_set_message('Warning: don\'t delete states');
@@ -1368,11 +1368,11 @@ function surveynodeform_get_og_membership_entity_id($ogid) {
 function surveynodeform_node_form_redirect($form, &$form_state) {
   $destination = "";
     $url = drupal_get_query_parameters();
-    
+
   $reportingperiod_id = $url['rp']  ? $url['rp'] : ($form_state['values']['field_reporting_period'] ?	$form_state['values']['field_reporting_period']['und'][0]['target_id'] : null);
   if ($url['p']) {
-    
-    if(($form_state['values']['field_cie_individual'] && $form_state['values']['field_cie_individual']['und'][0]['value'] == '1') || ($form_state['values']['field_cie_individual_yes_no'] && $form_state['values']['field_cie_individual_yes_no']['und'][0]['value'] == '1')) 
+
+    if(($form_state['values']['field_cie_individual'] && $form_state['values']['field_cie_individual']['und'][0]['value'] == '1') || ($form_state['values']['field_cie_individual_yes_no'] && $form_state['values']['field_cie_individual_yes_no']['und'][0]['value'] == '1'))
     { $destination = "provider/" . $url['p'] . "/individuals-cie/$reportingperiod_id";
     } else
     {
