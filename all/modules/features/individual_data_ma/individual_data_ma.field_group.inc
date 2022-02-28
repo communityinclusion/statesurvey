@@ -21,8 +21,6 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Wrap-around services',
-    'weight' => '8',
     'children' => array(
       0 => 'field_day_program_partic',
       1 => 'field_day_program_commun_y_n',
@@ -30,16 +28,18 @@ function individual_data_ma_field_group_info() {
       3 => 'field_day_program_other_y_n',
       4 => 'field_day_program_other_explain',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Wrap-around services',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-day-program field-group-tab',
         'description' => 'What other day support services is this person participating in when the person is not engaged in employment or a job search? This might be supported by your organization or another provider.',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Wrap-around services',
     ),
+    'format_type' => 'tab',
+    'label' => 'Wrap-around services',
+    'weight' => '8',
   );
   $field_groups['group_day_program|node|individual_data_ma|form'] = $field_group;
 
@@ -53,25 +53,25 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Answer some questions before deleting this individual.',
-    'weight' => '41',
     'children' => array(
       0 => 'field_delete_indiv_why',
       1 => 'field_delete_indiv_why_other',
     ),
-    'format_type' => 'html-element',
     'format_settings' => array(
-      'label' => 'Answer some questions before deleting this individual.',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
+        'attributes' => '',
         'classes' => 'group-delete-individual field-group-html-element deleteGroup',
         'element' => 'div',
-        'show_label' => '0',
+        'id' => '',
         'label_element' => 'div',
-        'attributes' => '',
+        'required_fields' => 1,
+        'show_label' => '0',
       ),
+      'label' => 'Answer some questions before deleting this individual.',
     ),
+    'format_type' => 'html-element',
+    'label' => 'Answer some questions before deleting this individual.',
+    'weight' => '41',
   );
   $field_groups['group_delete_individual|node|individual_data_ma|form'] = $field_group;
 
@@ -85,8 +85,6 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Group supported employment',
-    'weight' => '5',
     'children' => array(
       0 => 'field_grp_integ_gross_wages',
       1 => 'field_grp_integ_hrs',
@@ -98,16 +96,18 @@ function individual_data_ma_field_group_info() {
       7 => 'field_grp_num_of_workers',
       8 => 'field_grp_integ_covid_ma',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Group supported employment',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-grp-integ field-group-tab',
         'description' => 'A small group of individuals, (typically 2 to 8) work in the community under the supervision of a provider agency. Group Supported Employment may include small groups in industry (enclave), provider businesses/small business model, and mobile work crews that allow for integration, and temporary services which may assist in securing an individual position within a business.',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Group supported employment',
     ),
+    'format_type' => 'tab',
+    'label' => 'Group supported employment',
+    'weight' => '5',
   );
   $field_groups['group_grp_integ|node|individual_data_ma|form'] = $field_group;
 
@@ -121,8 +121,6 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Categories',
-    'weight' => '4',
     'children' => array(
       0 => 'field_ga_ind_data_complete',
       1 => 'group_day_program',
@@ -132,7 +130,6 @@ function individual_data_ma_field_group_info() {
       5 => 'group_self_emp',
       6 => 'group_no_particip',
     ),
-    'format_type' => 'tabs',
     'format_settings' => array(
       'formatter' => '',
       'instance_settings' => array(
@@ -140,6 +137,9 @@ function individual_data_ma_field_group_info() {
         'id' => '',
       ),
     ),
+    'format_type' => 'tabs',
+    'label' => 'Categories',
+    'weight' => '4',
   );
   $field_groups['group_individual_data_categories|node|individual_data_ma|form'] = $field_group;
 
@@ -153,8 +153,6 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Individual employment',
-    'weight' => '4',
     'children' => array(
       0 => 'field_indv_comp_gross_wages',
       1 => 'field_indv_comp_hrs',
@@ -168,16 +166,18 @@ function individual_data_ma_field_group_info() {
       9 => 'field_indv_comp_health_ins_y_n',
       10 => 'field_indv_comp_covid_ma',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Individual employment',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-indv-comp field-group-tab',
         'description' => 'An individual has a full or part-time job for which they earn wages, based on their identified needs and interests, located in a community business and where the majority of persons employed are not persons with disabilities.',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Individual employment',
     ),
+    'format_type' => 'tab',
+    'label' => 'Individual employment',
+    'weight' => '4',
   );
   $field_groups['group_indv_comp|node|individual_data_ma|form'] = $field_group;
 
@@ -191,23 +191,23 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Job search and exploration activities',
-    'weight' => '7',
     'children' => array(
       0 => 'field_job_search_partic',
       1 => 'field_job_search_discov_plan_y_n',
       2 => 'field_job_search_job_dev_y_n',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Job search and exploration activities',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-job-search field-group-tab',
         'description' => 'Individual is engaged in job search or job exploration activities as pathway to employment that are supported through your employment services.',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Job search and exploration activities',
     ),
+    'format_type' => 'tab',
+    'label' => 'Job search and exploration activities',
+    'weight' => '7',
   );
   $field_groups['group_job_search|node|individual_data_ma|form'] = $field_group;
 
@@ -221,25 +221,25 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Reason for no participation',
-    'weight' => '10',
     'children' => array(
       0 => 'field_indv_data_partic_other',
       1 => 'field_indv_data_partic_why',
     ),
-    'format_type' => 'html-element',
     'format_settings' => array(
-      'label' => 'Reason for no participation',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => 'reasonnopartic',
+        'attributes' => '',
         'classes' => 'group-no-particip field-group-html-element',
         'element' => 'div',
-        'show_label' => '0',
+        'id' => 'reasonnopartic',
         'label_element' => 'div',
-        'attributes' => '',
+        'required_fields' => 1,
+        'show_label' => '0',
       ),
+      'label' => 'Reason for no participation',
     ),
+    'format_type' => 'html-element',
+    'label' => 'Reason for no participation',
+    'weight' => '10',
   );
   $field_groups['group_no_particip|node|individual_data_ma|form'] = $field_group;
 
@@ -253,24 +253,24 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Self employment',
-    'weight' => '6',
     'children' => array(
       0 => 'field_self_emp_gross_expens',
       1 => 'field_self_emp_gross_income',
       2 => 'field_self_emp_hrs',
       3 => 'field_self_emp_partic',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Self employment',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-self-emp field-group-tab',
         'description' => 'Includes self-employment or microenterprises owned by the individual. Does not include a business that is owned by the support organization. <strong>Note that business income and expenses are reported over a 3 month period to capture fluctuations in business income.</strong>',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Self employment',
     ),
+    'format_type' => 'tab',
+    'label' => 'Self employment',
+    'weight' => '6',
   );
   $field_groups['group_self_emp|node|individual_data_ma|form'] = $field_group;
 
@@ -284,8 +284,6 @@ function individual_data_ma_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
-    'label' => 'Sheltered employment',
-    'weight' => '6',
     'children' => array(
       0 => 'field_shl_gross_wages',
       1 => 'field_shl_hrs',
@@ -294,16 +292,18 @@ function individual_data_ma_field_group_info() {
       4 => 'field_shl_less',
       5 => 'field_shl_less_other',
     ),
-    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Sheltered employment',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-shl field-group-tab',
         'description' => 'These supports take place in settings such as sheltered workshops in which there is little or no contact with other workers without disabilities. Individuals are paid a wage in exchange for their production-related activities. They are considered employees of the provider agency.',
+        'required_fields' => 1,
       ),
-      'formatter' => 'closed',
+      'label' => 'Sheltered employment',
     ),
+    'format_type' => 'tab',
+    'label' => 'Sheltered employment',
+    'weight' => '6',
   );
   $field_groups['group_shl|node|individual_data_ma|form'] = $field_group;
 
