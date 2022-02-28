@@ -425,7 +425,7 @@
    }
 
    function surveynodeformcheckAllActions () {
-   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') && $('#edit-field-indv-comp-covid-ma-und').val() == 'no'  && $('#edit-field-grp-integ-covid-ma-und').val() == 'no' ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
+   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
    }
 
   function completionTasks() {
