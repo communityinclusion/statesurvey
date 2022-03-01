@@ -8,17 +8,14 @@
  Drupal.behaviors.remState = {
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
-           $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
-           $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
-           $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
-                 $(this).remove();
-           });
-           $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
-                 $(this).remove();
-           });
-
-
-
+       $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
+       $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+       $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+             $(this).remove();
+       });
+       $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
+             $(this).remove();
+         });
        });
 
 
@@ -32,6 +29,12 @@
       $( document ).one('ready',scanFieldsets);
       $(document).one('ready',surveynodeformcheckAllActions);
       $('th').text('Order').hide();
+      $( document ).one('ready', function() {
+        $('.nextSec a').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+
+        });
+      });
       if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_indv_cont">>> Next: Individual contracted job >></a></p>');
       if (!$('#edit-group_indv_cont p.nextSec').length)$('#edit-group_indv_cont').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group integrated job >></a></p>');
       if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
@@ -132,7 +135,7 @@
    }
    Drupal.behaviors.scanOpenTab = {
        attach: function (context, settings) {
-         $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
+         $('a.openTab').bind("select",scanFieldsets);
    $( document ).one('ready',scanFieldsets);
    }
    }
@@ -438,7 +441,7 @@
 
 
         $('.vertical-tab-button > a').each(function(i, el) {
-          if (!$(this).hasClass('inComplete')) {
+          if ($(this).hasClass('tabFilled')) {
           formComplete = true;
 
           } else if($(this).hasClass('inComplete')) {

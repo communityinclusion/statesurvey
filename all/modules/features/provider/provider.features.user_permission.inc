@@ -67,7 +67,6 @@ function provider_user_default_permissions() {
   $permissions['create og_group_provider_state_ref'] = array(
     'name' => 'create og_group_provider_state_ref',
     'roles' => array(
-      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -130,7 +129,6 @@ function provider_user_default_permissions() {
   $permissions['edit og_group_provider_state_ref'] = array(
     'name' => 'edit og_group_provider_state_ref',
     'roles' => array(
-      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -193,7 +191,6 @@ function provider_user_default_permissions() {
   $permissions['edit own og_group_provider_state_ref'] = array(
     'name' => 'edit own og_group_provider_state_ref',
     'roles' => array(
-      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -256,7 +253,6 @@ function provider_user_default_permissions() {
   $permissions['view og_group_provider_state_ref'] = array(
     'name' => 'view og_group_provider_state_ref',
     'roles' => array(
-      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),
@@ -319,7 +315,6 @@ function provider_user_default_permissions() {
   $permissions['view own og_group_provider_state_ref'] = array(
     'name' => 'view own og_group_provider_state_ref',
     'roles' => array(
-      'GA Admin' => 'GA Admin',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),

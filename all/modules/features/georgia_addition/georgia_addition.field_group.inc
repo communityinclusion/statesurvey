@@ -14,6 +14,46 @@ function georgia_addition_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_cie|node|individual_data_ga|form';
+  $field_group->group_name = 'group_cie';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'individual_data_ga';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_individual_data_categories';
+  $field_group->data = array(
+    'label' => 'Competitive Integrated Employment',
+    'weight' => '10',
+    'children' => array(
+      0 => 'field_indv_comp_billing_y_n',
+      1 => 'field_indv_comp_employ_status',
+      2 => 'field_indv_comp_employer',
+      3 => 'field_indv_start_date',
+      4 => 'field_indv_date_last_worked',
+      5 => 'field_indv_cie_hrs',
+      6 => 'field_indv_comp_pay_rate',
+      7 => 'field_indv_cie_time_in_job',
+      8 => 'field_indv_comp_transportation',
+      9 => 'field_indv_cie_paid_time_off',
+      10 => 'field_indv_cie_occupation',
+      11 => 'field_indv_comp_comments',
+      12 => 'group_pre_placement',
+      13 => 'group_extended_sup',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-cie field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_cie|node|individual_data_ga|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_com_non_work|node|individual_data_ga|form';
   $field_group->group_name = 'group_com_non_work';
   $field_group->entity_type = 'node';
@@ -22,7 +62,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Community Based Non-Work',
-    'weight' => '8',
+    'weight' => '15',
     'children' => array(
       0 => 'field_com_non_work_partic',
       1 => 'field_com_non_work_vol_partic_2',
@@ -52,7 +92,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Answer some questions before deleting this individual.',
-    'weight' => '7',
+    'weight' => '6',
     'children' => array(
       0 => 'field_delete_indiv_why_other',
       1 => 'field_delete_indiv_why_ga',
@@ -76,6 +116,36 @@ function georgia_addition_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_extended_sup|node|individual_data_ga|form';
+  $field_group->group_name = 'group_extended_sup';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'individual_data_ga';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_cie';
+  $field_group->data = array(
+    'label' => 'Extended (after job entry) supports',
+    'weight' => '60',
+    'children' => array(
+      0 => 'field_indv_comp_ext_ind_sup_hrs',
+      1 => 'field_indv_comp_ext_dir_sup_hrs',
+      2 => 'field_indv_comp_ext_rem_sup_hrs',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-extended-sup field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_extended_sup|node|individual_data_ga|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_fac_non_work|node|individual_data_ga|form';
   $field_group->group_name = 'group_fac_non_work';
   $field_group->entity_type = 'node';
@@ -84,7 +154,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Facility Based Non-Work',
-    'weight' => '9',
+    'weight' => '16',
     'children' => array(
       0 => 'field_fac_non_work_partic',
       1 => 'field_fac_non_work_yn_partic',
@@ -114,7 +184,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Group Supported Job',
-    'weight' => '5',
+    'weight' => '12',
     'children' => array(
       0 => 'field_grp_integ_gross_wages',
       1 => 'field_grp_integ_hrs',
@@ -122,9 +192,9 @@ function georgia_addition_field_group_info() {
       3 => 'field_grp_integ_paid_time_off',
       4 => 'field_grp_integ_partic',
       5 => 'field_grp_integ_work_location',
-      6 => 'field_grp_integ_time_in_job',
-      7 => 'field_grp_integ_fund_source',
-      8 => 'field_grp_integ_other_source',
+      6 => 'field_grp_integ_fund_source',
+      7 => 'field_grp_integ_other_source',
+      8 => 'field_grp_integ_time_in_job',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -154,12 +224,14 @@ function georgia_addition_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_ga_ind_data_complete',
-      1 => 'group_com_non_work',
-      2 => 'group_fac_non_work',
-      3 => 'group_grp_integ',
-      4 => 'group_indv_comp',
-      5 => 'group_self_emp',
-      6 => 'group_shl',
+      1 => 'field_cie_individual_yes_no',
+      2 => 'group_cie',
+      3 => 'group_com_non_work',
+      4 => 'group_fac_non_work',
+      5 => 'group_grp_integ',
+      6 => 'group_indv_comp',
+      7 => 'group_self_emp',
+      8 => 'group_shl',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -183,7 +255,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Individual Community Job',
-    'weight' => '4',
+    'weight' => '11',
     'children' => array(
       0 => 'field_indv_comp_fund_source',
       1 => 'field_indv_comp_hrs',
@@ -221,7 +293,7 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Reason for no participation',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_indv_data_partic_other',
       1 => 'field_indv_data_partic_why',
@@ -245,6 +317,37 @@ function georgia_addition_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_pre_placement|node|individual_data_ga|form';
+  $field_group->group_name = 'group_pre_placement';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'individual_data_ga';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_cie';
+  $field_group->data = array(
+    'label' => 'Initial (pre-placement) supports',
+    'weight' => '59',
+    'children' => array(
+      0 => 'field_indv_comp_pre_supp_hrs',
+      1 => 'field_indv_comp_pre_place_hrs',
+      2 => 'field_indv_comp_pre_sup_hrs',
+      3 => 'field_indv_final_month',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-pre-placement field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_pre_placement|node|individual_data_ga|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_self_emp|node|individual_data_ga|form';
   $field_group->group_name = 'group_self_emp';
   $field_group->entity_type = 'node';
@@ -253,16 +356,16 @@ function georgia_addition_field_group_info() {
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Self Employment',
-    'weight' => '6',
+    'weight' => '13',
     'children' => array(
       0 => 'field_self_emp_gross_expens',
       1 => 'field_self_emp_gross_income',
       2 => 'field_self_emp_hrs',
       3 => 'field_self_emp_occupation',
       4 => 'field_self_emp_partic',
-      5 => 'field_self_emp_time_in_job',
-      6 => 'field_self_emp_fund_source',
-      7 => 'field_self_emp_other_source',
+      5 => 'field_self_emp_fund_source',
+      6 => 'field_self_emp_other_source',
+      7 => 'field_self_emp_time_in_job',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -289,7 +392,7 @@ Note that business income and expenses are reported over a 3 month period to cap
   $field_group->parent_name = 'group_individual_data_categories';
   $field_group->data = array(
     'label' => 'Facility Based/Sheltered Work',
-    'weight' => '7',
+    'weight' => '14',
     'children' => array(
       0 => 'field_shl_gross_wages',
       1 => 'field_shl_hrs',
@@ -302,7 +405,7 @@ Note that business income and expenses are reported over a 3 month period to cap
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-shl field-group-tab',
-        'description' => '<h3>Facility Based/Sheltered Work</h3><p>Individual works in a group of individuals with disabilities. This category would include any group larger than 8, and smaller group settings that involve little or no contact with workers without disabilities. Typically, the position is located in a facility or business owned or operated by the support organization, but may also occur in large groups in other settings such as a large enclave.</p>',
+        'description' => '<h3>Facility based/Sheltered Work</h3><p>Individual works in a group of individuals with disabilities. This category would include any group larger than 8, and smaller group settings that involve little or no contact with workers without disabilities. Typically, the position is located in a facility or business owned or operated by the support organization, but may also occur in large groups in other settings such as a large enclave.</p>',
       ),
       'formatter' => 'closed',
     ),
@@ -314,10 +417,13 @@ Note that business income and expenses are reported over a 3 month period to cap
   t('Answer some questions before deleting this individual.');
   t('Categories');
   t('Community Based Non-Work');
+  t('Competitive Integrated Employment');
+  t('Extended (after job entry) supports');
   t('Facility Based Non-Work');
   t('Facility Based/Sheltered Work');
   t('Group Supported Job');
   t('Individual Community Job');
+  t('Initial (pre-placement) supports');
   t('Reason for no participation');
   t('Self Employment');
 

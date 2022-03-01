@@ -13,15 +13,14 @@
           })
 
           $(document).ajaxComplete(function(){
-              $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
-              $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
-
-              $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
-                    $(this).remove();
-              });
-              $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
-                    $(this).remove();
-                });
+          $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
+                $(this).remove();
+          });
+          $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
+                $(this).remove();
+            });
           });
 
 
@@ -33,10 +32,17 @@
   {
     attach: function (context, settings)
     {
+
       $('ul.vertical-tabs-list li a').addClass('inComplete');
         $( document ).one('ready',scanFieldsets);
         $(document).one('ready',surveynodeformcheckAllActions);
         $('th').text('Order').hide();
+        $( document ).one('ready', function() {
+          $('.nextSec a').click(function(){
+          $('html, body').animate({scrollTop:0}, 'slow');
+
+          });
+        });
         if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group integrated job >></a></p>');
         if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
          if (!$('#edit-group_self_emp p.nextSec').length) $('#edit-group_self_emp').append('<p class="nextSec"><a class="openTab" href="#edit-group_shl">>> Next: Facility based/sheltered work >></a></p>');
@@ -154,7 +160,7 @@
   }
   Drupal.behaviors.scanOpenTab = {
     attach: function (context, settings) {
-      $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
+     // $('a.openTab').bind("select",scanFieldsets);
       $( document ).one('ready',scanFieldsets);
     }
   }
@@ -241,8 +247,8 @@
   Drupal.behaviors.surveynodeformNotReq = {
 
     attach: function (context, settings) {
-     $('#edit-field-contact-survey-coordinator-und-0-premise').addClass('notReq');
-
+      $('#edit-field-indv-start-date-und-0-value-datepicker-popup-0').addClass('notReq');
+      $('#edit-field-indv-date-last-worked-und-0-value-datepicker-popup-0').addClass('notReq');
     }
   };
   Drupal.behaviors.surveynodeformIsReq = {
@@ -467,7 +473,7 @@
 
 
       $('.vertical-tab-button > a').each(function(i, el) {
-        if (!$(this).hasClass('inComplete')) {
+        if ($(this).hasClass('tabFilled')) {
         formComplete = true;
 
         } else if($(this).hasClass('inComplete')) {

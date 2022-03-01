@@ -455,47 +455,6 @@ function individual_data_md_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-individual_data-field_grp_integ_covid_other'.
-  $field_instances['node-individual_data-field_grp_integ_covid_other'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 65,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_grp_integ_covid_other',
-    'label' => 'Describe the individual\'s COVID-related reason for not working.',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 3,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 16,
-    ),
-  );
-
-  // Exported field_instance:
   // 'node-individual_data-field_grp_integ_gross_wages'.
   $field_instances['node-individual_data-field_grp_integ_gross_wages'] = array(
     'bundle' => 'individual_data',
@@ -538,7 +497,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -584,7 +543,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 16,
     ),
   );
 
@@ -624,7 +583,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -706,7 +665,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -798,47 +757,6 @@ function individual_data_md_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-individual_data-field_indv_comp_covid_other'.
-  $field_instances['node-individual_data-field_indv_comp_covid_other'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 63,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_comp_covid_other',
-    'label' => 'Describe the individual\'s COVID-related reason for not working.',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 3,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 11,
-    ),
-  );
-
-  // Exported field_instance:
   // 'node-individual_data-field_indv_comp_gross_wages'.
   $field_instances['node-individual_data-field_indv_comp_gross_wages'] = array(
     'bundle' => 'individual_data',
@@ -881,7 +799,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -927,7 +845,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -967,7 +885,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -1051,48 +969,7 @@ function individual_data_md_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 14,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data-field_indv_cont_covid_other'.
-  $field_instances['node-individual_data-field_indv_cont_covid_other'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 64,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_cont_covid_other',
-    'label' => 'Describe the individual\'s COVID-related reason for not working.',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 3,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 15,
+      'weight' => 13,
     ),
   );
 
@@ -1139,7 +1016,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 16,
     ),
   );
 
@@ -1185,7 +1062,7 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 15,
     ),
   );
 
@@ -1225,7 +1102,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -1308,7 +1185,7 @@ function individual_data_md_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -1347,7 +1224,7 @@ function individual_data_md_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -2012,7 +1889,6 @@ function individual_data_md_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('(developer note: this is the Groups Audience field)');
-  t('Describe the individual\'s COVID-related reason for not working.');
   t('Did not participate in this activity');
   t('Did person participate in a volunteer job during this reporting period?');
   t('Did person participate in unpaid activities in a program setting during this reporting period?');
