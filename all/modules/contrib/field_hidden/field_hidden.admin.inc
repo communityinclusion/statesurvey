@@ -187,23 +187,23 @@ function _field_hidden_readme2html($readme_txt, $headline_tag = 'h5') {
     //'',
   );
   $s = preg_replace($ndls, $rplcs, $s);
-  //  Links may be followed by a punctuation marker, hard to detect without a callback.
-  //  And http://your-drupal-site.tld/path should become /path
+  // Links may be followed by a punctuation marker, hard to detect without a
+  // callback. And "http://your-drupal-site.tld/path" should become "/path".
   $s = preg_replace_callback(
     '/(https?\:\/\/)(\S+)([\x20\t\n])/',
-    function($ms) {
-        $protocol = $ms[1];
-        $le = strlen($addr = $ms[2]);
-        $dot = '';
-        if (!preg_match('/[\/a-zA-Z\d]/', $addr{$le - 1})) {
-            $dot = $addr{$le - 1};
-            $addr = substr($addr, 0, $le - 1);
-        }
-        if (strpos($addr, 'your-drupal-site.tld/') === 0) {
-            $protocol = '/';
-            $addr = str_replace('your-drupal-site.tld/', '', $addr);
-        }
-        return '<a href="' . $protocol . $addr . '">' . $addr . '</a>' . $dot . $ms[3];
+    function ($ms) {
+      $protocol = $ms[1];
+      $le = strlen($addr = $ms[2]);
+      $dot = '';
+      if (isset($addr[$le - 1]) && !preg_match('/[\/a-zA-Z\d]/', $addr[$le - 1])) {
+        $dot = $addr[$le - 1];
+        $addr = substr($addr, 0, $le - 1);
+      }
+      if (strpos($addr, 'your-drupal-site.tld/') === 0) {
+        $protocol = '/';
+        $addr = str_replace('your-drupal-site.tld/', '', $addr);
+      }
+      return '<a href="' . $protocol . $addr . '">' . $addr . '</a>' . $dot . $ms[3];
     },
     $s
   );
