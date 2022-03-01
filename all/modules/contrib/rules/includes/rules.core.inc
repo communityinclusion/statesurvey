@@ -1049,6 +1049,10 @@ abstract class RulesPlugin extends RulesExtendable {
    *   be applied.
    */
   public function applyDataSelector($selector) {
+    // Prevent PHP errors when $selector parameter is not a string.
+    if (!is_string($selector)) {
+      return FALSE;
+    }
     $parts = explode(':', str_replace('-', '_', $selector), 2);
     if (($vars = $this->availableVariables()) && isset($vars[$parts[0]]['type'])) {
       $wrapper = rules_wrap_data(NULL, $vars[$parts[0]], TRUE);
@@ -1551,7 +1555,7 @@ abstract class RulesAbstractPlugin extends RulesPlugin {
         }
       }
     }
-    elseif (!empty($this->itemInfo['faces_cache']) && function_exists($this->elementName)) {
+    elseif (!empty($this->itemInfo['faces_cache']) && isset($this->elementName) && function_exists($this->elementName)) {
       // We don't have any info, so just add the name as execution callback.
       $this->override(array('execute' => $this->elementName));
     }
@@ -2174,10 +2178,12 @@ class RulesAbstractPluginDefaults extends RulesPluginHandlerBase implements Rule
  */
 class RulesRecursiveElementIterator extends ArrayIterator implements RecursiveIterator {
 
+  #[\ReturnTypeWillChange]
   public function getChildren() {
     return $this->current()->getIterator();
   }
 
+  #[\ReturnTypeWillChange]
   public function hasChildren() {
     return $this->current() instanceof IteratorAggregate;
   }
@@ -2216,6 +2222,7 @@ abstract class RulesContainerPlugin extends RulesPlugin implements IteratorAggre
    *
    * @return RulesRecursiveElementIterator
    */
+  #[\ReturnTypeWillChange]
   public function getIterator() {
     return new RulesRecursiveElementIterator($this->children);
   }

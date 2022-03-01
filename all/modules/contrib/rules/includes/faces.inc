@@ -224,8 +224,6 @@ if (!class_exists('FacesExtendable', FALSE)) {
      *   describe a single file.
      */
     public function extend($interface, array $callbacks = array(), array $includes = array()) {
-      // Hack PF patch is here: https://www.drupal.org/files/issues/2019-09-13/1111868-14-interface-exists.patch
-      $interface = class_exists($interface) ? $interface : FALSE;
       $face_methods = $interface ? get_class_methods($interface) : array_keys($callbacks);
       if ($interface) {
         if (array_diff($face_methods, array_keys($callbacks))) {
