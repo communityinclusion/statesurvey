@@ -1,4 +1,4 @@
-/** Jenkins Rawpower test
+/** Jenkins new deployment config
  * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
  * remove this comment and start adding your styles to this file.
  */
@@ -366,7 +366,7 @@ a.btn.btn-danger {  display: block; height: 35px; width: 170px; color: #fff; bac
 .tooltip_templates { display: none; }
 #edit_ind_data { width: 300px; }
 #block-block-2 .jumbotron p,.jumbotron.well p { font-size: 1.2em; }
-.views-field-submit-completed h4 a {font-size: 140%; text-decoration: underline;}
+.views-field-submit-completed-cie h4 a,.views-field-submit-completed h4 a {font-size: 140%; text-decoration: underline;}
 .views-field-submit-completed h4 a:hover {text-decoration: none; }
 h4.redFour { color: red; }
 .hideCheck { display: none; }
@@ -377,4 +377,6 @@ h4.redFour { color: red; }
 .page-mass-data-by-reporting-period .feed-icon,.page-maryland-data-by-reporting-period .feed-icon,.page-all-maryland-select-rp .feed-icon { display: block; margin: 18px; }
 .redUl {text-decoration: underline; color: red; }
 .view-georgia-data-by-reporting-period .view-content {display: none;}
-
+.view-user-groups-providers .views-field-submit-completed-cie { margin-top: 35px;}
+.view-user-groups-providers .views-field-submit-completed-cie,.view-user-groups-providers .views-field-submit-completed { width: 65%;border: 1px solid red; padding: 5px 15px 5px 5px; }
+.view-admin-view-user-groups-providers- .views-field-submit-completed-cie, .views-field-submit-completed { width: 50%; border: 1px solid red; padding: 15px 5px 5px 5px; margin-bottom: 5px;}
