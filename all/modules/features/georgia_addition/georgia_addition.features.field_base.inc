@@ -242,7 +242,7 @@ function georgia_addition_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'Community business site' => 'Community business site (business in the general labor market)',
+        'Community business site' => 'Community business site',
         'Provider owned business ' => 'Provider owned business',
         'Other community locations' => 'Other community locations (e.g. mobile work crew)',
       ),

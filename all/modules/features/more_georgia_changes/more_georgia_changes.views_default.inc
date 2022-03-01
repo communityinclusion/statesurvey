@@ -407,7 +407,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_delete_indiv_why']['table'] = 'field_data_field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['field'] = 'field_delete_indiv_why';
   $handler->display->display_options['fields']['field_delete_indiv_why']['label'] = 'Why individual deleted?';
-  /* Field: Broken/missing handler */
+  /* Field: SData: Check completion of individual data */
   $handler->display->display_options['fields']['check_ind']['id'] = 'check_ind';
   $handler->display->display_options['fields']['check_ind']['table'] = 'sdata_rp';
   $handler->display->display_options['fields']['check_ind']['field'] = 'check_ind';
@@ -1589,9 +1589,8 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Georgia Individuals Admin';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
-  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'input_required';
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'full_html';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -1853,11 +1852,6 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['filters']['field_reporting_period_target_id']['table'] = 'field_data_field_reporting_period';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['field'] = 'field_reporting_period_target_id';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['relationship'] = 'reverse_field_individual_node';
-  $handler->display->display_options['filters']['field_reporting_period_target_id']['value'] = array(
-    122532 => '122532',
-    116039 => '116039',
-    122376 => '122376',
-  );
   $handler->display->display_options['filters']['field_reporting_period_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['operator_id'] = 'field_reporting_period_target_id_op';
   $handler->display->display_options['filters']['field_reporting_period_target_id']['expose']['label'] = 'Reporting period';
