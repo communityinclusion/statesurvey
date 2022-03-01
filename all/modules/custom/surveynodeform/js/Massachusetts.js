@@ -8,14 +8,15 @@
  Drupal.behaviors.remState = {
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
-         $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
-         $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
-         $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
-               $(this).remove();
-         });
-         $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
-               $(this).remove();
-           });
+          $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+
+          $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+                $(this).remove();
+          });
+          $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
+                $(this).remove();
+          });
        });
 
 
@@ -29,12 +30,6 @@
           $( document ).one('ready',scanFieldsets);
           $(document).one('ready',surveynodeformcheckAllActions);
           $('th').text('Order').hide();
-          $( document ).one('ready', function() {
-            $('.nextSec a').click(function(){
-            $('html, body').animate({scrollTop:0}, 'slow');
-
-            });
-          });
           if (!$('#edit-group_indv_comp p.nextSec').length)$('#edit-group_indv_comp').append('<p class="nextSec"><a class="openTab" href="#edit-group_grp_integ">>> Next: Group supported employment >></a></p>');
           if (!$('#edit-group_grp_integ p.nextSec').length) $('#edit-group_grp_integ').append('<p class="nextSec"><a class="openTab" href="#edit-group_self_emp">>> Next: Self employment >></a></p>');
           if (!$('#edit-group_self_emp p.nextSec').length) $('#edit-group_self_emp').append('<p class="nextSec"><a class="openTab" href="#edit-group_job_search">>> Next: Job search and exploration activities >></a></p>');
@@ -150,7 +145,7 @@
    }
    Drupal.behaviors.scanOpenTab = {
        attach: function (context, settings) {
-         $('a.openTab').bind("select",scanFieldsets);
+         $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
    $( document ).one('ready',scanFieldsets);
    }
    }
@@ -430,7 +425,7 @@
    }
 
    function surveynodeformcheckAllActions () {
-   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') && $('#edit-field-indv-comp-covid-ma-und').val() == 'no'  && $('#edit-field-grp-integ-covid-ma-und').val() == 'no' ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
+   if ($('input[id="edit-field-indv-comp-partic-und"]').is(':checked') && $('input[id="edit-field-grp-integ-partic-und"]').is(':checked') && $('input[id="edit-field-self-emp-partic-und"]').is(':checked') && $('input[id="edit-field-job-search-partic-und"]').is(':checked') && $('input[id="edit-field-day-program-partic-und"]').is(':checked') ) { if(!$('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').addClass('activated');} } else { if($('#reasonnopartic').hasClass('activated')) { $('#reasonnopartic').removeClass('activated');}}
    }
 
   function completionTasks() {
@@ -445,7 +440,7 @@
 
 
         $('.vertical-tab-button > a').each(function(i, el) {
-          if ($(this).hasClass('tabFilled')) {
+          if (!$(this).hasClass('inComplete')) {
           formComplete = true;
 
           } else if($(this).hasClass('inComplete')) {
