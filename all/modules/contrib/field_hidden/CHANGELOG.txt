@@ -1,3 +1,8 @@
+field_hidden 7.x-1.x, 2022-01-20
+--------------------------------
+- PHP 7.4 errors in Field Hidden (issue #3174496).
+- Release 7.x-1.9.
+
 field_hidden 7.x-1.x, 2018-12-22
 --------------------------------
 - create_function() deprecated (issue #3022047).
