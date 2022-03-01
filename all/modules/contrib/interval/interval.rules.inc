@@ -30,6 +30,15 @@ function interval_rules_action_info() {
         'type' => 'date',
         'label' => t('Date'),
       ),
+      'limit' => array(
+        'type' => 'boolean',
+        'label' => t('Keep date in last day of the month when using month intervals'),
+        'description' => t('When using month intervals, keep the date in
+          the last day of the month if the calculation places the date into the
+          next month. For example, adding one month to January 31 will return a
+          result of February 28 if this option is selected.'),
+        'optional' => TRUE,
+      ),
     ),
     'provides' => array(
       'date' => array(
@@ -46,12 +55,12 @@ function interval_rules_action_info() {
 /**
  * Rules action callback: Apply an interval to a date.
  */
-function interval_rules_apply_interval($interval, $period, $datestamp) {
+function interval_rules_apply_interval($interval, $period, $datestamp, $limit = FALSE) {
   $date = new DateObject("@$datestamp");
   $item = array(
     'interval' => $interval,
     'period' => $period
   );
-  interval_apply_interval($date, $item);
+  interval_apply_interval($date, $item, $limit);
   return array('date' => $date->format('U'));
 }
