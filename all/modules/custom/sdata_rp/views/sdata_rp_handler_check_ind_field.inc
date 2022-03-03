@@ -55,6 +55,9 @@ class sdata_rp_handler_check_ind_field extends views_handler_field {
         case 'individual_data_ga':
           $valid = _sdata_rp_validate_ind_ga($node);
           break;
+          case 'individual_data_mn':
+            $valid = _sdata_rp_validate_ind_mn($node);
+            break;
     }
 
 
@@ -74,6 +77,10 @@ class sdata_rp_handler_check_ind_field extends views_handler_field {
 /*
  * Custom validation function for individual_data (MD) nodes.
  */
+ function _sdata_rp_validate_ind_mn($node) {
+   if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+   return TRUE;
+ }
 function _sdata_rp_validate_ind_md($node) {
   if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
   return TRUE;
@@ -99,15 +106,15 @@ function _sdata_rp_validate_ind_md_old($node) {
         )
         ||
         (
-          $node->field_indv_comp_partic['und'][0]['value'] 
+          $node->field_indv_comp_partic['und'][0]['value']
           && !$node->field_indv_comp_covid['und'][0]['value']
         )
 
-  ) 
+  )
   {
     return FALSE;
   }
-  
+
 
   //Individual contracted
   if(
@@ -129,10 +136,10 @@ function _sdata_rp_validate_ind_md_old($node) {
       )
       ||
       (
-        $node->field_indv_cont_partic['und'][0]['value'] 
+        $node->field_indv_cont_partic['und'][0]['value']
         && !$node->field_indv_cont_covid['und'][0]['value']
       )
-    ) 
+    )
   {
     return FALSE;
   }
@@ -152,10 +159,10 @@ function _sdata_rp_validate_ind_md_old($node) {
       )
       ||
       (
-        $node->field_grp_integ_partic['und'][0]['value'] 
+        $node->field_grp_integ_partic['und'][0]['value']
         && !$node->field_grp_integ_covid['und'][0]['value']
       )
-  ) 
+  )
   {
     return FALSE;
   }
@@ -164,13 +171,13 @@ function _sdata_rp_validate_ind_md_old($node) {
         (!$node->field_self_emp_partic['und'][0]['value']) &&
         (
           !isset($node->field_self_emp_hrs['und'][0]['value']) ||
-          !isset($node->field_self_emp_gross_income['und'][0]['value']) 
+          !isset($node->field_self_emp_gross_income['und'][0]['value'])
           ||   !isset($node->field_self_emp_gross_expens['und'][0]['value'])
           //new field Sept. 20202
           || !isset($node->field_self_emp_supports['und'][0]['value'])
         )
-      ) 
-     
+      )
+
   {
     return FALSE;
   }
@@ -181,15 +188,15 @@ function _sdata_rp_validate_ind_md_old($node) {
       (
 
         !isset($node->field_shl_hrs['und'][0]['value']) ||
-        !isset($node->field_shl_gross_wages['und'][0]['value']) 
-        || !isset($node->field_shl_paid_time_off['und'][0]['value']) 
+        !isset($node->field_shl_gross_wages['und'][0]['value'])
+        || !isset($node->field_shl_paid_time_off['und'][0]['value'])
         || !isset($node->field_shlt_set_aside['und'][0]['value'])
         //new field Sept. 20202
         || !isset($node->field_shl_supports['und'][0]['value'])
 
 
       )
-  ) 
+  )
   {
       return FALSE;
   }
@@ -200,16 +207,16 @@ function _sdata_rp_validate_ind_md_old($node) {
         $node->field_com_non_work_vol_partic['und'][0]['value']!= '1')
         ||
         (
-          !$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value']  == '1' && !$node->field_com_non_wrk_hours['und'][0]['value']) 
+          !$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value']  == '1' && !$node->field_com_non_wrk_hours['und'][0]['value'])
           ||
           (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == '')
           //new field Sept. 20202
-          || 
+          ||
           (!$node->field_com_non_work_partic['und'][0]['value'] &&
             !isset($node->field_com_non_wrk_supports['und'][0]['value'])
           )
         )
-      ) 
+      )
     {
       return FALSE;
     }
@@ -294,8 +301,8 @@ function _sdata_rp_validate_ind_ga_old($node) {
           (
             !isset($node->field_indv_comp_hrs['und'][0]['value']) ||
             !isset($node->field_indv_comp_gross_wages['und'][0]['value']) || !isset($node->field_indv_comp_paid_time_off['und'][0]['value']) || !isset($node->field_indv_comp_time_in_job['und'][0]['value']) || !isset($node->field_indv_comp_occupation['und'][0]['value']) || !isset($node->field_indv_comp_fund_source['und'][0]['value'])
-           
-            
+
+
             ||
 
 
@@ -310,13 +317,13 @@ function _sdata_rp_validate_ind_ga_old($node) {
             )
           )
         )
-        
 
-  ) 
+
+  )
   {
     return FALSE;
   }
-  
+
 
   //Group integrated
   if (
@@ -325,15 +332,15 @@ function _sdata_rp_validate_ind_ga_old($node) {
 
           !isset($node->field_grp_integ_hrs['und'][0]['value']) ||
           !isset($node->field_grp_integ_gross_wages['und'][0]['value']) ||   !isset($node->field_grp_integ_paid_time_off['und'][0]['value']) || !isset($node->field_grp_integ_occupation['und'][0]['value'])
-          
+
           || !isset($node->field_grp_integ_work_location['und'][0]['value'])
 
 
 
         )
       )
-      
-  ) 
+
+  )
   {
     return FALSE;
   }
@@ -342,12 +349,12 @@ function _sdata_rp_validate_ind_ga_old($node) {
         (!$node->field_self_emp_partic['und'][0]['value']) &&
         (
           !isset($node->field_self_emp_hrs['und'][0]['value']) ||
-          !isset($node->field_self_emp_gross_income['und'][0]['value']) 
+          !isset($node->field_self_emp_gross_income['und'][0]['value'])
           ||   !isset($node->field_self_emp_gross_expens['und'][0]['value'])
           || !isset($node->field_self_emp_occupation['und'][0]['value'])
         )
-      ) 
-     
+      )
+
   {
     return FALSE;
   }
@@ -358,25 +365,25 @@ function _sdata_rp_validate_ind_ga_old($node) {
       (
 
         !isset($node->field_shl_hrs['und'][0]['value']) ||
-        !isset($node->field_shl_gross_wages['und'][0]['value']) 
-        || !isset($node->field_shl_paid_time_off['und'][0]['value']) 
+        !isset($node->field_shl_gross_wages['und'][0]['value'])
+        || !isset($node->field_shl_paid_time_off['und'][0]['value'])
 
 
       )
-  ) 
+  )
   {
       return FALSE;
   }
 
     //Community based non work
   if (
-        (!$node->field_com_non_work_partic['und'][0]['value'] && !$node->field_com_non_wrk_hours['und'][0]['value']) 
+        (!$node->field_com_non_work_partic['und'][0]['value'] && !$node->field_com_non_wrk_hours['und'][0]['value'])
           ||
           (!$node->field_com_non_work_partic['und'][0]['value'] && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == '')
-         
-         
+
+
         )
-      ) 
+      )
     {
       return FALSE;
     }
@@ -386,7 +393,7 @@ function _sdata_rp_validate_ind_ga_old($node) {
           (
             $node->field_fac_non_work_yn_partic['und'][0]['value']!= 1
             //new field Sept. 20202
-          
+
           )
         )
     {
@@ -426,7 +433,7 @@ function _sdata_rp_validate_ind_ma($node) {
   if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
   return TRUE;
 }
- 
+
  function _sdata_rp_validate_ind_ma_old($node) {
    // Individual competitive job
    if (

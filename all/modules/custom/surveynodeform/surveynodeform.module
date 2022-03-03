@@ -110,6 +110,7 @@ function surveynodeform_prov_summary($provid) {
   $georgiaid = get_state_id('Georgia');
   $massid = get_state_id('Massachusetts');
   $mdid = get_state_id('Maryland');
+  $mnid = get_state_id('Minnesota');
   $query1 = new EntityFieldQuery();
     $query1->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', "individual")
@@ -134,6 +135,10 @@ function surveynodeform_prov_summary($provid) {
     case $georgiaid:
       $datanode = 'individual_data_ga';
     break;
+
+    case $mnid:
+      $datanode = 'individual_data_mn';
+    break;
     }
 
   $query = new EntityFieldQuery();
@@ -157,6 +162,9 @@ function surveynodeform_prov_summary($provid) {
 
     case $georgiaid:
       return surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
+    break;
+    case $mnid:
+      return surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid);
     break;
     }
 }
@@ -1075,6 +1083,16 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['gaselfearnhigh'] = variable_get('surveynodeform_gaselfearnhigh');
       $settings['gaselfexpensehigh'] = variable_get('surveynodeform_gaselfexpensehigh');
 
+      //MN variables
+      // New state: add settings
+      $settings['mnmin'] = variable_get('surveynodeform_mnminwage');
+      $settings['mnhrlow'] = variable_get('surveynodeform_mnhrlow');
+      $settings['mnhrhigh'] = variable_get('surveynodeform_mnhrhigh');
+      $settings['mnwagelow'] = variable_get('surveynodeform_mnwagelow');
+      $settings['mnwagehigh'] = variable_get('surveynodeform_mnwagehigh');
+      $settings['mnselfearnhigh'] = variable_get('surveynodeform_mnselfearnhigh');
+      $settings['mnselfexpensehigh'] = variable_get('surveynodeform_mnselfexpensehigh');
+
     //new state: add form id
     if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
     if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
@@ -1338,6 +1356,78 @@ function surveynodeform_admin() {
     '#size' => 5,
     '#maxlength' => 6,
     '#description' => t("Georgia self-employment expenses, high point."),
+    '#required' => TRUE,
+  );
+  // Minnesota settings
+  $form['surveynodeform_mnminwage'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota minimum wage'),
+    '#default_value' => variable_get('surveynodeform_mnminwage', 8.25),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minimum wage in Minnesota."),
+    '#required' => TRUE,
+  );
+  $form['surveynodeform_mnhrlow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota hour range, low point'),
+    '#default_value' => variable_get('surveynodeform_mnhrlow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota hour range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnhrhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota hour range, high point'),
+    '#default_value' => variable_get('surveynodeform_mnhrhigh', 80),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota hour range, high point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnwagelow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota wage range, low point'),
+    '#default_value' => variable_get('surveynodeform_mnwagelow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota wage range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnwagehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota wage range, high point'),
+    '#default_value' => variable_get('surveynodeform_mnwagehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota wage range, high point."),
+    '#required' => TRUE,
+  );
+
+
+
+  $form['surveynodeform_mnselfearnhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota self-employment income, high point'),
+    '#default_value' => variable_get('surveynodeform_mnselfearnhigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota self-employment income, high point."),
+    '#required' => TRUE,
+  );
+
+
+  $form['surveynodeform_mnselfexpensehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota self-employment expenses, high point'),
+    '#default_value' => variable_get('surveynodeform_mnselfexpensehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota self-employment expenses, high point."),
     '#required' => TRUE,
   );
 

@@ -64,7 +64,7 @@ function sdata_id_field_access($op, $field, $entity_type, $entity, $account) {
   //   anywhere they appear (regardless of entity type).
   global $user;
 
-  if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) ||  in_array('GA user', $user->roles)) && !in_array('administrator', $user->roles)){
+  if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) ||  in_array('GA user', $user->roles) || in_array('MN user', $user->roles)) && !in_array('administrator', $user->roles)){
     // If the user only has one role, they are a provider.
     $no_access = array(
       'field_individual',
@@ -91,7 +91,7 @@ function sdata_id_form_alter(&$form, &$form_state, $form_id) {
   //   anywhere it appears (regardless of entity type).
   global $user;
 
-if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles)) && !in_array('administrator', $user->roles)){  // If the user only has one role, they are a provider.
+if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles)|| in_array('MN user', $user->roles)) && !in_array('administrator', $user->roles)){  // If the user only has one role, they are a provider.
     unset($form['title']);
   }
 
