@@ -46,7 +46,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
     // Entity field query that gets a list of individual data nodes for the given provider
     // for the current reporting period for the provider's state.
     if ($state_individual_data_content_type != 'individual_data_ga') return;
-      
+
     // Georgia CIE
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
@@ -55,14 +55,14 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
             ->propertyCondition('status', 1)
             ->propertyCondition('type', $state_individual_data_content_type)
             ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
-    $result = $query->execute(); 
-    
+    $result = $query->execute();
+
 
     // Assume the best.
     $valid = TRUE;
     $completed = FALSE;
     $empty = FALSE;
-   
+
     $query2 = new EntityFieldQuery();
     $query2->entityCondition('entity_type', 'node')
     ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
@@ -72,7 +72,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
     ->propertyCondition('type', $state_individual_data_content_type)
     ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
     $result2 = $query2->execute();
-    
+
     // print_r($result2);
     if(count($result) < 1  && count($result2) < 1) $empty = TRUE;
     if(count($result2) >= 1) $completed = TRUE;
@@ -111,7 +111,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
 
             $result3 = $query3->execute();
 
-          } else 
+          } else
           {
 
             $query3 = new EntityFieldQuery();
@@ -138,7 +138,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
 
     // If any of the individual data nodes fail validation, then the form isn't ready to
     // submit.
-    if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles)) 
+    if (in_array('Survey administrator', $user->roles)|| in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
     {
       $output = "<p><strong>Monthly reporting date range: $daterange</strong></p>
       <p><strong> $deadlinedate</strong></p>";
@@ -159,8 +159,8 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
        else {
          $output .= "<p><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a><br />There are some CIE individuals that are not complete. Please complete them before submitting your data.</p>";
         }
-    } 
-    else 
+    }
+    else
     {
       $output = "<p><strong>Monthly CIE reporting date range: $daterange</strong></p>
       <p><strong> $deadlinedate</strong></p>";
@@ -171,7 +171,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
 
 
       elseif($empty) {
-        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of CIE individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have no CIE individuals listed with this provider.</p>";
+        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/user/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of CIE individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>You have no CIE individuals listed with this provider.</p>";
       }
 
       elseif($valid && $completed) {
@@ -179,7 +179,7 @@ class sdata_rp_handler_submit_completed_cie_field extends views_handler_field {
       }
 
       else {
-        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
+        $output .= "<h4><a href=\"/provider/$provider_nid/individuals-cie/user/$reporting_period_nid\">Follow this link to enter CIE individual data</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
       }
     }
     return $output;
@@ -199,8 +199,8 @@ function _sdata_rp_validate_ga_cie($node) {
           (
             !isset($node->field_indv_comp_hrs['und'][0]['value']) ||
             !isset($node->field_indv_comp_gross_wages['und'][0]['value']) || !isset($node->field_indv_comp_paid_time_off['und'][0]['value']) || !isset($node->field_indv_comp_time_in_job['und'][0]['value']) || !isset($node->field_indv_comp_occupation['und'][0]['value']) || !isset($node->field_indv_comp_fund_source['und'][0]['value'])
-           
-            
+
+
             ||
 
 
@@ -215,13 +215,13 @@ function _sdata_rp_validate_ga_cie($node) {
             )
           )
         )
-        
 
-  ) 
+
+  )
   {
     return FALSE;
   }
-  
+
 
   //Group integrated
   if (
@@ -230,15 +230,15 @@ function _sdata_rp_validate_ga_cie($node) {
 
           !isset($node->field_grp_integ_hrs['und'][0]['value']) ||
           !isset($node->field_grp_integ_gross_wages['und'][0]['value']) ||   !isset($node->field_grp_integ_paid_time_off['und'][0]['value']) || !isset($node->field_grp_integ_occupation['und'][0]['value'])
-          
+
           || !isset($node->field_grp_integ_work_location['und'][0]['value'])
 
 
 
         )
       )
-      
-  ) 
+
+  )
   {
     return FALSE;
   }
@@ -247,12 +247,12 @@ function _sdata_rp_validate_ga_cie($node) {
         (!$node->field_self_emp_partic['und'][0]['value']) &&
         (
           !isset($node->field_self_emp_hrs['und'][0]['value']) ||
-          !isset($node->field_self_emp_gross_income['und'][0]['value']) 
+          !isset($node->field_self_emp_gross_income['und'][0]['value'])
           ||   !isset($node->field_self_emp_gross_expens['und'][0]['value'])
           || !isset($node->field_self_emp_occupation['und'][0]['value'])
         )
-      ) 
-     
+      )
+
   {
     return FALSE;
   }
@@ -263,25 +263,25 @@ function _sdata_rp_validate_ga_cie($node) {
       (
 
         !isset($node->field_shl_hrs['und'][0]['value']) ||
-        !isset($node->field_shl_gross_wages['und'][0]['value']) 
-        || !isset($node->field_shl_paid_time_off['und'][0]['value']) 
+        !isset($node->field_shl_gross_wages['und'][0]['value'])
+        || !isset($node->field_shl_paid_time_off['und'][0]['value'])
 
 
       )
-  ) 
+  )
   {
       return FALSE;
   }
 
     //Community based non work
   if (
-        (!$node->field_com_non_work_partic['und'][0]['value'] && !$node->field_com_non_wrk_hours['und'][0]['value']) 
+        (!$node->field_com_non_work_partic['und'][0]['value'] && !$node->field_com_non_wrk_hours['und'][0]['value'])
           ||
           (!$node->field_com_non_work_partic['und'][0]['value'] && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == '')
-         
-         
+
+
         )
-      ) 
+      )
     {
       return FALSE;
     }
@@ -291,7 +291,7 @@ function _sdata_rp_validate_ga_cie($node) {
           (
             $node->field_fac_non_work_yn_partic['und'][0]['value']!= 1
             //new field Sept. 20202
-          
+
           )
         )
     {
@@ -350,11 +350,11 @@ function _sdata_rp_validate_md_old_cie($node) {
         )
         ||
         (
-          $node->field_indv_comp_partic['und'][0]['value'] 
+          $node->field_indv_comp_partic['und'][0]['value']
           && !$node->field_indv_comp_covid['und'][0]['value']
         )
 
-    ) 
+    )
     {
       return FALSE;
     }
@@ -377,10 +377,10 @@ function _sdata_rp_validate_md_old_cie($node) {
         )
         ||
         (
-          $node->field_indv_cont_partic['und'][0]['value'] 
+          $node->field_indv_cont_partic['und'][0]['value']
           && !$node->field_indv_cont_covid['und'][0]['value']
         )
-      ) 
+      )
       {
         return FALSE;
       }
@@ -400,10 +400,10 @@ function _sdata_rp_validate_md_old_cie($node) {
         )
         ||
         (
-          $node->field_grp_integ_partic['und'][0]['value'] 
+          $node->field_grp_integ_partic['und'][0]['value']
           && !$node->field_grp_integ_covid['und'][0]['value']
         )
-      ) 
+      )
       {
         return FALSE;
       }
@@ -415,7 +415,7 @@ function _sdata_rp_validate_md_old_cie($node) {
           //new field Sept. 20202
           || !isset($node->field_self_emp_supports['und'][0]['value'])
         )
-      ) 
+      )
  {
     return FALSE;
   }
@@ -432,7 +432,7 @@ function _sdata_rp_validate_md_old_cie($node) {
 
 
         )
-      ) 
+      )
       {
         return FALSE;
       }
@@ -450,7 +450,7 @@ function _sdata_rp_validate_md_old_cie($node) {
           !$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && !$node->field_com_non_wrk_hours['und'][0]['value']) ||
           (!$node->field_com_non_work_partic['und'][0]['value'] && $node->field_com_non_work_vol_partic['und'][0]['value'] == '1' && ($node->field_com_non_work_vol_partic_2['und'][0]['value'] == '_none' || $node->field_com_non_work_vol_partic_2['und'][0]['value'] == '')
         )
-      ) 
+      )
       {
         return FALSE;
       }
@@ -462,7 +462,7 @@ function _sdata_rp_validate_md_old_cie($node) {
         //new field Sept. 20202
         !isset($node->field_fac_non_work_supports['und'][0]['value'])
       )
-    )  
+    )
     {
     return FALSE;
     }

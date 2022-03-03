@@ -22,22 +22,22 @@ function provider_default_field_validation_rule() {
   $rule->bundle = 'provider';
   $rule->validator = 'field_validation_unique_validator';
   $rule->settings = array(
-    'data' => 'global',
-    'per_user' => 0,
     'bypass' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+    'data' => 'global',
+    'errors' => 0,
+    'per_user' => 0,
     'roles' => array(
       1 => 0,
       2 => 0,
       3 => 0,
       4 => 0,
       5 => 0,
-    ),
-    'errors' => 0,
-    'condition' => 0,
-    'condition_wrapper' => array(
-      'condition_field' => '',
-      'condition_operator' => 'equals',
-      'condition_value' => '',
     ),
   );
   $rule->error_message = 'That provider id already exists.  Provider id must be unique.';
