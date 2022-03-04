@@ -10,6 +10,10 @@
        $(document).ajaxComplete(function(){
        $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
        $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+       $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+       $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
+             $(this).remove();
+       });
        $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
              $(this).remove();
        });
