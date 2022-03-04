@@ -1,3 +1,4 @@
 .node-type-individual-data-ma .vertical-tabs-panes fieldset.active {min-height: 700px;}
 .main-container #edit-actions {width: 220px; position: relative;  }
-.page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs { display: none;}
+.page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs, #edit-field-grp-integ-covid-ma { display: none;}
+#edit-field-date-of-entry-into-ende { display: none;}
