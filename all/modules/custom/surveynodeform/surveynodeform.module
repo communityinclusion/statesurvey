@@ -1107,8 +1107,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         //$form['field_date_of_entry_into_ende']['#access'] = FALSE;
      // }
     }
-  //new state: add node form id
-  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form')
+  //new state: add node form i
+  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_mn_node_form' || $form_id == 'individual_node_form')
   {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
    $url = drupal_get_query_parameters();
@@ -1154,6 +1154,9 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         break;
         case 'individual_data_ga_node_form':
           $provtext = 'individual_data_ga';
+        break;
+        case 'individual_data_mn_node_form':
+        $provtext = 'individual_data_mn';
         break;
       }
       $provid =  surveynodeform_get_prov_id($nid,$provtext);
