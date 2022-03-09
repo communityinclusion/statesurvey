@@ -2,19 +2,19 @@
 
 /**
  * @file
- * georgia_addition.strongarm.inc
+ * minnesota_addition.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function georgia_addition_strongarm() {
+function minnesota_addition_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__individual_data_ga';
+  $strongarm->name = 'field_bundle_settings_node__individual_data_mn';
   $strongarm->value = array(
     'extra_fields' => array(
       'display' => array(),
@@ -26,46 +26,46 @@ function georgia_addition_strongarm() {
     ),
     'view_modes' => array(),
   );
-  $export['field_bundle_settings_node__individual_data_ga'] = $strongarm;
+  $export['field_bundle_settings_node__individual_data_mn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_individual_data_ga';
+  $strongarm->name = 'menu_options_individual_data_mn';
   $strongarm->value = array(
     0 => 'main-menu',
   );
-  $export['menu_options_individual_data_ga'] = $strongarm;
+  $export['menu_options_individual_data_mn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_individual_data_ga';
+  $strongarm->name = 'menu_parent_individual_data_mn';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_individual_data_ga'] = $strongarm;
+  $export['menu_parent_individual_data_mn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_individual_data_ga';
+  $strongarm->name = 'node_options_individual_data_mn';
   $strongarm->value = array(
     0 => 'status',
   );
-  $export['node_options_individual_data_ga'] = $strongarm;
+  $export['node_options_individual_data_mn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_individual_data_ga';
+  $strongarm->name = 'node_preview_individual_data_mn';
   $strongarm->value = '1';
-  $export['node_preview_individual_data_ga'] = $strongarm;
+  $export['node_preview_individual_data_mn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_individual_data_ga';
+  $strongarm->name = 'node_submitted_individual_data_mn';
   $strongarm->value = 0;
-  $export['node_submitted_individual_data_ga'] = $strongarm;
+  $export['node_submitted_individual_data_mn'] = $strongarm;
 
   return $export;
 }
