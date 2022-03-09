@@ -30,11 +30,14 @@ function individual_views_default_views() {
     3 => '3',
     8 => '8',
     7 => '7',
+    5 => '5',
+    4 => '4',
     6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
@@ -516,9 +519,6 @@ function individual_views_default_views() {
 
   /* Display: Provider Individuals page */
   $handler = $view->new_display('page', 'Provider Individuals page', 'page_1');
-  $handler->display->display_options['defaults']['query'] = FALSE;
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
@@ -535,7 +535,7 @@ function individual_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = '<div class="clearfix"><p>&nbsp;</p><div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1&rp=!2?destination=provider/!1/individuals/!2" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class="viewButton btn addInd" href="/prov/!1/summary" data-toggle="tooltip" title="View an overall summary of the individual data you have entered.">View summary</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div><p><strong>Return to the main page and submit your data when all individuals are complete.</strong></p><h2>%1</h2><h4>Reporting due date: [field_rp_deadline_date]</h4>
-<h4>Semi-annual reporting period: [field_rp_date_range]</h4>';
+<h4>Reporting period: [field_rp_date_range]</h4>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['footer'] = FALSE;

@@ -14,23 +14,29 @@ function georgia_addition_og_features_default_permissions() {
   // Exported og permission: 'node:provider:create individual_data_ga content'
   $permissions['node:provider:create individual_data_ga content'] = array(
     'roles' => array(
+      'administrator member' => 'administrator member',
       'member' => 'member',
     ),
   );
 
   // Exported og permission: 'node:provider:delete any individual_data_ga content'
   $permissions['node:provider:delete any individual_data_ga content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:provider:delete own individual_data_ga content'
   $permissions['node:provider:delete own individual_data_ga content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:provider:update any individual_data_ga content'
   $permissions['node:provider:update any individual_data_ga content'] = array(
     'roles' => array(
+      'administrator member' => 'administrator member',
       'member' => 'member',
     ),
   );
@@ -38,6 +44,7 @@ function georgia_addition_og_features_default_permissions() {
   // Exported og permission: 'node:provider:update own individual_data_ga content'
   $permissions['node:provider:update own individual_data_ga content'] = array(
     'roles' => array(
+      'administrator member' => 'administrator member',
       'member' => 'member',
     ),
   );
