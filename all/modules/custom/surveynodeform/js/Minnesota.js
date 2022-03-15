@@ -261,7 +261,7 @@
 
    Drupal.behaviors.surveynodeformStripCommas  = {
      attach: function (context, settings) {
-   $('#individual-data-node-form').submit(completionTasks);
+   $('#individual-data-mn-node-form').submit(completionTasks);
      }
    }
    Drupal.behaviors.surveynodeformMdIndComJob = {

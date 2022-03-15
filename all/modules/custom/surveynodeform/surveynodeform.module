@@ -995,8 +995,22 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   $form['field_indv_comp_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
   $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
 
+
+  }
+
+
+  elseif ($form_id == 'individual_data_mn_node_form') {
+    $form['field_indv_comp_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
+    $form['field_grp_integ_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
+    $form['field_shl_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
+    $form['field_indv_comp_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
+    $form['field_indv_cont_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
+    $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
+    $form['field_shl_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
+  }
     //new state: add checks
-  } elseif($form_id == 'individual_data_ga_node_form') {
+
+   elseif($form_id == 'individual_data_ga_node_form') {
     global $user;
     $extendedstart = false;
 
@@ -1257,8 +1271,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['mnselfexpensehigh'] = variable_get('surveynodeform_mnselfexpensehigh');
 
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'  || $form_id == 'individual_data_mn_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'  || $form_id == 'individual_data_mn_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
     $form['#prefix']= "<h3>Explain your reason for deleting this individual in the form below and hit \"Next step,\" then finish deleting on the next page.</h3>";
     $form['actions']['submit']['#value'] = 'Next step';
     $form['actions']['submit']['#attributes'] = array('class' => array('btn','btn-primary'));
@@ -1271,7 +1285,7 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       drupal_add_js(drupal_get_path('theme', 'bootstrap') . '/js/misc/_vertical-tabs.js');
     }
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form'|| $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_mn_node_form') && !isset($url['delete']) && !isset($url['provnum'])) { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/surveyform.js'); }
 
     if($form_id == 'individual_node_form') { drupal_add_js(drupal_get_path('module', 'surveynodeform') . '/js/individualform.js'); }
         drupal_add_js(array('Surveyconfig' => $settings), 'setting');
