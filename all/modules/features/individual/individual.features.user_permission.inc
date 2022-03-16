@@ -22,6 +22,7 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+<<<<<<< HEAD
   // Exported permission: 'create field_date_of_entry_into_ende'.
   $permissions['create field_date_of_entry_into_ende'] = array(
     'name' => 'create field_date_of_entry_into_ende',
@@ -32,6 +33,8 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+=======
+>>>>>>> Minnesota
   // Exported permission: 'create field_ga_idd_c_cid_number'.
   $permissions['create field_ga_idd_c_cid_number'] = array(
     'name' => 'create field_ga_idd_c_cid_number',
@@ -55,6 +58,7 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+<<<<<<< HEAD
   // Exported permission: 'edit field_date_of_entry_into_ende'.
   $permissions['edit field_date_of_entry_into_ende'] = array(
     'name' => 'edit field_date_of_entry_into_ende',
@@ -65,6 +69,8 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+=======
+>>>>>>> Minnesota
   // Exported permission: 'edit field_ga_idd_c_cid_number'.
   $permissions['edit field_ga_idd_c_cid_number'] = array(
     'name' => 'edit field_ga_idd_c_cid_number',
@@ -88,6 +94,7 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+<<<<<<< HEAD
   // Exported permission: 'edit own field_date_of_entry_into_ende'.
   $permissions['edit own field_date_of_entry_into_ende'] = array(
     'name' => 'edit own field_date_of_entry_into_ende',
@@ -98,6 +105,8 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+=======
+>>>>>>> Minnesota
   // Exported permission: 'edit own field_ga_idd_c_cid_number'.
   $permissions['edit own field_ga_idd_c_cid_number'] = array(
     'name' => 'edit own field_ga_idd_c_cid_number',
@@ -122,6 +131,7 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+<<<<<<< HEAD
   // Exported permission: 'view field_date_of_entry_into_ende'.
   $permissions['view field_date_of_entry_into_ende'] = array(
     'name' => 'view field_date_of_entry_into_ende',
@@ -133,6 +143,8 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+=======
+>>>>>>> Minnesota
   // Exported permission: 'view field_ga_idd_c_cid_number'.
   $permissions['view field_ga_idd_c_cid_number'] = array(
     'name' => 'view field_ga_idd_c_cid_number',
@@ -157,6 +169,7 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+<<<<<<< HEAD
   // Exported permission: 'view own field_date_of_entry_into_ende'.
   $permissions['view own field_date_of_entry_into_ende'] = array(
     'name' => 'view own field_date_of_entry_into_ende',
@@ -168,6 +181,8 @@ function individual_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+=======
+>>>>>>> Minnesota
   // Exported permission: 'view own field_ga_idd_c_cid_number'.
   $permissions['view own field_ga_idd_c_cid_number'] = array(
     'name' => 'view own field_ga_idd_c_cid_number',

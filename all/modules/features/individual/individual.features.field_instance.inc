@@ -110,6 +110,7 @@ function individual_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
+          'custom_date_format' => '',
           'format_type' => 'short_no_time',
           'fromto' => 'both',
           'multiple_from' => '',
@@ -231,6 +232,7 @@ function individual_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
+          'custom_date_format' => '',
           'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
@@ -291,8 +293,8 @@ function individual_field_default_field_instances() {
             'field' => '',
           ),
           'interval' => array(
-            'interval' => '',
-            'period' => 'second',
+            'interval' => -16,
+            'period' => 'year',
           ),
           'type' => 'disabled',
         ),
@@ -352,6 +354,7 @@ function individual_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
+          'custom_date_format' => '',
           'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
@@ -526,7 +529,11 @@ function individual_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ga_idd_c_cid_number',
+<<<<<<< HEAD
     'label' => 'ICC-C CID Number',
+=======
+    'label' => 'IDD-C CID Number ',
+>>>>>>> Minnesota
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -656,7 +663,11 @@ function individual_field_default_field_instances() {
   t('Date of birth');
   t('Date services began with provider');
   t('First name');
+<<<<<<< HEAD
   t('ICC-C CID Number');
+=======
+  t('IDD-C CID Number ');
+>>>>>>> Minnesota
   t('Individual Authorized for CIE Funds');
   t('Last name');
   t('Provider');

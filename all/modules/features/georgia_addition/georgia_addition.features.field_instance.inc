@@ -2029,6 +2029,10 @@ function georgia_addition_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
+<<<<<<< HEAD
+=======
+          'custom_date_format' => '',
+>>>>>>> Minnesota
           'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
@@ -2189,6 +2193,10 @@ function georgia_addition_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
+<<<<<<< HEAD
+=======
+          'custom_date_format' => '',
+>>>>>>> Minnesota
           'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',

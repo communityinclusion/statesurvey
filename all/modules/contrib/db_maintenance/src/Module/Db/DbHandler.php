@@ -35,7 +35,7 @@ class DbHandler {
       // Only proceed if tables are selected for this database.
       if (is_array($config_tables) && count($config_tables) > 0) {
 
-        while (list(, $table_name) = each($config_tables)) {
+        foreach ($config_tables as $key => $table_name){
           // Set the database to query.
           $previous = db_set_active($db);
 

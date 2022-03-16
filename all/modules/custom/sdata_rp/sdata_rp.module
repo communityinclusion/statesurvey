@@ -41,7 +41,7 @@
   );
    return $items;
  }
- 
+
 
  function sdata_rp_batch_enrol()
  {
@@ -68,9 +68,12 @@
       drupal_set_message(t("You are already a member of all groups."), 'status');
     }
 
-  
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Minnesota
    return drupal_goto("/");
 
   }
@@ -81,12 +84,12 @@
    if($gaadminuserid > 0) {
       $georgiaresult = db_query("select nid from node where title = 'Georgia' and type = 'state'")->fetchObject();
       $georgiaid = $georgiaresult->nid;
-      
+
         watchdog('sdata_rp', 'Georgia id: ' . $georgiaid);
 
       $result = db_query("select etid from og_membership where gid = $georgiaid and field_name = 'og_group_provider_state_ref' and og_membership.etid not in (SELECT  DISTINCT gid from og_membership where etid = $gaadminuserid AND entity_type = 'user')");
-      
-      
+
+
       $uid = $gaadminuserid;
       $messageids = "";
       foreach ($result as $record) {
@@ -97,7 +100,7 @@
         $values['state'] = OG_STATE_ACTIVE;
         og_group('node',$gid,$values);
       }
-      
+
     } else {
      return;
      }
@@ -107,7 +110,7 @@
       drupal_set_message(t("You are already a member of all groups."), 'status');
     }
 
-  
+
 
 
    return drupal_goto("/");
@@ -117,9 +120,9 @@
 function sdata_rp_node_postinsert($node) {
     global $user;
 
- if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles)) && !in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
+ if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles) || in_array('MN user', $user->roles)) && !in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
  {
- 
+
     if ($node->type == 'individual') {
       $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
       $provider = node_load($provider_id);
@@ -135,9 +138,15 @@ function sdata_rp_node_postinsert($node) {
       if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
       if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
       $toggle_period_node = node_load($legacy_period_nid);
+<<<<<<< HEAD
       
         //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
       _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider, false); 
+=======
+
+        //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
+      _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider, false);
+>>>>>>> Minnesota
     }
  }
 }
@@ -212,10 +221,10 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
     'progress_message' => t('Created @current out of @total.'),
     'error_message' => t('There has been an error.')
   );
-  
+
   // Find all individual nodes that belong to each provider.
   foreach ($state_providers as $provider) {
-      
+
       $query = new EntityFieldQuery();
       if($cieperiod == '1') {
         $query->entityCondition('entity_type', 'node')
@@ -231,8 +240,8 @@ function _sdata_rp_batch_create_individual_data_nodes($reporting_period_node_id)
           ->propertyCondition('status', NODE_PUBLISHED);
       }
       $result = $query->execute();
-    
-  
+
+
 
     // Load the individuals into an array.
     if (isset($result['node'])) {
@@ -276,7 +285,11 @@ function _sdata_rp_batch_create_individual_data_nodes_finished($success, $result
 function _sdata_rp_create_new_individual_data_node($individual, $individual_data_content_type, $reporting_period_node, $provider, $batch) {
   global $user;
   //watchdog('hook_post_action_test', "The inserted node {$individual->type} id is {$individual->nid} Reporting period node id is {$reporting_period_node->nid}  State content type is $individual_data_content_type Provider id is {$provider->nid} from " . __FUNCTION__);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> Minnesota
   $provider_id = $provider->nid;
   $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
   $state = node_load($state_id);
@@ -286,7 +299,11 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
   $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] ? $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'] : null;
   $legacyarray = array();
   //module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+<<<<<<< HEAD
   if($legacy_period_nid && !$ciecheck && $batch == false ) { 
+=======
+  if($legacy_period_nid && !$ciecheck && $batch == false ) {
+>>>>>>> Minnesota
     $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
     $legacyarrayprint = print_r($legacyarray,true);
     watchdog('hook_post_action_test', "Legacy array: " . $legacyarrayprint . " " . __FUNCTION__);
@@ -331,6 +348,9 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
   // Set individual.
   $node->field_individual[$node->language][]['target_id'] = $individual->nid;
   
+  // If Georgia, set CIE status
+  if($individual_data_content_type == 'individual_data_ga') $node->field_cie_individual_yes_no[$node->language][]['value'] = $individual->field_cie_individual[LANGUAGE_NONE][0]['value'] ? $individual->field_cie_individual[LANGUAGE_NONE][0]['value'] : 0;
+
   // If Georgia, set CIE status
   if($individual_data_content_type == 'individual_data_ga') $node->field_cie_individual_yes_no[$node->language][]['value'] = $individual->field_cie_individual[LANGUAGE_NONE][0]['value'] ? $individual->field_cie_individual[LANGUAGE_NONE][0]['value'] : 0;
 
@@ -379,12 +399,16 @@ function _sdata_rp_submit_data($provider_nid) {
   module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
   if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $legacy_period_nid);
   if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> Minnesota
 
 
   // Unpublish individal data nodes so that they can't be edited by providers.
-  
-  
+
+
 
   // Entity field query that gets a list of individual data nodes for the given provider
   // for the current reporting period for the provider's state.
@@ -442,20 +466,33 @@ function _sdata_rp_submit_data_cie($provider_nid) {
   if($state_individual_data_content_type != 'individual_data_ga') return;
 
   // Unpublish individal data nodes so that they can't be edited by providers.
+<<<<<<< HEAD
   
   
+=======
+
+
+>>>>>>> Minnesota
 
   // Entity field query that gets a list of individual data nodes for the given provider
   // for the current reporting period for the provider's state.
   $query = new EntityFieldQuery();
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> Minnesota
     $query->entityCondition('entity_type', 'node')
     ->fieldCondition('og_group_ref', 'target_id', $provider_nid)
     ->fieldCondition('field_cie_individual_yes_no', 'value', '1', '=')
     ->propertyCondition('status', 1)
     ->propertyCondition('type', $state_individual_data_content_type)
     ->fieldCondition('field_reporting_period', 'target_id', $reporting_period_nid);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> Minnesota
   $result = $query->execute();
 
   // If any individual data nodes are returned, loop around each one and validate.

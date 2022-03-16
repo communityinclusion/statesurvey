@@ -170,6 +170,8 @@ function georgia_addition_field_default_field_bases() {
 
   // Exported field_base: 'field_grp_integ_other_source'.
   $field_bases['field_grp_integ_other_source'] = array(
+<<<<<<< HEAD
+=======
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
@@ -225,6 +227,191 @@ function georgia_addition_field_default_field_bases() {
 
   // Exported field_base: 'field_grp_integ_work_location'.
   $field_bases['field_grp_integ_work_location'] = array(
+>>>>>>> Minnesota
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_other_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_grp_integ_time_in_job'.
+  $field_bases['field_grp_integ_time_in_job'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_time_in_job',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+<<<<<<< HEAD
+        'Less than 6 months' => 'Less than 6 months',
+        '6 to 12 months' => '6 to 12 months',
+        '13 to 24 months' => '13 to 24 months',
+        '25 to 36 months' => '25 to 36 months',
+        '37 to 48 months' => '37 to 48 months',
+        '49 to 60 months' => '49 to 60 months',
+        'More than 60 months' => 'More than 60 months',
+=======
+        'Community business site' => 'Community business site',
+        'Provider owned business ' => 'Provider owned business',
+        'Other community locations' => 'Other community locations (e.g. mobile work crew)',
+>>>>>>> Minnesota
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+<<<<<<< HEAD
+  // Exported field_base: 'field_grp_integ_work_location'.
+  $field_bases['field_grp_integ_work_location'] = array(
+=======
+  // Exported field_base: 'field_indv_cie_hrs'.
+  $field_bases['field_indv_cie_hrs'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_cie_hrs',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
+  // Exported field_base: 'field_indv_cie_occupation'.
+  $field_bases['field_indv_cie_occupation'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_cie_occupation',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Agriculture' => 'Agriculture',
+        'Assembly/manufacturing' => 'Assembly/manufacturing',
+        'Clerical/office' => 'Clerical/office',
+        'Custodian/housekeeping' => 'Custodian/housekeeping',
+        'Food service' => 'Food service',
+        'Grocery/retail' => 'Grocery/retail',
+        'Groundskeeping' => 'Groundskeeping',
+        'Health/human services' => 'Health/human services',
+        'Sorting/recycling' => 'Sorting/recycling',
+        'Stocking/warehouse' => 'Stocking/warehouse',
+        'Other' => 'Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_indv_cie_paid_time_off'.
+  $field_bases['field_indv_cie_paid_time_off'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_cie_paid_time_off',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'yes' => 'Yes',
+        'no' => 'No',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_indv_cie_time_in_job'.
+  $field_bases['field_indv_cie_time_in_job'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_cie_time_in_job',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Less than 6 months' => 'Less than 6 months',
+        '6 to 12 months' => '6 to 12 months',
+        '13 to 24 months' => '13 to 24 months',
+        '25 to 36 months' => '25 to 36 months',
+        '37 to 48 months' => '37 to 48 months',
+        '49 to 60 months' => '49 to 60 months',
+        'More than 60 months' => 'More than 60 months',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_indv_comp_fund_source'.
+  $field_bases['field_indv_comp_fund_source'] = array(
+>>>>>>> Minnesota
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
@@ -242,9 +429,18 @@ function georgia_addition_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
+<<<<<<< HEAD
         'Community business site' => 'Community business site',
         'Provider owned business ' => 'Provider owned business',
         'Other community locations' => 'Other community locations (e.g. mobile work crew)',
+=======
+        'Waiver' => 'Waiver',
+        'Contracted state funds (GIA)' => 'Contracted state funds (GIA)',
+        'Family Supports' => 'Family Supports',
+        'GVRA' => 'GVRA',
+        'Other' => 'Other',
+        'Unfunded' => 'Unfunded',
+>>>>>>> Minnesota
       ),
       'allowed_values_function' => '',
     ),
@@ -370,8 +566,45 @@ function georgia_addition_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+<<<<<<< HEAD
   // Exported field_base: 'field_indv_comp_billing_y_n'.
   $field_bases['field_indv_comp_billing_y_n'] = array(
+=======
+  // Exported field_base: 'field_self_emp_fund_source'.
+  $field_bases['field_self_emp_fund_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_fund_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Waiver' => 'Waiver',
+        'Contracted state funds (GIA)' => 'Contracted state funds (GIA)',
+        'Family Supports' => 'Family Supports',
+        'GVRA' => 'GVRA',
+        'Other' => 'Other',
+        'Unfunded' => 'Unfunded',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_self_emp_occupation'.
+  $field_bases['field_self_emp_occupation'] = array(
+>>>>>>> Minnesota
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
@@ -925,6 +1158,61 @@ function georgia_addition_field_default_field_bases() {
         'Sorting/recycling' => 'Sorting/recycling',
         'Stocking/warehouse' => 'Stocking/warehouse',
         'Other' => 'Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_self_emp_other_source'.
+  $field_bases['field_self_emp_other_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_other_source',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_self_emp_time_in_job'.
+  $field_bases['field_self_emp_time_in_job'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_self_emp_time_in_job',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Less than 6 months' => 'Less than 6 months',
+        '6 to 12 months' => '6 to 12 months',
+        '13 to 24 months' => '13 to 24 months',
+        '25 to 36 months' => '25 to 36 months',
+        '37 to 48 months' => '37 to 48 months',
+        '49 to 60 months' => '49 to 60 months',
+        'More than 60 months' => 'More than 60 months',
       ),
       'allowed_values_function' => '',
     ),

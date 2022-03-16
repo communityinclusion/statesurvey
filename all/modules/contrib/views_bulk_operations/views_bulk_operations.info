@@ -9,8 +9,16 @@ php = 5.2.9
 files[] = plugins/operation_types/base.class.php
 files[] = views/views_bulk_operations_handler_field_operations.inc
 
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-06-03
 version = "7.x-3.6"
 core = "7.x"
 project = "views_bulk_operations"
 datestamp = "1591196779"
+=======
+; Information added by Drupal.org packaging script on 2020-09-09
+version = "7.x-3.6+1-dev"
+core = "7.x"
+project = "views_bulk_operations"
+datestamp = "1599690377"
+>>>>>>> Minnesota

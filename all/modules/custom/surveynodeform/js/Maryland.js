@@ -6,6 +6,7 @@
    */
 
  Drupal.behaviors.remState = {
+<<<<<<< HEAD
      attach: function (context, settings) {
        $(document).ajaxComplete(function(){
        $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
@@ -16,13 +17,28 @@
        $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
              $(this).remove();
          });
+=======
+   attach: function (context, settings) {
+     $(document).ajaxComplete(function(){
+     $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
+     $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+     $("#field-area-office-add-more-wrapper select option[value='230']").attr('disabled','disabled');
+     $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+           $(this).remove();
+     });
+     $("#field-area-office-add-more-wrapper select option[value='230']").each(function() {
+           $(this).remove();
+     });
+     $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
+           $(this).remove();
+>>>>>>> Minnesota
        });
+     });
+   }
 
 
 
-     }
-
-    }
+   }
     Drupal.behaviors.startScan = {
         attach: function (context, settings) {
       $('ul.vertical-tabs-list li a').addClass('inComplete');
