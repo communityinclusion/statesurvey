@@ -2,3 +2,4 @@
 .main-container #edit-actions {width: 220px; position: relative;  }
 .page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs, #edit-field-grp-integ-covid-ma { display: none;}
 #edit-field-date-of-entry-into-ende { display: none;}
+fieldset .form-type-textarea.form-item-field-indv-comp-covid-other-und-0-value,fieldset .form-type-textarea.form-item-field-indv-cont-covid-other-und-0-value,fieldset .form-type-textarea.form-item-field-grp-integ-covid-other-und-0-value {display: block; }
