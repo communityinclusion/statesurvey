@@ -1,4 +1,0 @@
-name = State Survey Node Form
-description = "Provides custom node form for state surveys
-package = survey
-core = 7.x

@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the georgia_view_changes feature.
- */
-
-include_once 'georgia_view_changes.features.inc';

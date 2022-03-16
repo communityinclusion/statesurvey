@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the Area office taxonomy feature.
- */
-
-include_once 'area_office_taxonomy.features.inc';
