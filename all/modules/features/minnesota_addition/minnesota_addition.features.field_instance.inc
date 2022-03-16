@@ -1303,7 +1303,7 @@ function minnesota_addition_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -1350,7 +1350,7 @@ function minnesota_addition_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 7,
     ),
   );
 
@@ -1478,7 +1478,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
