@@ -1,4 +1,7 @@
-.node-type-individual-data-ma .vertical-tabs-panes fieldset.active {min-height: 700px;}
+node-type-individual-data-mn .vertical-tabs-panes fieldset.active {min-height: 900px;}
+.node-type-individual-data-mn .vertical-tabs-panes fieldset#edit-group_indv_comp.active {min-height: 1070px;}
+.main-container #edit-actions {width: 220px; position: relative;}
+.node-type-individual-data-mn .main-container #edit-actions {  height: 400px; margin-top: -500px;}
 .main-container #edit-actions {width: 220px; position: relative;  }
-.page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs, #edit-field-grp-integ-covid-ma { display: none;}
+.page-node-edit.node-type-individual .tabs--primary.nav.nav-tabs,
 #edit-field-date-of-entry-into-ende { display: none;}
