@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the More Georgia Changes feature.
+ */
+
+include_once 'more_georgia_changes.features.inc';
