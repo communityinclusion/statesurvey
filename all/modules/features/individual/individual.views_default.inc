@@ -28,10 +28,10 @@ function individual_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
-    8 => '8',
     7 => '7',
     5 => '5',
     4 => '4',
+    9 => '9',
     6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
@@ -3268,6 +3268,401 @@ function individual_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['path'] = 'provider/%/individuals-cie/user/%';
+
+  /* Display: Minn. Provider Sum Individuals page */
+  $handler = $view->new_display('page', 'Minn. Provider Sum Individuals page', 'page_8');
+  $handler->display->display_options['defaults']['cache'] = FALSE;
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_aggregator';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'nid' => 'nid',
+    'nid_2' => 'nid_2',
+    'id_1' => 'id_1',
+    'og_group_ref' => 'og_group_ref',
+    'id' => 'id',
+    'title' => 'title',
+    'title_1' => 'title_1',
+    'title_2' => 'title_2',
+    'field_current_reporting_period' => 'field_current_reporting_period',
+    'field_reporting_period' => 'field_reporting_period',
+    'type' => 'type',
+    'field_individual_data_type' => 'field_individual_data_type',
+    'status' => 'status',
+  );
+  $handler->display->display_options['style_options']['default'] = 'title_1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 1,
+      'aggr' => array(
+        'views_aggregator_count' => 'views_aggregator_count',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 1,
+      'aggr_column' => 'views_aggregator_count',
+      'aggr_par_column' => '',
+    ),
+    'nid_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_count' => 'views_aggregator_count',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_count',
+      'aggr_par_column' => '',
+    ),
+    'id_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'og_group_ref' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_group_and_compress' => 'views_aggregator_group_and_compress',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'title_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 1,
+      'aggr' => array(
+        'views_aggregator_group_and_compress' => 'views_aggregator_group_and_compress',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'title_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'field_current_reporting_period' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'field_reporting_period' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'field_individual_data_type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+    'status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_aggr' => 0,
+      'aggr' => array(
+        'views_aggregator_first' => 'views_aggregator_first',
+      ),
+      'aggr_par' => '',
+      'has_aggr_column' => 0,
+      'aggr_column' => 'views_aggregator_sum',
+      'aggr_par_column' => '',
+    ),
+  );
+  $handler->display->display_options['style_options']['column_aggregation']['totals_per_page'] = '1';
+  $handler->display->display_options['style_options']['column_aggregation']['totals_row_position'] = array(
+    1 => 0,
+    2 => '2',
+  );
+  $handler->display->display_options['style_options']['column_aggregation']['precision'] = '2';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<div class="clearfix"><a class="viewButton btn addInd" href="/node/add/individual?p=!1" data-toggle="tooltip" title="Add an individual who is new to your program since the last reporting period ">Add new individual</a><a class="viewButton btn" href="/">Back to main page</a><a class ="btn btn-danger" href="/user/logout">Log out</a></div>';
+  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['nid']['label'] = 'Number of Individuals';
+  /* Field: individual_nid */
+  $handler->display->display_options['fields']['nid_2']['id'] = 'nid_2';
+  $handler->display->display_options['fields']['nid_2']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_2']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_2']['ui_name'] = 'individual_nid';
+  $handler->display->display_options['fields']['nid_2']['label'] = '';
+  $handler->display->display_options['fields']['nid_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid_2']['element_label_colon'] = FALSE;
+  /* Field: OG membership: Og membership ID */
+  $handler->display->display_options['fields']['id_1']['id'] = 'id_1';
+  $handler->display->display_options['fields']['id_1']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['id_1']['field'] = 'id';
+  $handler->display->display_options['fields']['id_1']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['fields']['id_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['id_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['id_1']['alter']['text'] = '<a class="deleteInd" href="/node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]" data-toggle="tooltip" title="Delete if this individual is no longer in your program and needs to be removed from the list.">delete individual</a>';
+  $handler->display->display_options['fields']['id_1']['alter']['path'] = 'node/[nid]/edit/?delete=[id_1]&provnum=[nid_1]';
+  $handler->display->display_options['fields']['id_1']['separator'] = '';
+  /* Field: Content: Provider */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['og_group_ref']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['og_group_ref']['type'] = 'entityreference_entity_id';
+  $handler->display->display_options['fields']['og_group_ref']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Field: OG membership: Og membership ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
+  $handler->display->display_options['fields']['id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['id']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['id']['alter']['text'] = '/node/[nid]/edit?delete=[id]&provnum=[og_group_ref]';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['title']['label'] = 'ID title';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Provider';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['title_2']['label'] = 'State';
+  $handler->display->display_options['fields']['title_2']['exclude'] = TRUE;
+  /* Field: Content: Current reporting period */
+  $handler->display->display_options['fields']['field_current_reporting_period']['id'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['table'] = 'field_data_field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['field'] = 'field_current_reporting_period';
+  $handler->display->display_options['fields']['field_current_reporting_period']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_current_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_current_reporting_period']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Reporting period */
+  $handler->display->display_options['fields']['field_reporting_period']['id'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['table'] = 'field_data_field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['field'] = 'field_reporting_period';
+  $handler->display->display_options['fields']['field_reporting_period']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['field_reporting_period']['label'] = 'ID Reporting period';
+  $handler->display->display_options['fields']['field_reporting_period']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_reporting_period']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Individual data content type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['type']['ui_name'] = 'Individual data content type';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  /* Field: State individual data content type */
+  $handler->display->display_options['fields']['field_individual_data_type']['id'] = 'field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['table'] = 'field_data_field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['field'] = 'field_individual_data_type';
+  $handler->display->display_options['fields']['field_individual_data_type']['relationship'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['fields']['field_individual_data_type']['ui_name'] = 'State individual data content type';
+  $handler->display->display_options['fields']['field_individual_data_type']['exclude'] = TRUE;
+  /* Field: Content: Published status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['relationship'] = 'reverse_field_individual_node';
+  $handler->display->display_options['fields']['status']['label'] = 'Submitted?';
+  $handler->display->display_options['fields']['status']['not'] = 1;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: OG membership: Group_type */
+  $handler->display->display_options['filters']['group_type']['id'] = 'group_type';
+  $handler->display->display_options['filters']['group_type']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['group_type']['field'] = 'group_type';
+  $handler->display->display_options['filters']['group_type']['value'] = array(
+    'node' => 'node',
+  );
+  $handler->display->display_options['filters']['group_type']['group'] = 1;
+  /* Filter criterion: Content: State (og_group_provider_state_ref) */
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['id'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['field'] = 'og_group_provider_state_ref_target_id';
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['value'] = array(
+    7 => '7',
+  );
+  $handler->display->display_options['filters']['og_group_provider_state_ref_target_id']['group'] = 1;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'individual' => 'individual',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Global: Fields comparison */
+  $handler->display->display_options['filters']['fields_compare']['id'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare']['table'] = 'views';
+  $handler->display->display_options['filters']['fields_compare']['field'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare']['group'] = 1;
+  $handler->display->display_options['filters']['fields_compare']['right_field'] = 'field_reporting_period';
+  $handler->display->display_options['filters']['fields_compare']['left_field'] = 'field_current_reporting_period';
+  /* Filter criterion: Global: Fields comparison */
+  $handler->display->display_options['filters']['fields_compare_1']['id'] = 'fields_compare_1';
+  $handler->display->display_options['filters']['fields_compare_1']['table'] = 'views';
+  $handler->display->display_options['filters']['fields_compare_1']['field'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare_1']['group'] = 1;
+  $handler->display->display_options['filters']['fields_compare_1']['right_field'] = 'field_individual_data_type';
+  $handler->display->display_options['filters']['fields_compare_1']['left_field'] = 'type';
+  /* Filter criterion: Content: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['path'] = 'provider/sum-individuals/mn';
   $export['provider_individuals'] = $view;
 
   return $export;

@@ -90,16 +90,16 @@ function minnesota_addition_field_group_info() {
       1 => 'field_delete_indiv_why',
     ),
     'format_settings' => array(
-      'formatter' => '',
       'instance_settings' => array(
         'attributes' => '',
-        'classes' => 'group-delete-individual field-group-html-element',
+        'classes' => 'group-delete-individual field-group-html-element deleteGroup',
         'element' => 'div',
         'id' => '',
         'label_element' => 'div',
         'required_fields' => 1,
-        'show_label' => 0,
+        'show_label' => '0',
       ),
+      'label' => 'Answer some questions before deleting this individual',
     ),
     'format_type' => 'html-element',
     'label' => 'Answer some questions before deleting this individual',
@@ -148,12 +148,11 @@ function minnesota_addition_field_group_info() {
   $field_group->data = array(
     'children' => array(
       0 => 'field_grp_integ_partic',
-      1 => 'field_self_emp_gross_income',
-      2 => 'field_grp_integ_gross_wages',
-      3 => 'field_grp_integ_hrs',
-      4 => 'field_grp_integr_set_aside',
-      5 => 'field_grp_integ_paid_time_off',
-      6 => 'field_grp_integ_supports',
+      1 => 'field_grp_integ_gross_wages',
+      2 => 'field_grp_integ_hrs',
+      3 => 'field_grp_integr_set_aside',
+      4 => 'field_grp_integ_paid_time_off',
+      5 => 'field_grp_integ_supports',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
@@ -246,8 +245,9 @@ function minnesota_addition_field_group_info() {
     'children' => array(
       0 => 'field_self_emp_partic',
       1 => 'field_self_emp_gross_expens',
-      2 => 'field_self_emp_hrs',
-      3 => 'field_self_emp_supports',
+      2 => 'field_self_emp_gross_income',
+      3 => 'field_self_emp_hrs',
+      4 => 'field_self_emp_supports',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
