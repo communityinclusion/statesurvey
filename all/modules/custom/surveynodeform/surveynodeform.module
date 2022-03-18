@@ -136,8 +136,11 @@ function surveynodeform_prov_summary($provid) {
       $datanode = 'individual_data_ga';
     break;
 
-    case $mnid:
-      $datanode = 'individual_data_mn';
+    case $georgiaid:
+      $datanode = 'individual_data_ga';
+
+      case $mnid:
+        $datanode = 'individual_data_mn';
     break;
     }
 
@@ -635,6 +638,7 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
 
 }
 
+
 function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$providername,$reportingperiod,$firstarray,$provid) {
 
   foreach($firstarray as $firstnode) {
@@ -695,8 +699,8 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   if($combasedcheck) $combasedcount ++;
   $facbasednonworkcheck = $thisnode->field_fac_non_work_partic && $thisnode->field_fac_non_work_partic[LANGUAGE_NONE][0]['value'] == 1 ? false : ($thisnode->field_fac_non_work_yn_partic && $thisnode->field_fac_non_work_yn_partic[LANGUAGE_NONE][0]['value'] == 1 ? true:false) ;
   if($facbasednonworkcheck) $facbasednonworkcount ++;
-  if($indcompcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck) $workttlcount++;
-  if($indcompcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck || $facbasednonworkcheck) $ttlcount++;
+  if($indcompcheck || $indcontcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck) $workttlcount++;
+  if($indcompcheck || $indcontcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck || $facbasednonworkcheck) $ttlcount++;
   //PTO counts
   $indcompptocount += $thisnode->field_indv_comp_paid_time_off && $thisnode->field_indv_comp_paid_time_off[LANGUAGE_NONE][0]['value'] == 'yes' ? 1 :0;
   $grpintegptocount += $thisnode->field_grp_integ_paid_time_off &&  $thisnode->field_grp_integ_paid_time_off[LANGUAGE_NONE][0]['value'] == 'yes' ? 1 :0;
@@ -723,7 +727,7 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   }
 
   $indcomppct =  $indcompcount != 0 ? ($indcompcount/$ttlcount) * 100 : 0;
-  $indcomppct = $indcomppct != 0 ? number_format((float)$indcomppct, 1, '.', '') . "%" : " -- ";
+  $indcomppct = $indcomppct != 0 ? number_format((float)$indcomppct, 1, '.', '') . "%" : " -- ";;
   $grpintegpct =  $grpintegcount != 0 ? ($grpintegcount/$ttlcount) * 100 : 0;
   $grpintegpct = $grpintegpct != 0 ? number_format((float)$grpintegpct, 1, '.', '') . "%" : " -- ";
   $selfemppct =  $selfempcount != 0 ? ($selfempcount/$ttlcount) * 100 : 0;
@@ -751,6 +755,8 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $combasedhrspct = $combasedhrspct > 0 ? number_format((float)$combasedhrspct, 1, '.', '') . "%" : " -- ";
   $indcompmeanhrs = $indcomphrs > 0 ? $indcomphrs/$indcompcount: 0;
   $indcompmeanhrs = $indcompmeanhrs > 0 ? number_format((float)$indcompmeanhrs, 1, '.', '') : " -- ";
+  $indcontmeanhrs = $indconthrs > 0 ? $indconthrs/$indcontcount: 0;
+  $indcontmeanhrs = $indcontmeanhrs > 0 ? number_format((float)$indcontmeanhrs, 1, '.', '') : " -- ";
   $grpintegmeanhrs = $grpinteghrs > 0 ? $grpinteghrs/$grpintegcount: 0;
   $grpintegmeanhrs = $grpintegmeanhrs > 0 ? number_format((float)$grpintegmeanhrs, 1, '.', '') : " -- ";
   $selfempmeanhrs = $selfemphrs > 0 ? $selfemphrs/$selfempcount: 0;
@@ -780,7 +786,6 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $facbasedsetasidepct = number_format((float)$facbasedsetasidepct, 1, '.', '') . "%";
   $wagesarray = array(array("Mean two-week wage*",$ttlcount,$indcompmeanwage,$grpintegmeanwage,$selfempmeanwage . "*",$facbasedmeanwage),array("Percent earning paid time off"," -- ",$indcompptopct,$grpintegptopct," -- ",$facbasedptopct),array("Percent on set-aside contract"," "," -- ",$grpinteghrspct," -- ",$facbasedhrspct)
   );
-    //new state: change below based on number of categories
   $sixarray = array_slice($headerarray, 0, 7);
   $fivearray = array_slice($headerarray,0,6);
   $data = array(
@@ -995,22 +1000,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   $form['field_indv_comp_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
   $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
 
-
-  }
-
-
-  elseif ($form_id == 'individual_data_mn_node_form') {
-    $form['field_indv_comp_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
-    $form['field_grp_integ_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
-    $form['field_shl_hrs'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkHours';
-    $form['field_indv_comp_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
-    $form['field_indv_cont_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
-    $form['field_grp_integ_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
-    $form['field_shl_gross_wages'][LANGUAGE_NONE][0]['value']['#attributes']['class'][]= 'checkWages';
-  }
     //new state: add checks
-
-   elseif($form_id == 'individual_data_ga_node_form') {
+  } elseif($form_id == 'individual_data_ga_node_form') {
     global $user;
     $extendedstart = false;
 
@@ -1121,8 +1112,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         //$form['field_date_of_entry_into_ende']['#access'] = FALSE;
      // }
     }
-  //new state: add node form i
-  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_mn_node_form' || $form_id == 'individual_node_form')
+  //new state: add node form id
+  if ($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_node_form' || $form_id == 'individual_data_mn_node_form' )
   {
     $form['field_indv_data_partic_why']['und']['#title'] = t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity? <br />(<span class="redUl">If this individual has been discharged or is deceased, please delete this individual from your list.</span>)');
    $url = drupal_get_query_parameters();
@@ -1174,7 +1165,6 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
         break;
       }
       $provid =  surveynodeform_get_prov_id($nid,$provtext);
-
 
       $statearray = surveynodeform_provider_statename($provid);
       $statename = $statearray[0];
@@ -1250,6 +1240,15 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['mdwagehigh'] = variable_get('surveynodeform_mdwagehigh');
       $settings['mdselfearnhigh'] = variable_get('surveynodeform_mdselfearnhigh');
       $settings['mdselfexpensehigh'] = variable_get('surveynodeform_mdselfexpensehigh');
+      //MN variables
+      $settings['mnmin'] = variable_get('surveynodeform_mnminwage');
+      $settings['mnhrlow'] = variable_get('surveynodeform_mnhrlow');
+      $settings['mnhrhigh'] = variable_get('surveynodeform_mnhrhigh');
+      $settings['mnwagelow'] = variable_get('surveynodeform_mnwagelow');
+      $settings['mnwagehigh'] = variable_get('surveynodeform_mnwagehigh');
+      $settings['mnselfearnhigh'] = variable_get('surveynodeform_mnselfearnhigh');
+      $settings['mnselfexpensehigh'] = variable_get('surveynodeform_mnselfexpensehigh');
+
       //GA variables
       // New state: add settings
       $settings['gamin'] = variable_get('surveynodeform_gaminwage');
@@ -1260,19 +1259,9 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
       $settings['gaselfearnhigh'] = variable_get('surveynodeform_gaselfearnhigh');
       $settings['gaselfexpensehigh'] = variable_get('surveynodeform_gaselfexpensehigh');
 
-      //MN variables
-      // New state: add settings
-      $settings['mnmin'] = variable_get('surveynodeform_mnminwage');
-      $settings['mnhrlow'] = variable_get('surveynodeform_mnhrlow');
-      $settings['mnhrhigh'] = variable_get('surveynodeform_mnhrhigh');
-      $settings['mnwagelow'] = variable_get('surveynodeform_mnwagelow');
-      $settings['mnwagehigh'] = variable_get('surveynodeform_mnwagehigh');
-      $settings['mnselfearnhigh'] = variable_get('surveynodeform_mnselfearnhigh');
-      $settings['mnselfexpensehigh'] = variable_get('surveynodeform_mnselfexpensehigh');
-
     //new state: add form id
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'  || $form_id == 'individual_data_mn_node_form') && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
-    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form'  || $form_id == 'individual_data_mn_node_form')  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_mn_node_form' ) && !isset($url['delete']) && !isset($url['provnum']) ) {  drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/surveyform.css'); }
+    if(($form_id == 'individual_data_node_form' || $form_id == 'individual_data_ma_node_form' || $form_id == 'individual_data_ga_node_form' || $form_id == 'individual_data_mn_node_form' )  && isset($url['delete']) && isset($url['provnum'])) { drupal_add_css(drupal_get_path('module', 'surveynodeform') . '/css/deletereason.css');
     $form['#prefix']= "<h3>Explain your reason for deleting this individual in the form below and hit \"Next step,\" then finish deleting on the next page.</h3>";
     $form['actions']['submit']['#value'] = 'Next step';
     $form['actions']['submit']['#attributes'] = array('class' => array('btn','btn-primary'));
@@ -1303,8 +1292,8 @@ function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   }
 
     //stop any node deletions of state nodes
-    //this prevents deletion of Maryland, Mass., Minnesota, and Georgia state nodes.  A bit hacky.  Todo: run a node type test so future states won't get deleted
-  if (($form['#id'] == 'views-form-admin-views-node-system-1' && (in_array('116038',$_POST['views_bulk_operations']) || in_array('7',$_POST['views_bulk_operations']) ||in_array('10',$_POST['views_bulk_operations']) ) )|| ($form['#id'] == 'node-delete-confirm' && arg(0) == 'node' && is_numeric(arg(1))  && (arg(1) == 116038 ||arg(1) == 7 ||arg(1) == 10 ||arg(1) == 149922) ))
+    //this prevents deletion of Maryland, Mass., and Georgia state nodes.  A bit hacky.  Todo: run a node type test so future states won't get deleted
+  if (($form['#id'] == 'views-form-admin-views-node-system-1' && (in_array('116038',$_POST['views_bulk_operations']) || in_array('7',$_POST['views_bulk_operations']) ||in_array('10',$_POST['views_bulk_operations']) ) )|| ($form['#id'] == 'node-delete-confirm' && arg(0) == 'node' && is_numeric(arg(1))  && (arg(1) == 116038 ||arg(1) == 7 ||arg(1) == 10 ) ))
   {
     //set a message...
     drupal_set_message('Warning: don\'t delete states');
@@ -1461,6 +1450,78 @@ function surveynodeform_admin() {
     '#description' => t("Maryland self-employment expenses, high point."),
     '#required' => TRUE,
   );
+  // Minnesota settings
+  $form['surveynodeform_mnminwage'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota minimum wage'),
+    '#default_value' => variable_get('surveynodeform_mnminwage', 8.25),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minimum wage in Minnesota."),
+    '#required' => TRUE,
+  );
+  $form['surveynodeform_mnhrlow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota hour range, low point'),
+    '#default_value' => variable_get('surveynodeform_mnhrlow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota hour range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnhrhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota hour range, high point'),
+    '#default_value' => variable_get('surveynodeform_mnhrhigh', 80),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota hour range, high point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnwagelow'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota wage range, low point'),
+    '#default_value' => variable_get('surveynodeform_mnwagelow', 1),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota wage range, low point."),
+    '#required' => TRUE,
+  );
+
+  $form['surveynodeform_mnwagehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota wage range, high point'),
+    '#default_value' => variable_get('surveynodeform_mnwagehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota wage range, high point."),
+    '#required' => TRUE,
+  );
+
+
+
+  $form['surveynodeform_mnselfearnhigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota self-employment income, high point'),
+    '#default_value' => variable_get('surveynodeform_mnselfearnhigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota self-employment income, high point."),
+    '#required' => TRUE,
+  );
+
+
+  $form['surveynodeform_mnselfexpensehigh'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minnesota self-employment expenses, high point'),
+    '#default_value' => variable_get('surveynodeform_mnselfexpensehigh', 1000),
+    '#size' => 5,
+    '#maxlength' => 6,
+    '#description' => t("Minnesota self-employment expenses, high point."),
+    '#required' => TRUE,
+  );
   //New state: add settings
   //Georgia settings
 
@@ -1533,78 +1594,6 @@ function surveynodeform_admin() {
     '#size' => 5,
     '#maxlength' => 6,
     '#description' => t("Georgia self-employment expenses, high point."),
-    '#required' => TRUE,
-  );
-  // Minnesota settings
-  $form['surveynodeform_mnminwage'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota minimum wage'),
-    '#default_value' => variable_get('surveynodeform_mnminwage', 8.25),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minimum wage in Minnesota."),
-    '#required' => TRUE,
-  );
-  $form['surveynodeform_mnhrlow'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota hour range, low point'),
-    '#default_value' => variable_get('surveynodeform_mnhrlow', 1),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota hour range, low point."),
-    '#required' => TRUE,
-  );
-
-  $form['surveynodeform_mnhrhigh'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota hour range, high point'),
-    '#default_value' => variable_get('surveynodeform_mnhrhigh', 80),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota hour range, high point."),
-    '#required' => TRUE,
-  );
-
-  $form['surveynodeform_mnwagelow'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota wage range, low point'),
-    '#default_value' => variable_get('surveynodeform_mnwagelow', 1),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota wage range, low point."),
-    '#required' => TRUE,
-  );
-
-  $form['surveynodeform_mnwagehigh'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota wage range, high point'),
-    '#default_value' => variable_get('surveynodeform_mnwagehigh', 1000),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota wage range, high point."),
-    '#required' => TRUE,
-  );
-
-
-
-  $form['surveynodeform_mnselfearnhigh'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota self-employment income, high point'),
-    '#default_value' => variable_get('surveynodeform_mnselfearnhigh', 1000),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota self-employment income, high point."),
-    '#required' => TRUE,
-  );
-
-
-  $form['surveynodeform_mnselfexpensehigh'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Minnesota self-employment expenses, high point'),
-    '#default_value' => variable_get('surveynodeform_mnselfexpensehigh', 1000),
-    '#size' => 5,
-    '#maxlength' => 6,
-    '#description' => t("Minnesota self-employment expenses, high point."),
     '#required' => TRUE,
   );
 
