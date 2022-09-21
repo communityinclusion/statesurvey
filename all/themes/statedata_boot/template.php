@@ -6,7 +6,7 @@
  */
 function statedata_boot_theme_registry_alter(&$registry) {
   require_once DRUPAL_ROOT . '/includes/menu.inc';
-  
+
 }
 
  function statedata_boot_options_none($variables) {

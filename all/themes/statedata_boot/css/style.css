@@ -1,4 +1,4 @@
-/** Jenkins new deployment config
+/** Jenkins new deployment config IV
  * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
  * remove this comment and start adding your styles to this file.
  */
@@ -380,3 +380,6 @@ h4.redFour { color: red; }
 .view-user-groups-providers .views-field-submit-completed-cie { margin-top: 35px;}
 .view-user-groups-providers .views-field-submit-completed-cie,.view-user-groups-providers .views-field-submit-completed { width: 65%;border: 1px solid red; padding: 5px 15px 5px 5px; }
 .view-admin-view-user-groups-providers- .views-field-submit-completed-cie, .views-field-submit-completed { width: 50%; border: 1px solid red; padding: 15px 5px 5px 5px; margin-bottom: 5px;}
+#remindComplete {display:none;}
+#remindComplete.showComplete {display:block; background-color: #f3d7e4; border: 2px solid #313131;}
+.page-provider-individuals #block-views-user-groups-providers-block-3 {display: none;}

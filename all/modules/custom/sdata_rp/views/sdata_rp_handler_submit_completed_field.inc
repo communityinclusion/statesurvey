@@ -106,25 +106,40 @@ class sdata_rp_handler_submit_completed_field extends views_handler_field {
       <p><strong> $deadlinedate</strong></p>";
       if ($valid && !$completed && !$empty) {
       //  $output = l("Data complete - ready to submit", 'sdata_rp/submit_data/' . $provider_nid);
-      $output .= "<h4><a href=\"/provider/$provider_nid/individuals/$toggle_period_nid\">$linktext</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit individuals or data.</strong></p>";
+      $output .= "<h4><a href=\"/provider/$provider_nid/individuals/$toggle_period_nid\">$linktext</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4 class=\"redFour\">Submit your data:</h4><p><a id=\"submittrigger\" class=\"bigSub\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a>  &nbsp;<strong>Select the link to complete your data entry for this reporting period.  Note:  This is a final submission for this reporting period.  You will not be able to return and edit individuals or data.</strong></p><div id=\"remindComplete\">You have completed data entry for all your individuals.  Select the link <strong><a id=\"submittrigger\" href=\"/node/$provider_nid/edit?status=final\">Data complete - ready to submit.</a> on the main page</strong> to let us know you are done.</div>";
+      $sessionreminder = _sdata_rp_complete_sessionstore('reminder', 'pleasecomplete');
       }
 
 
       elseif($empty) {
         $output .= "<h4><a href=\"/provider/$provider_nid/individuals/$toggle_period_nid\">$linktext</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>You have no individuals listed with this provider.</p>";
+        $sessionreminder = _sdata_rp_complete_sessionstore('reminder', 'okay');
       }
 
       elseif($valid && $completed) {
         $output .= "<h4>$linktext</h4><p>You have already edited and submitted individual data for this reporting period.</p><h4>Submit your data:</h4><p>You have already submitted your data for this reporting period.</p>";
+        $sessionreminder = _sdata_rp_complete_sessionstore('reminder','okay');
       }
 
       else {
         $output .= "<h4><a href=\"/provider/$provider_nid/individuals/$toggle_period_nid\">$linktext</a></h4><p>Navigate to the list of individuals we have on file for your program, agency, or organization. From this page, you will have the ability to add and delete individuals, edit individuals' information and employment data, and view summary tables of all your individuals' data.</p><h4>Submit your data:</h4><p>There are some individuals that are not complete. Please complete them before submitting your data.</p>";
+        $sessionreminder = _sdata_rp_complete_sessionstore('reminder', 'okay');
       }
     }
 
     return $output;
   }
+}
+function _sdata_rp_complete_sessionstore($key, $value = NULL) {
+  static $storage;
+  if ($value) {
+    $storage[$key] = $value ;
+    $_SESSION['completion'][$key] = $value ;   // I use 'lists' in case some other module uses 'type' in $_SESSION
+  }
+  else if (empty($storage[$key]) && isset($_SESSION['completion'][$key])) {
+    $storage[$key] = $_SESSION['completion'][$key];
+  }
+  return $storage[$key];
 }
 function _sdata_rp_validate_md($node) {
   if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;

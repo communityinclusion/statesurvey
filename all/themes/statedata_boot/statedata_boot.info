@@ -41,6 +41,7 @@ stylesheets[print][] = css/print.css
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
+scripts[] = 'js/statedata_boot.js'
 ;scripts[] = 'js/bootstrap-accessibility.min.js'
 ; scripts[] = 'bootstrap/js/affix.js'
 ; scripts[] = 'bootstrap/js/alert.js'
