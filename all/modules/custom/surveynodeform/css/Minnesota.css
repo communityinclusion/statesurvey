@@ -8,3 +8,4 @@ node-type-individual-data-mn .vertical-tabs-panes fieldset.active {min-height: 9
 #edit-field-date-of-entry-into-ende { display: none;}
 button#edit-preview {display: none;}
 .form-type-checkbox label.control-label input, .form-type-radio label.control-label input {margin-right: 7px;}
+label[for="edit-field-ind-ethnicity-und-none"] {display:none;}
