@@ -321,7 +321,7 @@ function surveynodeform_ga_prov_sum_results($statearray,$stateid,$currepper,$pro
   $fivearray = array_slice($headerarray,0,6);
   $data = array(
         '#type' => 'markup',
-        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
+        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals/$currepper\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
         <h3>Data for $providername for  a two-week period between the dates $reportingperiod</h3>",
         '#markup' =>  surveynodeform_table($captions[0],$arraycount,$headerarray) . surveynodeform_table($captions[1],$hoursarray,$sixarray). surveynodeform_table($captions[2],$wagesarray,$fivearray),
         '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earnings are calculated for last three months. [hours are reported for the standard 2 week period]</p>',
@@ -499,7 +499,7 @@ function surveynodeform_md_prov_sum_results($statearray,$stateid,$currepper,$pro
   $fivearray = array_slice($headerarray,0,7);
   $data = array(
         '#type' => 'markup',
-        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
+        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals/$currepper\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
         <h3>Data for $providername for  a two-week period between the dates $reportingperiod</h3>",
         '#markup' =>  surveynodeform_table($captions[0],$arraycount,$headerarray) . surveynodeform_table($captions[1],$hoursarray,$sixarray). surveynodeform_table($captions[2],$wagesarray,$fivearray),
         '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earinings and hours are calculated for last three months.</p>',
@@ -628,7 +628,7 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
  $fivearray = array_slice($headerarray,0,5);
  $data = array(
       '#type' => 'markup',
-      '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
+      '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals/$currepper\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
       <h3>Data for $providername for the four week period $reportingperiod</h3>",
       '#markup' =>  surveynodeform_table($captions[0],$arraycount,$headerarray) . surveynodeform_table($captions[1],$hoursarray,$fivearray). surveynodeform_table($captions[2],$wagesarray,$fivearray),
       '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earinings and hours are calculated for last three months.</p>',
@@ -699,8 +699,8 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   if($combasedcheck) $combasedcount ++;
   $facbasednonworkcheck = $thisnode->field_fac_non_work_partic && $thisnode->field_fac_non_work_partic[LANGUAGE_NONE][0]['value'] == 1 ? false : ($thisnode->field_fac_non_work_yn_partic && $thisnode->field_fac_non_work_yn_partic[LANGUAGE_NONE][0]['value'] == 1 ? true:false) ;
   if($facbasednonworkcheck) $facbasednonworkcount ++;
-  if($indcompcheck || $indcontcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck) $workttlcount++;
-  if($indcompcheck || $indcontcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck || $facbasednonworkcheck) $ttlcount++;
+  if($indcompcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck) $workttlcount++;
+  if($indcompcheck || $grpintegcheck || $selfempcheck || $combasedcheck || $facbasedcheck || $facbasednonworkcheck) $ttlcount++;
   //PTO counts
   $indcompptocount += $thisnode->field_indv_comp_paid_time_off && $thisnode->field_indv_comp_paid_time_off[LANGUAGE_NONE][0]['value'] == 'yes' ? 1 :0;
   $grpintegptocount += $thisnode->field_grp_integ_paid_time_off &&  $thisnode->field_grp_integ_paid_time_off[LANGUAGE_NONE][0]['value'] == 'yes' ? 1 :0;
@@ -738,10 +738,10 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $combasedpct = $combasedpct != 0 ? number_format((float)$combasedpct, 1, '.', '') . "%" : " -- ";
   $facbasednonworkpct = $facbasednonworkcount != 0 ? ($facbasednonworkcount/$ttlcount) * 100 : 0;
   $facbasednonworkpct = $facbasednonworkpct != 0 ? number_format((float)$facbasednonworkpct, 1, '.', '') . "%" : " -- ";
-  $arraycount = array(array("Number participating in activity",$ttlcount,$indcompcount,$indcontcount,$grpintegcount,$selfempcount,$facbasedcount,$combasedcount,$facbasednonworkcount),
-  array("Percent participating in activity",$ttlcount,$indcomppct,$indcontpct,$grpintegpct,$selfemppct,$facbasedpct,$combasedpct,$facbasednonworkpct));
-  $ttlhour = $indcomphrs + $indconthrs + $grpinteghrs + $selfemphrs + $facbasedhrs + $combasedhrs;
-  $ttlwage = $indcompwage + $indcontwage + $grpintegwage + $selfempwage + $facbasedwage;
+  $arraycount = array(array("Number participating in activity",$ttlcount,$indcompcount,$grpintegcount,$selfempcount,$facbasedcount,$combasedcount,$facbasednonworkcount),
+  array("Percent participating in activity",$ttlcount,$indcomppct,$grpintegpct,$selfemppct,$facbasedpct,$combasedpct,$facbasednonworkpct));
+  $ttlhour = $indcomphrs + $grpinteghrs + $selfemphrs + $facbasedhrs + $combasedhrs;
+  $ttlwage = $indcompwage + $grpintegwage + $selfempwage + $facbasedwage;
   //Percentages
   $indcomphrspct = $indcomphrs > 0 ? ($indcomphrs/$ttlhour) *100 : 0;
   $indcomphrspct = $indcomphrspct > 0 ? number_format((float)$indcomphrspct, 1, '.', '') . "%" : " -- ";
@@ -755,8 +755,6 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $combasedhrspct = $combasedhrspct > 0 ? number_format((float)$combasedhrspct, 1, '.', '') . "%" : " -- ";
   $indcompmeanhrs = $indcomphrs > 0 ? $indcomphrs/$indcompcount: 0;
   $indcompmeanhrs = $indcompmeanhrs > 0 ? number_format((float)$indcompmeanhrs, 1, '.', '') : " -- ";
-  $indcontmeanhrs = $indconthrs > 0 ? $indconthrs/$indcontcount: 0;
-  $indcontmeanhrs = $indcontmeanhrs > 0 ? number_format((float)$indcontmeanhrs, 1, '.', '') : " -- ";
   $grpintegmeanhrs = $grpinteghrs > 0 ? $grpinteghrs/$grpintegcount: 0;
   $grpintegmeanhrs = $grpintegmeanhrs > 0 ? number_format((float)$grpintegmeanhrs, 1, '.', '') : " -- ";
   $selfempmeanhrs = $selfemphrs > 0 ? $selfemphrs/$selfempcount: 0;
@@ -765,7 +763,7 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $facbasedmeanhrs = $facbasedmeanhrs > 0 ? number_format((float)$facbasedmeanhrs, 1, '.', '') : " -- ";
   $combasedmeanhrs = $combasedhrs > 0 ? $combasedhrs/$combasedcount: 0;
   $combasedmeanhrs = $combasedmeanhrs > 0 ? number_format((float)$combasedmeanhrs, 1, '.', '') : " -- ";
-  $hoursarray = array(array("Mean hours per person participating in activity in two-week period*",$ttlcount,$indcompmeanhrs,$indcontmeanhrs,$grpintegmeanhrs,$selfempmeanhrs . "*",$facbasedmeanhrs,$combasedmeanhrs),array("Percent of total hours in activity for two-week period",$ttlcount,$indcomphrspct,$indconthrspct,$grpinteghrspct,$selfemphrspct,$facbasedhrspct,$combasedhrspct));
+  $hoursarray = array(array("Mean hours per person participating in activity in two-week period*",$ttlcount,$indcompmeanhrs,$grpintegmeanhrs,$selfempmeanhrs . "*",$facbasedmeanhrs,$combasedmeanhrs),array("Percent of total hours in activity for two-week period",$ttlcount,$indcomphrspct,$grpinteghrspct,$selfemphrspct,$facbasedhrspct,$combasedhrspct));
   $indcompmeanwage = $indcompwage > 0 ? $indcompwage/$indcompcount: 0;
   $indcompmeanwage = $indcompmeanwage > 0 ? "$" . number_format((float)$indcompmeanwage, 2, '.', '') : " -- ";
   $grpintegmeanwage = $grpintegwage > 0 ? $grpintegwage/$grpintegcount: 0;
@@ -790,7 +788,7 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
   $fivearray = array_slice($headerarray,0,6);
   $data = array(
         '#type' => 'markup',
-        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
+        '#prefix' => "<div class=\"clearfix\"><a class=\"viewButton btn\" href=\"/\">Back to main page</a><a class=\"viewButton btn addInd\" href=\"/provider/$provid/individuals/$currepper\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"View a list of your individuals\">View list of individuals</a><a class=\"btn btn-danger\" href=\"/user/logout\">Log out</a></div>
         <h3>Data for $providername for  a two-week period between the dates $reportingperiod</h3>",
         '#markup' =>  surveynodeform_table($captions[0],$arraycount,$headerarray) . surveynodeform_table($captions[1],$hoursarray,$sixarray). surveynodeform_table($captions[2],$wagesarray,$fivearray),
         '#suffix' => '<p style="padding-bottom: 20px">* Self-employment earinings and hours are calculated for last three months.</p>',
