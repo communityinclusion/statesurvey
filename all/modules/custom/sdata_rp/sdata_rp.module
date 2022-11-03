@@ -416,7 +416,7 @@ function _sdata_rp_submit_data($provider_nid) {
   }
 
   // Send notification emails.
-  //_sdata_rp_send_notification_emails($state_individual_data_email_addresses, $provider_name);
+  _sdata_rp_send_notification_emails($state_individual_data_email_addresses, $provider_name);
 
 
   return drupal_goto("/");
