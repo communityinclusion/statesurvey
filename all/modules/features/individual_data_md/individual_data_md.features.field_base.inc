@@ -146,6 +146,37 @@ if (isset(field_get_items($entity_type, $entity, \'field_shl_paid_time_off\')[0]
     'type' => 'computed',
   );
 
+  // Exported field_base: 'field_grp_integ_covid'.
+  $field_bases['field_grp_integ_covid'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_integ_covid',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'no' => 'No',
+        'yes furlough' => 'Yes - Furloughed (a temporary lay off from work)',
+        'yes laid off' => 'Yes - Laid off (terminated without a specific commitment to return',
+        'yes voluntary' => 'Yes - Voluntarily not working',
+        'yes other' => 'Yes - Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_grp_integ_covid_other'.
   $field_bases['field_grp_integ_covid_other'] = array(
     'active' => 1,
@@ -261,6 +292,34 @@ if (isset(field_get_items($entity_type, $entity, \'field_indv_cont_paid_time_off
     'type' => 'computed',
   );
 
+  // Exported field_base: 'field_indv_comp_covid'.
+  $field_bases['field_indv_comp_covid'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_comp_covid',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'no' => 'No',
+        'yes furlough' => 'Yes - Furloughed (a temporary lay off from work)',
+        'yes laid off' => 'Yes - Laid off (terminated without a specific commitment to return',
+        'yes voluntary' => 'Yes - Voluntarily not working',
+        'yes other' => 'Yes - Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_indv_comp_covid_other'.
   $field_bases['field_indv_comp_covid_other'] = array(
     'active' => 1,
@@ -331,6 +390,37 @@ if (isset(field_get_items($entity_type, $entity, \'field_indv_cont_paid_time_off
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_indv_cont_covid'.
+  $field_bases['field_indv_cont_covid'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_cont_covid',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'no' => 'No',
+        'yes furlough' => 'Yes - Furloughed (a temporary lay off from work)',
+        'yes laid off' => 'Yes - Laid off (terminated without a specific commitment to return',
+        'yes voluntary' => 'Yes - Voluntarily not working',
+        'yes other' => 'Yes - Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_indv_cont_covid_other'.

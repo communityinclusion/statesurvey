@@ -1,0 +1,6 @@
+name = MN Conditionals
+core = 7.x
+package = Features
+dependencies[] = conditional_fields
+features[conditional_fields][] = node:individual_data_mn
+features[features_api][] = api:2

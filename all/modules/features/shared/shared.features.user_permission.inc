@@ -30,6 +30,7 @@ function shared_user_default_permissions() {
   $permissions['create field_individual'] = array(
     'name' => 'create field_individual',
     'roles' => array(
+      'MN user' => 'MN user',
       'Survey administrator' => 'Survey administrator',
       'administrator' => 'administrator',
     ),

@@ -76,7 +76,6 @@ features[og_features_permission][] = node:provider:update own individual_data co
 features[og_features_permission][] = node:provider:update own individual_data_ma content
 features[og_features_permission][] = node:provider:update own provider content
 features[og_features_permission][] = node:provider:update own reporting_period content
-features[rules_config][] = more_georgia_changes_autoenroll_survey_admins_in_provider_groups
 features[user_permission][] = create field_provider_director_email
 features[user_permission][] = create field_provider_director_name
 features[user_permission][] = create field_provider_director_phone

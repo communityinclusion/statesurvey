@@ -454,6 +454,45 @@ function individual_data_md_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-individual_data-field_grp_integ_covid'.
+  $field_instances['node-individual_data-field_grp_integ_covid'] = array(
+    'bundle' => 'individual_data',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 61,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_integ_covid',
+    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 15,
+    ),
+  );
+
   // Exported field_instance:
   // 'node-individual_data-field_grp_integ_covid_other'.
   $field_instances['node-individual_data-field_grp_integ_covid_other'] = array(
@@ -788,12 +827,51 @@ function individual_data_md_field_default_field_instances() {
       'module' => 'entityreference',
       'settings' => array(
         'apply_chosen' => '',
+        'hide_ids' => FALSE,
         'match_operator' => 'CONTAINS',
         'path' => '',
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data-field_indv_comp_covid'.
+  $field_instances['node-individual_data-field_indv_comp_covid'] = array(
+    'bundle' => 'individual_data',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 59,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_comp_covid',
+    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 10,
     ),
   );
 
@@ -1051,6 +1129,45 @@ function individual_data_md_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data-field_indv_cont_covid'.
+  $field_instances['node-individual_data-field_indv_cont_covid'] = array(
+    'bundle' => 'individual_data',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 60,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_cont_covid',
+    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
       'weight' => 14,
     ),
   );
@@ -2039,6 +2156,7 @@ function individual_data_md_field_default_field_instances() {
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
   t('Reporting period');
+  t('Was the individual\'s non-participation in this activity related to COVID-19?');
   t('What supports did this person receive for participation in this outcome?');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');

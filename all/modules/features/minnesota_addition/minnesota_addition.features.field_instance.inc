@@ -181,46 +181,6 @@ function minnesota_addition_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'node-individual_data_mn-field_com_non_wrk_supports'.
-  $field_instances['node-individual_data_mn-field_com_non_wrk_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 57,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_com_non_wrk_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 13,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data_mn-field_delete_indiv_why'.
   $field_instances['node-individual_data_mn-field_delete_indiv_why'] = array(
     'bundle' => 'individual_data_mn',
@@ -301,6 +261,53 @@ function minnesota_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-individual_data_mn-field_fac_non_work_hours'.
+  $field_instances['node-individual_data_mn-field_fac_non_work_hours'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 63,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fac_non_work_hours',
+    'label' => 'Hours spent in unpaid activities in a facility based setting',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-individual_data_mn-field_fac_non_work_partic'.
   $field_instances['node-individual_data_mn-field_fac_non_work_partic'] = array(
     'bundle' => 'individual_data_mn',
@@ -341,46 +348,6 @@ function minnesota_addition_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 26,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data_mn-field_fac_non_work_supports'.
-  $field_instances['node-individual_data_mn-field_fac_non_work_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 58,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fac_non_work_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 28,
     ),
   );
 
@@ -714,46 +681,6 @@ function minnesota_addition_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-individual_data_mn-field_grp_integ_supports'.
-  $field_instances['node-individual_data_mn-field_grp_integ_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 54,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_grp_integ_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 21,
-    ),
-  );
-
-  // Exported field_instance:
   // 'node-individual_data_mn-field_grp_integr_set_aside'.
   $field_instances['node-individual_data_mn-field_grp_integr_set_aside'] = array(
     'bundle' => 'individual_data_mn',
@@ -777,7 +704,7 @@ function minnesota_addition_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_grp_integr_set_aside',
-    'label' => 'Is this job part of a set aside contract?   (Ability One, NIB, and Maryland Works)',
+    'label' => 'Is this job part of a set aside contract?   (Ability One, NIB, or state)',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1016,46 +943,6 @@ function minnesota_addition_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-individual_data_mn-field_indv_comp_supports'.
-  $field_instances['node-individual_data_mn-field_indv_comp_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 52,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_comp_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 14,
     ),
   );
 
@@ -1443,45 +1330,6 @@ function minnesota_addition_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_mn-field_self_emp_supports'.
-  $field_instances['node-individual_data_mn-field_self_emp_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 55,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_self_emp_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data_mn-field_shl_gross_wages'.
   $field_instances['node-individual_data_mn-field_shl_gross_wages'] = array(
     'bundle' => 'individual_data_mn',
@@ -1656,45 +1504,6 @@ function minnesota_addition_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data_mn-field_shl_supports'.
-  $field_instances['node-individual_data_mn-field_shl_supports'] = array(
-    'bundle' => 'individual_data_mn',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 56,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shl_supports',
-    'label' => 'What supports did this person receive for participation in this outcome?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 22,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data_mn-field_shlt_set_aside'.
   $field_instances['node-individual_data_mn-field_shlt_set_aside'] = array(
     'bundle' => 'individual_data_mn',
@@ -1718,7 +1527,7 @@ function minnesota_addition_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_shlt_set_aside',
-    'label' => 'Is this job part of a set-aside contract?  (Ability One, NIB, and Maryland Works)',
+    'label' => 'Is this job part of a set-aside contract?  (Ability One, NIB, or state)',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1813,20 +1622,20 @@ function minnesota_addition_field_default_field_instances() {
   t('Gross business income *for the last three months*');
   t('Gross wages earned this reporting period');
   t('Group integrated paid time off summary');
+  t('Hours spent in unpaid activities in a facility based setting');
   t('Hours spent in unpaid activities in an integrated community setting');
   t('Hours worked for pay this reporting period');
   t('Hours worked in business this reporting period *for the two week reporting period only*');
   t('Individual');
   t('Individual competitive paid time off summary');
   t('Individual data complete');
-  t('Is this job part of a set aside contract?   (Ability One, NIB, and Maryland Works)');
-  t('Is this job part of a set-aside contract?  (Ability One, NIB, and Maryland Works)');
+  t('Is this job part of a set aside contract?   (Ability One, NIB, or state)');
+  t('Is this job part of a set-aside contract?  (Ability One, NIB, or state)');
   t('Provider');
   t('Receives paid time off?   Include paid vacation, sick, or holiday time.');
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
   t('Reporting period');
-  t('What supports did this person receive for participation in this outcome?');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity?');

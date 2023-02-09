@@ -2090,7 +2090,9 @@ function field_group_fields_nest(&$element, &$vars = NULL) {
         // Prepend #array_parents & #field_parents of group child element & its element_children
         // if those keys are set, and don't already include the group parents
         $group_child = &$group_references[$parent_name][$child_name];
-        $group_parents = $group_references[$parent_name]['#array_parents'];
+        //Hack PF  The line below was not working in PHP8
+        //  $group_parents = $group_references[$parent_name]['#array_parents'];
+          $group_parents = is_array($group_references[$parent_name]['#array_parents']) ? $group_references[$parent_name]['#array_parents'] : [$group_references[$parent_name]['#array_parents']];
         $process_elements = array_merge(array(&$group_child), _field_group_element_children_recursive_ref($group_child));
         foreach ($process_elements as $key => $current_element) {
           if (isset($current_element['#array_parents']) && !in_array($group_parents[0], $current_element['#array_parents'])) {

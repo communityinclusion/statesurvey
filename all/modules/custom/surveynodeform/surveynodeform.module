@@ -70,7 +70,7 @@ function surveynodeform_provider_statename($provid) {
       ->propertyCondition('status', NODE_PUBLISHED);
 
       $results = $query->execute();
-      $provnode = array_keys($results['node']);
+      $provnode = $results['node'] ? array_keys($results['node']) : [$results['node']];
       $provgroup = node_load($provnode[0]);
       $stateid = $provgroup->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
       $query2 = new EntityFieldQuery();
@@ -79,7 +79,7 @@ function surveynodeform_provider_statename($provid) {
           ->entityCondition('entity_id', $stateid)
           ->propertyCondition('status', NODE_PUBLISHED);
       $results2 = $query2->execute();
-      $statenode = array_keys($results2['node']);
+      $statenode = $results2['node'] ? array_keys($results2['node']) : [$results2['node']];
       $stategroup = node_load($statenode[0]);
       $statename = array($stategroup->title,$stategroup->nid);
   return $statename;

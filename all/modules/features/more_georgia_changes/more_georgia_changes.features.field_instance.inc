@@ -90,45 +90,6 @@ function more_georgia_changes_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data-field_grp_integ_covid'.
-  $field_instances['node-individual_data-field_grp_integ_covid'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 61,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_grp_integ_covid',
-    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 15,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data-field_grp_integ_supports'.
   $field_instances['node-individual_data-field_grp_integ_supports'] = array(
     'bundle' => 'individual_data',
@@ -168,44 +129,6 @@ function more_georgia_changes_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-individual_data-field_indv_comp_covid'.
-  $field_instances['node-individual_data-field_indv_comp_covid'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 59,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_comp_covid',
-    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-individual_data-field_indv_comp_supports'.
   $field_instances['node-individual_data-field_indv_comp_supports'] = array(
     'bundle' => 'individual_data',
@@ -242,45 +165,6 @@ function more_georgia_changes_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 16,
-    ),
-  );
-
-  // Exported field_instance: 'node-individual_data-field_indv_cont_covid'.
-  $field_instances['node-individual_data-field_indv_cont_covid'] = array(
-    'bundle' => 'individual_data',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 60,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_indv_cont_covid',
-    'label' => 'Was the individual\'s non-participation in this activity related to COVID-19?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 14,
     ),
   );
 
@@ -633,7 +517,6 @@ function more_georgia_changes_field_default_field_instances() {
   t('Reporting period description');
   t('Select "yes" if this is a Georgia CIE reporting period');
   t('State');
-  t('Was the individual\'s non-participation in this activity related to COVID-19?');
   t('What supports did this person receive for participation in this outcome?');
 
   return $field_instances;

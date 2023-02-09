@@ -30,6 +30,11 @@ function sdata_rp_views_handlers() {
         // The name of the handler we are extending.
         'parent' => 'views_handler_field',
       ),
+      // The name of my handler
+      'sdata_rp_handler_count_all_inds_field' => array(
+        // The name of the handler we are extending.
+        'parent' => 'views_handler_field',
+      ),
     ),
   );
 }
@@ -82,5 +87,13 @@ function sdata_rp_views_data() {
       'handler' => 'sdata_rp_handler_count_completed_field',
     ),
   );
+
+    $data['sdata_rp']['count_all_inds'] = array(
+      'title' => t('Count total inds. per provider'),
+      'help' => t('Provides a custom field for sdata to display a tally of all individual data records'),
+      'field' => array(
+        'handler' => 'sdata_rp_handler_count_all_inds_field',
+      ),
+    );
   return $data;
 }

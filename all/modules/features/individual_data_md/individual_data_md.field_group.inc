@@ -71,7 +71,7 @@ function individual_data_md_field_group_info() {
     ),
     'format_type' => 'html-element',
     'label' => 'Answer some questions before deleting this individual.',
-    'weight' => '6',
+    'weight' => '5',
   );
   $field_groups['group_delete_individual|node|individual_data|form'] = $field_group;
 
@@ -190,9 +190,8 @@ function individual_data_md_field_group_info() {
       2 => 'field_indv_comp_partic',
       3 => 'field_indv_comp_paid_time_off',
       4 => 'field_indv_comp_why_not_min',
-      5 => 'field_indv_comp_covid',
-      6 => 'field_indv_comp_supports',
-      7 => 'field_indv_comp_covid_other',
+      5 => 'field_indv_comp_supports',
+      6 => 'field_indv_comp_covid_other',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
