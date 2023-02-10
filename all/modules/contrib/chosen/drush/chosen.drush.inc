@@ -49,7 +49,7 @@ function chosen_drush_command() {
 function chosen_drush_help($section) {
   switch ($section) {
     case 'drush:chosen-plugin':
-      return dt('Download and install the Chosen plugin from http://harvesthq.github.com/chosen, default location is sites/all/libraries.');
+      return dt('Download and install the Chosen plugin from https://harvesthq.github.com/chosen, default location is sites/all/libraries.');
   }
 }
 

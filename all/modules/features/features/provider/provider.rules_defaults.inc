@@ -24,9 +24,7 @@ function provider_default_rules_configuration() {
           }
         }
       ],
-      "DO" : [
-        { "redirect" : { "url" : "sdata_rp\\/batch-enrol", "force" : "0", "destination" : "1" } }
-      ]
+      "DO" : [ { "redirect" : { "url" : "sdata_rp\\/batch-enrol", "force" : "0" } } ]
     }
   }');
   return $items;

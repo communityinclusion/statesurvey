@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Installation and uninstallation functions.
@@ -18,9 +19,10 @@ function chosen_requirements($phase) {
         $requirements['chosen_js'] = array(
           'title' => $t('Chosen JavaScript file'),
           'severity' => REQUIREMENT_ERROR,
-          'description' => $t('You need to download the !chosen and extract the entire contents of the archive into the %path directory on your server.', array(
-            '!chosen' => l($t('Chosen JavaScript file'), CHOSEN_WEBSITE_URL),
-            '%path' => 'sites/all/libraries')),
+          'description' => $t('You need to download the <a href="@chosen-js-file">Chosen JavaScript file</a> and extract the entire contents of the archive into the %path directory on your server.', array(
+            '@chosen-js-file' => CHOSEN_WEBSITE_URL,
+            '%path' => 'sites/all/libraries'
+          )),
           'value' => $t('Not Installed'),
         );
       }

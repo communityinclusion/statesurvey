@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the Sdata views feature.
- */
-
-include_once 'sdata_views.features.inc';

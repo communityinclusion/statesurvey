@@ -125,7 +125,7 @@ function more_georgia_changes_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 21,
     ),
   );
 
