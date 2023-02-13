@@ -64,9 +64,10 @@ function minnesota_addition_field_group_info() {
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-com-non-work field-group-tab',
-        'description' => '',
+        'description' => '<h3>Community based non work</h3><p>Unpaid time spent in integrated, community settings; in a group of 4 people with disabilities or less, while having access to others without disabilities who are not paid staff or family members. Activities occur at locations available to and by members of the general community, and include interactions with members of the general community to the same extent as participants without disabilities. </p>',
         'required_fields' => 1,
       ),
+      'label' => 'Community based non work',
     ),
     'format_type' => 'tab',
     'label' => 'Community based non work',
@@ -125,9 +126,10 @@ function minnesota_addition_field_group_info() {
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-fac-non-work field-group-tab',
-        'description' => '',
+        'description' => '<h3>Facility based non work</h3><p>Individual spends time in unpaid activities in a program setting with other individuals with disabilities.</p>',
         'required_fields' => 1,
       ),
+      'label' => 'Facility based non work',
     ),
     'format_type' => 'tab',
     'label' => 'Facility based non work',
@@ -151,14 +153,16 @@ function minnesota_addition_field_group_info() {
       2 => 'field_grp_integ_paid_time_off',
       3 => 'field_grp_integ_partic',
       4 => 'field_grp_integr_set_aside',
+      5 => 'field_grp_minn_minimum_wage',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-grp-integ field-group-tab',
-        'description' => '',
+        'description' => '<h3>Group integrated job</h3><p>Individual works in a group of 2 to 8 individuals with disabilities in a community setting that includes meaningful interaction with individuals without disabilities. This would typically include work settings described as enclaves or mobile work crews. </p>',
         'required_fields' => 1,
       ),
+      'label' => 'Group integrated job',
     ),
     'format_type' => 'tab',
     'label' => 'Group integrated job',
@@ -182,14 +186,16 @@ function minnesota_addition_field_group_info() {
       2 => 'field_indv_comp_paid_time_off',
       3 => 'field_indv_comp_partic',
       4 => 'field_indv_comp_why_not_min',
+      5 => 'field_indv_minn_minimum_wage',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-indv-comp field-group-tab',
-        'description' => '',
+        'description' => '<h3>Individual competitive job</h3><p>Individual has a full or part time job in the typical labor market where the majority of persons employed are not persons with disabilities. The business is located within the community and is not owned or operated by the support organization. The person is on the payroll of the community business. </p>',
         'required_fields' => 1,
       ),
+      'label' => 'Individual competitive job',
     ),
     'format_type' => 'tab',
     'label' => 'Individual competitive job',
@@ -249,9 +255,11 @@ function minnesota_addition_field_group_info() {
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-self-emp field-group-tab',
-        'description' => '',
+        'description' => '<h3>Self employment</h3><p>Includes self-employment or microenterprises owned by the individual. Does not include a business that is owned by the support organization.</p><p><em>
+Note that business income and expenses are reported over a 3 month period to capture fluctuations in business income.</em></p>',
         'required_fields' => 1,
       ),
+      'label' => 'Self employment',
     ),
     'format_type' => 'tab',
     'label' => 'Self employment',
@@ -275,17 +283,19 @@ function minnesota_addition_field_group_info() {
       2 => 'field_shl_paid_time_off',
       3 => 'field_shl_partic',
       4 => 'field_shlt_set_aside',
+      5 => 'field_shl_minn_minimum_wage',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => 'group-shl field-group-tab',
-        'description' => '',
+        'description' => '<h3>Facility based job/Sheltered work</h3><p>Individual works in a group of individuals with disabilities. This category would include any group larger than 8, and smaller group settings that involve little or no contact with workers without disabilities. Typically, the position is located in a facility or business owned or operated by the support organization, but may also occur in large groups in other settings such as a large enclave.</p>',
         'required_fields' => 1,
       ),
+      'label' => 'Facility based job/Sheltered work',
     ),
     'format_type' => 'tab',
-    'label' => 'Facility based/Sheltered work',
+    'label' => 'Facility based job/Sheltered work',
     'weight' => '53',
   );
   $field_groups['group_shl|node|individual_data_mn|form'] = $field_group;
@@ -295,8 +305,8 @@ function minnesota_addition_field_group_info() {
   t('Answer some questions before deleting this individual');
   t('Categories');
   t('Community based non work');
+  t('Facility based job/Sheltered work');
   t('Facility based non work');
-  t('Facility based/Sheltered work');
   t('Group integrated job');
   t('Individual competitive job');
   t('Reason for no participation');

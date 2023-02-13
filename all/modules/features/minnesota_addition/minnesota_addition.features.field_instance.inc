@@ -633,7 +633,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 21,
     ),
   );
 
@@ -716,7 +716,47 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 24,
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_grp_minn_minimum_wage'.
+  $field_instances['node-individual_data_mn-field_grp_minn_minimum_wage'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 65,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_minn_minimum_wage',
+    'label' => 'Minnesota minimum wage varies by location and size of the employer Please confirm this person’s hourly wage status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 20,
     ),
   );
 
@@ -859,7 +899,7 @@ function minnesota_addition_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -1063,6 +1103,46 @@ function minnesota_addition_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_indv_minn_minimum_wage'.
+  $field_instances['node-individual_data_mn-field_indv_minn_minimum_wage'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 64,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_minn_minimum_wage',
+    'label' => 'Minnesota minimum wage varies by location and size of the employer Please confirm this person’s hourly wage status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 10,
     ),
   );
 
@@ -1422,6 +1502,46 @@ function minnesota_addition_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_shl_minn_minimum_wage'.
+  $field_instances['node-individual_data_mn-field_shl_minn_minimum_wage'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 66,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_shl_minn_minimum_wage',
+    'label' => 'Minnesota minimum wage varies by location and size of the employer Please confirm this person’s hourly wage status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 22,
+    ),
+  );
+
   // Exported field_instance: 'node-individual_data_mn-field_shl_paid_time_off'.
   $field_instances['node-individual_data_mn-field_shl_paid_time_off'] = array(
     'bundle' => 'individual_data_mn',
@@ -1631,6 +1751,7 @@ function minnesota_addition_field_default_field_instances() {
   t('Individual data complete');
   t('Is this job part of a set aside contract?   (Ability One, NIB, or state)');
   t('Is this job part of a set-aside contract?  (Ability One, NIB, or state)');
+  t('Minnesota minimum wage varies by location and size of the employer Please confirm this person’s hourly wage status');
   t('Provider');
   t('Receives paid time off?   Include paid vacation, sick, or holiday time.');
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');

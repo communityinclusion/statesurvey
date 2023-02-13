@@ -121,9 +121,7 @@ function individual_data_md_field_group_info() {
       2 => 'field_grp_integ_gross_wages',
       3 => 'field_grp_integ_paid_time_off',
       4 => 'field_grp_integr_set_aside',
-      5 => 'field_grp_integ_covid',
-      6 => 'field_grp_integ_supports',
-      7 => 'field_grp_integ_covid_other',
+      5 => 'field_grp_integ_supports',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
@@ -191,7 +189,7 @@ function individual_data_md_field_group_info() {
       3 => 'field_indv_comp_paid_time_off',
       4 => 'field_indv_comp_why_not_min',
       5 => 'field_indv_comp_supports',
-      6 => 'field_indv_comp_covid_other',
+      6 => 'field_indv_minimum_wage',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
@@ -225,9 +223,7 @@ function individual_data_md_field_group_info() {
       3 => 'field_indv_cont_paid_time_off',
       4 => 'field_indv_contr_set_aside',
       5 => 'field_indv_cont_why_no_min',
-      6 => 'field_indv_cont_covid',
-      7 => 'field_indv_cont_supports',
-      8 => 'field_indv_cont_covid_other',
+      6 => 'field_indv_cont_supports',
     ),
     'format_settings' => array(
       'formatter' => 'closed',

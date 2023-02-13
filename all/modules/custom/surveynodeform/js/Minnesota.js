@@ -367,7 +367,7 @@
        if ((hourly_rate < Drupal.settings.Surveyconfig.mdmin) && (hasValues)) {
           if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
        //  $(wages).val('');
-         alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Maryland. minimum wage of  $' + Drupal.settings.Surveyconfig.mdmin + '/hr.');
+      //   alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Maryland. minimum wage of  $' + Drupal.settings.Surveyconfig.mdmin + '/hr.');
        }
        else {
          if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');

@@ -257,7 +257,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['table'] = 'field_data_field_grp_integ_paid_time_off';
   $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['field'] = 'field_grp_integ_paid_time_off';
   $handler->display->display_options['fields']['field_grp_integ_paid_time_off']['label'] = 'Group integ.  paid time off?';
-  /* Field: Content: Is this job part of a set aside contract?   (Ability One, NIB, and Maryland Works) */
+  /* Field: Content: Is this job part of a set aside contract?   (Ability One, NIB, or state) */
   $handler->display->display_options['fields']['field_grp_integr_set_aside']['id'] = 'field_grp_integr_set_aside';
   $handler->display->display_options['fields']['field_grp_integr_set_aside']['table'] = 'field_data_field_grp_integr_set_aside';
   $handler->display->display_options['fields']['field_grp_integr_set_aside']['field'] = 'field_grp_integr_set_aside';
@@ -342,7 +342,7 @@ function more_georgia_changes_views_default_views() {
   $handler->display->display_options['fields']['field_shl_paid_time_off']['table'] = 'field_data_field_shl_paid_time_off';
   $handler->display->display_options['fields']['field_shl_paid_time_off']['field'] = 'field_shl_paid_time_off';
   $handler->display->display_options['fields']['field_shl_paid_time_off']['label'] = 'Fac. base/shelt. employment paid time off?';
-  /* Field: Content: Is this job part of a set-aside contract?  (Ability One, NIB, and Maryland Works) */
+  /* Field: Content: Is this job part of a set-aside contract?  (Ability One, NIB, or state) */
   $handler->display->display_options['fields']['field_shlt_set_aside']['id'] = 'field_shlt_set_aside';
   $handler->display->display_options['fields']['field_shlt_set_aside']['table'] = 'field_data_field_shlt_set_aside';
   $handler->display->display_options['fields']['field_shlt_set_aside']['field'] = 'field_shlt_set_aside';

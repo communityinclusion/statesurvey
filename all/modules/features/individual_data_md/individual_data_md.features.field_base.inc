@@ -239,6 +239,34 @@ if (isset(field_get_items($entity_type, $entity, \'field_indv_cont_paid_time_off
     'type' => 'computed',
   );
 
+  // Exported field_base: 'field_indv_comp_covid'.
+  $field_bases['field_indv_comp_covid'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indv_comp_covid',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'no' => 'No',
+        'yes furlough' => 'Yes - Furloughed (a temporary lay off from work)',
+        'yes laid off' => 'Yes - Laid off (terminated without a specific commitment to return',
+        'yes voluntary' => 'Yes - Voluntarily not working',
+        'yes other' => 'Yes - Other',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_indv_comp_paid_time_off'.
   $field_bases['field_indv_comp_paid_time_off'] = array(
     'active' => 1,
