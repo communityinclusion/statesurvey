@@ -74,7 +74,7 @@
    var hours = "#" + hours1;
    var wages = "#" + wages1;
 
-   surveynodeformInitialMdMinWage(hours,wages);
+   // surveynodeformInitialMdMinWage(hours,wages);
    });
 
     }
@@ -266,7 +266,7 @@
    }
    Drupal.behaviors.surveynodeformMdIndComJob = {
      attach: function (context, settings) {
-       surveynodeformMdMinWage('#edit-field-indv-comp-hrs-und-0-value', '#edit-field-indv-comp-gross-wages-und-0-value');
+       // surveynodeformMdMinWage('#edit-field-indv-comp-hrs-und-0-value', '#edit-field-indv-comp-gross-wages-und-0-value');
      surveynodeformMdHrRange('#edit-field-indv-comp-hrs-und-0-value');
        surveynodeformMdWageRange('#edit-field-indv-comp-gross-wages-und-0-value');
      }
@@ -278,7 +278,7 @@
     */
    Drupal.behaviors.surveynodeformMdIndConJob = {
      attach: function (context, settings) {
-       surveynodeformMdMinWage('#edit-field-indv-cont-hrs-und-0-value', '#edit-field-indv-cont-gross-wages-und-0-value');
+      // surveynodeformMdMinWage('#edit-field-indv-cont-hrs-und-0-value', '#edit-field-indv-cont-gross-wages-und-0-value');
        surveynodeformMdHrRange('#edit-field-indv-cont-hrs-und-0-value');
          surveynodeformMdWageRange('#edit-field-indv-cont-gross-wages-und-0-value');
      }
@@ -366,8 +366,8 @@
        }
        if ((hourly_rate < Drupal.settings.Surveyconfig.mdmin) && (hasValues)) {
           if(!$(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').addClass('showQues');
-       //  $(wages).val('');
-      //   alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Maryland. minimum wage of  $' + Drupal.settings.Surveyconfig.mdmin + '/hr.');
+         $(wages).val('');
+        alert('Are you sure about the wages and hours you entered? Hours/wages are less than the Maryland. minimum wage of  $' + Drupal.settings.Surveyconfig.mdmin + '/hr.');
        }
        else {
          if($(wages).closest('fieldset').hasClass('showQues')) $(wages).closest('fieldset').removeClass('showQues');

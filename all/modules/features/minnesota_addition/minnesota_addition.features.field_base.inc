@@ -40,6 +40,29 @@ function minnesota_addition_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_grp_why_not_min'.
+  $field_bases['field_grp_why_not_min'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_grp_why_not_min',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_indv_minn_minimum_wage'.
   $field_bases['field_indv_minn_minimum_wage'] = array(
     'active' => 1,
@@ -96,6 +119,29 @@ function minnesota_addition_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_shl_why_not_min'.
+  $field_bases['field_shl_why_not_min'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_shl_why_not_min',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   return $field_bases;

@@ -9,3 +9,4 @@ node-type-individual-data-mn .vertical-tabs-panes fieldset.active {min-height: 9
 button#edit-preview {display: none;}
 .form-type-checkbox label.control-label input, .form-type-radio label.control-label input {margin-right: 7px;}
 label[for="edit-field-ind-ethnicity-und-none"] {display:none;}
+#edit-field-indv-comp-why-not-min .form-type-textarea, #edit-field-grp-why-not-min .form-type-textarea, #edit-field-shl-why-not-min .form-type-textarea {display: block;}

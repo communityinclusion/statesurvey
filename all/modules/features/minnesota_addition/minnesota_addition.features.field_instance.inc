@@ -633,7 +633,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 21,
+      'weight' => 22,
     ),
   );
 
@@ -716,7 +716,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -757,6 +757,46 @@ function minnesota_addition_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_mn-field_grp_why_not_min'.
+  $field_instances['node-individual_data_mn-field_grp_why_not_min'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 67,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_grp_why_not_min',
+    'label' => 'Why didn\'t this individual receive minimum wage?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 4,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 21,
     ),
   );
 
@@ -853,7 +893,7 @@ function minnesota_addition_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 10,
     ),
   );
 
@@ -1023,7 +1063,7 @@ function minnesota_addition_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -1142,7 +1182,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1577,7 +1617,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 23,
+      'weight' => 24,
     ),
   );
 
@@ -1624,6 +1664,46 @@ function minnesota_addition_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-individual_data_mn-field_shl_why_not_min'.
+  $field_instances['node-individual_data_mn-field_shl_why_not_min'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 68,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_shl_why_not_min',
+    'label' => 'Why didn\'t this individual receive minimum wage?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 4,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 23,
+    ),
+  );
+
   // Exported field_instance: 'node-individual_data_mn-field_shlt_set_aside'.
   $field_instances['node-individual_data_mn-field_shlt_set_aside'] = array(
     'bundle' => 'individual_data_mn',
@@ -1659,7 +1739,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 24,
+      'weight' => 25,
     ),
   );
 
