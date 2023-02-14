@@ -188,6 +188,7 @@ function minnesota_addition_field_group_info() {
       3 => 'field_indv_comp_partic',
       4 => 'field_indv_comp_why_not_min',
       5 => 'field_indv_minn_minimum_wage',
+      6 => 'field_indv_pay_source',
     ),
     'format_settings' => array(
       'formatter' => 'closed',

@@ -979,7 +979,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -1183,6 +1183,45 @@ function minnesota_addition_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'node-individual_data_mn-field_indv_pay_source'.
+  $field_instances['node-individual_data_mn-field_indv_pay_source'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 69,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_indv_pay_source',
+    'label' => 'Please specify the individual’s employment status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 13,
     ),
   );
 
@@ -1832,6 +1871,7 @@ function minnesota_addition_field_default_field_instances() {
   t('Is this job part of a set aside contract?   (Ability One, NIB, or state)');
   t('Is this job part of a set-aside contract?  (Ability One, NIB, or state)');
   t('Minnesota minimum wage varies by location and size of the employer Please confirm this person’s hourly wage status');
+  t('Please specify the individual’s employment status');
   t('Provider');
   t('Receives paid time off?   Include paid vacation, sick, or holiday time.');
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
