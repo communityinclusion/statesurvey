@@ -645,6 +645,7 @@ function surveynodeform_mn_prov_sum_results($statearray,$stateid,$currepper,$pro
       $personode = node_load($firstnode);
       $personids []= $personode->field_individual[LANGUAGE_NONE][0]['target_id'];
     }
+  $personkeys = is_array($personkeys) ? $personkeys : array();
   $datanode = array_intersect($personkeys,$personids);
   $namearray = array('indcomp','grpinteg','selfemp','facbased','combased','facbasednonwork');
   $headerarray = array(' ','Total Served
