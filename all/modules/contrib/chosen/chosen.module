@@ -4,13 +4,13 @@
  * @file
  * General functions and hook implementations.
  *
- * @see https://harvesthq.github.com/chosen/
+ * @see http://harvesthq.github.com/chosen/
  */
 
 /**
  * Define chosen library url.
  */
-define('CHOSEN_WEBSITE_URL', 'https://harvesthq.github.io/chosen');
+define('CHOSEN_WEBSITE_URL', 'http://harvesthq.github.io/chosen');
 define('CHOSEN_INCLUDE_ADMIN', 0);
 define('CHOSEN_INCLUDE_NO_ADMIN', 1);
 define('CHOSEN_INCLUDE_EVERYWHERE', 2);
@@ -24,7 +24,7 @@ function chosen_help($path, $arg) {
       $output = '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Chosen uses the Chosen jQuery plugin to make your < select > elements more user-friendly.') . '</p>';
       $output .= '<h3>' . t('Usage') . '</h3>';
-      $output .= '<p>' . t('Configure at: <a href="@structure_types">admin/config/user-interface/chosen</a>', array('@structure_types' => url('admin/config/user-interface/chosen'))) . '</p>';
+      $output .= '<p>' . t('Configure at: <a target="_blank" href="@structure_types">admin/config/user-interface/chosen</a>', array('@structure_types' => base_path() . 'admin/config/user-interface/chosen')) . '</p>';
       return $output;
   }
 }

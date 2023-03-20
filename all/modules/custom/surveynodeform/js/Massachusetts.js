@@ -146,6 +146,21 @@
    $( document ).one('ready',scanFieldsets);
    }
    }
+
+       Drupal.behaviors.scanNextTab = {
+             attach: function (context, settings) {
+               $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
+      $( document ).one('ready',scanFieldsets);
+      }
+      }
+
+
+      Drupal.behaviors.scanEditActions = {
+            attach: function (context, settings) {
+              $('div#edit-actions').bind("mouseenter touchstart",scanFieldsets);
+     $( document ).one('ready',scanFieldsets);
+     }
+     }
    Drupal.behaviors.scanOpenTab = {
        attach: function (context, settings) {
          $('a.openTab').bind("mouseenter touchstart",scanFieldsets);
