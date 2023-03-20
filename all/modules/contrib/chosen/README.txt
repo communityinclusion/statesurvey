@@ -7,7 +7,7 @@ elements more user-friendly.
 -- INSTALLATION --
 
   1. Download the Chosen jQuery plugin
-  (https://harvesthq.github.io/chosen/ version 1.1.0 is recommended)
+  (http://harvesthq.github.io/chosen/ version 1.1.0 is recommended)
   and extract the file under sites/all/libraries.
   2. Download and enable the module.
   3. Configure at Administer > Configuration >
