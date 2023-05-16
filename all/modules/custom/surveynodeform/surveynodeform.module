@@ -515,6 +515,7 @@ function surveynodeform_ma_prov_sum_results($statearray,$stateid,$currepper,$pro
              $personode = node_load($firstnode);
               $personids []= $personode->field_individual[LANGUAGE_NONE][0]['target_id'];
             }
+          $personkeys = $personkeys ? $personkeys :array();
           $datanode = array_intersect($personkeys,$personids);
           $namearray = array('indcomp','grpinteg','selfemp','jobsearch','wraparound');
           $headerarray = array(' ','Total Served
