@@ -112,8 +112,12 @@
 
    return drupal_goto("/");
 
+}
+function sdata_rp_node_presave($node) {
+  if ($node->type == 'individual') {
+    $node->title = $node->field_first_name['und'][0]['value'] . ' ' . $node->field_last_name['und'][0]['value'];
   }
-
+}
 function sdata_rp_node_postinsert($node) {
     global $user;
 
@@ -125,8 +129,6 @@ function sdata_rp_node_postinsert($node) {
       $provider = node_load($provider_id);
       $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
       $state = node_load($state_id);
-      $node->title = $node->first_name .' '.$node->last_name;
-      node_save($node);
       $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
       $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
       $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
@@ -318,7 +320,7 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
   }
 
   $node = new stdClass();
-  $node->title = $individual->title . ' data for ' . preg_replace('~\([^()]*\)~', '', $reporting_period_wrapper->title->value());
+  $node->title = $individual->field_first_name[LANGUAGE_NONE][0]['value'] . ' ' . $individual->field_last_name[LANGUAGE_NONE][0]['value']. ' data for ' . preg_replace('~\([^()]*\)~', '', $reporting_period_wrapper->title->value());
   $node->type = $individual_data_content_type;
   node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
   $node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled
