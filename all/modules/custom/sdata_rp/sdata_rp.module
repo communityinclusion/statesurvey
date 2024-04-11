@@ -125,6 +125,8 @@ function sdata_rp_node_postinsert($node) {
       $provider = node_load($provider_id);
       $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
       $state = node_load($state_id);
+      $node->title = $node->first_name .' '.$node->last_name;
+      node_save($node);
       $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
       $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
       $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
