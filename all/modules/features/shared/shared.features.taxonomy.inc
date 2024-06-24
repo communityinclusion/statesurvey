@@ -14,7 +14,7 @@ function shared_taxonomy_default_vocabularies() {
       'name' => 'Area office',
       'machine_name' => 'area_office',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'rdf_mapping' => array(

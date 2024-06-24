@@ -16,39 +16,46 @@ function area_office_taxonomy_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'georgia_area_office';
   $feeds_importer->config = array(
-    'name' => 'Georgia area office',
+    'content_type' => '',
     'description' => '',
+    'expire_period' => 3600,
     'fetcher' => array(
-      'plugin_key' => 'FeedsFileFetcher',
       'config' => array(
         'allowed_extensions' => 'txt csv tsv xml opml',
-        'delete_uploaded_file' => FALSE,
-        'direct' => FALSE,
-        'directory' => 'private://feeds',
         'allowed_schemes' => array(
           0 => 'public',
           1 => 'private',
         ),
+        'delete_uploaded_file' => FALSE,
+        'direct' => FALSE,
+        'directory' => 'private://feeds',
       ),
+      'plugin_key' => 'FeedsFileFetcher',
     ),
+    'import_on_create' => 1,
+    'import_period' => '-1',
+    'name' => 'Georgia area office',
     'parser' => array(
-      'plugin_key' => 'FeedsCSVParser',
       'config' => array(
         'delimiter' => ',',
         'encoding' => 'UTF-8',
         'no_headers' => 0,
       ),
+      'plugin_key' => 'FeedsCSVParser',
     ),
+    'process_in_background' => 0,
     'processor' => array(
-      'plugin_key' => 'FeedsTermProcessor',
       'config' => array(
-        'vocabulary' => 0,
+        'bundle' => 'area_office',
+        'input_format' => 'plain_text',
+        'insert_new' => '1',
+        'language' => 'und',
         'mappings' => array(
           0 => array(
+            'language' => 'und',
             'source' => 'Counties',
             'target' => 'name',
             'unique' => FALSE,
-            'language' => 'und',
           ),
           1 => array(
             'source' => 'Regions',
@@ -56,21 +63,14 @@ function area_office_taxonomy_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'insert_new' => '1',
+        'skip_hash_check' => 0,
         'update_existing' => '0',
         'update_non_existent' => 'skip',
-        'input_format' => 'plain_text',
-        'skip_hash_check' => 0,
-        'bundle' => 'area_office',
-        'language' => 'und',
+        'vocabulary' => 0,
       ),
+      'plugin_key' => 'FeedsTermProcessor',
     ),
-    'content_type' => '',
     'update' => 0,
-    'import_period' => '-1',
-    'expire_period' => 3600,
-    'import_on_create' => 1,
-    'process_in_background' => 0,
   );
   $export['georgia_area_office'] = $feeds_importer;
 

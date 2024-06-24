@@ -78,7 +78,7 @@ function og_features_role_features_export_render($module, $data) {
     $role_identifier = features_var_export($name);
     $role_export = features_var_export($role, '  ');
     $code[] = "  // Exported OG Role: {$role_identifier}.";
-    $code[] = "  \$roles[{$role_identifier}] = ${role_export};";
+    $code[] = "  \$roles[{$role_identifier}] = {$role_export};";
     $code[] = "";
   }
 

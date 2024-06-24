@@ -939,13 +939,14 @@ function surveynodeform_profile_form_submit($form, &$form_state)
 
 function surveynodeform_form_alter(&$form, &$form_state, $form_id) {
   global $nid;
+  $datanode = null;
   if (arg(0) == 'node' && is_numeric(arg(1)))
   { $nid = arg(1);
     $datanode = node_load($nid);
   }
   $form['#attributes']['class'][] = 'clearfix';
   $url = drupal_get_query_parameters();
-  $reportingperiod_id = $url && $url['rp'] ? $url['rp'] : $datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'];
+  $reportingperiod_id = $url && $url['rp'] ? $url['rp']  : ($datanode && $datanode->field_reporting_period ?$datanode->field_reporting_period[LANGUAGE_NONE][0]['target_id'] : null);
 
   if($form_id == 'provider_node_form') {
     global $theme;
