@@ -539,7 +539,7 @@ function provider_views_default_views() {
   $handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Download data';
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
   $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<h4>Download data</h4>
-<p><a href="/provider/[nid]/[nid_1]/download">Download an Excel spreadsheet with all your individual data.</a><br /><strong>Note: Information in this spreadsheet may not be accurate for individuals whose data is not "Complete."</strong></p>
+<p><a href="/provider/[nid]/[nid_1]/download">Download a spreadsheet with all your individual data.</a> The file is in CSV format.  It can be opened safely in Excel, despite possible security warnings from Excel.<br /><strong>Note: Information in this spreadsheet may not be accurate for individuals whose data is not "Complete."</strong></p>
 <h4>Help using this site:</h4>
 <p>[field_data_entry_instructions]</p><hr />';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;

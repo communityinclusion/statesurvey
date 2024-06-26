@@ -573,12 +573,13 @@ function individual_data_ma_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_grp_location_of_work',
-    'label' => 'Location of work',
-    'required' => FALSE,
+    'label' => 'Work setting',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => '',
@@ -747,6 +748,7 @@ function individual_data_ma_field_default_field_instances() {
       'module' => 'entityreference',
       'settings' => array(
         'apply_chosen' => '',
+        'hide_ids' => FALSE,
         'match_operator' => 'CONTAINS',
         'path' => '',
         'size' => 60,
@@ -1808,7 +1810,6 @@ function individual_data_ma_field_default_field_instances() {
   t('Individual');
   t('Individual data complete');
   t('Job development activities (yes/no)?');
-  t('Location of work');
   t('Number of workers with a disability on site');
   t('Other Day Support Services (yes/no)?');
   t('Please indicate below why this individual did not participate in any activities.');
@@ -1820,6 +1821,7 @@ function individual_data_ma_field_default_field_instances() {
   t('Was the individual\'s non-participation in this activity related to COVID-19?');
   t('Was the individual\'s non-participation in this activity related to COVID-19? ');
   t('Why is this person being deleted from the individuals list?');
+  t('Work setting');
   t('Worked in an individual job 10 of the last 12 months?');
   t('Worked in group supported employment 10 of the last 12 months?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t the individual participate in any activities?');

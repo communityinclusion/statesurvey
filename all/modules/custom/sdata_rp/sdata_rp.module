@@ -112,8 +112,12 @@
 
    return drupal_goto("/");
 
+}
+function sdata_rp_node_presave($node) {
+  if ($node->type == 'individual') {
+    $node->title = $node->field_first_name['und'][0]['value'] . ' ' . $node->field_last_name['und'][0]['value'];
   }
-
+}
 function sdata_rp_node_postinsert($node) {
     global $user;
 
@@ -316,7 +320,7 @@ function _sdata_rp_create_new_individual_data_node($individual, $individual_data
   }
 
   $node = new stdClass();
-  $node->title = $individual->title . ' data for ' . preg_replace('~\([^()]*\)~', '', $reporting_period_wrapper->title->value());
+  $node->title = $individual->field_first_name[LANGUAGE_NONE][0]['value'] . ' ' . $individual->field_last_name[LANGUAGE_NONE][0]['value']. ' data for ' . preg_replace('~\([^()]*\)~', '', $reporting_period_wrapper->title->value());
   $node->type = $individual_data_content_type;
   node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
   $node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled

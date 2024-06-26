@@ -5,8 +5,8 @@ core = 7.x
 
 files[] = entity_token.tokens.inc
 
-; Information added by Drupal.org packaging script on 2021-11-20
-version = "7.x-1.10"
+; Information added by Drupal.org packaging script on 2023-05-24
+version = "7.x-1.10+1-dev"
 core = "7.x"
 project = "entity"
-datestamp = "1637434458"
+datestamp = "1684965621"

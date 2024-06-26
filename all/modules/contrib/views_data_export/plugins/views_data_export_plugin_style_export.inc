@@ -36,10 +36,6 @@ class views_data_export_plugin_style_export extends views_plugin_style {
       'default' => FALSE,
       'translatable' => FALSE,
     );
-    $options['excel_type'] = array(
-      'default' => 'excel5',
-      'translatable' => FALSE,
-    );
     return $options;
   }
 
@@ -54,16 +50,6 @@ class views_data_export_plugin_style_export extends views_plugin_style {
    * None.
    */
   function options_form(&$form, &$form_state) {
-    if ('views_data_export_xls_phpexcel' == $this->plugin_name) {
-      $form['excel_type'] = array(
-        '#type' => 'radios',
-        '#title' => t('Excel type'),
-        '#default_value' => $this->options['excel_type'],
-        '#description' => t('Excel 5 is a legacy format from period 97-2004 (compatible with Feeds XLS for example). The newer format is Excel2007 (XSLX) in which content is in XML and zipped.'),
-        '#options' => array('excel5' => 'Excel 5 (XSL)', 'excel2007' => 'Excel 2007 (XSLX)')
-      );
-    }
-
     $form['attach_text'] = array(
       '#type' => 'textfield',
       '#title' => t('Attach text'),

@@ -105,7 +105,7 @@ function template_preprocess_views_data_export_csv_header(&$vars) {
 
   // Format header values.
   foreach ($vars['header'] as $key => $value) {
-    $output = decode_entities($value);
+    $output = decode_entities((string) $value);
     $output = (empty($vars['options']['keep_html'])) ? strip_tags($output) : $output;
     if (!empty($vars['options']['trim'])) {
       $output = trim($output);
@@ -151,7 +151,7 @@ function template_preprocess_views_data_export_csv_body(&$vars) {
   // Format row values.
   foreach ($vars['themed_rows'] as $i => $values) {
     foreach ($values as $j => $value) {
-      $output = decode_entities($value);
+      $output = decode_entities((string) $value);
       $output = (empty($vars['options']['keep_html'])) ? strip_tags($output) : $output;
       if (!empty($vars['options']['trim'])) {
         $output = trim($output);
@@ -416,16 +416,18 @@ function template_preprocess_views_data_export_xml_body(&$vars) {
   foreach ($vars['themed_rows'] as $num => $row) {
     foreach ($row as $field => $content) {
 
-      // Perform xml entity encoding unless excluded by style options.
-      if (empty($no_encode[$field]) && empty($cdata_wrapper[$field])) {
-
-        // Prevent double encoding of the ampersand. Look for the entities produced by check_plain().
-        $content = preg_replace('/&(?!(amp|quot|#039|lt|gt);)/', '&amp;', $content);
-        // Convert < and > to HTML entities.
-        $content = str_replace(
-          array('<', '>'),
-          array('&lt;', '&gt;'),
-          $content);
+      if (!is_null($content)) {
+        // Perform xml entity encoding unless excluded by style options.
+        if (empty($no_encode[$field]) && empty($cdata_wrapper[$field])) {
+          // Prevent double encoding of the ampersand. Look for the entities produced by check_plain().
+          $content = preg_replace('/&(?!(amp|quot|#039|lt|gt);)/', '&amp;', $content);
+          // Convert < and > to HTML entities.
+          $content = str_replace(
+            array('<', '>'),
+            array('&lt;', '&gt;'),
+            $content
+          );
+        }
       }
 
       // Perform wrapping the field data using the CDATA tag
@@ -465,47 +467,6 @@ function template_preprocess_views_data_export_xml_body(&$vars) {
     // We should always try to output valid XML.
     $vars['xml_tag'][$field] = _views_data_export_xml_tag_clean($vars['xml_tag'][$field]);
   }
-}
-
-/**
- * Theme function for XLS file using PHPExcel.
- */
-function theme_views_data_export_xls_phpexcel_body(&$vars) {
-  _views_data_export_header_shared_preprocess($vars);
-  _views_data_export_body_shared_preprocess($vars);
-
-  foreach ($vars['themed_rows'] as $num => $row) {
-    foreach ($row as $field => $content) {
-        $content = strip_tags($content);
-        $vars['themed_rows'][$num][$field] = trim(preg_replace('/\s+/', ' ', $content));
-      }
-  }
-
-  $complete_array = array_merge(array($vars['header']), $vars['themed_rows']);
-
-  // Loading PHPExcel library.
-  $phpexcelPath = libraries_get_path('PHPExcel');
-  include_once($phpexcelPath . '/Classes/PHPExcel.php');
-  $objPHPExcel = new PHPExcel();
-  $objPHPExcel->setActiveSheetIndex(0);
-  $objPHPExcel->getActiveSheet()->fromArray($complete_array);
-
-  $excel_type = !empty($vars['options']['excel_type']) ? $vars['options']['excel_type'] : 'excel5';
-  switch ($excel_type) {
-    case 'excel5':
-      $objWriter = new PHPExcel_Writer_Excel5($objPHPExcel);
-      break;
-
-    case 'excel2007':
-      $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-      $objWriter->setOffice2003Compatibility(true);
-      break;
-  }
-
-  ob_start();
-  $objWriter->save('php://output');
-  $excelOutput = ob_get_clean();
-  return $excelOutput;
 }
 
 /**
