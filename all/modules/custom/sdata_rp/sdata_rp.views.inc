@@ -44,7 +44,7 @@ function sdata_rp_views_handlers() {
  */
 function sdata_rp_views_data() {
   $data = array();
-  // Add Example group
+  // Add Example group 
   $data['sdata_rp']['table']['group'] = t('SData');
   $data['sdata_rp']['table']['join'] = array(
     // #global is a special flag which let's a table appear all the time.
