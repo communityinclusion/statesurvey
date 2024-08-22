@@ -80,7 +80,6 @@ $(document).bind('state:visible-fade', function(e) {
   }
 })
 // Empty/Filled.
-.bind('state:empty', function() {})
 .bind('state:empty-empty', function(e) {
   if (e.trigger) {
     var field = $(e.target).find('input, select, textarea');
@@ -119,11 +118,10 @@ Drupal.behaviors.conditionalFields = {
     if (typeof conditionalFields === 'undefined' || typeof conditionalFields.effects === 'undefined') {
       return;
     }
-
     // Override state change handlers for dependents with special effects.
     var eventsData = $.hasOwnProperty('_data') ? $._data(document, 'events') : $(document).data('events');
     $.each(eventsData, function(i, events) {
-      if (i.substring(0, 6) === 'state:' && i.indexOf('-') === -1) {
+      if (i.substring(0, 6) === 'state:') {
         var originalHandler = events[0].handler;
         events[0].handler = function(e) {
           var effect = conditionalFields.effects['#' + e.target.id];
@@ -135,7 +133,7 @@ Drupal.behaviors.conditionalFields = {
             }
           }
           originalHandler(e);
-        };
+        }
       }
     });
   }

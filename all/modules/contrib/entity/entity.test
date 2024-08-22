@@ -614,7 +614,7 @@ class EntityAPIi18nItegrationTestCase extends EntityWebTestCase {
   }
 
   protected function setUp() {
-    parent::setUp('entity_test_i18n');
+    parent::setUp('entity', 'entity_test', 'entity_test_i18n', 'i18n', 'variable', 'i18n_string', 'locale');
     $this->admin_user = $this->drupalCreateUser(array('bypass node access', 'administer nodes', 'administer languages', 'administer content types', 'administer blocks', 'access administration pages'));
     $this->drupalLogin($this->admin_user);
     $this->addLanguage('de');

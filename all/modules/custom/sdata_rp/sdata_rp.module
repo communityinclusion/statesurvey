@@ -121,7 +121,7 @@ function sdata_rp_node_presave($node) {
 function sdata_rp_node_postinsert($node) {
     global $user;
 
- if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles) || in_array('MN user', $user->roles)) && !in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
+ if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles) || in_array('MN user', $user->roles) || in_array('MI user', $user->roles)) && !in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
  {
 
     if ($node->type == 'individual') {

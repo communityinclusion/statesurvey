@@ -158,6 +158,11 @@ function _sdata_rp_validate_mn($node) {
   if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
   return TRUE;
 }
+
+function _sdata_rp_validate_mi($node) {
+  if ($node->field_ga_ind_data_complete['und'][0]['value'] != 1) return FALSE;
+  return TRUE;
+}
 function _sdata_rp_switch_period($state_individual_data_content_type, $provider_nid, $reporting_period_nid) {
   // Entity field query that gets a list of individual data nodes for the given provider
   // for the current reporting period for the provider's state.
@@ -233,6 +238,9 @@ function _sdata_rp_switch_period($state_individual_data_content_type, $provider_
         case 'individual_data_mn':
           $valid = _sdata_rp_validate_mn($node);
           break;
+          case 'individual_data_mi':
+            $valid = _sdata_rp_validate_mi($node);
+            break;
       }
 
       //  if (!$valid) break;

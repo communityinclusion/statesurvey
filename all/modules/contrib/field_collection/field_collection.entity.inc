@@ -299,7 +299,10 @@ class FieldCollectionItemEntity extends Entity {
           $query->age(FIELD_LOAD_REVISION);
         }
         $result = $query->execute();
-        list($this->hostEntityType, $data) = each($result);
+        // Hack PF  each() function removed as of PHP 8.1 
+        // list($this->hostEntityType, $data) = each($result);
+        $this->hostEntityType = key($result);
+        $data = current($result);
 
         if ($this->isInUse()) {
           $this->hostEntityId = $data ? key($data) : FALSE;
