@@ -76,7 +76,7 @@ class views_handler_area_result extends views_handler_area {
         '@per_page',
         '@current_page',
         '@current_record_count',
-        '@page_count'
+        '@page_count',
       )),
       '#dependency' => array('edit-options-format-plural' => array(TRUE)),
     );
@@ -100,28 +100,9 @@ class views_handler_area_result extends views_handler_area {
     }
     $output = '';
     $format = $this->options['content'];
-    // Calculate the page totals.
-    $current_page = (int) $this->view->get_current_page() + 1;
-    $per_page = (int) $this->view->get_items_per_page();
     // @todo Maybe use a possible is views empty functionality.
     // Not every view has total_rows set, use view->result instead.
     $total = isset($this->view->total_rows) ? $this->view->total_rows : count($this->view->result);
-    $name = check_plain($this->view->human_name);
-    if ($per_page === 0) {
-      $page_count = 1;
-      $start = 1;
-      $end = $total;
-    }
-    else {
-      $page_count = (int) ceil($total / $per_page);
-      $total_count = $current_page * $per_page;
-      if ($total_count > $total) {
-        $total_count = $total;
-      }
-      $start = ($current_page - 1) * $per_page + 1;
-      $end = $total_count;
-    }
-    $current_record_count = ($end - $start) + 1;
     // Get the search information.
     $items = array(
       'start',
@@ -137,10 +118,10 @@ class views_handler_area_result extends views_handler_area {
     foreach ($items as $item) {
       $replacements["@$item"] = ${$item};
     }
-    // If the format_plural option is selected,
+    // If the format_plural option is selected..
     if (
       !empty($this->options['format_plural'])
-      // and the format_plural_count token is not "@end":
+      // And the format_plural_count token is not "@end":
       && $replacements[$this->options['format_plural_count']] != 1
     ) {
       $format = $this->options['format_plural_plural'];
