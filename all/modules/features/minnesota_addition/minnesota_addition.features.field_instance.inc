@@ -633,7 +633,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 24,
     ),
   );
 
@@ -716,7 +716,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 23,
+      'weight' => 25,
     ),
   );
 
@@ -756,7 +756,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 20,
+      'weight' => 22,
     ),
   );
 
@@ -796,7 +796,221 @@ function minnesota_addition_field_default_field_instances() {
         'rows' => 4,
       ),
       'type' => 'text_textarea',
+      'weight' => 23,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_hourly_wage_rate_fac_based'.
+  $field_instances['node-individual_data_mn-field_hourly_wage_rate_fac_based'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 75,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hourly_wage_rate_fac_based',
+    'label' => 'What is the individual\'s hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 23,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_hourly_wage_rate_grp'.
+  $field_instances['node-individual_data_mn-field_hourly_wage_rate_grp'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 73,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hourly_wage_rate_grp',
+    'label' => 'What is the individual\'s hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
       'weight' => 21,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_hourly_wage_rate_y_n'.
+  $field_instances['node-individual_data_mn-field_hourly_wage_rate_y_n'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 70,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hourly_wage_rate_y_n',
+    'label' => 'Does this individual have an hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_hourly_wage_y_n_fac_based'.
+  $field_instances['node-individual_data_mn-field_hourly_wage_y_n_fac_based'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 74,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hourly_wage_y_n_fac_based',
+    'label' => 'Does this individual have an hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_hourly_wage_y_n_grp'.
+  $field_instances['node-individual_data_mn-field_hourly_wage_y_n_grp'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 72,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hourly_wage_y_n_grp',
+    'label' => 'Does this individual have an hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 20,
     ),
   );
 
@@ -841,6 +1055,7 @@ function minnesota_addition_field_default_field_instances() {
       'module' => 'entityreference',
       'settings' => array(
         'apply_chosen' => '',
+        'hide_ids' => FALSE,
         'match_operator' => 'CONTAINS',
         'path' => '',
         'size' => 60,
@@ -979,7 +1194,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 16,
     ),
   );
 
@@ -1063,7 +1278,7 @@ function minnesota_addition_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 14,
     ),
   );
 
@@ -1182,7 +1397,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -1221,7 +1436,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 15,
     ),
   );
 
@@ -1617,7 +1832,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 24,
     ),
   );
 
@@ -1656,7 +1871,7 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 24,
+      'weight' => 26,
     ),
   );
 
@@ -1739,7 +1954,7 @@ function minnesota_addition_field_default_field_instances() {
         'rows' => 4,
       ),
       'type' => 'text_textarea',
-      'weight' => 23,
+      'weight' => 25,
     ),
   );
 
@@ -1778,7 +1993,54 @@ function minnesota_addition_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 25,
+      'weight' => 27,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-individual_data_mn-field_what_is_the_individual_s_h'.
+  $field_instances['node-individual_data_mn-field_what_is_the_individual_s_h'] = array(
+    'bundle' => 'individual_data_mn',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 71,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_what_is_the_individual_s_h',
+    'label' => 'What is the individual\'s hourly wage rate?',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 12,
     ),
   );
 
@@ -1853,6 +2115,7 @@ function minnesota_addition_field_default_field_instances() {
   t('Did person participate in a volunteer job during this reporting period?');
   t('Did person participate in unpaid activities in a program setting during this reporting period?');
   t('Did person participate in unpaid activities in an integrated community setting during this reporting period?');
+  t('Does this individual have an hourly wage rate?');
   t('Explain your choice of "Other."');
   t('Explain your selection of "other" as reason for deletion of the individual');
   t('Facility based/sheltered paid time off summary');
@@ -1877,6 +2140,7 @@ function minnesota_addition_field_default_field_instances() {
   t('Receives paid time off?  Include paid vacation, sick, or holiday time.');
   t('Receives paid time off? Include paid vacation, sick, or holiday time. ');
   t('Reporting period');
+  t('What is the individual\'s hourly wage rate?');
   t('Why didn\'t this individual receive minimum wage?');
   t('Why is this person being deleted from the individuals list?');
   t('You have checked all the "did not participate" boxes on this form. Why didn\'t this individual participate in an activity?');

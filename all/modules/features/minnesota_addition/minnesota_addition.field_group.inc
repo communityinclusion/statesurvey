@@ -155,6 +155,8 @@ function minnesota_addition_field_group_info() {
       4 => 'field_grp_integr_set_aside',
       5 => 'field_grp_minn_minimum_wage',
       6 => 'field_grp_why_not_min',
+      7 => 'field_hourly_wage_y_n_grp',
+      8 => 'field_hourly_wage_rate_grp',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
@@ -189,6 +191,8 @@ function minnesota_addition_field_group_info() {
       4 => 'field_indv_comp_why_not_min',
       5 => 'field_indv_minn_minimum_wage',
       6 => 'field_indv_pay_source',
+      7 => 'field_hourly_wage_rate_y_n',
+      8 => 'field_what_is_the_individual_s_h',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
@@ -287,6 +291,8 @@ Note that business income and expenses are reported over a 3 month period to cap
       4 => 'field_shlt_set_aside',
       5 => 'field_shl_minn_minimum_wage',
       6 => 'field_shl_why_not_min',
+      7 => 'field_hourly_wage_y_n_fac_based',
+      8 => 'field_hourly_wage_rate_fac_based',
     ),
     'format_settings' => array(
       'formatter' => 'closed',
