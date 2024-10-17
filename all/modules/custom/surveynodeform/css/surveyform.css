@@ -93,3 +93,4 @@ label[for="edit-field-indv-emp-less-und-2"], #edit-field-indv-emp-less-und-2,lab
 .summTable tr { border-bottom: 1px solid black; }
 .summTable tr td { padding: 12px 5px; text-align: center; }
 .summTable tr th { padding: 7px; text-align: center; }
+#edit-field-hourly-wage-rate-y-n, #edit-field-hourly-wage-y-n-fac-based, #edit-field-hourly-wage-y-n-grp { width: 130px;}
