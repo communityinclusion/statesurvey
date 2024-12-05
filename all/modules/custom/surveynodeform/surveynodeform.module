@@ -118,12 +118,12 @@ function surveynodeform_prov_summary($provid) {
         ->propertyCondition('status', NODE_PUBLISHED)
         ->fieldCondition('og_group_ref', 'target_id', $provid);
           $results1 = $query1->execute();
-          $personkeys = is_array($personkeys) ? array_keys($results1['node']) : $results1['node'];
+          $personkeys = is_array($results1['node']) ? array_keys($results1['node']) : false;
           $provnode = node_load($provid);
           $providername = $provnode->title;
           $reportingnode = node_load($currepper);
           $reportingperiod = date("F/j/Y", strtotime($reportingnode->field_rp_date_range[LANGUAGE_NONE][0]['value'])) . " to " . date("F/j/Y", strtotime($reportingnode->field_rp_date_range[LANGUAGE_NONE][0]['value2']));
-
+  if(!$personkeys) drupal_goto("/", array(), 301);
   // Adding a new state: add state id
   switch($stateid) {
     case $massid:
