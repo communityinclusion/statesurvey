@@ -145,35 +145,35 @@ function sdata_rp_node_postinsert($node) {
     }
  }
 }
-
-function sdata_rp_node_postupdate($node) {
+// An emergency function to insert data nodes after a reporting period has begun.  The individuals are inserted by Feeds importer and the data nodes are created by the function below by saving the ind. nodes in the content list.
+/* function sdata_rp_node_postupdate($node) {
   global $user;
- watchdog('RP mod updating node', 'Node Type: ' . $node->type);
-if ((in_array('MA user', $user->roles) || in_array('MD user', $user->roles) || in_array('GA user', $user->roles) || in_array('Survey administrator', $user->roles) || in_array('MN user', $user->roles))  || in_array('administrator', $user->roles) || in_array('GA Admin', $user->roles))
-{
+ 
+  if (in_array('administrator', $user->roles))
+  {
 
-  if ($node->type == 'individual') {
-    $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
-    $provider = node_load($provider_id);
-    $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
-    $state = node_load($state_id);
-    $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
-    $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
-    $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
-    $toggle_period_nid = $reporting_period_nid;
-    $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'];
-    $legacyarray = array();
-    module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
-    if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
-    //if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
-    $toggle_period_node = node_load($reporting_period_nid);
+    if ($node->type == 'individual') {
+      $provider_id = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
+      $provider = node_load($provider_id);
+      $state_id = $provider->og_group_provider_state_ref[LANGUAGE_NONE][0]['target_id'];
+      $state = node_load($state_id);
+      $ciecheck = $node->field_cie_individual[LANGUAGE_NONE][0]['value'] == 1 ? true : false;
+      $state_individual_data_content_type = $state->field_individual_data_type[LANGUAGE_NONE][0]['value'];
+      $reporting_period_nid = $state->field_current_reporting_period[LANGUAGE_NONE][0]['target_id'];
+      $toggle_period_nid = $reporting_period_nid;
+      $legacy_period_nid = $state->field_legacy_reporting_period[LANGUAGE_NONE][0]['target_id'];
+      $legacyarray = array();
+      module_load_include('inc', 'sdata_rp', 'views/sdata_rp_handler_submit_completed_field');
+      if($legacy_period_nid) $legacyarray = _sdata_rp_switch_period($state_individual_data_content_type, $provider_id, $legacy_period_nid);
+      //if($legacyarray[0] && !$legacyarray[1] && !$legacyarray[2])  $toggle_period_nid = $legacy_period_nid;
+      $toggle_period_node = node_load($reporting_period_nid);
 
-      //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
-    _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider, false);
+        //if($ciecheck) $state_individual_data_content_type = 'individual_data_ga_cie';
+      _sdata_rp_create_new_individual_data_node($node, $state_individual_data_content_type, $toggle_period_node, $provider, false);
+    }
+    
   }
-  
-}
-}
+} */
 
 /**
  * Implements hook_permission().
