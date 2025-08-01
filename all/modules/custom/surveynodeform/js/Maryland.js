@@ -118,11 +118,12 @@
         }
       }
 
-      Drupal.behaviors.clearDidNotPart = {
+/*      Drupal.behaviors.clearDidNotPart = {
          attach: function (context, settings) {
            var noPar = false;
            $(".form-type-checkbox input").change(function() {
    $(".form-type-checkbox input").each(function () { noPar = $(this).prop('checked' ) ? true : false;
+    if( !noPar) return false;
    });
    if(noPar) {
      $('#edit-field-indv-data-partic-why input.form-radio').each(function () { $(this).prop('checked', false);});
@@ -133,6 +134,7 @@
 
    }
       }
+   */
 
 
   Drupal.behaviors.scanVertTab = {

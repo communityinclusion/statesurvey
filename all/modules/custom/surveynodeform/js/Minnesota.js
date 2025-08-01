@@ -118,7 +118,7 @@
         }
       }
 
-      Drupal.behaviors.clearDidNotPart = {
+ /*     Drupal.behaviors.clearDidNotPart = {
          attach: function (context, settings) {
            var noPar = false;
            $(".form-type-checkbox input").change(function() {
@@ -132,7 +132,7 @@
    });
 
    }
-      }
+      } */
 
 
     Drupal.behaviors.scanVertTab = {
