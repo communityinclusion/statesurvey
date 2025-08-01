@@ -11,6 +11,7 @@
           $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
           $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
           $("#field-area-office-add-more-wrapper select option[value='230']").attr('disabled','disabled');
+          $("#field-area-office-add-more-wrapper select option[value='320']").attr('disabled','disabled');
 
           $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
                 $(this).remove();
@@ -19,6 +20,10 @@
           });
           $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
                 $(this).remove();
+          });
+
+         $("#field-area-office-add-more-wrapper select option[value='320']").each(function() {
+            $(this).remove();
           });
        });
 
@@ -114,30 +119,7 @@
         }
       }
 
-      Drupal.behaviors.clearDidNotPart = {
-         attach: function (context, settings) {
-           var noPar = false;
-           $(".form-type-checkbox input").change(function() {
-   $(".form-type-checkbox input").each(function () { noPar = $(this).prop('checked' ) ? true : false;
-   });
-   if(noPar)
-   {
-     $('#edit-field-indv-data-partic-why input.form-radio').each(function () { $(this).prop('checked', false);});
-     $('input#edit-field-indv-data-partic-why-und-4').prop('checked', true);
-     $('#edit-field-indv-data-partic-other-und-0-value').val("");
-     $('input[name="field_indv_data_partic_why[und]"]').val([4]);
-   } else {
-     $('#edit-field-indv-data-partic-why input.form-radio').each(function () { $(this).prop('checked', false);});
-     $('input#edit-field-indv-data-partic-why-und-4').prop('checked', true);
-      $('input[name="field_indv_data_partic_why[und]"]').val([4]);
-     $('#edit-field-indv-data-partic-other-und-0-value').val("");
-   }
 
-
-   });
-
-   }
-      }
 
 
       Drupal.behaviors.scanVertTab = {
@@ -473,7 +455,7 @@
 
        if (formComplete) $('#edit-field-ga-ind-data-complete input').val('1');
        else $('#edit-field-ga-ind-data-complete input').val('0');
-       if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').prop('checked', true)) formComplete = false;
+       if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').is(':checked')) formComplete = false;
 
 
   }

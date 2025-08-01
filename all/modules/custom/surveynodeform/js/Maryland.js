@@ -8,19 +8,24 @@
  Drupal.behaviors.remState = {
    attach: function (context, settings) {
      $(document).ajaxComplete(function(){
-     $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
-     $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
-     $("#field-area-office-add-more-wrapper select option[value='230']").attr('disabled','disabled');
-     $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
-           $(this).remove();
-     });
-     $("#field-area-office-add-more-wrapper select option[value='230']").each(function() {
-           $(this).remove();
-     });
-     $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
-           $(this).remove();
-       });
-     });
+        $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
+        $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
+        $("#field-area-office-add-more-wrapper select option[value='230']").attr('disabled','disabled');
+        $("#field-area-office-add-more-wrapper select option[value='320']").attr('disabled','disabled');
+        $("#field-area-office-add-more-wrapper select option[value='62']").each(function() {
+              $(this).remove();
+        });
+        $("#field-area-office-add-more-wrapper select option[value='230']").each(function() {
+              $(this).remove();
+        });
+        $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
+              $(this).remove();
+          });
+
+        $("#field-area-office-add-more-wrapper select option[value='320']").each(function() {
+            $(this).remove();
+          });
+      });
    }
 
 
@@ -113,11 +118,12 @@
         }
       }
 
-      Drupal.behaviors.clearDidNotPart = {
+/*      Drupal.behaviors.clearDidNotPart = {
          attach: function (context, settings) {
            var noPar = false;
            $(".form-type-checkbox input").change(function() {
    $(".form-type-checkbox input").each(function () { noPar = $(this).prop('checked' ) ? true : false;
+    if( !noPar) return false;
    });
    if(noPar) {
      $('#edit-field-indv-data-partic-why input.form-radio').each(function () { $(this).prop('checked', false);});
@@ -128,6 +134,7 @@
 
    }
       }
+   */
 
 
   Drupal.behaviors.scanVertTab = {

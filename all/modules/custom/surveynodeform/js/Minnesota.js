@@ -11,6 +11,7 @@
        $("#field-area-office-add-more-wrapper select option[value='33']").attr('disabled','disabled');
        $("#field-area-office-add-more-wrapper select option[value='62']").attr('disabled','disabled');
        $("#field-area-office-add-more-wrapper select option[value='13']").attr('disabled','disabled');
+       $("#field-area-office-add-more-wrapper select option[value='320']").attr('disabled','disabled');
        $("#field-area-office-add-more-wrapper select option[value='13']").each(function() {
              $(this).remove();
        });
@@ -20,6 +21,10 @@
        $("#field-area-office-add-more-wrapper select option[value='33']").each(function() {
              $(this).remove();
          });
+
+         $("#field-area-office-add-more-wrapper select option[value='320']").each(function() {
+            $(this).remove();
+          });
        });
 
 
@@ -113,7 +118,7 @@
         }
       }
 
-      Drupal.behaviors.clearDidNotPart = {
+ /*     Drupal.behaviors.clearDidNotPart = {
          attach: function (context, settings) {
            var noPar = false;
            $(".form-type-checkbox input").change(function() {
@@ -127,7 +132,7 @@
    });
 
    }
-      }
+      } */
 
 
     Drupal.behaviors.scanVertTab = {
