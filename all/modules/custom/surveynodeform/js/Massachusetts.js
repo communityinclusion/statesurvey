@@ -457,6 +457,7 @@
        else $('#edit-field-ga-ind-data-complete input').val('0');
        if($('#reasonnopartic').hasClass('activated') && $('input#edit-field-indv-data-partic-why-und-4').is(':checked')) formComplete = false;
 
+       
 
   }
 
